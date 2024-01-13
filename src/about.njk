@@ -1,0 +1,20 @@
+---
+title: "About Geffrey van der Bos"
+layout: "base.njk"
+nav: true
+menutitle: About
+order: 5
+---
+
+<section class="bottom-spacing--large">
+<div class="grid">
+    <div class="grid-span-6">
+       <h1 class="title--large">{{ title }}</h1>
+       {{ "src/_content/aboutGeffrey.md" | markdownify | safe }}
+       </div>
+
+    <div class="grid-span-6">
+        <img src="/assets/geffrey-van-der-bos.webp" style="width: 100%; max-width: 480px;" class="styledimage styledimage--right"/>
+    </div>
+</div>
+</section>

@@ -1,0 +1,161 @@
+:root {
+    --grid-gap--large: 2rem;
+    --grid-gap--standard: 1rem;
+    --grid-gap--tight: .5rem;
+    --grid-gap--strangling: .25rem;
+}
+
+
+@media screen and (min-width: 1440px) { 
+    :root {
+        --grid-gap--large: 4rem;
+        --grid-gap--standard: 2rem;
+        --grid-gap--tight: 1rem;
+        --grid-gap--strangling: .5rem;
+    }
+}
+
+.projects__grid, .project { 
+    margin-top: 1rem;
+}
+
+.homepage-grid__notes, .homepage-grid__projects, .homepage-grid__reviews {
+    margin-top: 4rem;
+}
+
+.onepage--centered {
+    width: 100%;
+    max-width: var(--innerpage-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media screen and (min-width: 768px) { 
+    .homepage-grid__notes, .homepage-grid__projects, .homepage-grid__reviews {
+        margin-top: 0rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: var(--grid-gap--standard);
+        grid-row-gap: var(--grid-gap--standard);
+    }
+
+    .grid img {
+        width: 100%;
+    }
+    
+    .grid h1,
+    .grid h2,
+    .grid h3,
+    .grid h4 {
+        margin-top: 0;
+    }
+
+    .homepage-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: var(--grid-gap--large);
+        grid-row-gap: var(--grid-gap--large);;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "projects projects notes"
+        "reviews reviews reviews";
+        margin-bottom: 5rem;
+    }
+
+    .homepage-grid__projects {
+        grid-area: projects;
+    }
+
+    .homepage-grid__notes {
+        grid-area: notes;
+    }
+
+    .homepage-grid__notes h3 {
+        font-size: 1rem;
+    }
+
+    .homepage-grid__reviews {
+        grid-area: reviews;
+    }
+
+    .projects__grid {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: var(--grid-gap--standard);
+    }
+
+    /* utility grid */
+    .justify--center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .grid-span-2 {
+        grid-column: span 2;
+    }
+
+    .grid-span-3 {
+        grid-column: span 3;
+    }
+
+    .grid-span-4 {
+        grid-column: span 4;
+    }
+
+    .grid-span-5 {
+        grid-column: span 5;
+    }
+
+    .grid-span-6 {
+        grid-column: span 6;
+    }
+
+    .grid-span-7 {
+        grid-column: span 7;
+    }
+
+    .grid-span-8 {
+        grid-column: span 8;
+    }
+
+    .grid-span-10 {
+        grid-column: span 10;
+    }
+
+    .grid-span-12 {
+        grid-column: span 12;
+    }
+
+    .grid-clear {
+        grid-column: 1 / -1;
+    }
+
+    .rowmargin--medium {
+        margin-bottom: 100px;
+    }
+
+    .rowmargin--large {
+        margin-bottom: 200px;
+    }
+}
+
+.reviews__grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+    grid-gap: var(--grid-gap--tight);
+}
+
+.homepage-grid__reviews .reviews__grid, .reviewpage-grid__reviews .reviews__grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 10%));
+    grid-gap: var(--grid-gap--standard);
+}
+
+.bottom-spacing--large {
+    margin-bottom: 10rem;
+}

@@ -1,0 +1,89 @@
+/* Fluid type */
+
+@font-face {
+    font-family: "Nacelle";
+    src: url('/assets/Nacelle-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Nacelle";
+    src: url('/assets/Nacelle-Regular.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Nacelle";
+    src: url('/assets/Nacelle-SemiBold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+html {
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.byline {
+    color: var(--color-foreground--muted);
+}
+
+.smalltext {
+    font-size: 13px;
+}
+
+a {
+    text-decoration-thickness: 1px;
+}
+
+@media screen and (min-width: 430px) {
+    html {
+        font-size: calc(17px + 2 * ((100vw - 430px) / 1080));
+    }
+
+   .title--large {
+        font-size: calc(24px + 14 * ((100vw - 430px) / 1080));
+        line-height: 1.25;
+    }
+
+    .paragraph--big {
+        font-size: calc(19px + 2 * ((100vw - 430px) / 1080));
+    }
+
+    .smalltext {
+        font-size: calc(13px + 2 * ((100vw - 430px) / 1080));
+    }
+  }
+
+  @media screen and (min-width: 1080px) {
+    html {
+      font-size: 19px;
+    }
+
+    .title--large {
+        font-size: 38px;
+    }
+
+    .paragraph--big {
+        font-size: 21px;
+    }
+
+    .smalltext {
+        font-size: 17px;
+    }
+}
+
+.maxcharacterlength--54 {
+    max-width: 54ch;
+}
+
+/* End fluid type */

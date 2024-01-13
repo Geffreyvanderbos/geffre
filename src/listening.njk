@@ -1,0 +1,201 @@
+---
+title: "What I'm Listening To"
+layout: "base.njk"
+nav: true
+menutitle: Listening
+order: 3
+pageDescription: "<p>This is my real-time musical diary, a direct and uncurated reflection of the albums I'm enjoying. The albums displayed are automatically updated through&nbsp;<a href='https://listenbrainz.org/about/' rel='noopener' target='_blank' title='ListenBrainz their about page'>ListenBrainz</a>, which logs my listening activities across different platforms. Accompanying each album is its cover art, sourced from the <a href='https://coverartarchive.org/' rel='noopener' target='_blank'>Cover Art Archive</a> within the MusicBrainz database.</p>"
+---
+
+<div>
+
+    {% include "partials/_introduction.njk" %}
+
+    <section>
+        <div class="grid bottom-spacing--large">
+            <div class="grid-span-6">
+                <h2>Album reviews</h2>
+                <span>Thoughts on music recordings I enjoy</span>
+                <div class="reviews__grid">
+                    {% if collections.reviews.length < 0 %}
+                        {% for review in collections.reviews %}
+                            <a class="review" href="{{ review.url }}">
+                            <div class="review__cover" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
+                            <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
+
+                            <div class="review__description">
+                                <span class="description__title">{{ review.data.title }}</span>
+                                <span class="description__author">{{ review.data.author }}</span>
+                            </div>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                            <div class="review__description">
+                                <span class="description__title">Excuse me while I gather my album reviews.</span>
+                                <span class="description__author">This is only temporary.</span>
+                            </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="grid-span-6" style="min-height: 90vh;">
+                <h2>Currently playing</h2>
+                <ul id="listenList"></ul>
+                <span id="loadingIndicator" style="display: none; position: absolute; float: right;">Fetching albums…</span>
+            </div>
+        </div>
+    </section>
+</div>
+<style>
+  #listenList {
+	font-family: inherit;
+	color: inherit;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+  }
+  #listenList li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 1rem;
+  }
+
+  #listenList li .metadata {
+	color: #494949;
+	margin-bottom: .35rem;
+	display: block;
+	font-size: 0.8rem !important;
+	font-family: inherit;
+  }
+
+  #listenList li .metadata a {
+	color: inherit;
+  }
+
+  #listenList li .title {
+	font-size: inherit;
+	font-family: "Nacelle-Regular", sans-serif;
+  }
+
+ #listenList li img {
+	background-color: #494949;
+	border-radius: 3px;
+	width: 100px !important;
+	height: 100px  !important;
+	margin-right: 1rem;
+	border: 1px solid #494949;
+  }
+</style>
+
+<script>
+  async function fetchAlbumReviews() {
+    try {
+        const response = await fetch('/albumReviews.json');
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching album reviews:', error);
+        return {};
+    }
+}
+
+  async function fetchListens() {
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    loadingIndicator.style.display = 'block'; // Show loading indicator
+
+    const url = 'https://api.listenbrainz.org/1/user/Geffrey/listens?count=60';
+    const options = {
+        method: 'GET',
+        headers: { Authorization: 'Bearer fddf472f-7210-4c62-9db7-d69e8de58c7e' }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        const uniqueAlbums = getUniqueAlbums(data.payload.listens);
+        await displayAlbums(uniqueAlbums.slice(0, 10));
+    } catch (error) {
+        console.error(error);
+    } finally {
+        loadingIndicator.style.display = 'none';
+    }
+}
+
+    function getUniqueAlbums(listens) {
+        const albums = new Map();
+        listens.forEach(listen => {
+            // Use Spotify album ID as the primary identifier
+            const albumId = listen.track_metadata.additional_info.spotify_album_id || listen.track_metadata.additional_info.recording_msid;
+
+            // Check if this album/track is already added
+            if (!albums.has(albumId)) {
+                const mbid = listen.track_metadata.mbid_mapping?.release_mbid || listen.track_metadata.mbid_mapping?.recording_mbid;
+                albums.set(albumId, {
+                    albumName: listen.track_metadata.release_name || listen.track_metadata.track_name, // Fallback to track name if release name is not available
+                    artistName: listen.track_metadata.additional_info.artist_names[0],
+                    mbid: mbid,
+                    spotifyUrl: listen.track_metadata.additional_info.origin_url,
+                    listenedAt: listen.listened_at
+                });
+            }
+        });
+        return Array.from(albums.values());
+    }
+
+    async function fetchAlbumArt(mbid) {
+        const coverArtUrl = `https://coverartarchive.org/release/${mbid}/front`;
+        try {
+            const response = await fetch(coverArtUrl);
+            if (!response.ok) {
+                throw new Error('Cover art not found');
+            }
+            return coverArtUrl;
+        } catch (error) {
+            console.warn('Error fetching album art:', error);
+            return '';
+        }
+    }
+
+    async function displayAlbums(albums) {
+        const albumReviews = await fetchAlbumReviews(); // Fetch the reviews
+
+        const listElement = document.getElementById('listenList');
+        listElement.innerHTML = ''; // Clear existing list
+
+        for (const album of albums) {
+            const reviewUrl = albumReviews[album.mbid]; // Get the review URL
+            const listItem = document.createElement('li');
+
+            const albumArt = document.createElement('img');
+            albumArt.loading = 'lazy';
+            const albumArtUrl = await fetchAlbumArt(album.mbid);
+            albumArt.src = albumArtUrl ? albumArtUrl : 'https://geffreyvanderbos.com/wp-content/uploads/2024/01/albumart-not-found.png';
+            albumArt.alt = 'Album Art';
+
+            listItem.appendChild(albumArt);
+
+            const albumInfoDiv = document.createElement('div');
+
+            const metadataSpan = document.createElement('span');
+            metadataSpan.className = 'metadata';
+            if (reviewUrl) {
+                metadataSpan.innerHTML = `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]} • <a href="${reviewUrl}">My review</a>`;
+            } else {
+            metadataSpan.textContent = `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]}`;
+            }
+            
+            albumInfoDiv.appendChild(metadataSpan);
+
+            const titleSpan = document.createElement('span');
+            const cleanAlbumName = album.albumName.replace(/(\(.*?\)| - .*)/g, '').trim();  
+            titleSpan.className = 'title';
+            titleSpan.textContent = `${cleanAlbumName} by ${album.artistName}`;
+            albumInfoDiv.appendChild(titleSpan);
+
+            listItem.appendChild(albumInfoDiv);
+            listElement.appendChild(listItem);
+        }
+    }
+
+    fetchListens();
+</script>

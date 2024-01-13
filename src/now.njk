@@ -1,0 +1,41 @@
+---
+title: "What I'm up to, now"
+layout: "onepage.njk"
+nav: true
+menutitle: Now
+order: 2
+pageDescription:  "Initial, exploratory reflections on music, PKM (Personal Knowledge Management), design, and more.</p>"
+---
+
+<div>
+    {% include "partials/_introduction.njk" %}
+    <section>
+            {% for post in collections.now %}
+            <div class="now__item">
+                <h3>{{ post.data.title }}</h3>
+                {{ post.templateContent | safe }}
+            </div>
+            {% endfor %}
+    </section>
+</div>
+<style>
+    .now__item {
+        border-left: 1px dashed hsla(237, 12%, 31%, .3);
+        padding-left: 1.8rem;
+        margin-bottom: 6rem;
+        position: relative;
+    }
+
+    .now__item::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border: 1px solid #dcdcdc;
+        background: hsla(237, 12%, 31%, 1);
+        display: inline-block;
+        margin-left: -2.11rem;
+        position: absolute;
+        top: .6rem;
+        border-radius: 50%;
+    }
+</style>

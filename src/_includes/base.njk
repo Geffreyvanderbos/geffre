@@ -1,0 +1,16 @@
+<!doctype html>
+<html class="no-js" lang="">
+    {% include "partials/_head.njk" %}
+    <body>
+    <div class="aurora">
+    </div>
+        {% include "partials/_navigation.njk" %}
+
+        <div class="wrapper">
+    		<main>
+                {{ content | safe }}
+    		</main>
+            {% include "partials/_footer.njk" %}
+        </div>
+    </body>
+</html>
