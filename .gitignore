@@ -1,5 +1,8 @@
 # dependencies installed by npm
 node_modules
 
+# MacOS nonsense
+.DS_Store
+
 # build artefacts
 public
