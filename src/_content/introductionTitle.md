@@ -1,1 +1,0 @@
-# Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music. {.title--large}

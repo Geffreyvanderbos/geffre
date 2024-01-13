@@ -1,0 +1,241 @@
+<!doctype html>
+<html class="no-js" lang="">
+        <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>What I&#39;m up to, now – Geffrey van der Bos</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <meta name="description" content="">
+        <meta property="og:title" content="What I&#39;m up to, now – Geffrey van der Bos">
+        <meta property="og:type" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+        <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+        <link rel="icon" href="assets/favicon/icon.svg" type="image/svg+xml">
+        <meta name="theme-color" content="#464759">
+    </head>
+    <body>
+    <div class="aurora">
+    </div>
+        <nav class="navigation">
+  <ul class="navigation__list">
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/"><span>Home</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link navigation__link--active" href="/now/"><span>Now</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/listening/"><span>Listening</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/uses/"><span>Uses</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/about/"><span>About</span></a>
+    </li>
+    
+  </ul>
+</nav>
+
+<script>
+  const nav = document.querySelector(".navigation");
+  const supportPageOffset = window.pageXOffset !== undefined;
+  const isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
+
+let previousScrollPosition = 0;
+
+const isScrollingDown = () => {
+  let scrolledPosition = supportPageOffset
+    ? window.pageYOffset
+    : isCSS1Compat
+    ? document.documentElement.scrollTop
+    : document.body.scrollTop;
+  let isScrollDown;
+
+  if (scrolledPosition > previousScrollPosition) {
+    isScrollDown = true;
+  } else {
+    isScrollDown = false;
+  }
+  previousScrollPosition = scrolledPosition;
+  return isScrollDown;
+};
+
+const handleNavScroll = () => {
+  if (isScrollingDown() && !nav.contains(document.activeElement)) {
+    nav.classList.add("navigation--down");
+    nav.classList.remove("navigation--up");
+  } else {
+    nav.classList.add("navigation--up");
+    nav.classList.remove("navigation--down");
+  }
+};
+
+var throttleTimer;
+
+const throttle = (callback, time) => {
+  if (throttleTimer) return;
+
+  throttleTimer = true;
+  setTimeout(() => {
+    callback();
+    throttleTimer = false;
+  }, time);
+};
+
+const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+window.addEventListener("scroll", () => {
+  if (mediaQuery && !mediaQuery.matches) {
+    throttle(handleNavScroll, 250);
+  }
+});
+
+// Set Up JavaScript to Detect First Visit and Control Scrolling
+document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('hasVisited')) {
+        localStorage.setItem('hasVisited', 'true');
+        
+        const navigation = document.querySelector('.navigation__list');
+        if (navigation) {
+            navigation.classList.add('navigation--animate');
+
+            navigation.addEventListener('animationend', () => {
+                navigation.classList.remove('navigation--animate');
+            });
+        }
+    }
+});
+
+</script>
+
+<style>
+  @keyframes scrollHintAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-60px); } /* Adjust the value as needed */
+    100% { transform: translateX(0); }
+}
+
+  .navigation--animate {
+      animation: scrollHintAnimation 3s 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
+
+        <div class="wrapper">
+    		<main>
+                <div class="onepage--centered bottom-spacing--large">
+                
+<div>
+        <section>
+        <div class="introduction">
+            <div class="introduction__title"><h1 class="title--large">What I&#39;m up to, now</div>
+
+            <div class="introduction__about paragraph--big">Initial, exploratory reflections on music, PKM (Personal Knowledge Management), design, and more.</p></div>
+            </div>
+        </div>
+    </section>
+    <section>
+            
+            <div class="now__item">
+                <h3>January 2024</h3>
+                <p>I have converted my website from Wordpress to Eleventy and I couldn't be happier.</p>
+
+            </div>
+            
+            <div class="now__item">
+                <h3>December 2023</h3>
+                <p>Lately, my days have been a blend of professional pursuits and personal projects. Here's a glimpse into what I've been up to:</p>
+<p><strong>Continuing Professional Journey as Product Owner</strong><br>
+My role as a software product owner at a radiopharmaceutical company remains at the core of my professional life. Balancing the complexities and challenges in this field keeps me engaged and continuously learning.</p>
+<p><strong>Diving Deep into Musicology and Technology</strong><br>
+I'm delving into research papers on music technology and absorbing as much as I can. These findings are meticulously organized into my Personal Knowledge Management system that consists of Zotero and Obsidian, enriching my understanding and appreciation of the subject. (One day, I'll publish my Obsidian notes.)</p>
+<p><strong>Launching a Blog on Plain Text</strong><br>
+I've recently embarked on a journey to share my passion for plain text through a blog. This project stems from an open-source idea I've been nurturing for a while. The blog is more than just a platform for my thoughts; it's an invitation for others to contribute and explore the magnificent uses of plain text.</p>
+<p><strong>Expanding My Website as a Personal Hub</strong><br>
+I'm also in the process of transforming my website into a more comprehensive hub. It's a space that reflects all facets of my activities and interests. Although I'm fond of the Semplice theme, I'm mindful of how it can sometimes add a layer of complexity. And, I like my control.</p>
+<p><strong>Introducing a 'Uses' Page on My Website</strong><br>
+To add more dimension to my website, I've introduced a 'Uses' page. Here, I share reviews and insights on the gadgets and software I'm currently using. It's a space where I give a peek into the tools that aid in my daily life and work.</p>
+
+            </div>
+            
+    </section>
+</div>
+<style>
+    .now__item {
+        border-left: 1px dashed hsla(237, 12%, 31%, .3);
+        padding-left: 1.8rem;
+        margin-bottom: 6rem;
+        position: relative;
+    }
+
+    .now__item::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border: 1px solid #dcdcdc;
+        background: hsla(237, 12%, 31%, 1);
+        display: inline-block;
+        margin-left: -2.11rem;
+        position: absolute;
+        top: .6rem;
+        border-radius: 50%;
+    }
+</style>
+                </div>
+            </main>
+        </div>
+            <footer>
+    <div class="footer__content">
+        <div class="grid">
+            <div class="grid-span-4">
+                <p>© 2024 Geffrey van der Bos. All opinions and content here is separate from my work with my employer, and should not be attributed to them in any way.</p>
+                <p>May the song you're currently jamming to be the absolute best.
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </p>
+            </div>
+            <div class="grid-span-4">
+            </div>
+            <div class="grid-span-4">
+                <ul class="footer__navigation">
+                    
+                    <li class="">
+                        <a class=" " href="/"><span>Home</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" navigation__link--active" href="/now/"><span>Now</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/listening/"><span>Listening</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/notes/"><span>Notes</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/uses/"><span>Uses</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/about/"><span>About</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    </body>
+</html>

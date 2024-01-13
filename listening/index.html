@@ -1,0 +1,370 @@
+<!doctype html>
+<html class="no-js" lang="">
+        <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>What I&#39;m Listening To – Geffrey van der Bos</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <meta name="description" content="">
+        <meta property="og:title" content="What I&#39;m Listening To – Geffrey van der Bos">
+        <meta property="og:type" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+        <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+        <link rel="icon" href="assets/favicon/icon.svg" type="image/svg+xml">
+        <meta name="theme-color" content="#464759">
+    </head>
+    <body>
+    <div class="aurora">
+    </div>
+        <nav class="navigation">
+  <ul class="navigation__list">
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/"><span>Home</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/now/"><span>Now</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link navigation__link--active" href="/listening/"><span>Listening</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/uses/"><span>Uses</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/about/"><span>About</span></a>
+    </li>
+    
+  </ul>
+</nav>
+
+<script>
+  const nav = document.querySelector(".navigation");
+  const supportPageOffset = window.pageXOffset !== undefined;
+  const isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
+
+let previousScrollPosition = 0;
+
+const isScrollingDown = () => {
+  let scrolledPosition = supportPageOffset
+    ? window.pageYOffset
+    : isCSS1Compat
+    ? document.documentElement.scrollTop
+    : document.body.scrollTop;
+  let isScrollDown;
+
+  if (scrolledPosition > previousScrollPosition) {
+    isScrollDown = true;
+  } else {
+    isScrollDown = false;
+  }
+  previousScrollPosition = scrolledPosition;
+  return isScrollDown;
+};
+
+const handleNavScroll = () => {
+  if (isScrollingDown() && !nav.contains(document.activeElement)) {
+    nav.classList.add("navigation--down");
+    nav.classList.remove("navigation--up");
+  } else {
+    nav.classList.add("navigation--up");
+    nav.classList.remove("navigation--down");
+  }
+};
+
+var throttleTimer;
+
+const throttle = (callback, time) => {
+  if (throttleTimer) return;
+
+  throttleTimer = true;
+  setTimeout(() => {
+    callback();
+    throttleTimer = false;
+  }, time);
+};
+
+const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+window.addEventListener("scroll", () => {
+  if (mediaQuery && !mediaQuery.matches) {
+    throttle(handleNavScroll, 250);
+  }
+});
+
+// Set Up JavaScript to Detect First Visit and Control Scrolling
+document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('hasVisited')) {
+        localStorage.setItem('hasVisited', 'true');
+        
+        const navigation = document.querySelector('.navigation__list');
+        if (navigation) {
+            navigation.classList.add('navigation--animate');
+
+            navigation.addEventListener('animationend', () => {
+                navigation.classList.remove('navigation--animate');
+            });
+        }
+    }
+});
+
+</script>
+
+<style>
+  @keyframes scrollHintAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-60px); } /* Adjust the value as needed */
+    100% { transform: translateX(0); }
+}
+
+  .navigation--animate {
+      animation: scrollHintAnimation 3s 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
+
+        <div class="wrapper">
+    		<main>
+                
+<div>
+
+        <section>
+        <div class="introduction">
+            <div class="introduction__title"><h1 class="title--large">What I&#39;m Listening To</div>
+
+            <div class="introduction__about paragraph--big"><p>This is my real-time musical diary, a direct and uncurated reflection of the albums I'm enjoying. The albums displayed are automatically updated through&nbsp;<a href='https://listenbrainz.org/about/' rel='noopener' target='_blank' title='ListenBrainz their about page'>ListenBrainz</a>, which logs my listening activities across different platforms. Accompanying each album is its cover art, sourced from the <a href='https://coverartarchive.org/' rel='noopener' target='_blank'>Cover Art Archive</a> within the MusicBrainz database.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="grid bottom-spacing--large">
+            <div class="grid-span-6">
+                <h2>Album reviews</h2>
+                <span>Thoughts on music recordings I enjoy</span>
+                <div class="reviews__grid">
+                    
+                            <div class="review__description">
+                                <span class="description__title">Excuse me while I gather my album reviews.</span>
+                                <span class="description__author">This is only temporary.</span>
+                            </div>
+                    
+                </div>
+            </div>
+
+            <div class="grid-span-6" style="min-height: 90vh;">
+                <h2>Currently playing</h2>
+                <ul id="listenList"></ul>
+                <span id="loadingIndicator" style="display: none; position: absolute; float: right;">Fetching albums…</span>
+            </div>
+        </div>
+    </section>
+</div>
+<style>
+  #listenList {
+	font-family: inherit;
+	color: inherit;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+  }
+  #listenList li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 1rem;
+  }
+
+  #listenList li .metadata {
+	color: #494949;
+	margin-bottom: .35rem;
+	display: block;
+	font-size: 0.8rem !important;
+	font-family: inherit;
+  }
+
+  #listenList li .metadata a {
+	color: inherit;
+  }
+
+  #listenList li .title {
+	font-size: inherit;
+	font-family: "Nacelle-Regular", sans-serif;
+  }
+
+ #listenList li img {
+	background-color: #494949;
+	border-radius: 3px;
+	width: 100px !important;
+	height: 100px  !important;
+	margin-right: 1rem;
+	border: 1px solid #494949;
+  }
+</style>
+
+<script>
+  async function fetchAlbumReviews() {
+    try {
+        const response = await fetch('/albumReviews.json');
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching album reviews:', error);
+        return {};
+    }
+}
+
+  async function fetchListens() {
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    loadingIndicator.style.display = 'block'; // Show loading indicator
+
+    const url = 'https://api.listenbrainz.org/1/user/Geffrey/listens?count=60';
+    const options = {
+        method: 'GET',
+        headers: { Authorization: 'Bearer fddf472f-7210-4c62-9db7-d69e8de58c7e' }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        const uniqueAlbums = getUniqueAlbums(data.payload.listens);
+        await displayAlbums(uniqueAlbums.slice(0, 10));
+    } catch (error) {
+        console.error(error);
+    } finally {
+        loadingIndicator.style.display = 'none';
+    }
+}
+
+    function getUniqueAlbums(listens) {
+        const albums = new Map();
+        listens.forEach(listen => {
+            // Use Spotify album ID as the primary identifier
+            const albumId = listen.track_metadata.additional_info.spotify_album_id || listen.track_metadata.additional_info.recording_msid;
+
+            // Check if this album/track is already added
+            if (!albums.has(albumId)) {
+                const mbid = listen.track_metadata.mbid_mapping?.release_mbid || listen.track_metadata.mbid_mapping?.recording_mbid;
+                albums.set(albumId, {
+                    albumName: listen.track_metadata.release_name || listen.track_metadata.track_name, // Fallback to track name if release name is not available
+                    artistName: listen.track_metadata.additional_info.artist_names[0],
+                    mbid: mbid,
+                    spotifyUrl: listen.track_metadata.additional_info.origin_url,
+                    listenedAt: listen.listened_at
+                });
+            }
+        });
+        return Array.from(albums.values());
+    }
+
+    async function fetchAlbumArt(mbid) {
+        const coverArtUrl = `https://coverartarchive.org/release/${mbid}/front`;
+        try {
+            const response = await fetch(coverArtUrl);
+            if (!response.ok) {
+                throw new Error('Cover art not found');
+            }
+            return coverArtUrl;
+        } catch (error) {
+            console.warn('Error fetching album art:', error);
+            return '';
+        }
+    }
+
+    async function displayAlbums(albums) {
+        const albumReviews = await fetchAlbumReviews(); // Fetch the reviews
+
+        const listElement = document.getElementById('listenList');
+        listElement.innerHTML = ''; // Clear existing list
+
+        for (const album of albums) {
+            const reviewUrl = albumReviews[album.mbid]; // Get the review URL
+            const listItem = document.createElement('li');
+
+            const albumArt = document.createElement('img');
+            albumArt.loading = 'lazy';
+            const albumArtUrl = await fetchAlbumArt(album.mbid);
+            albumArt.src = albumArtUrl ? albumArtUrl : 'https://geffreyvanderbos.com/wp-content/uploads/2024/01/albumart-not-found.png';
+            albumArt.alt = 'Album Art';
+
+            listItem.appendChild(albumArt);
+
+            const albumInfoDiv = document.createElement('div');
+
+            const metadataSpan = document.createElement('span');
+            metadataSpan.className = 'metadata';
+            if (reviewUrl) {
+                metadataSpan.innerHTML = `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]} • <a href="${reviewUrl}">My review</a>`;
+            } else {
+            metadataSpan.textContent = `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]}`;
+            }
+            
+            albumInfoDiv.appendChild(metadataSpan);
+
+            const titleSpan = document.createElement('span');
+            const cleanAlbumName = album.albumName.replace(/(\(.*?\)| - .*)/g, '').trim();  
+            titleSpan.className = 'title';
+            titleSpan.textContent = `${cleanAlbumName} by ${album.artistName}`;
+            albumInfoDiv.appendChild(titleSpan);
+
+            listItem.appendChild(albumInfoDiv);
+            listElement.appendChild(listItem);
+        }
+    }
+
+    fetchListens();
+</script>
+    		</main>
+            <footer>
+    <div class="footer__content">
+        <div class="grid">
+            <div class="grid-span-4">
+                <p>© 2024 Geffrey van der Bos. All opinions and content here is separate from my work with my employer, and should not be attributed to them in any way.</p>
+                <p>May the song you're currently jamming to be the absolute best.
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </p>
+            </div>
+            <div class="grid-span-4">
+            </div>
+            <div class="grid-span-4">
+                <ul class="footer__navigation">
+                    
+                    <li class="">
+                        <a class=" " href="/"><span>Home</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/now/"><span>Now</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" navigation__link--active" href="/listening/"><span>Listening</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/notes/"><span>Notes</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/uses/"><span>Uses</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/about/"><span>About</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+        </div>
+    </body>
+</html>
