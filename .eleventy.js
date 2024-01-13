@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/scripts/*.js");
     eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
     eleventyConfig.addPassthroughCopy("./src/assets/**/*");
+    eleventyConfig.addPassthroughCopy("./src/CNAME");
 
     const markdownItOptions = {
         html: true,
