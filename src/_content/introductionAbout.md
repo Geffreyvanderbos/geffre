@@ -1,1 +1,1 @@
-Currently delving into how Web3 and AI are reshaping music.
+Currently delving into how Web3 and AI are reshaping music. Guiding software development at Comecer Netherlands.
