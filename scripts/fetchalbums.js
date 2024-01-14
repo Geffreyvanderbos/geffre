@@ -93,7 +93,16 @@ async function fetchAlbumReviews() {
         const albumArt = document.createElement('img');
         albumArt.src = albumArtUrl;
         albumArt.alt = 'Album Art';
-        albumArt.loading = 'lazy';
+        albumArt.width = '100';
+        albumArt.height = '100';    
+        // albumArt.loading = 'lazy';
+        albumArt.style.opacity = 0; // Start with opacity 0
+        albumArt.style.transition = 'opacity .5s ease-in'; // Set transition for opacity
+    
+        // Event listener for when the image has loaded
+        albumArt.onload = () => {
+            albumArt.style.opacity = 1; // Fade-in effect
+        };
         listItem.appendChild(albumArt);
     
         // Create and add album info container
@@ -118,7 +127,7 @@ async function fetchAlbumReviews() {
         listItem.appendChild(albumInfoDiv);
     
         // Apply fade-in class for the transition effect
-        listItem.classList.add('fade-in');
+        listItem.classList.add('listenlist--fade-in');
     
         return listItem;
     }
