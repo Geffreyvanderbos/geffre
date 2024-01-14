@@ -8,7 +8,11 @@ order: 1
 
 <section>
     <div class="introduction">
-        <div class="introduction__title">{{ "src/_content/introductionTitle.md" | markdownify | safe }}</div>
+        <div class="introduction__title">
+            <h1 class="title--large">
+                {{ "src/_content/introductionTitle.md" | markdownify | safe }}
+            </h1>
+        </div>
 
         <div class="introduction__about paragraph--big">{{ "src/_content/introductionAbout.md" | markdownify | safe }}
         </div>

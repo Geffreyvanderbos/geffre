@@ -77,6 +77,18 @@ footer {
     transition: top .65s ease-in-out;
 }
 
+@keyframes scrollHintAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-60px); } /* Adjust the value as needed */
+    100% { transform: translateX(0); }
+}
+
+@media screen and (max-width: 767px) {
+  .navigation--animate {
+      animation: scrollHintAnimation 3s 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
 .navigation::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari, Opera */
 }
