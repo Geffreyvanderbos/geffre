@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Geffrey van der Bos – Geffrey van der Bos</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
-        <meta name="description" content="">
+        <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="About Geffrey van der Bos – Geffrey van der Bos">
-        <meta property="og:type" content="">
-        <meta property="og:url" content="">
-        <meta property="og:image" content="">
-        <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
-        <link rel="icon" href="assets/favicon/icon.svg" type="image/svg+xml">
+        <meta property="og:url" content="https://geff.re/about/">
+        <meta property="og:image" content="./assets/ogimage-geffrey-van-der-bos.jpg">
+        <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
+        <link rel="icon" href="./assets/favicon/favicon.ico" sizes="any">
+        <link rel="icon" href="./assets/favicon/icon.svg" type="image/svg+xml">
         <meta name="theme-color" content="#464759">
     </head>
     <body>
@@ -33,11 +33,11 @@
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
+        <a class="navigation__link " href="/uses/"><span>Uses</span></a>
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/uses/"><span>Uses</span></a>
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
     </li>
     
       <li class="navigation__item">
@@ -46,92 +46,6 @@
     
   </ul>
 </nav>
-
-<script>
-  const nav = document.querySelector(".navigation");
-  const supportPageOffset = window.pageXOffset !== undefined;
-  const isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
-
-let previousScrollPosition = 0;
-
-const isScrollingDown = () => {
-  let scrolledPosition = supportPageOffset
-    ? window.pageYOffset
-    : isCSS1Compat
-    ? document.documentElement.scrollTop
-    : document.body.scrollTop;
-  let isScrollDown;
-
-  if (scrolledPosition > previousScrollPosition) {
-    isScrollDown = true;
-  } else {
-    isScrollDown = false;
-  }
-  previousScrollPosition = scrolledPosition;
-  return isScrollDown;
-};
-
-const handleNavScroll = () => {
-  if (isScrollingDown() && !nav.contains(document.activeElement)) {
-    nav.classList.add("navigation--down");
-    nav.classList.remove("navigation--up");
-  } else {
-    nav.classList.add("navigation--up");
-    nav.classList.remove("navigation--down");
-  }
-};
-
-var throttleTimer;
-
-const throttle = (callback, time) => {
-  if (throttleTimer) return;
-
-  throttleTimer = true;
-  setTimeout(() => {
-    callback();
-    throttleTimer = false;
-  }, time);
-};
-
-const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-window.addEventListener("scroll", () => {
-  if (mediaQuery && !mediaQuery.matches) {
-    throttle(handleNavScroll, 250);
-  }
-});
-
-// Set Up JavaScript to Detect First Visit and Control Scrolling
-document.addEventListener('DOMContentLoaded', function () {
-    if (!localStorage.getItem('hasVisited')) {
-        localStorage.setItem('hasVisited', 'true');
-        
-        const navigation = document.querySelector('.navigation__list');
-        if (navigation) {
-            navigation.classList.add('navigation--animate');
-
-            navigation.addEventListener('animationend', () => {
-                navigation.classList.remove('navigation--animate');
-            });
-        }
-    }
-});
-
-</script>
-
-<style>
-  @keyframes scrollHintAnimation {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-60px); } /* Adjust the value as needed */
-    100% { transform: translateX(0); }
-}
-
-@media screen and (max-width: 767px) {
-  .navigation--animate {
-      animation: scrollHintAnimation 3s 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-}
-</style>
 
         <div class="wrapper">
     		<main>
@@ -184,11 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     </li>
                     
                     <li class="">
-                        <a class=" " href="/notes/"><span>Notes</span></a>
+                        <a class=" " href="/uses/"><span>Uses</span></a>
                     </li>
                     
                     <li class="">
-                        <a class=" " href="/uses/"><span>Uses</span></a>
+                        <a class=" " href="/notes/"><span>Notes</span></a>
                     </li>
                     
                     <li class="">
@@ -200,6 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     </div>
 </footer>
+
+<script type="text/javascript" src="/scripts/navigation.js" defer></script>
+
         </div>
     </body>
 </html>
