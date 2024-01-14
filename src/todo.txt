@@ -1,0 +1,2 @@
+remove current project in the project navigation
+explore possibility to have the order of columns differently
