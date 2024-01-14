@@ -25,7 +25,7 @@
                         <h1>Other Reviews</h1>
                         <span>Thoughts on music recordings I enjoy</span>
                         <div class="reviews__grid">
-                        {% if collections.reviews.length < 0 %}
+                        {% if collections.reviews.length > 1 %}
                             {% for review in collections.reviews %}
                                 {% if review.url !== page.url %}
                                     <a class="review" href="{{ review.url }}">

@@ -1,6 +1,7 @@
 @import url(typography.css);
 @import url(grid.css);
 @import url(aurora.css);
+@import url(syntaxhighlighting.css);
 
 :root {
     --color-background: #D7DBE7;
@@ -499,7 +500,7 @@ p:first-child {
     color: var(--color-foreground--muted);
 }
 
-.styledimage {
+.styledimage, .note img {
     border-radius: var(--outer-radius);
     box-shadow: rgba(81, 88, 108, 0.4) 0px 20px 30px -10px;
 }

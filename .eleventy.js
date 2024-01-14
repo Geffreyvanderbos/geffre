@@ -3,18 +3,34 @@ const markdownIt = require("markdown-it");
 const markdownItAttrs = require('markdown-it-attrs')
 const md = new markdownIt();
 const { formatDistanceToNow } = require('date-fns');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/stylesheets/*.css");
     eleventyConfig.addPassthroughCopy("./src/scripts/*.js");
     eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
+    eleventyConfig.addPassthroughCopy("./src/note/images/*");
     eleventyConfig.addPassthroughCopy("./src/assets/**/*");
     eleventyConfig.addPassthroughCopy("./src/CNAME");
+    
+    eleventyConfig.addPlugin(
+        require("@11ty/eleventy-plugin-syntaxhighlight"),
+        {
+        templateFormats: ["css", "md", "liquid", "html", "js"]
+        }
+      );
+
+    //   eleventyConfig.addPlugin(
+    //     require("@photogabble/eleventy-plugin-interlinker"),
+    //     {
+    //     }
+    //   );
 
     const markdownItOptions = {
         html: true,
         breaks: true,
-        linkify: true
+        linkify: false
     };
 
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
@@ -49,7 +65,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addCollection("notes", function(collectionApi) {
         return collectionApi.getFilteredByGlob("./src/note/*.md").sort((a, b) => {
-            return a.data.updated - b.data.updated;
+            return b.data.updated - a.data.updated;
             });
         });
 

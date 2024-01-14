@@ -34,7 +34,7 @@ order: 1
         <h1>Notes</h1>
         <span class="byline">Thoughts on music, design, and life.</span>
         <ul class="homepage-notes">
-        {% if collections.notes.length < 0 %}
+        {% if collections.notes.length > 0 %}
             {% for note in collections.notes %}
             <li class="homepage-notes__item">
                 <a class="homepage-notes__content" href="{{ note.url }}">
