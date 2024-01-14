@@ -9,9 +9,6 @@ async function fetchAlbumReviews() {
 }
 
   async function fetchListens() {
-    const loadingIndicator = document.getElementById('loadingIndicator');
-    loadingIndicator.style.display = 'block'; // Show loading indicator
-
     const url = 'https://api.listenbrainz.org/1/user/Geffrey/listens?count=60';
     const options = {
         method: 'GET',
@@ -19,16 +16,17 @@ async function fetchAlbumReviews() {
     };
 
     try {
+        const listElement = document.getElementById('listenList');
+        createFauxList(listElement, 10);
+
         const response = await fetch(url, options);
         const data = await response.json();
         const uniqueAlbums = getUniqueAlbums(data.payload.listens);
         await displayAlbums(uniqueAlbums.slice(0, 10));
     } catch (error) {
         console.error(error);
-    } finally {
-        loadingIndicator.style.display = 'none';
+        }
     }
-}
 
     function getUniqueAlbums(listens) {
         const albums = new Map();
@@ -65,44 +63,87 @@ async function fetchAlbumReviews() {
         }
     }
 
-    async function displayAlbums(albums) {
-        const albumReviews = await fetchAlbumReviews(); // Fetch the reviews
-
-        const listElement = document.getElementById('listenList');
-        listElement.innerHTML = ''; // Clear existing list
-
-        for (const album of albums) {
-            const reviewUrl = albumReviews[album.mbid]; // Get the review URL
-            const listItem = document.createElement('li');
-
-            const albumArt = document.createElement('img');
-            albumArt.loading = 'lazy';
+    async function fetchAllAlbumArt(albums) {
+        const albumArtUrls = await Promise.all(albums.map(async (album) => {
             const albumArtUrl = await fetchAlbumArt(album.mbid);
-            albumArt.src = albumArtUrl ? albumArtUrl : 'https://geffreyvanderbos.com/wp-content/uploads/2024/01/albumart-not-found.png';
-            albumArt.alt = 'Album Art';
+            return albumArtUrl ? albumArtUrl : 'https://geffreyvanderbos.com/wp-content/uploads/2024/01/albumart-not-found.png';
+        }));
+        return albumArtUrls;
+    }
 
-            listItem.appendChild(albumArt);
+    async function displayAlbums(albums) {
+        const albumReviews = await fetchAlbumReviews();
+        const listElement = document.getElementById('listenList');
+        const albumArtUrls = await fetchAllAlbumArt(albums);
+        
+        albums.forEach((album, index) => {
+            const reviewUrl = albumReviews[album.mbid];
+            const listItem = createAlbumListItem(album, albumArtUrls[index], reviewUrl);
+    
+            replaceFauxItemWithReal(listElement, listItem, index);
+        });
+    
+        removeRemainingFauxItems(listElement);
+    }
 
-            const albumInfoDiv = document.createElement('div');
+    function createAlbumListItem(album, albumArtUrl, reviewUrl) {
+        const listItem = document.createElement('li');
+    
+        // Create and add album art image
+        const albumArt = document.createElement('img');
+        albumArt.src = albumArtUrl;
+        albumArt.alt = 'Album Art';
+        albumArt.loading = 'lazy';
+        listItem.appendChild(albumArt);
+    
+        // Create and add album info container
+        const albumInfoDiv = document.createElement('div');
+    
+        // Create and add metadata span
+        const metadataSpan = document.createElement('span');
+        metadataSpan.className = 'metadata';
+        metadataSpan.innerHTML = reviewUrl ?
+            `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]} • <a href="${reviewUrl}">My review</a>` :
+            `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]}`;
+        albumInfoDiv.appendChild(metadataSpan);
+    
+        // Create and add album title span
+        const titleSpan = document.createElement('span');
+        const cleanAlbumName = album.albumName.replace(/(\(.*?\)| - .*)/g, '').trim();
+        titleSpan.className = 'title';
+        titleSpan.textContent = `${cleanAlbumName} by ${album.artistName}`;
+        albumInfoDiv.appendChild(titleSpan);
+    
+        // Append albumInfoDiv to listItem
+        listItem.appendChild(albumInfoDiv);
+    
+        // Apply fade-in class for the transition effect
+        listItem.classList.add('fade-in');
+    
+        return listItem;
+    }
 
-            const metadataSpan = document.createElement('span');
-            metadataSpan.className = 'metadata';
-            if (reviewUrl) {
-                metadataSpan.innerHTML = `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]} • <a href="${reviewUrl}">My review</a>`;
-            } else {
-            metadataSpan.textContent = `${new Date(album.listenedAt * 1000).toISOString().split('T')[0]}`;
-            }
-            
-            albumInfoDiv.appendChild(metadataSpan);
+    function createFauxList(listElement, count) {
+        for (let i = 0; i < count; i++) {
+            const fauxItem = document.createElement('li');
+            fauxItem.classList.add('faux-item');
+            listElement.appendChild(fauxItem);
+        }
+    }
 
-            const titleSpan = document.createElement('span');
-            const cleanAlbumName = album.albumName.replace(/(\(.*?\)| - .*)/g, '').trim();  
-            titleSpan.className = 'title';
-            titleSpan.textContent = `${cleanAlbumName} by ${album.artistName}`;
-            albumInfoDiv.appendChild(titleSpan);
-
-            listItem.appendChild(albumInfoDiv);
-            listElement.appendChild(listItem);
+    async function replaceFauxItemWithReal(listElement, realItem, index) {
+        const fauxItems = listElement.getElementsByClassName('faux-item');
+        if (fauxItems.length > index) {
+            listElement.replaceChild(realItem, fauxItems[index]);
+        } else {
+            listElement.appendChild(realItem);
+        }
+    }
+    
+    function removeRemainingFauxItems(listElement) {
+        const fauxItems = listElement.getElementsByClassName('faux-item');
+        while (fauxItems.length > 0) {
+            listElement.removeChild(fauxItems[0]);
         }
     }
 

@@ -33,11 +33,11 @@
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/uses/"><span>Uses</span></a>
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
+        <a class="navigation__link " href="/uses/"><span>Uses</span></a>
     </li>
     
       <li class="navigation__item">
@@ -86,7 +86,7 @@
             <div class="grid-span-6" style="min-height: 90vh;">
                 <h2>Currently playing</h2>
                 <ul id="listenList"></ul>
-                <span id="loadingIndicator" style="display: none; position: absolute; float: right;">Fetching albums…</span>
+                <!-- span id="loadingIndicator" style="display: none; position: absolute; float: right;">Fetching albums…</span -->
             </div>
         </div>
     </section>
@@ -131,7 +131,37 @@
 	margin-right: 1rem;
 	border: 1px solid #494949;
   }
+
+.fade-in {
+    animation: fadeInAnimation 1.5s;
+}
+
+  @keyframes fadeInAnimation {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+
+.faux-item {
+    opacity: .3;
+    height: 100px; /* Adjust height as needed */
+    width: 100px;
+    background-image: linear-gradient(90deg, #B2B5C7 0px, #D7DBE7 40px, #B2B5C7 80px);
+    background-size: 600px;
+    border-radius: 5px; /* Rounded corners for aesthetics */
+    animation: shine-lines 1.6s infinite linear;
+}
+
+@keyframes shine-lines {
+  0% {
+    background-position: -100px;
+  }
+  40%, 100% {
+    background-position: 140px;
+  }
+}
+
 </style>
+
 
 <script type="text/javascript" src="/scripts/fetchalbums.js"></script>
     		</main>
@@ -162,11 +192,11 @@
                     </li>
                     
                     <li class="">
-                        <a class=" " href="/uses/"><span>Uses</span></a>
+                        <a class=" " href="/notes/"><span>Notes</span></a>
                     </li>
                     
                     <li class="">
-                        <a class=" " href="/notes/"><span>Notes</span></a>
+                        <a class=" " href="/uses/"><span>Uses</span></a>
                     </li>
                     
                     <li class="">
