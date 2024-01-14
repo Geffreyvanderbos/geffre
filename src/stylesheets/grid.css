@@ -159,3 +159,11 @@
 .bottom-spacing--large {
     margin-bottom: 10rem;
 }
+
+.bottom-spacing--medium {
+    margin-bottom: 6rem;
+}
+
+.bottom-spacing--small {
+    margin-bottom: 2rem;
+}
