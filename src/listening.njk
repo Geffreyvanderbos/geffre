@@ -79,15 +79,13 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
   }
 
  #listenList li img {
-	background-color: #494949;
 	border-radius: 3px;
 	width: 100px !important;
 	height: 100px  !important;
 	margin-right: 1rem;
-	border: 1px solid #494949;
-  }
+}
 
-.fade-in {
+.listenlist--fade-in {
     animation: fadeInAnimation 1.5s;
 }
 
@@ -97,12 +95,11 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
   }
 
 .faux-item {
-    opacity: .3;
-    height: 100px; /* Adjust height as needed */
+    height: 100px;
     width: 100px;
-    background-image: linear-gradient(90deg, #B2B5C7 0px, #D7DBE7 40px, #B2B5C7 80px);
+    background-image: linear-gradient(90deg, rgba(178, 181, 199, .3) 0px, rgba(215, 219, 231, .3) 40px, rgba(178, 181, 199, .3) 80px);
     background-size: 600px;
-    border-radius: 5px; /* Rounded corners for aesthetics */
+    border-radius: 3px;
     animation: shine-lines 1.6s infinite linear;
 }
 
