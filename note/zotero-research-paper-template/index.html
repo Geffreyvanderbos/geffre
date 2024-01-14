@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="no-js" lang="">
+        <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Zotero research paper template – Geffrey van der Bos</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <meta name="description" content="">
+        <meta property="og:title" content="My Zotero research paper template – Geffrey van der Bos">
+        <meta property="og:type" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+        <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+        <link rel="icon" href="assets/favicon/icon.svg" type="image/svg+xml">
+        <meta name="theme-color" content="#464759">
+    </head>
+    <body>
+    <div class="aurora">
+    </div>
+        <nav class="navigation">
+  <ul class="navigation__list">
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/"><span>Home</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/now/"><span>Now</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/listening/"><span>Listening</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/uses/"><span>Uses</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/about/"><span>About</span></a>
+    </li>
+    
+  </ul>
+</nav>
+
+<script>
+  const nav = document.querySelector(".navigation");
+  const supportPageOffset = window.pageXOffset !== undefined;
+  const isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
+
+let previousScrollPosition = 0;
+
+const isScrollingDown = () => {
+  let scrolledPosition = supportPageOffset
+    ? window.pageYOffset
+    : isCSS1Compat
+    ? document.documentElement.scrollTop
+    : document.body.scrollTop;
+  let isScrollDown;
+
+  if (scrolledPosition > previousScrollPosition) {
+    isScrollDown = true;
+  } else {
+    isScrollDown = false;
+  }
+  previousScrollPosition = scrolledPosition;
+  return isScrollDown;
+};
+
+const handleNavScroll = () => {
+  if (isScrollingDown() && !nav.contains(document.activeElement)) {
+    nav.classList.add("navigation--down");
+    nav.classList.remove("navigation--up");
+  } else {
+    nav.classList.add("navigation--up");
+    nav.classList.remove("navigation--down");
+  }
+};
+
+var throttleTimer;
+
+const throttle = (callback, time) => {
+  if (throttleTimer) return;
+
+  throttleTimer = true;
+  setTimeout(() => {
+    callback();
+    throttleTimer = false;
+  }, time);
+};
+
+const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+window.addEventListener("scroll", () => {
+  if (mediaQuery && !mediaQuery.matches) {
+    throttle(handleNavScroll, 250);
+  }
+});
+
+// Set Up JavaScript to Detect First Visit and Control Scrolling
+document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('hasVisited')) {
+        localStorage.setItem('hasVisited', 'true');
+        
+        const navigation = document.querySelector('.navigation__list');
+        if (navigation) {
+            navigation.classList.add('navigation--animate');
+
+            navigation.addEventListener('animationend', () => {
+                navigation.classList.remove('navigation--animate');
+            });
+        }
+    }
+});
+
+</script>
+
+<style>
+  @keyframes scrollHintAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-60px); } /* Adjust the value as needed */
+    100% { transform: translateX(0); }
+}
+
+@media screen and (max-width: 767px) {
+  .navigation--animate {
+      animation: scrollHintAnimation 3s 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+</style>
+
+        <div class="wrapper">
+    		<main>
+                <div class="onepage--centered bottom-spacing--large note">
+                <h1>My Zotero research paper template</h1>
+                <p>I use Zotero to organise my research papers on musicology and music technology. To import the highlights I make to Obsidian, I use a community plugin called Zotero Integration.</p>
+<p>You can assign a template for this import. My template starts with a link to the Zotero PDF, so I can open the research paper's PDF directly via the Obsidian note. Then, there's an abstract note, which helps remind me what the paper is about.</p>
+<p>Next, there's a loop with my custom <a href="/note/highlights-callouts-obsidian">highlighting callout in Obsidian</a>. This loop goes through all the annotations and highlights I've made. It adds images, comments, and the page number of the PDF where each highlight occurred. By clicking the linked annotation, I can jump straight to that page in Zotero's PDF for more context.</p>
+<p>You can set up this research paper template in the Zotero Integration plugin by choosing an import format and adding the following note as  the template file.</p>
+<pre class="language-js"><code class="language-js">
+<span class="token operator">--</span><span class="token operator">-</span>
+<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"{{title}}"</span>
+<span class="token literal-property property">author</span><span class="token operator">:</span> <span class="token string">"{{authors}}{{directors}}"</span>
+<span class="token literal-property property">aliases</span><span class="token operator">:</span>
+  <span class="token operator">-</span> <span class="token string">"{{citekey}}"</span>
+<span class="token literal-property property">category</span><span class="token operator">:</span>
+  <span class="token operator">-</span> referenceNotes
+<span class="token literal-property property">tags</span><span class="token operator">:</span> 
+<span class="token literal-property property">type</span><span class="token operator">:</span> researchPapers
+<span class="token operator">--</span><span class="token operator">-</span>
+
+<span class="token operator">></span> 🔗 Zotero<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>pdfZoteroLink<span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> abstractNote <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token operator">!</span>abstract<span class="token punctuation">]</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">{</span>abstractNote<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> annotation <span class="token keyword">in</span> annotations <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token punctuation">[</span><span class="token operator">!</span>highlight<span class="token punctuation">]</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> annotation<span class="token punctuation">.</span>annotatedText <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">></span> “<span class="token punctuation">{</span><span class="token punctuation">{</span>annotation<span class="token punctuation">.</span>annotatedText <span class="token operator">|</span> escape<span class="token punctuation">}</span><span class="token punctuation">}</span>”
+<span class="token operator">></span> <span class="token punctuation">[</span>Page <span class="token punctuation">{</span><span class="token punctuation">{</span>annotation<span class="token punctuation">.</span>page<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">(</span>zotero<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>open<span class="token operator">-</span>pdf<span class="token operator">/</span>library<span class="token operator">/</span>items<span class="token operator">/</span><span class="token punctuation">{</span><span class="token punctuation">{</span>annotation<span class="token punctuation">.</span>attachment<span class="token punctuation">.</span>itemKey<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">?</span>page<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>annotation<span class="token punctuation">.</span>page<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&amp;</span>annotation<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>annotation<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> annotation<span class="token punctuation">.</span>imageRelativePath <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token operator">!</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">{</span>limageRelativePath<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> annotation<span class="token punctuation">.</span>comment <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">{</span>annotation<span class="token punctuation">.</span>comment<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">></span> <span class="token punctuation">{</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span>
+</code></pre>
+
+                </div>
+    		<section>
+                <div class="section-separator"></div>
+                <ul class="notesgrid">
+                     <li class="">
+                        <a class="notesgrid__link" href="/notes">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="notesgrid__icon"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                            <div class="noteinformation">
+                                <span class="noteinformation__title">Notes Page</span>
+                                <span class="noteinformation__metadata smalltext">Explore other thoughts</span>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                        
+                    
+                        
+                            
+                                <li class="">
+                                    <a class="notesgrid__link" href="/note/grid-layout-notes/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="notesgrid__icon"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z"/></svg>
+                                        <div class="noteinformation">
+                                            <span class="noteinformation__title">Lay out all Obsidian notes in a grid</span>
+                                            <span class="noteinformation__metadata smalltext">obsidian • 7 months ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                <li class="">
+                                    <a class="notesgrid__link" href="/note/highlights-callouts-obsidian/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="notesgrid__icon"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z"/></svg>
+                                        <div class="noteinformation">
+                                            <span class="noteinformation__title">Highlight callouts in Obsidian</span>
+                                            <span class="noteinformation__metadata smalltext">obsidian • 8 months ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                <li class="">
+                                    <a class="notesgrid__link" href="/note/recent-files-obsidian/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="notesgrid__icon"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z"/></svg>
+                                        <div class="noteinformation">
+                                            <span class="noteinformation__title">Display recent files in Obsidian Vault</span>
+                                            <span class="noteinformation__metadata smalltext">obsidian • 9 months ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                <li class="">
+                                    <a class="notesgrid__link" href="/note/unlinked-notes-in-obsidian/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="notesgrid__icon"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z"/></svg>
+                                        <div class="noteinformation">
+                                            <span class="noteinformation__title">List unlinked notes in Obsidian</span>
+                                            <span class="noteinformation__metadata smalltext">obsidian • 9 months ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                </ul>
+            </section>
+            </main>
+        </div>
+            <footer>
+    <div class="footer__content">
+        <div class="grid">
+            <div class="grid-span-4">
+                <p>© 2024 Geffrey van der Bos. All opinions and content here is separate from my work with my employer, and should not be attributed to them in any way.</p>
+                <p>May the song you're currently jamming to be the absolute best.
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </p>
+            </div>
+            <div class="grid-span-4">
+            </div>
+            <div class="grid-span-4">
+                <ul class="footer__navigation">
+                    
+                    <li class="">
+                        <a class=" " href="/"><span>Home</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/now/"><span>Now</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/listening/"><span>Listening</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/notes/"><span>Notes</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/uses/"><span>Uses</span></a>
+                    </li>
+                    
+                    <li class="">
+                        <a class=" " href="/about/"><span>About</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    </body>
+</html>
