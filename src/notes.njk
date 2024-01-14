@@ -10,7 +10,7 @@ pageDescription:  "<p class='maxcharacterlength--54'>Initial, exploratory reflec
      {% include "partials/_introduction.njk" %}
     <section>
         <ul class="notesgrid">
-            {% if collections.notes.length < 0 %}
+            {% if collections.notes.length > 0 %}
                 {% for note in collections.notes %}
                 <li>
                     <a class="notesgrid__link" href="{{ note.url }}">

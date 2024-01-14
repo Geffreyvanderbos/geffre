@@ -51,7 +51,7 @@ order: 1
         <h1>Music Reviews</h1>
         <span>Thoughts on music recordings I enjoy</span>
         <div class="reviews__grid">
-            {% if collections.reviews.length < 0 %}
+            {% if collections.reviews.length > 0 %}
                 {% for review in collections.reviews %}
                     <a class="review" href="{{ review.url }}">
                         <div class="review__cover" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
