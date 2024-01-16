@@ -1,4 +1,3 @@
-prometheus-emperor
 ---
 title: Prometheus
 author: Emperor
@@ -22,6 +21,6 @@ Prometheus is a key album in Emperor's discography and the black metal genre. It
 As an important part of black metal's evolution, this album is perfect for those seeking a mix of fierce and sophisticated music.
 
 ---
-Annotations: 0,2080 SHA-256 8589f3a7550849a9e27dd8e6341d98ec  
-@Geffrey: 105,1975  
+Annotations: 0,2061 SHA-256 f6e93af4190fc10ffdbb125958987bdc  
+@Geffrey: 86,1975  
 ...
