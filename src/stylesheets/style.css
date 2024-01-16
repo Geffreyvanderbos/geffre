@@ -202,7 +202,7 @@ nav.navigation--down {
     .navigation__link {
         padding: 1rem;
         /* box-shadow: rgba(81, 88, 108, 0.6) 0px 8px 30px -20px; */
-        background: hsla(225, 20%, 88%, 0.97);
+        background: hsla(225, 24%, 97%, 0.97);
         border-top: 1px solid hsla(225, 14%, 97%, 0.3);
         border-bottom: 1px solid hsla(225, 14%, 97%, 0.3);
     }
