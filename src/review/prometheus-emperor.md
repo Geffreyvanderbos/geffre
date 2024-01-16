@@ -19,8 +19,3 @@ As a turn-of-the-millennium release, Prometheus reflects a transition in black m
 Prometheus is a key album in Emperor's discography and the black metal genre. It shows the band's musical innovation, highlighting Ihsahn's compositional artwork, which continues in his solo career. 
 
 As an important part of black metal's evolution, this album is perfect for those seeking a mix of fierce and sophisticated music.
-
----
-Annotations: 0,2061 SHA-256 f6e93af4190fc10ffdbb125958987bdc  
-@Geffrey: 86,1975  
-...
