@@ -48,6 +48,10 @@ a {
     text-decoration-thickness: 1px;
 }
 
+   .title--large {
+        line-height: 1.15;
+    }
+
 @media screen and (min-width: 430px) {
     html {
         font-size: calc(17px + 2 * ((100vw - 430px) / 1080));
