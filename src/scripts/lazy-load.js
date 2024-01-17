@@ -1,10 +1,10 @@
 if ('IntersectionObserver' in window) {
     document.addEventListener("DOMContentLoaded", function() {
-    console.log("IntersectionObserver found")
+    // console.log("IntersectionObserver found")
       function handleIntersection(entries) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log("Image intersecting: " + entry.target.className)
+            // console.log("Image intersecting: " + entry.target.className)
             if (entry.target.dataset.bgimage) {
                 console.log("Background image found on: " + entry.target.className)
                 entry.target.style.backgroundImage = "url('"+entry.target.dataset.bgimage+"')";
