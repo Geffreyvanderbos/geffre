@@ -26,7 +26,7 @@ order: 1
         <div class="projects__grid">
             {% for project in collections.projects %}
                 <a class="project" href="{{ project.url }}">
-                <div class="project__cover" style="background-image: url({{ project.data.projectcover }});"></div>
+                <div class="project__cover lazy-loaded" data-bgimage="{{ project.data.projectcover }}--small.jpg"></div>
                 <div class="project__description">
                     <span>{{ project.data.title }}</span>
                 </div>
@@ -42,7 +42,7 @@ order: 1
             {% for note in collections.notes %}
             <li class="homepage-notes__item">
                 <a class="homepage-notes__content" href="{{ note.url }}">
-                    <h3 class="homepage-notes__heading">{{ note.data.title }}</h3>
+                    <span class="homepage-notes__heading">{{ note.data.title }}</span>
                 </a>
             </li>
             {% endfor %}
@@ -58,8 +58,8 @@ order: 1
             {% if collections.reviews.length > 0 %}
                 {% for review in collections.reviews %}
                     <a class="review" href="{{ review.url }}">
-                        <div class="review__cover" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
-                        <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
+                        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
+                        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
 
                     <div class="review__description">
                         <span class="description__title">{{ review.data.title }}</span>

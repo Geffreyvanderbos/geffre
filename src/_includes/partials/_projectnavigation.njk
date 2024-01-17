@@ -5,7 +5,7 @@
         {% for project in collections.projects %}
             {% if project.url !== page.url %}
             <a class="project" href="{{ project.url }}">
-            <div class="project__cover" style="background-image: url({{ project.data.projectcover }});"></div>
+            <div class="project__cover" style="background-image: url('{{ project.data.projectcover }}--small.jpg');"></div>
             <div class="project__description">
                 <span>{{ project.data.title }}</span>
             </div>

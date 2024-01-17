@@ -20,8 +20,8 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
                     {% if collections.reviews.length > 0 %}
                         {% for review in collections.reviews %}
                             <a class="review" href="{{ review.url }}">
-                            <div class="review__cover" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
-                            <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
+                            <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
+                            <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
 
                             <div class="review__description">
                                 <span class="description__title">{{ review.data.title }}</span>

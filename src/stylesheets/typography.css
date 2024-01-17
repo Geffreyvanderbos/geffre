@@ -15,14 +15,14 @@
     font-style: normal;
     font-display: swap;
 }
-
+/* 
 @font-face {
     font-family: "Nacelle";
     src: url('/assets/Nacelle-SemiBold.otf');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-}
+} */
 
 html {
     font-size: 17px;
