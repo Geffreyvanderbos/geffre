@@ -6,7 +6,7 @@
 :root {
     --color-background: #D7DBE7;
     --color-foreground: #02030C;
-    --color-foreground--muted: hsl(237, 12%, 31%);
+    --color-foreground--muted: #464759;
     --grid-width: 1440px;
     --innerpage-width: 800px;
     --outer-radius: .75rem;
@@ -85,7 +85,7 @@ footer {
 
 @media screen and (max-width: 767px) {
   .navigation--animate {
-      animation: scrollHintAnimation 3s 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: scrollHintAnimation 3.4s 2.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
@@ -140,7 +140,7 @@ nav.navigation--down {
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: radial-gradient(circle at 50% 1e+02%, #FFFFFF 0%, rgba(251,251,253,0.89) 6%, rgba(241,243,246,0.65) 23%, rgba(229,232,239,0.35) 47%, rgba(219,222,233,0.11) 73%, rgba(214,218,230,0.00) 100%);
+    background-image: radial-gradient(circle at 50% 1e+02%, #FFFFFF 0%, rgba(251,251,253,0.9) 6%, rgba(241,243,246,0.65) 23%, rgba(229,232,239,0.45) 47%, rgba(219,222,233,0.21) 73%, rgba(214,218,230,0.00) 100%);
     opacity: 0;
     transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -156,7 +156,7 @@ nav.navigation--down {
 
 .navigation__link.navigation__link--active {
     color: #1573dd;
-    background-image: radial-gradient(circle at 50% 150%, rgba(21,115,221,0.20) 0%, rgba(214,218,230,0.00) 47%)
+    background-image: radial-gradient(circle at 50% 150%, rgba(21,115,221,.3) 0%, rgba(214,218,230,0.00) 57%)
 }
 
 @media screen and (min-width: 768px) {
@@ -176,7 +176,7 @@ nav.navigation--down {
         box-shadow: rgba(81, 88, 108, 0.6) 0px 8px 30px -20px;
         -webkit-backdrop-filter: blur(15px);
         backdrop-filter: blur(15px);
-        background: hsla(225, 24%, 97%, 0.4);
+        background: hsla(225, 24%, 97%, 0.7);
         border: 1px solid hsla(225, 14%, 97%, 0.3);
     }
 
@@ -244,7 +244,7 @@ p:first-child {
     position: relative;
     display: block;
     padding: 1.25rem;
-    background: hsla(225, 24%, 97%, 0.2);
+    background: hsla(225, 24%, 99%, 0.4);
     border-radius: .75rem;
     box-shadow: rgba(81, 88, 108, 0.4) 0px 8px 30px -20px;
     backdrop-filter: blur(5px);
@@ -427,7 +427,7 @@ p:first-child {
 }
 
 .homepage-notes__item:hover {
-    background: hsla(225, 24%, 97%, 0.2);
+    background: hsla(225, 24%, 99%, 0.4);
     border-radius: .75rem;
     backdrop-filter: blur(5px);
     border: 1px solid hsla(225, 14%, 97%, 0.3);
@@ -487,11 +487,11 @@ p:first-child {
     color: inherit;
     text-decoration: none;
     border: 1px solid hsla(225, 14%, 57%, 0.2);
+    transition: background-color .465s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .notesgrid__link:hover {
-    background: hsla(225, 24%, 97%, 0.2);
-    transition: background-color .465s cubic-bezier(0.22, 1, 0.36, 1);
+    background: hsla(225, 24%, 99%, 0.6);
 }
 
 .notesgrid__icon {
