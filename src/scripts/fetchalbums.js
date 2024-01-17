@@ -66,7 +66,7 @@ async function fetchAlbumReviews() {
     async function fetchAllAlbumArt(albums) {
         const albumArtUrls = await Promise.all(albums.map(async (album) => {
             const albumArtUrl = await fetchAlbumArt(album.mbid);
-            return albumArtUrl ? albumArtUrl : 'https://geffreyvanderbos.com/wp-content/uploads/2024/01/albumart-not-found.png';
+            return albumArtUrl ? albumArtUrl : 'https://geff.re/assets/cover-art-not-found.png';
         }));
         return albumArtUrls;
     }
