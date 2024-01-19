@@ -252,6 +252,40 @@
                 </p>
             </div>
             <div class="grid-span-4">
+                <h3 style="font-size: 1rem;">Leave your contact details; I'll follow up!</h3>
+                 <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="apikey" value="219cb173-ead9-494f-9ebe-3eeef64c7986">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label>Preferred channel:</label>
+        <div class="segmented-control">
+            <input type="radio" id="email" name="platform" value="email" checked>
+            <label for="email" tabindex="0">Email</label>
+            <input type="radio" id="signal" name="platform" value="signal">
+            <label for="signal" tabindex="0">Signal</label>
+            <input type="radio" id="telegram" name="platform" value="telegram">
+            <label for="telegram" tabindex="0">Telegram</label>
+            <input type="radio" id="whatsapp" name="platform" value="whatsapp">
+            <label for="whatsapp" tabindex="0">WhatsApp</label>
+        </div>
+    </div>
+    <div>
+        <label for="contact" id="contact-label">Email Address:</label>
+        <input type="text" id="contact" name="contact">
+    </div>
+    <div>
+        <button type="submit" id="submit-button">Send Geffrey my contact details</button>
+    </div>
+    <input type="hidden" name="subject" value="New Submission from Contact Form">
+    <input type="hidden" name="from_name" value="Geff.re Website">
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+</form>
+<div id="submissionMessage"></div>
+
+<script type="text/javascript" src="/scripts/contactform.js"></script>
             </div>
             <div class="grid-span-4">
                 <ul class="footer__navigation">
@@ -287,7 +321,6 @@
 </footer>
 
 <script type="text/javascript" src="/scripts/navigation.js" defer></script>
-
 <script type="text/javascript" src="/scripts/lazy-load.js"></script>
         </div>
     </body>
