@@ -1,5 +1,3 @@
-@import url(syntaxhighlighting.css);
-
 :root {
     --color-background: hsl(225, 25%, 87%);
     --color-foreground: hsl(234, 71%, 3%);
@@ -241,7 +239,6 @@ body {
     font-family: "Nacelle",sans-serif;
     font-weight: 300;
     margin: 0;
-    transition: color 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 a {

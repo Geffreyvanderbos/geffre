@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>What I&#39;m Listening To – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1705742603" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1705745834" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="What I&#39;m Listening To – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/listening/">
@@ -13,6 +13,18 @@
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
         <link rel="icon" href="/assets/favicon/icon.svg" type="image/svg+xml">
         <meta name="theme-color" content="#000">
+        <style>
+            :root {
+                --color-background: hsl(225, 25%, 87%);
+                --color-foreground: hsl(234, 71%, 3%);
+                --color-gradient-background: linear-gradient(180deg, hsl(255,5%,97%) 0%, hsl(231,10%,87%) 100%);
+            }
+            .dark-mode {
+                --color-background: hsl(225, 10%, 5%);
+                --color-foreground: hsl(234, 10%, 93%);
+                --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
+            }
+        </style>
         <script>
             document.addEventListener('DOMContentLoaded', (event) => {
                 if (localStorage.getItem('darkMode') === 'true' || (localStorage.getItem('darkMode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -264,9 +276,10 @@
     </div>
 </footer>
 
-<script type="text/javascript" src="/scripts/navigation.js" defer></script>
-<script type="text/javascript" src="/scripts/lazy-load.js"></script>
+<link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
 <script type="text/javascript" src="/scripts/handledarkmode.js"></script>
+<script type="text/javascript" src="/scripts/navigation.js" defer></script>
+<script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
         </div>
     </body>
 </html>

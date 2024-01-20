@@ -51,14 +51,14 @@
  :not(pre) > code[class*="language-"],
  pre[class*="language-"] {
     border-radius: .75rem;
-    box-shadow: rgba(81, 88, 108, 0.6) 0px 8px 30px -20px;
-    background: hsla(225, 24%, 97%, 0.4);
-    border: 1px solid hsla(225, 14%, 97%, 0.3);
+    box-shadow: var(--color-general-boxshadow) 0px 8px 30px -20px;
+    background: var(--background-glass);
+    border: var(--border);
  }
   
  code:not(pre > code), :not(pre) > code {
-    background: hsla(225, 24%, 97%, 0.4);
-    border: 1px solid hsla(225, 14%, 97%, 0.3);
+    background: var(--background-glass);
+    border: var(--border);
     padding: .25rem;
     border-radius: .2rem;
     white-space: normal;
