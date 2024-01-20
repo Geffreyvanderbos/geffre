@@ -1,17 +1,11 @@
 <footer>
     <div class="footer__content">
         <div class="grid">
-            <div class="grid-span-4">
-                <p>© 2024 Geffrey van der Bos. All opinions and content here is separate from my work with my employer, and should not be attributed to them in any way.</p>
-                <p>May the song you're currently jamming to be the absolute best.
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                </p>
-            </div>
-            <div class="grid-span-4">
+            <div class="grid-span-6">
                 <h3 style="font-size: 1rem;">Leave your contact details; I'll follow up!</h3>
                  {% include "partials/_contactform.njk" %}
             </div>
-            <div class="grid-span-4">
+            <div class="grid-span-6">
                 <ul class="footer__navigation">
                     {% for item in collections.navigation %}
                     <li class="">
@@ -20,9 +14,16 @@
                     {% endfor %}
                 </ul>
             </div>
+            <div class="grid-clear grid-span-8 smalltext">
+            <p>
+                © 2024 Geffrey van der Bos. All opinions and content here is separate from my work with my employer, and should not be attributed to them in any way. May the song you're currently jamming to be the absolute best.
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </p>
+        </div>
         </div>
     </div>
 </footer>
 
 <script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js"></script>
+<script type="text/javascript" src="/scripts/handledarkmode.js"></script>
