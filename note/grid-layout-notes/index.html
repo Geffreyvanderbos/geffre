@@ -4,10 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lay out all Obsidian notes in a grid – Geffrey van der Bos</title>
-        <style>
-            :root{--color-background:#D7DBE7;--color-foreground:#02030C;--color-foreground--muted:#464759;--grid-width:1440px;--innerpage-width:800px;--outer-radius:.75rem}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{min-height:100%}body{background-color:var(--color-background);background-image:linear-gradient(180deg,#f7f6f7 0,#dadbe1 100%);color:var(--color-foreground);font-family:Nacelle,sans-serif;font-weight:300;margin:0}a{color:#1573dd}h1{font-weight:400;margin-top:0}.wrapper{margin-top:6vw;display:flex;min-height:100vh;flex-direction:column}main{flex:1}section{margin:0 auto;padding:0 1rem;width:100%;max-width:var(--grid-width)}.navigation{overflow-x:auto;padding-bottom:20px;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}.navigation::-webkit-scrollbar{display:none}.navigation__list{display:flex;flex-wrap:nowrap;list-style:none;padding:0;margin-right:1rem;border-radius:.75rem}.navigation__item{flex:0 0 auto}.navigation__link{position:relative;text-decoration:none;color:inherit;display:block;padding:.45rem 1.25rem}.navigation__link span{position:relative;z-index:2}.navigation__link:not(.navigation__link--active):before{content:"";position:absolute;top:0;bottom:0;left:0;right:0;background-image:radial-gradient(circle at 50% 1e+02%,#fff 0,rgba(251,251,253,.9) 6%,rgba(241,243,246,.65) 23%,rgba(229,232,239,.45) 47%,rgba(219,222,233,.21) 73%,rgba(214,218,230,0) 100%);opacity:0}.navigation__link.navigation__link--active{color:#1573dd;background-image:radial-gradient(circle at 50% 150%,rgba(21,115,221,.3) 0,rgba(214,218,230,0) 57%)}@media screen and (min-width:768px){.navigation{display:flex;justify-content:flex-end;width:100%;max-width:var(--grid-width);margin:0 auto;position:sticky;top:0;z-index:4}.navigation__list{border-radius:.75rem;box-shadow:rgba(81,88,108,.6) 0 8px 30px -20px;-webkit-backdrop-filter:blur(15px);backdrop-filter:blur(15px);background:hsla(225,24%,97%,.7);border:1px solid hsla(225,14%,97%,.3)}.navigation__item:not(:last-child){border-right:1px solid hsla(225,14%,57%,.2)}}@media screen and (max-width:767px){.navigation{display:block;position:sticky;z-index:4;scroll-behavior:smooth}.navigation__list{display:flex;padding:0;margin:.5rem}.navigation__link{padding:1rem;background:hsla(225,24%,97%,.97);border-top:1px solid hsla(225,14%,97%,.3);border-bottom:1px solid hsla(225,14%,97%,.3)}.navigation__item:first-child .navigation__link{border-radius:.75rem 0 0 .75rem;padding-left:1.5rem}.navigation__item:last-child .navigation__link{border-radius:0 .75rem .75rem 0;margin-right:16px;padding-right:1.5rem}}p:first-child{margin-top:0}.introduction{max-width:70ch;margin-bottom:4rem}.introduction__title h1{margin-top:0}.project{position:relative;display:block;padding:1.25rem;background:hsla(225,24%,99%,.4);border-radius:.75rem;box-shadow:rgba(81,88,108,.4) 0 8px 30px -20px;backdrop-filter:blur(5px);border:1px solid hsla(225,14%,97%,.3);color:inherit;text-decoration:none}.project:before{content:"";top:0;left:0;right:0;bottom:0;position:absolute;box-shadow:rgba(81,88,108,.4) 0 16px 30px -12px;opacity:0}.project__cover{display:block;border-radius:calc(1.25rem - var(--outer-radius));background-size:100%;background-position:center;background-repeat:no-repeat;width:100%;padding-top:74.95%}.homepage-notes__item {border: 1px solid transparent;}.homepage-notes__heading{transform: translateY(2px);}
-        </style>
-        <link rel = "preload" href = "/stylesheets/style.css" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1705742603" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Lay out all Obsidian notes in a grid – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/grid-layout-notes/">
@@ -15,7 +12,14 @@
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
         <link rel="icon" href="/assets/favicon/icon.svg" type="image/svg+xml">
-        <meta name="theme-color" content="#464759">
+        <meta name="theme-color" content="#000">
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                if (localStorage.getItem('darkMode') === 'true' || (localStorage.getItem('darkMode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.body.classList.add('dark-mode');
+                }
+            });
+        </script>
     </head>
     <body>
     <div class="aurora">
@@ -47,6 +51,13 @@
         <a class="navigation__link " href="/about/"><span>About</span></a>
     </li>
     
+    <li class="navigation__item theme-toggle">
+      <div class="theme-toggle__flexbox">
+        <button id="themeToggle">  
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+    </li>
   </ul>
 </nav>
 
@@ -156,13 +167,7 @@
             <footer>
     <div class="footer__content">
         <div class="grid">
-            <div class="grid-span-4">
-                <p>© 2024 Geffrey van der Bos. All opinions and content here is separate from my work with my employer, and should not be attributed to them in any way.</p>
-                <p>May the song you're currently jamming to be the absolute best.
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                </p>
-            </div>
-            <div class="grid-span-4">
+            <div class="grid-span-6">
                 <h3 style="font-size: 1rem;">Leave your contact details; I'll follow up!</h3>
                  <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="apikey" value="219cb173-ead9-494f-9ebe-3eeef64c7986">
@@ -198,7 +203,7 @@
 
 <script type="text/javascript" src="/scripts/contactform.js"></script>
             </div>
-            <div class="grid-span-4">
+            <div class="grid-span-6">
                 <ul class="footer__navigation">
                     
                     <li class="">
@@ -227,11 +232,18 @@
                     
                 </ul>
             </div>
+            <div class="grid-clear grid-span-8 smalltext">
+            <p>
+                © 2024 Geffrey van der Bos. All opinions and content here is separate from my work with my employer, and should not be attributed to them in any way. May the song you're currently jamming to be the absolute best.
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </p>
+        </div>
         </div>
     </div>
 </footer>
 
 <script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js"></script>
+<script type="text/javascript" src="/scripts/handledarkmode.js"></script>
     </body>
 </html>
