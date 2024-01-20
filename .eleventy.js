@@ -4,6 +4,7 @@ const markdownItAttrs = require('markdown-it-attrs')
 const md = new markdownIt();
 const { formatDistanceToNow } = require('date-fns');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/stylesheets/*.css");
@@ -43,6 +44,13 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("readableDate", (date) => {
         return formatDistanceToNow(new Date(date), { addSuffix: true });
     });
+
+    eleventyConfig.addFilter("bust", (url) => {
+        const [urlPart, paramPart] = url.split("?");
+        const params = new URLSearchParams(paramPart || "");
+        params.set("v", DateTime.local().toFormat("X"));
+        return `${urlPart}?${params}`;
+      });
 
     eleventyConfig.addCollection("navigation", function(collection) {
         return collection.getAll()
