@@ -10,6 +10,10 @@ function setThemeIcon(isDarkMode) {
     themeToggleBtn.innerHTML = isDarkMode ? sunIcon : moonIcon;
 }
 
+function togglePrismTheme(isDarkMode) {
+    const prismThemeLink = document.getElementById('prismTheme');
+    prismThemeLink.href = isDarkMode ? '/stylesheets/syntax-dark.css' : '/stylesheets/syntax-light.css';
+}
 
 document.getElementById('themeToggle').addEventListener('click', () => toggleDarkMode());
 
@@ -18,6 +22,7 @@ function toggleDarkMode(force) {
     document.body.classList.toggle('dark-mode', isDarkMode);
     localStorage.setItem('darkMode', isDarkMode);
     setThemeIcon(isDarkMode);
+    togglePrismTheme(isDarkMode);
 }
 
 function initializeTheme() {
@@ -34,3 +39,4 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
 });
 
 initializeTheme();
+
