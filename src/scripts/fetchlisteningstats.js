@@ -84,7 +84,7 @@ function updateAllListeningStats() {
             .then(data => {
                 const count = stat.processResponse(data);
                 const el = document.getElementById(stat.id);
-                animateCountUp(el, 0, count, 1000);
+                animateCountUp(el, 0, count, 5000);
             })
             .catch(error => console.error('Error fetching listening statistics:', error));
     });

@@ -942,12 +942,12 @@ p:first-child {
 .reviews__grid {
     margin: 2rem 0;
     display: grid;
-    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
     grid-gap: var(--grid-gap--tight);
 }
 
 .homepage-grid__reviews .reviews__grid, .reviewpage-grid__reviews .reviews__grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 10%));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 10%));
     grid-gap: var(--grid-gap--standard);
 }
 
@@ -1073,7 +1073,8 @@ p:first-child {
     gap: var(--grid-gap--thight); /* Space between grid items */
     align-items: center; /* Align items vertically */
     justify-items: center; /* Align items horizontally */
-    padding: 1rem;
+    padding: 1rem 3rem 1rem 1rem;
+    margin-top: 2rem;
     margin-bottom: 4rem;
 }
 
