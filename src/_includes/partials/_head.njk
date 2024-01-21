@@ -23,11 +23,5 @@
                 --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
             }
         </style>
-        <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-                if (localStorage.getItem('darkMode') === 'true' || (localStorage.getItem('darkMode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.body.classList.add('dark-mode');
-                }
-            });
-        </script>
+        <script type="text/javascript" src="/scripts/handledarkmode.js"></script>
     </head>
