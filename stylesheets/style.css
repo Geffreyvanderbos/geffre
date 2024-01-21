@@ -940,9 +940,9 @@ p:first-child {
 }
 
 .reviews__grid {
-    margin: 2rem 0;
+    margin: 2rem 1rem 2rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 150px));
     grid-gap: var(--grid-gap--tight);
 }
 
@@ -1079,6 +1079,7 @@ p:first-child {
 }
 
 .stats-grid__item {
+    margin-bottom: 2rem;
     text-align: center; /* Center the content in each grid item */
 }
 
