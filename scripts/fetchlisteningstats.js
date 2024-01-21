@@ -3,35 +3,42 @@ function processListeningActivityResponse(data) {
     return data.payload.listening_activity.reduce((total, item) => total + item.listen_count, 0);
 }
 
-// To calculate the average daily listens from the given data structure, you need to sum up the listen counts for each hour and then divide by the number of days represented in the data
+// calculate the average daily listens from the fetched data
 function processDailyActivityResponse(data) {
     let totalListens = 0;
-    let daysCounted = 0;
+    let totalDays = 0;
 
     for (const day in data.payload.daily_activity) {
         const dayActivity = data.payload.daily_activity[day];
+        let dayTotalListens = 0;
         dayActivity.forEach(hour => {
-            totalListens += hour.listen_count;
+            dayTotalListens += hour.listen_count;
         });
-        daysCounted++;
+        console.log(`${day}: Total Listens = ${dayTotalListens}`);
+        totalListens += dayTotalListens;
+        if (dayTotalListens > 0) totalDays++;
     }
 
-    return daysCounted > 0 ? Math.round(totalListens / daysCounted) : 0;
-}
+    console.log(`Total Listens for all days: ${totalListens}`);
+    console.log(`Total Active Days: ${totalDays}`);
 
+    const averageListens = totalDays > 0 ? Math.round(totalListens / totalDays) : 0;
+    console.log(`Average Daily Listens: ${averageListens}`);
+    return averageListens;
+}
 
 const statsConfig = [
     {
         id: 'statsUniqueArtists',
         label: 'Unique Artists',
         apiUrl: 'https://api.listenbrainz.org/1/stats/user/Geffrey/artists',
-        processResponse: data => data.payload.total_artist_count // Example for array length
+        processResponse: data => data.payload.total_artist_count
     },
     {
         id: 'statsUniqueReleases',
         label: 'Unique Releases',
         apiUrl: 'https://api.listenbrainz.org/1/stats/user/Geffrey/releases',
-        processResponse: data => data.payload.total_release_count // Example for array length
+        processResponse: data => data.payload.total_release_count
     },
     {
         id: 'statsTotalListens',
@@ -42,10 +49,9 @@ const statsConfig = [
     {
         id: 'statsAvgDailyListens',
         label: 'Tracks a Day (avg.)',
-        apiUrl: 'https://api.listenbrainz.org/1/stats/user/Geffrey/daily-activity',
+        apiUrl: `https://api.listenbrainz.org/1/stats/user/Geffrey/daily-activity?range=week`,
         processResponse: processDailyActivityResponse
-    }
-    
+    }  
 ];
 
 function createStatsElements(config) {
@@ -66,8 +72,8 @@ function createStatsElements(config) {
         labelSpan.textContent = stat.label;
         div.appendChild(labelSpan);
 
-        // Append the div to a parent element, e.g., a specific section in your HTML
-        document.getElementById('listeningStats').appendChild(div); // Replace 'parentElementId' with your parent element's ID
+        // Append the div to a parent element
+        document.getElementById('listeningStats').appendChild(div);
     });
 }
 

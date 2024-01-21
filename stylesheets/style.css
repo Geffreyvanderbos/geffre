@@ -762,11 +762,9 @@ p:first-child {
     margin: 0;
 }
 
-.footer__navigation li {
-    margin-bottom: 1.5rem;
-}
-
 .footer__navigation li a {
+    display: block;
+    padding-bottom: 1.5rem;
     color: inherit;
     text-decoration: none;
 }
@@ -1072,7 +1070,7 @@ p:first-child {
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust minmax for desired minimum column width */
-    gap: var(--grid-gap--standard); /* Space between grid items */
+    gap: var(--grid-gap--thight); /* Space between grid items */
     align-items: center; /* Align items vertically */
     justify-items: center; /* Align items horizontally */
     padding: 1rem;
