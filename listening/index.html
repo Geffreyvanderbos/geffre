@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>What I&#39;m Listening To – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1705840151" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1705857140" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="What I&#39;m Listening To – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/listening/">
@@ -84,6 +84,11 @@
     <section>
         <div class="grid bottom-spacing--large">
             <div class="grid-span-6">
+                <h2 style="margin-bottom: 0;">Listening Statistics</h2>
+                <p class="smalltext byline" style="margin-top: 0;">*Since the making of this website (2024-01-08).</p>
+                <div class="stats-grid" id="listeningStats">
+
+                </div>
                 <h2>Album reviews</h2>
                 <span>Thoughts on music recordings I enjoy</span>
                 <div class="reviews__grid">
@@ -189,8 +194,8 @@
 
 </style>
 
-
-<script type="text/javascript" src="/scripts/fetchalbums.js"></script>
+<script type="text/javascript" src="/scripts/fetchlisteningstats.js" defer></script>
+<script type="text/javascript" src="/scripts/fetchalbums.js" defer></script>
     		</main>
             <footer>
     <div class="footer__content">

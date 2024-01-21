@@ -1068,3 +1068,29 @@ p:first-child {
     justify-content: center;
     flex-direction: column;
 }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust minmax for desired minimum column width */
+    gap: var(--grid-gap--standard); /* Space between grid items */
+    align-items: center; /* Align items vertically */
+    justify-items: center; /* Align items horizontally */
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.stats-grid__item {
+    text-align: center; /* Center the content in each grid item */
+}
+
+.listeningstats__number {
+    font-size: 1.5rem; /* Larger font size for the number */
+    font-weight: bold; /* Make the number bold */
+}
+
+.listeningstats__label {
+    white-space:nowrap;
+    display: block; /* Ensure the label is on a new line */
+    font-size: 0.9em; /* Smaller font size for the label */
+    color: var(--color-foreground--muted); /* Color for the label */
+}
