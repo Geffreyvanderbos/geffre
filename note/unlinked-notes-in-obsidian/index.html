@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>List unlinked notes in Obsidian – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1705745834" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1705822838" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="List unlinked notes in Obsidian – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/unlinked-notes-in-obsidian/">
@@ -25,13 +25,7 @@
                 --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
             }
         </style>
-        <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-                if (localStorage.getItem('darkMode') === 'true' || (localStorage.getItem('darkMode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.body.classList.add('dark-mode');
-                }
-            });
-        </script>
+        <script type="text/javascript" src="/scripts/handledarkmode.js"></script>
     </head>
     <body>
     <div class="aurora">
@@ -255,7 +249,6 @@
 </footer>
 
 <link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
-<script type="text/javascript" src="/scripts/handledarkmode.js"></script>
 <script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
     </body>
