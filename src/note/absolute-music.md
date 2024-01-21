@@ -1,5 +1,3 @@
-absolute-music
-
 ---
 category: musicology
 created: 2024-01-01
