@@ -1,7 +1,7 @@
 ---
 category: musicology
 created: 2024-01-01
-title: Absolute Music–Music with an inherent value
+title: Music with an inherent value
 updated: 2024-01-21
 ---
 

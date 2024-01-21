@@ -1,7 +1,7 @@
 ---
 category: musicology
 created: 2024-01-01
-title: How we value music as an art form–Aesthetics
+title: How we value music as an art form
 updated: 2024-01-20
 ---
 
