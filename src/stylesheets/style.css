@@ -149,9 +149,9 @@ a {
     text-decoration-thickness: 1px;
 }
 
-   .title--large {
-        line-height: 1.15;
-    }
+.title--large {
+    line-height: 1.15;
+}
 
 @media screen and (min-width: 430px) {
     html {
@@ -806,6 +806,21 @@ p:first-child {
     max-width: var(--innerpage-width);
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+
+.onepage--centered.note {
+    margin-bottom: 8rem;
+    line-height: 1.8;
+}
+
+.onepage--centered.note p {
+    margin-bottom: 2rem;
+}
+
+.onepage--centered.note h1, .onepage--centered.note h2, .onepage--centered.note h3, .onepage--centered.note h4{
+    margin-top: 4rem;
+    margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) { 
