@@ -11,13 +11,10 @@ In 1735, Baumgarten, through his work "Meditationes philosophicae de nonnullis a
 
 Aesthetics is closely linked with interpretation or hermeneutics. Kant, in his 1790 work "Kritik der Urteilskraft" (Critique of Judgment), expands on this by exploring how aesthetic qualities can be perceived and rationalized. Kant proposes that to make a balanced aesthetic judgment, one should consider four aspects:
 
-**Quality**: Kant emphasizes disinterested and detached judgment, valuing art for its intrinsic qualities rather than personal biases. This approach aligns with the concepts of absolute music, autonomy, and formalism, but risks disconnecting the artwork from its real-world context.
-
-**Quantity**: Kant suggests that if one finds an artwork beautiful, this beauty should be universally recognizable, thus moving away from subjective judgment and differing from Baumgarten's idea of the 'lower faculty'.
-
-**Purpose**: He argues that aesthetic judgments should focus on a work's inherent structure and form, appreciating how it forms a complete and unified entity, independent of external concepts.
-
-**Exemplary**: Kant believes that an individual's aesthetic judgment can set a benchmark for how others might perceive or value art, playing a role in social or historical disciplining.
+- **Quality**: Kant emphasizes disinterested and detached judgment, valuing art for its intrinsic qualities rather than personal biases. This approach aligns with the concepts of [absolute music](/notes/absolute-music/), autonomy, and formalism, but risks disconnecting the artwork from its real-world context.
+- **Quantity**: Kant suggests that if one finds an artwork beautiful, this beauty should be universally recognizable, thus moving away from subjective judgment and differing from Baumgarten's idea of the 'lower faculty'.
+- **Purpose**: He argues that aesthetic judgments should focus on a work's inherent structure and form, appreciating how it forms a complete and unified entity, independent of external concepts.
+- **Exemplary**: Kant believes that an individual's aesthetic judgment can set a benchmark for how others might perceive or value art, playing a role in social or historical disciplining.
 
 Kant viewed music's transitory nature as a weakness, as it limits its ability to articulate precise meanings. Hegel, on the other hand, saw this transience as a means for self-realization, perceiving artworks as embodying intrinsic beauty and significance, thus contributing to humanity's deeper interests.
 
