@@ -241,8 +241,12 @@ body {
     margin: 0;
 }
 
-a, a:visited {
+a {
     color: var(--color-link);
+}
+
+a:visited {
+    color: inherit;
 }
 
 img {
