@@ -50,16 +50,15 @@ async function fetchAlbumReviews() {
     }
 
     async function fetchAlbumArt(mbid) {
-        const coverArtUrl = `https://coverartarchive.org/release/${mbid}/front`;
+        const coverArtUrl = `https://coverartarchive.org/release/${mbid}`;
         try {
             const response = await fetch(coverArtUrl);
-            if (!response.ok) {
-                throw new Error('Cover art not found');
-            }
-            return coverArtUrl;
+            const data = await response.json();
+            const thumbnailUrl = data.images[0].thumbnails['250'];
+            return thumbnailUrl;
         } catch (error) {
             console.warn('Error fetching album art:', error);
-            return '';
+            return 'https://geff.re/assets/cover-art-not-found.png';
         }
     }
 
