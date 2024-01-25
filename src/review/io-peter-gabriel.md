@@ -7,7 +7,7 @@ date: "2024-01-19"
 
 Pleasant but forgettable, Peter Gabriel's 'i/o' is a textbook example of playing it safe. The album delivers what it promises—a series of familiar, catchy pop songs with big choruses that are easy on the ears but short on depth. 
 
-Gabriel's rounded, raspy voice remains a comfort, but it's nestled in a bed of repeating tropes that suggest a nostalgic yearning for his own past hits. 'The Flood' and 'Playing for Time' echo earlier successes like 'The Court' and 'Intruder,' but without the innovation. 
+Gabriel's rounded, raspy voice remains a comfort, but it's nestled in a bed of repeating tropes that suggest a nostalgic yearning for his own past hits. 'The Court' and 'Playing for Time' echo earlier successes like 'Intruder' and 'The Flood,' but without the innovation. 
 
 The album’s commentary on politics and technology feels obligatory rather than insightful. Meanwhile, the gimmick of releasing three different mixes of the same album doesn't add the intended intrigue. It's as if Gabriel, aware of the long wait his fans have endured, tries to overcompensate with quantity over quality. 
 
