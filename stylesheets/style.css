@@ -892,8 +892,6 @@ p:first-child {
     display: flex;
     overflow-x: scroll;
     padding: 2rem;
-    position: relative;
-    left: -2rem;
 }
 
 .reviews__grid::-webkit-scrollbar {
