@@ -77,14 +77,20 @@ module.exports = function (eleventyConfig) {
         });
 
     eleventyConfig.addCollection("albumReviews", function(collectionApi) {
+        // Step 1: Gather all reviews into an array
+        let reviewsArray = collectionApi.getFilteredByGlob("./src/review/*.md").filter(item => item.data.mbid);
+    
+        // Step 2: Sort the array by the updated date
+        reviewsArray.sort((a, b) => a.data.date - b.data.date);
+    
+        // Step 3: Transform into the desired object format if needed
         let reviews = {};
-        collectionApi.getFilteredByGlob("./src/review/*.md").forEach(item => {
-            if(item.data.mbid) {
-                reviews[item.data.mbid] = item.url;
-            }
+        reviewsArray.forEach(item => {
+            reviews[item.data.mbid] = item.url;
         });
+    
         return reviews;
-    });
+    });        
 
     eleventyConfig.addCollection("reviews", function(collectionApi) {
         return collectionApi.getFilteredByGlob("./src/review/*.md");

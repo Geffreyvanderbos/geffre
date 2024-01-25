@@ -11,11 +11,12 @@
                 <section class="grid">
                     <div class="grid-span-6">
                     <h1>{{ title }}</h1>
-                        {{ content | safe }}</div>
+                        {{ content | safe }}
+                    </div>
                     <div class="grid-span-6">
                         <div class="reviewpage">
-                            <div class="reviewpage__cover" style="background-image: url('/assets/albumcovers/{{ mbid }}.jpg');"></div>
                             <div class="reviewpage__cover__shadow" style="background-image: url('/assets/albumcovers/{{ mbid }}.jpg');"></div>
+                            <div class="reviewpage__cover" style="background-image: url('/assets/albumcovers/{{ mbid }}.jpg');"></div>
                         </div>
                     </div>
     		    </section>
@@ -23,14 +24,14 @@
                     <div class="section-separator"></div>
                     <div class="reviewpage-grid__reviews">
                         <h1>Other Reviews</h1>
-                        <span>Thoughts on music recordings I enjoy</span>
+                        <span class="byline">Write-ups on music recordings</span>
                         <div class="reviews__grid">
                         {% if collections.reviews.length > 1 %}
                             {% for review in collections.reviews %}
                                 {% if review.url !== page.url %}
                                     <a class="review" href="{{ review.url }}">
+                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
                                         <div class="review__cover" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
-                                        <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
                                         <div class="review__description">
                                             <span class="description__title">{{ review.data.title }}</span>
                                             <span class="description__author">{{ review.data.author }}</span>
