@@ -1,0 +1,20 @@
+<div class="reviews__grid">
+            {% if collections.reviews.length > 0 %}
+                {% for review in collections.reviews %}
+                    <a class="review" href="{{ review.url }}">
+                        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
+                        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
+
+                    <div class="review__description">
+                        <span class="description__title">{{ review.data.title }}</span>
+                        <span class="description__author">{{ review.data.author }}</span>
+                    </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <div class="review__description">
+                    <span class="description__title">Excuse me while I gather my album reviews.</span>
+                    <span class="description__author">This is only temporary.</span>
+                </div>
+            {% endif %}
+        </div>

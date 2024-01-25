@@ -20,33 +20,13 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
 
                 </div>
                 <h2>Album reviews</h2>
-                <span>Write-ups on music recordings I enjoy</span>
-                <div class="reviews__grid">
-                    {% if collections.reviews.length > 0 %}
-                        {% for review in collections.reviews %}
-                            <a class="review" href="{{ review.url }}">
-                            <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
-                            <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
-
-                            <div class="review__description">
-                                <span class="description__title">{{ review.data.title }}</span>
-                                <span class="description__author">{{ review.data.author }}</span>
-                            </div>
-                            </a>
-                        {% endfor %}
-                    {% else %}
-                            <div class="review__description">
-                                <span class="description__title">Excuse me while I gather my album reviews.</span>
-                                <span class="description__author">This is only temporary.</span>
-                            </div>
-                    {% endif %}
-                </div>
+                <span>Write-ups on music</span>
+                {% include "partials/_musicreviewslist.njk" %}
             </div>
 
             <div class="grid-span-6" style="min-height: 90vh;">
                 <h2>Currently playing</h2>
                 <ul id="listenList"></ul>
-                <!-- span id="loadingIndicator" style="display: none; position: absolute; float: right;">Fetching albums…</span -->
             </div>
         </div>
     </section>

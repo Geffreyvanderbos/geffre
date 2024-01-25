@@ -1,1 +1,1 @@
-Currently delving into how Web3 and AI are reshaping music. Guiding software development at Comecer Netherlands.
+He is a digital product designer and amateur musicologist.  Delving into how Web3 and AI are reshaping music. Guiding software development at Comecer.

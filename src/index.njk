@@ -22,7 +22,7 @@ order: 1
 <section class="homepage-grid">
     <div class="homepage-grid__projects">
         <h1>Selected Works</h1>
-        <span  class="byline">A selection of digital products I helped realise.</span>
+        <span class="byline">A selection of digital products I helped realise.</span>
         <div class="projects__grid">
             {% for project in collections.projects %}
                 <a class="project" href="{{ project.url }}">
@@ -53,26 +53,7 @@ order: 1
     </div>
     <div class="homepage-grid__reviews bottom-spacing--large">
         <h1>Music Reviews</h1>
-        <span>Write-ups on music recordings I enjoy</span>
-        <div class="reviews__grid">
-            {% if collections.reviews.length > 0 %}
-                {% for review in collections.reviews %}
-                    <a class="review" href="{{ review.url }}">
-                        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
-                        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/{{ review.data.mbid }}.jpg"></div>
-
-                    <div class="review__description">
-                        <span class="description__title">{{ review.data.title }}</span>
-                        <span class="description__author">{{ review.data.author }}</span>
-                    </div>
-                    </a>
-                {% endfor %}
-            {% else %}
-                <div class="review__description">
-                    <span class="description__title">Excuse me while I gather my album reviews.</span>
-                    <span class="description__author">This is only temporary.</span>
-                </div>
-            {% endif %}
-        </div>
+        <span class="byline">Write-ups on music recordings</span>
+        {% include "partials/_musicreviewslist.njk" %}
     </div>
 </section>

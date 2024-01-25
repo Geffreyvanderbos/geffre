@@ -91,7 +91,7 @@ function updateAllListeningStats() {
 }
 
 function easeOutExpo(t, b, c, d) {
-    return c * (-Math.pow(2, -5 * t / d) + 1) + b;
+    return c * (-Math.pow(2, -10 * t / d) + 1) + b;
 }
 
 function animateCountUp(el, start, end, duration) {
