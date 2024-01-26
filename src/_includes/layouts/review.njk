@@ -11,6 +11,9 @@
                 <section class="grid">
                     <div class="grid-span-6">
                     <h1>{{ title }}</h1>
+
+                        {% include "partials/_emailform.njk" %}
+
                         {{ content | safe }}
                     </div>
                     <div class="grid-span-6">
