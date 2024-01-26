@@ -1,1 +1,1 @@
-{ "layout": "../_includes/note.njk" }
+{ "layout": "../_includes/layouts/note.njk" }

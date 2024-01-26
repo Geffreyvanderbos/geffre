@@ -1,0 +1,73 @@
+.review {
+    position: relative;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    margin: 0;
+    min-width: 140px;
+    width: 200px;
+}
+
+.review:not(:last-child) {
+    margin-right: var(--grid-gap--tight);
+}
+
+.review:focus-within {
+    outline: 0;
+}
+
+.review:focus-within .review__cover{
+    outline: 3px solid var(--color-link);
+}
+
+.review:focus-within .review__cover,.review:hover .review__cover {
+    transform: translateY(-.55rem) rotate(-1deg);
+}
+
+.review__cover {
+    display: block;
+    position: relative;
+    box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), inset 0px -1px 1px 0px rgba(0,0,0,.2);
+    border-radius: .15rem;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 100%;
+    transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.review__cover__shadow {
+    width: 100%;
+    padding-top: 100%;
+    position: absolute;
+    top: .5rem;
+    filter: var(--filter-cover);
+    opacity: .8;
+    transform: scale(.8);
+    transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.review:hover .review__cover__shadow, .review:focus-within .review__cover__shadow {
+    top: .2rem;
+}
+
+.review__description {
+    text-align: center;
+    font-size: 80%;
+    margin: .5rem 0 0 0;
+    transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media screen and (min-width: 769px) { 
+    .reviews__grid{
+        position: relative;
+        left: -2rem;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .review {
+        scroll-snap-align: start;
+    }
+}

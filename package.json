@@ -12,7 +12,11 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0"
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "cssnano": "^6.0.3",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.0"
   },
   "dependencies": {
     "@photogabble/eleventy-plugin-interlinker": "^1.0.4",

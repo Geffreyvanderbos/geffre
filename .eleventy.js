@@ -5,6 +5,7 @@ const md = new markdownIt();
 const { formatDistanceToNow } = require('date-fns');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { DateTime } = require("luxon");
+const { execSync } = require('child_process');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/stylesheets/*.css");
@@ -20,6 +21,14 @@ module.exports = function (eleventyConfig) {
         templateFormats: ["css", "md", "liquid", "html", "js"]
         }
       );
+
+        // Run PostCSS during build
+    eleventyConfig.on('afterBuild', () => {
+        // Execute PostCSS command
+        console.log("Processing CSS ... ")
+        execSync('npx postcss src/stylesheets/style.css -o public/stylesheets/style.css');
+        console.log("Done processing the CSS!")
+    });
 
     //   eleventyConfig.addPlugin(
     //     require("@photogabble/eleventy-plugin-interlinker"),

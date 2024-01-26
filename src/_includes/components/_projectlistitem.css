@@ -1,0 +1,55 @@
+
+.project {
+    position: relative;
+    display: block;
+    padding: 1.25rem;
+    background: var(--background-glass);
+    border-radius: .75rem;
+    box-shadow: var(--shadow-color--hover) 0px 8px 30px -20px;
+    backdrop-filter: blur(5px);
+    border: var(--border);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project:before {
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: .75rem;
+    position: absolute;
+    box-shadow: var(--shadow-color--hover) 0px 16px 30px -12px;
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0;
+}
+
+.project:hover {
+    background: var(--background-glass--hover);
+}
+
+.project:hover:before {
+    opacity: 1;
+}
+
+.project__cover {
+    display: block;
+    border: 1px solid var(--color-project-cover-border);
+    border-radius: calc(1.25rem - var(--outer-radius));
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 74.95%;
+    transition: background-size 10s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project__description {
+    margin: 1.25rem 0 .75rem 0;
+}
+
+.project:hover .project__cover{
+    background-size: 130%;
+}
