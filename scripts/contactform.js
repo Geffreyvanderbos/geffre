@@ -30,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateLabel() {
         const selectedChannel = document.querySelector('#contactForm input[type="radio"][name="platform"]:checked').value;
         if (selectedChannel === "email") {
-            contactLabel.textContent = 'Email Address:';
+            contactLabel.textContent = 'Email Address';
         }
         else if (selectedChannel === "telegram") {
-            contactLabel.textContent = 'Number or Username:';
+            contactLabel.textContent = 'Number or Username';
         }
          else {
-            contactLabel.textContent = 'Phone Number:';
+            contactLabel.textContent = 'Phone Number';
         }
     }
 
