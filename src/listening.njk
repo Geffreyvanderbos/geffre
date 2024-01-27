@@ -4,7 +4,7 @@ layout: "/layouts/base.njk"
 nav: true
 menutitle: Listening
 order: 3
-pageDescription: "<p>This is my real-time musical diary, a direct and uncurated reflection of the albums I'm enjoying. The albums displayed are automatically updated through&nbsp;<a href='https://listenbrainz.org/about/' rel='noopener' target='_blank' title='ListenBrainz their about page'>ListenBrainz</a>, which logs my listening activities across different platforms. Accompanying each album is its cover art, sourced from the <a href='https://coverartarchive.org/' rel='noopener' target='_blank'>Cover Art Archive</a> within the MusicBrainz database.</p>"
+pageDescription: <p>Welcome to my real-time musical diary, a direct and unfiltered window into the music I'm enjoying, automatically updated through <a href="https://listenbrainz.org/about/" rel="noopener" target="_blank" title="ListenBrainz About Page">ListenBrainz</a>. Each album, showcased with its cover art from the <a href="https://coverartarchive.org/" rel="noopener" target="_blank" title="Cover Art Archive">Cover Art Archive</a>, might also come with a review&mdash;my personal take on recordings that intrigued me, for better or worse. Whether an album surprised me with its brilliance or left me underwhelmed.</p>
 ---
 
 <div>
@@ -13,14 +13,9 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
 
     <section>
         <div class="grid bottom-spacing--large">
-            <div class="grid-span-6">
-                <h2 style="margin-bottom: 0;">Listening Statistics</h2>
-                <p class="smalltext byline" style="margin-top: 0;">Since the making of this website on 2024-01-08.</p>
-                <div class="stats-grid" id="listeningStats">
-
-                </div>
+            <div class="grid-span-12">
                 <h2>Album reviews</h2>
-                <span>Write-ups on music</span>
+                <span class="byline">My reflections on pop, rock and metal recordings</span>
                <div class="reviews__grid">
                   {% if collections.reviews.length > 0 %}
                       {% for review in collections.reviews %}
@@ -29,6 +24,7 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
                         {% set mbid = review.data.mbid %}
                         {% set title = review.data.title %}
                         {% set author = review.data.author %}
+                        {% set status = review.data.status %}
                         {% include "components/_reviewlistitem.njk" %}
 
                       {% endfor %}
@@ -40,9 +36,16 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
                   {% endif %}
               </div>
             </div>
+            <div class="grid-span-12">
+              <h2 style="margin-bottom: 0;">Listening Statistics</h2>
+                <p class="byline">Since the making of this website on 2024-01-08</p>
+                <div class="stats-grid" id="listeningStats">
+                </div>
+            </div>
 
-            <div class="grid-span-6" style="min-height: 90vh;">
+            <div class="grid-span-12" style="min-height: 90vh;">
                 <h2>Currently playing</h2>
+                <span class="byline">Pulled directly from my Spotify listening activity</span>
                 <ul id="listenList"></ul>
             </div>
         </div>
@@ -53,9 +56,13 @@ pageDescription: "<p>This is my real-time musical diary, a direct and uncurated 
 	font-family: inherit;
 	color: inherit;
 	list-style-type: none;
-	padding: 0;
+  display: grid;
+  grid-gap: var(--grid-gap--standard);
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+	padding: 1rem 0 0 0;
 	margin: 0;
   }
+
   #listenList li {
 	display: flex;
 	flex-direction: row;

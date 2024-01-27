@@ -1,8 +1,20 @@
-<a class="review" href="{{ url }}">
-    <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/{{ mbid }}.jpg"></div>
-    <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ mbid }}.jpg"></div>
-    <div class="review__description">
-        <span class="description__title">{{ title }}</span>
-        <span class="description__author">{{ author }}</span>
+{% if status == "reviewing" %}
+    <div class="review review--under-review">
+        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ mbid }}.jpg">
+            <div class="review__overlay">Under Review</div>
+        </div>
+        <div class="review__description">
+            <span class="description__title">{{ title }}</span>
+            <span class="description__author">{{ author }}</span>
+        </div>
     </div>
-</a>
+{% else %}
+    <a class="review" href="{{ url }}">
+        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/{{ mbid }}.jpg"></div>
+        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/{{ mbid }}.jpg"></div>
+        <div class="review__description">
+            <span class="description__title">{{ title }}</span>
+            <span class="description__author">{{ author }}</span>
+        </div>
+    </a>
+{% endif %}

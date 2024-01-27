@@ -4,6 +4,8 @@
 
 /* import partials */
 @import '../_includes/partials/_navigation.css';
+@import '../_includes/partials/_contactform.css';
+@import '../_includes/partials/_emailform.css';
 @import '../_includes/partials/_footer.css';
 
 /* Layout specific styling */
@@ -160,6 +162,10 @@ a {
     text-decoration-thickness: 1px;
 }
 
+a:hover {
+   color: var(--color-link--hover);
+}
+
 .title--large {
     line-height: 1.15;
 }
@@ -307,12 +313,6 @@ p:first-child {
 
 .description__author {
     color: var(--color-foreground--muted);
-}
-
-.reviewpage {
-    position: relative;
-    max-width: 400px;
-    margin: 0 auto;
 }
 
 .projectheader {
@@ -688,85 +688,6 @@ p:first-child {
 
 .bottom-spacing--small {
     margin-bottom: 2rem;
-}
-
-#contactForm {
-    border-radius: .5rem;
-    font-size: .9rem;
-    max-width: 420px;
-    margin-bottom: 2rem;
-}
-
-#contactForm label:not(.segmented-control label) {
-    display: block;
-}
-
-#contactForm input[type="text"] {
-    width: 100%;
-    padding: .3rem;
-    margin: .3rem 0 1rem 0;
-    color: var(--color-footer-foreground);
-    font-size: 1rem;
-    display: inline-block;
-    background-color: hsla(225, 14%, 10%, 0.5);
-    border: 1px solid  hsla(225, 14%, 40%, 0.47);
-    border-radius: .2rem;
-    box-sizing: border-box;
-}
-
-#contactForm .segmented-control {
-    display: flex;
-    border: 1px solid hsla(225, 14%, 40%, 0.47);
-    border-radius: .2rem;
-    overflow: hidden;
-    margin: .3rem 0 1rem 0;
-}
-
-#contactForm .segmented-control input[type="radio"] {
-    display: none;
-}
-
-#contactForm .segmented-control label {
-    flex: 1;
-    padding: .3rem;
-    text-align: center;
-    background-color: transparent;
-    border-right: 1px solid hsla(225, 14%, 40%, 0.47);
-    cursor: pointer;
-    font-size: .8rem;
-}
-
-#contactForm .segmented-control label:last-child {
-    border-right: none;
-}
-
-#contactForm .segmented-control input[type="radio"]:checked + label {
-    background-color: hsla(225, 24%, 80%, 0.87);
-    color: var(--color-footer-background);
-}
-
-#contactForm .segmented-control label:hover {
-    background-color: var(--color-contactform-segmented--hover);
-}
-
-#contactForm button[type="submit"] {
-    width: 100%;
-    background-color: var(--color-link);
-    color: var(--color-contacform-button-label);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#contactForm button[type="submit"]:not(:disabled):hover {
-    background-color: var(--color-link--hover);
-}
-
-#contactForm button[type="submit"]:disabled {
-    opacity: .3;
-    cursor: not-allowed;
 }
 
 .theme-toggle__flexbox {
