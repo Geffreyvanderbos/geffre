@@ -7,12 +7,16 @@
         {% include "partials/_navigation.njk" %}
 
         <div class="wrapper">
-    		<main class="bottom-spacing--large">
+            {% set neighbors = collections.reviews | findReviewNeighbors(page.url) %}
+            {% set nextReview = neighbors.nextReview %}
+
+   		<main class="bottom-spacing--large">
                 <section class="grid">
                     <div class="grid-span-6">
                     <h1>{{ title }}</h1>
-
-                        {% include "partials/_emailform.njk" %}
+                        {% if status == "reviewing" %}
+                            {% include "partials/_emailform.njk" %}
+                        {% endif %}
 
                         {{ content | safe }}
                     </div>
@@ -22,6 +26,24 @@
                             <div class="reviewpage__cover" style="background-image: url('/assets/albumcovers/{{ mbid }}.jpg');"></div>
                         </div>
                     </div>
+
+                {% if nextReview %}
+                    <div class="grid-span-6 next-review">
+                        <a class="next-review-link--href" title="Navigate to next review" href="{{ nextReview.url }}"><span>Read my review of &ldquo;{{ nextReview.data.title }}&rdquo;</span></a>
+                        <div class="next-review-link">
+                                <h1>{{ nextReview.data.title }}</h1>
+                                <div>{{ nextReview.templateContent | safe }}</div>
+                        </div>
+                    </div>
+                    <div class="grid-span-6 next-review-link next-review next-review__cover">
+                        <div class="reviewpage">
+                            <div class="reviewpage__cover__shadow" style="background-image: url('/assets/albumcovers/{{ nextReview.data.mbid }}.jpg');"></div>
+                            <div class="reviewpage__cover" style="background-image: url('/assets/albumcovers/{{ nextReview.data.mbid }}.jpg');"></div>
+                        </div>
+                    </div>
+                    <div class="grid-clear"></div>
+                {% endif %}
+
     		    </section>
                 <section>
                     <div class="section-separator"></div>
@@ -31,7 +53,7 @@
                         <div class="reviews__grid">
                         {% if collections.reviews.length > 1 %}
                             {% for review in collections.reviews %}
-                                {% if review.url !== page.url %}
+                                {% if review.url !== page.url and review.data.status !== "reviewing" %}
                                     <a class="review" href="{{ review.url }}">
                                     <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>
                                         <div class="review__cover" style="background-image: url('/assets/albumcovers/{{ review.data.mbid }}.jpg');"></div>

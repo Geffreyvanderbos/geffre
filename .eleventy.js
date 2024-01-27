@@ -85,26 +85,58 @@ module.exports = function (eleventyConfig) {
             });
         });
 
-    eleventyConfig.addCollection("albumReviews", function(collectionApi) {
-        // Step 1: Gather all reviews into an array
+    eleventyConfig.addCollection("reviewsObject", function(collectionApi) {
         let reviewsArray = collectionApi.getFilteredByGlob("./src/review/*.md").filter(item => item.data.mbid);
     
-        // Step 2: Sort the array by the updated date
         reviewsArray.sort((a, b) => a.data.date - b.data.date);
     
-        // Step 3: Transform into the desired object format if needed
-        let reviews = {};
+        let reviewsObject = {};
         reviewsArray.forEach(item => {
-            reviews[item.data.mbid] = item.url;
+            reviewsObject[item.data.mbid] = item.url;
         });
     
-        return reviews;
-    });        
+        return reviewsObject;
+    });
 
     eleventyConfig.addCollection("reviews", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("./src/review/*.md");
+        return collectionApi.getFilteredByGlob("./src/review/*.md").sort((a, b) => {
+            return new Date(b.data.date) - new Date(a.data.date);
+        });
     });
-              
+    
+
+    // For Album reviews previous and next
+    eleventyConfig.addFilter("findIndex", (array, findFn) => {
+        return array.findIndex(findFn);
+      });
+    
+      eleventyConfig.addFilter("findReviewNeighbors", function(reviews, currentPageUrl) {
+        const currentIndex = reviews.findIndex(review => review.url === currentPageUrl);
+      
+        // Initialize previous and next as null
+        let prevReview = null;
+        let nextReview = null;
+      
+        // Find the previous review that is not 'reviewing'
+        for (let i = currentIndex - 1; i >= 0; i--) {
+          if (reviews[i].data.status !== 'reviewing') {
+            prevReview = reviews[i];
+            break; // Exit the loop once the suitable previous review is found
+          }
+        }
+      
+        // Find the next review that is not 'reviewing'
+        for (let i = currentIndex + 1; i < reviews.length; i++) {
+          if (reviews[i].data.status !== 'reviewing') {
+            nextReview = reviews[i];
+            break; // Exit the loop once the suitable next review is found
+          }
+        }
+      
+        return { prevReview, nextReview };
+      });
+      
+
     return {
         dir: {
             input: "src",

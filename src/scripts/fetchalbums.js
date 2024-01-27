@@ -17,12 +17,12 @@ async function fetchAlbumReviews() {
 
     try {
         const listElement = document.getElementById('listenList');
-        createFauxList(listElement, 10);
+        createFauxList(listElement, 12);
 
         const response = await fetch(url, options);
         const data = await response.json();
         const uniqueAlbums = getUniqueAlbums(data.payload.listens);
-        await displayAlbums(uniqueAlbums.slice(0, 10));
+        await displayAlbums(uniqueAlbums.slice(0, 12));
     } catch (error) {
         console.error(error);
         }

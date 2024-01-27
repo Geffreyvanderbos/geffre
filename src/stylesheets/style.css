@@ -162,6 +162,10 @@ a {
     text-decoration-thickness: 1px;
 }
 
+a:hover {
+   color: var(--color-link--hover);
+}
+
 .title--large {
     line-height: 1.15;
 }
@@ -309,12 +313,6 @@ p:first-child {
 
 .description__author {
     color: var(--color-foreground--muted);
-}
-
-.reviewpage {
-    position: relative;
-    max-width: 400px;
-    margin: 0 auto;
 }
 
 .projectheader {
