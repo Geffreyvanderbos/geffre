@@ -21,7 +21,7 @@
 }
 
 .review:focus-within .review__cover,.review:hover .review__cover {
-    transform: translateY(-.55rem) rotate(-1deg);
+    transform: translateY(-.55rem);
 }
 
 .review__cover {

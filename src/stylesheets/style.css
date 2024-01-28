@@ -748,3 +748,7 @@ p:first-child {
     font-family: 'Georgia';
     font-size: 106%;
 }
+
+.relative {
+    position: relative;
+}
