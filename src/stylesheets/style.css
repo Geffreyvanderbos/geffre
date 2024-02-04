@@ -10,6 +10,7 @@
 
 /* Layout specific styling */
 @import '../_includes/layouts/review.css';
+@import '../_includes/layouts/concept.css';
 
 :root {
     --color-background: hsl(225, 25%, 87%);
@@ -751,4 +752,21 @@ p:first-child {
 
 .relative {
     position: relative;
+}
+
+.link-to-concepts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.link-to-concepts .arrow-right {
+    position: relative;
+    top: 2px;
+    transition: transform .256s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.link-to-concepts:hover .arrow-right {
+    transform: translateX(4px);
 }

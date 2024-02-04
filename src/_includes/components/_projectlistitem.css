@@ -43,7 +43,8 @@
     background-repeat: no-repeat;
     width: 100%;
     padding-top: 74.95%;
-    transition: background-size 10s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: auto;
+    transition: background-size 5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .project__description {
@@ -51,5 +52,5 @@
 }
 
 .project:hover .project__cover{
-    background-size: 130%;
+    background-size: 105%;
 }

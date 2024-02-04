@@ -13,6 +13,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
     eleventyConfig.addPassthroughCopy("./src/note/images/*");
     eleventyConfig.addPassthroughCopy("./src/assets/**/*");
+    eleventyConfig.addPassthroughCopy("./src/concept/*.png");
+    eleventyConfig.addPassthroughCopy("./src/concept/*.jpg");
     eleventyConfig.addPassthroughCopy("./src/CNAME");
     
     eleventyConfig.addPlugin(
@@ -104,6 +106,11 @@ module.exports = function (eleventyConfig) {
         });
     });
     
+    eleventyConfig.addCollection("concepts", function(collectionApi) {
+      return collectionApi.getFilteredByGlob("./src/concept/*.md").sort((a, b) => {
+            return new Date(b.data.date) - new Date(a.data.date);
+        });
+      });
 
     // For Album reviews previous and next
     eleventyConfig.addFilter("findIndex", (array, findFn) => {

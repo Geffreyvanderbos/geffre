@@ -1,0 +1,24 @@
+.concept {
+    max-width: 1280px;
+    margin: 0 auto 16rem auto;
+}
+
+.concept h1 {
+    margin-bottom: 0;
+}
+
+.concept .aside {
+    font-size: .8rem;
+    color: var(--color-foreground--muted);
+    margin-bottom: 2rem;
+}
+
+.concept img {
+    border-radius: var(--outer-radius);
+    box-shadow: var(--color-general-boxshadow) 0px 20px 30px -10px;
+}
+
+.concept .description {
+    max-width: 720px;
+    margin: 4rem auto 0 auto;
+}
