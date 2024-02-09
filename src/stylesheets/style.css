@@ -80,7 +80,7 @@
         --shadow-color--hover: var(--color-general-boxshadow);
     
         --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
-        --color-link: #1573dd;
+        --color-link: rgb(21, 115, 221);
         --color-link--hover: hsl(212, 66%, 52%);
     
         --color-gradient-aurora: linear-gradient(170deg,
