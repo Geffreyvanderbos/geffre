@@ -3,11 +3,11 @@
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Return to the Kingdom of Fife – Geffrey van der Bos</title>
+        <title>Convert Spotify Library to Markdown – Geffrey van der Bos</title>
         <link rel = "preload" href = "/stylesheets/style.css?v=1707853579" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
-        <meta property="og:title" content="Return to the Kingdom of Fife – Geffrey van der Bos">
-        <meta property="og:url" content="https://geff.re/review/return-kingdom-of-fife-gloryhammer/">
+        <meta property="og:title" content="Convert Spotify Library to Markdown – Geffrey van der Bos">
+        <meta property="og:url" content="https://geff.re/note/spotify-extract-markdown/">
         <meta property="og:image" content="/assets/ogimage-geffrey-van-der-bos.jpg">
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
@@ -64,104 +64,126 @@
 </nav>
 
         <div class="wrapper">
-            
-            
+    		<main>
+                <div>
+                <div class="onepage--centered note">
+                <h1>Convert Spotify Library to Markdown</h1>
+                <p>When my Spotify account glitched and my libary showed up empty, I became very aware of the fact my 'music collection' was vendor locked.</p>
+<p>To lose the 1200 (!) albums I've saved over the years, was frightening to say the least.</p>
+<p>Luckily, under some regulations, Spotify is forced to have your information exportable. Grab it under the <em>Download your data</em> heading in <a href="https://www.spotify.com/us/account/privacy/">your Spotify privacy settings</a>.</p>
+<p>After a few days, you'll receive a couple of .json files with your streaming history, playlists–and most interesting to me–a list of everything in your Spotify library.</p>
+<p>I (or rather, ChatGPT and I) then wrote this Python script that can take in this YourLibrary.json and spit out individual Markdown files for every album in the list. With the artist name, album name and Spotify URI in the frontmatter.</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> re
 
-   		<main class="bottom-spacing--large">
-                <section class="grid">
-                    <div class="grid-span-6">
-                    <h1>Return to the Kingdom of Fife</h1>
-                        
+<span class="token comment"># create front matter and content for Markdown file</span>
+<span class="token keyword">def</span> <span class="token function">create_markdown_content</span><span class="token punctuation">(</span>artist<span class="token punctuation">,</span> album<span class="token punctuation">,</span> uri<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    front_matter <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""---
+artist: "</span><span class="token interpolation"><span class="token punctuation">{</span>artist<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'"'</span><span class="token punctuation">,</span> <span class="token string">"'"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"
+album: "</span><span class="token interpolation"><span class="token punctuation">{</span>album<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'"'</span><span class="token punctuation">,</span> <span class="token string">"'"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"
+uri: "</span><span class="token interpolation"><span class="token punctuation">{</span>uri<span class="token punctuation">}</span></span><span class="token string">"
+---
+"""</span></span>
+    <span class="token keyword">return</span> front_matter
 
-                        <p>Gloryhammer's power metal tour de force that winks at the genre while outdoing itself—and everyone else. Who'd have thought they'd leapfrog over 'Legends from Beyond the Galactic Terrorvortex'? Yet here we are. It's as if they've taken the nonsensical heart of power metal, embraced it with a knowing smirk, and spun it into something almost avant-garde. The self-awareness is palpable, tipping the hat to the likes of Rhapsody but never becoming a mere echo.</p>
-<p>And talk about a melodic uplift—these tunes are crafted with a precision that's both cheeky and earnest, synth orchestration blaring with purpose. The new guy on the mic? Reserved judgment turns to nodding approval as he carves his niche with surprising finesse.</p>
-<p>Sure, I could do without the narrative asides—let the music speak, lads. But when it's this spirited, this deftly done, it's not just power metal escapism—it's a bright light in my  too-often dreary catalog. More, please.</p>
+<span class="token comment"># sanitize album names for use as filenames</span>
+<span class="token keyword">def</span> <span class="token function">sanitize_album_name</span><span class="token punctuation">(</span>album_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Replace periods at the start with an underscore, thanks Slipknot.</span>
+    <span class="token keyword">if</span> album_name<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        album_name <span class="token operator">=</span> <span class="token string">'_'</span> <span class="token operator">+</span> album_name<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+    <span class="token comment"># Replace special characters with an underscore, for all normal album names</span>
+    album_name <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'[\\/*?:"&lt;>|,]'</span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token punctuation">,</span> album_name<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> album_name
 
-                    </div>
-                    <div class="grid-span-6">
-                        <div class="reviewpage">
-                            <div class="reviewpage__cover__shadow" style="background-image: url('/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg');"></div>
-                            <div class="reviewpage__cover" style="background-image: url('/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg');"></div>
-                            <div class="albumgrade__container">
-                            
-                                <div class="albumgrade gold">
-                                    <a class="albumgrade__link" title="Read how I grade" href="/note/rating"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80"><defs><linearGradient id="a" x1="6.057%" x2="91.673%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FCCA56"/><stop offset="100%" stop-color="#AB7F1A"/></linearGradient><linearGradient id="b" x1="0%" x2="59.305%" y1="-4.058%" y2="100%"><stop offset="0%" stop-color="#FCCA53"/><stop offset="100%" stop-color="#C2942B"/></linearGradient><filter id="d" width="102.8%" height="102.8%" x="-1.4%" y="-1.4%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation=".5"/><feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/><feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/><feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/><feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadInner2"/><feOffset dx="-1" dy="-2" in="shadowSpreadInner2" result="shadowOffsetInner2"/><feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/><feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 0.819607843 0 0 0 0 0.643137255 0 0 0 0 0.168627451 0 0 0 1 0"/><feMerge><feMergeNode in="shadowMatrixInner1"/><feMergeNode in="shadowMatrixInner2"/></feMerge></filter><circle id="c" cx="40" cy="40" r="35.2"/></defs><g fill="none" fill-rule="evenodd"><circle cx="40" cy="40" r="40" fill="url(#a)"/><use xlink:href="#c" fill="url(#b)"/><use xlink:href="#c" fill="#000" filter="url(#d)"/></g></svg><span class="grade__text">8</span></a>
-                                </div>
-                            
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="grid-span-6 next-review">
-                        <a class="next-review-link--href" title="Navigate to next review" href="/review/prometheus-emperor/"><span>Read my review of &ldquo;Prometheus&rdquo;</span></a>
-                        <div class="next-review-link">
-                                <h1>Prometheus</h1>
-                                <div><p>The last outing and the nail in the coffin for the trve black metal Emperor. Ihsahn uses the opportunity to set the stage for his eclectic solo career. The cult-like subgenre can be quite a stickler for a certain sound, and this album certainly has pushed some (mixpanel) buttons. Well, except for lo-fi harpischores and synths attempting to sound like stringed instruments.</p>
-<p>What has been initiated by the likes of Dissection and Bathory had come to full effect. Prometheus: The Discipline Of Fire &amp; Demise features squeels that sound like ten year olds emulating Dickinson, to unbelieveably intricate compositions that can only be described as 'd*mn!'.</p>
-<p>Ihsahn's haunting screams are bone-chilling. The drumming is furious, the orchestration ... experimental. Prometheus brought fire in a cold, stale subgenre.</p>
-</div>
-                        </div>
-                    </div>
-                    <div class="grid-span-6 next-review-link next-review next-review__cover">
-                        <div class="reviewpage">
-                            <div class="reviewpage__cover__shadow" style="background-image: url('/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg');"></div>
-                            <div class="reviewpage__cover" style="background-image: url('/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg');"></div>
-                        </div>
-                    </div>
-                    <div class="grid-clear"></div>
-                
+<span class="token comment"># export each album to an individual Markdown file</span>
+<span class="token keyword">def</span> <span class="token function">export_albums_to_markdown</span><span class="token punctuation">(</span>albums<span class="token punctuation">,</span> folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> album <span class="token keyword">in</span> albums<span class="token punctuation">:</span>
+        artist <span class="token operator">=</span> album<span class="token punctuation">[</span><span class="token string">'artist'</span><span class="token punctuation">]</span>
+        album_name <span class="token operator">=</span> album<span class="token punctuation">[</span><span class="token string">'album'</span><span class="token punctuation">]</span>
+        uri <span class="token operator">=</span> album<span class="token punctuation">[</span><span class="token string">'uri'</span><span class="token punctuation">]</span>
 
-    		    </section>
+        <span class="token comment"># Sanitize album name to be used as a filename</span>
+        safe_album_name <span class="token operator">=</span> sanitize_album_name<span class="token punctuation">(</span>album_name<span class="token punctuation">)</span>
+
+        <span class="token comment"># Create Markdown content</span>
+        content <span class="token operator">=</span> create_markdown_content<span class="token punctuation">(</span>artist<span class="token punctuation">,</span> album_name<span class="token punctuation">,</span> uri<span class="token punctuation">)</span>
+
+        file_name <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>folder<span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>safe_album_name<span class="token punctuation">}</span></span><span class="token string">.md"</span></span><span class="token punctuation">)</span>
+
+        <span class="token comment"># Write the markdown file</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Exported: </span><span class="token interpolation"><span class="token punctuation">{</span>file_name<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment"># Ask for the JSON file location</span>
+    json_file_path <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter the path to YourLibrary.json: "</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Check if the 'albums' folder exists, create if not</span>
+    folder <span class="token operator">=</span> <span class="token string">'albums'</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>folder<span class="token punctuation">)</span>
+
+    <span class="token comment"># Load and parse the JSON file</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>json_file_path<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+            data <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span>
+        <span class="token comment"># Export albums to markdown in the 'albums' folder</span>
+        export_albums_to_markdown<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'albums'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> folder<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> FileNotFoundError<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"No file found at </span><span class="token interpolation"><span class="token punctuation">{</span>json_file_path<span class="token punctuation">}</span></span><span class="token string">. Please check the path and try again."</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> json<span class="token punctuation">.</span>JSONDecodeError<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error decoding JSON from file </span><span class="token interpolation"><span class="token punctuation">{</span>json_file_path<span class="token punctuation">}</span></span><span class="token string">. Please ensure it's a valid JSON file."</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"An unexpected error occurred: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre>
+<p>To download the coverart of each album, I have a script that is a bit more involved. It uses the Spotify API. Use the form in my site's footer to reach out and I can help you with that, if you like.</p>
+
+                </div>
                 <section>
                     <div class="section-separator"></div>
-                    <div class="reviewpage-grid__reviews">
-                        <h1>Other Reviews</h1>
-                        <span class="byline">Write-ups on music recordings</span>
-                        <div class="reviews__grid">
-                        
+                    <div>
+                        <ul class="notesgrid  bottom-spacing--medium">
+                            <li class="">
+                                <a class="notesgrid__link" href="/notes">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="notesgrid__icon"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                                    <div class="noteinformation">
+                                        <span class="noteinformation__title">Notes Page</span>
+                                        <span class="noteinformation__metadata smalltext">Explore other thoughts</span>
+                                    </div>
+                                </a>
+                            </li>
+                            
+                            
                             
                                 
                             
                                 
-                                    <a class="review" href="/review/charcoal-grace-caligulas-horse/">
-                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg');"></div>
-                                        <div class="review__cover" style="background-image: url('/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg');"></div>
-                                        <div class="review__description">
-                                            <span class="description__title">Charcoal Grace</span>
-                                            <span class="description__author">Caligulas Horse</span>
-                                        </div>
-                                    </a>
+                            
+                                
+                            
                                 
                             
                                 
                             
                                 
-                                    <a class="review" href="/review/prometheus-emperor/">
-                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg');"></div>
-                                        <div class="review__cover" style="background-image: url('/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg');"></div>
-                                        <div class="review__description">
-                                            <span class="description__title">Prometheus</span>
-                                            <span class="description__author">Emperor</span>
-                                        </div>
-                                    </a>
+                            
                                 
                             
                                 
-                                    <a class="review" href="/review/io-peter-gabriel/">
-                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg');"></div>
-                                        <div class="review__cover" style="background-image: url('/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg');"></div>
-                                        <div class="review__description">
-                                            <span class="description__title">I/O</span>
-                                            <span class="description__author">Peter Gabriel</span>
-                                        </div>
-                                    </a>
+                            
                                 
                             
-                        
-                        </div>
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
                     </div>
                 </section>
             </main>
+        </div>
             <footer>
     <div class="footer__content">
         <div class="grid">
@@ -268,6 +290,5 @@
 <link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
 <script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
-        </div>
     </body>
 </html>
