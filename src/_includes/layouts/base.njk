@@ -4,7 +4,7 @@
     <body>
         <div class="wrapper">
             {% include "partials/_navigation.njk" %}
-    		<main>
+    		<main class="{% if projectdate %}projectpage{% endif %}">
                 {{ content | safe }}
     		</main>
             {% include "partials/_footer.njk" %}

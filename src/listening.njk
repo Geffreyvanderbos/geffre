@@ -12,7 +12,20 @@ pageDescription: <p>Welcome to my real-time musical diary, a direct and unfilter
     {% include "partials/_introduction.njk" %}
 
     <section>
-        <div class="grid bottom-spacing--large">
+        <div class="grid">
+            <div class="grid-span-12">
+              <h2 style="margin-bottom: 0;">Listening Statistics</h2>
+                <p class="byline">Since the making of this website on 2024-01-08</p>
+                <div class="stats-grid" id="listeningStats">
+                </div>
+            </div>
+
+            <div class="grid-span-12 currentlyplaying">
+                <h2>Currently playing</h2>
+                <span class="byline">Pulled directly from my Spotify listening activity</span>
+                <ul id="listenList"></ul>
+            </div>
+
             <div class="grid-span-12">
                 <h2>Album reviews</h2>
                 <span class="byline">My reflections on pop, rock and metal recordings</span>
@@ -35,18 +48,6 @@ pageDescription: <p>Welcome to my real-time musical diary, a direct and unfilter
                       </div>
                   {% endif %}
               </div>
-            </div>
-            <div class="grid-span-12">
-              <h2 style="margin-bottom: 0;">Listening Statistics</h2>
-                <p class="byline">Since the making of this website on 2024-01-08</p>
-                <div class="stats-grid" id="listeningStats">
-                </div>
-            </div>
-
-            <div class="grid-span-12" style="min-height: 90vh;">
-                <h2>Currently playing</h2>
-                <span class="byline">Pulled directly from my Spotify listening activity</span>
-                <ul id="listenList"></ul>
             </div>
         </div>
     </section>

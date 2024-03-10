@@ -11,7 +11,6 @@ order: 1
     <div class="homepage-grid__introduction">
         <h2 class="introduction--first">geffrey is a digital product designer and amateur musicologist</h2>
         <h2 class="introduction--second">
-
         <svg xmlns="http://www.w3.org/2000/svg" width="9.5" height="32"><path fill="#202020" fill-rule="evenodd" d="M4 0h1.5v27h4l-4.75 5L0 27h4V0Z"/></svg>
             a selection of digital products I helped realise
         </h2>
@@ -52,8 +51,10 @@ order: 1
             </div>
         {% endif %}
     </div>
-    </div>
     <div class="homepage-grid__projects">
+        <h2 class="heading-on-mobile">
+            a selection of digital products I helped realise
+        </h2>
         {% for project in collections.projects %}
             {% set url = project.url %}
             {% set title = project.data.title %}

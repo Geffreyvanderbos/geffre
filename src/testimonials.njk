@@ -3,7 +3,6 @@ title: "Testimonials"
 layout: "/layouts/base.njk"
 ---
 
-
 <section>
 <h1>{{ title }}</h1>
 <p class="maxcharacterlength--54">Here, you'll find kind words from the incredible colleagues I've had the privilege of working with. A huge thank you to these outstanding individuals for their collaboration and spirit. The highlights are by me.</p>
@@ -144,7 +143,7 @@ layout: "/layouts/base.njk"
 
     .testimonial__picture {
       display: block;
-      width: 42px;
+      width: 42px !important;
       height: 42px;
       border-radius: 50%;
       margin: 0 .75rem;
@@ -160,11 +159,9 @@ layout: "/layouts/base.njk"
     }
 
     .draggable {
-        background-color: var(--background-glass);
-        border: var(--border);
+        background-color: rgba(255,255,255,0.5);
         max-width: 420px;
         font-size: 90%;
-
         -webkit-backdrop-filter: blur(25px);
         backdrop-filter: blur(25px);
         margin-bottom: 1rem; /* Add some space between elements on smaller screens */

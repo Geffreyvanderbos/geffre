@@ -1,6 +1,5 @@
 
 #contactForm {
-    border-radius: .5rem;
     font-size: .9rem;
     max-width: 420px;
     margin-bottom: 2rem;
@@ -63,7 +62,6 @@
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
 }
 
