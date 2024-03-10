@@ -35,6 +35,8 @@
     flex-wrap: nowrap;
     list-style: none;
     padding: 0;
+    background-color: var(--color-foreground);
+    color: var(--color-background);
 }
 
 .navigation__item {
@@ -46,7 +48,10 @@
     text-decoration: none;
     color: inherit;
     display: block;
-    margin-right: 2rem;
+}
+
+.navigation__link:not(:last-child) {
+    margin-right: 1rem;
 }
 
 .navigation__link span {

@@ -7,7 +7,7 @@
 }
 
 #contactForm label:not(.segmented-control label) {
-    display: block;
+    display: inline-block;
 }
 
 #contactForm input[type="text"] {
@@ -17,16 +17,14 @@
     color: var(--color-footer-foreground);
     font-size: 1rem;
     display: inline-block;
-    background-color: hsla(225, 14%, 10%, 0.5);
-    border: 1px solid  hsla(225, 14%, 40%, 0.47);
-    border-radius: .2rem;
+    background-color: transparent;
+    border: 1px solid  var(--color-footer-foreground);
     box-sizing: border-box;
 }
 
 #contactForm .segmented-control {
     display: flex;
-    border: 1px solid hsla(225, 14%, 40%, 0.47);
-    border-radius: .2rem;
+    border: 1px solid var(--color-footer-foreground);
     overflow: hidden;
     margin: .3rem 0 1rem 0;
 }
@@ -40,7 +38,7 @@
     padding: .3rem;
     text-align: center;
     background-color: transparent;
-    border-right: 1px solid hsla(225, 14%, 40%, 0.47);
+    border-right: 1px solid var(--color-footer-foreground);
     cursor: pointer;
     font-size: .8rem;
 }
@@ -50,7 +48,7 @@
 }
 
 #contactForm .segmented-control input[type="radio"]:checked + label {
-    background-color: hsla(225, 24%, 80%, 0.87);
+    background-color: var(--color-footer-foreground);
     color: var(--color-footer-background);
 }
 

@@ -6,21 +6,6 @@
     text-decoration: none;
 }
 
-.project:before {
-    content: "";
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
-    opacity: 0;
-}
-
-.project:hover:before {
-    opacity: 1;
-}
-
 .project__cover {
     display: block;
     border: 1px solid var(--color-project-cover-border);
@@ -30,13 +15,13 @@
     width: 100%;
     padding-top: 74.95%;
     will-change: auto;
-    transition: background-size 5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .project__description {
-    margin: 1.25rem 0 .75rem 0;
+    margin: 0;
+    text-transform: lowercase;
 }
 
 .project:hover .project__cover{
-    background-size: 105%;
+    opacity: .95;
 }

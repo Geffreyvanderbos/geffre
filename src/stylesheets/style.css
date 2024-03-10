@@ -14,11 +14,11 @@
 
 :root {
     --color-background: #DCDCDC;
-    --color-foreground: hsl(234, 71%, 3%);
+    --color-foreground: rgb(5, 5, 5);
     --color-foreground--muted: hsl(237, 12%, 31%);
 
-    --color-footer-background: hsl(234, 71%, 3%);
-    --color-footer-foreground: hsl(225, 25%, 87%);
+    --color-footer-background: #DCDCDC;
+    --color-footer-foreground: rgb(5, 5, 5);
 
     --border: 1px solid hsla(225, 14%, 97%, 0.3);
     --background-glass: hsla(225, 24%, 99%, 0.5);
@@ -76,6 +76,10 @@ html {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.introduction {
+    margin-bottom: 4rem;
 }
 
 .byline {
@@ -197,11 +201,12 @@ h1, h2, h3, h4 {
 
 main {
     flex: 1;
+    margin: 0 1rem 4rem 1rem;
 }
 
 section {
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0;
     width: 100%;
     max-width: var(--grid-width);
 }
@@ -292,7 +297,7 @@ p:first-child {
 
 .onepage--centered {
     width: 100%;
-    max-width: var(--innerpage-width);
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -311,11 +316,7 @@ p:first-child {
     margin-bottom: 0;
 }
 
-.homepage-grid {
-    margin: 1rem;
-}
-
-.homepage-grid__notes ul {
+.homepage-grid__notes ul, .grid__notes ul {
     list-style: none;
     padding: 0;
     margin: 1rem 0 0 0;
@@ -324,16 +325,39 @@ p:first-child {
 .homepage-notes__item {
 }
 
-.homepage-notes__content {
+.homepage-notes__content, .notes__content{
+    display: flex; 
+    flex-direction: row;
+    align-content: center;
     text-decoration: none;
     text-transform: lowercase;
-    line-height: 48px;
+    padding: 0.5rem 0;
     border-bottom: 1px solid #BBBBBB;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.homepage-notes__coverart, .notes__coverart {
+    margin-right: 1rem;
+}
+
+#coverart-preview {
+    position: fixed;
+    pointer-events: none;
+    width: 200px; 
+    height: 200px;
+    display: none;
+    z-index: 5;
+}
+
+#coverart-preview.visible {
     display: block;
 }
 
 .introduction--second {
     display: none;
+    margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) { 
@@ -387,7 +411,7 @@ p:first-child {
         grid-template-rows: auto;
     }
 
-    .homepage-grid__notes {
+    .homepage-grid__notes, .grid__notes {
         grid-area: notes;
         display: flex;
         flex-direction: column;
@@ -484,29 +508,13 @@ p:first-child {
     margin-bottom: 2rem;
 }
 
-.theme-toggle__flexbox {
-    height: 100%;
-    display: flex;
-    justify-content: center;
+.notesgrid {
+    list-style: none;
+    padding: 0;
 }
 
-#themeToggle, #themeToggle:focus, #themeToggle:active, #themeToggle:hover {
-    background: none;
-    height: 100%;
-    border: none;
-    /* padding: 0 .75rem; */
-    margin: 0;
-    cursor: pointer;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    overflow: visible;
-    text-align: left;
-    outline: none;
-    box-sizing: border-box;
-    display: inline-flex;
-    justify-content: center;
-    flex-direction: column;
+.notesgrid li {
+    padding-bottom: 1rem;
 }
 
 .stats-grid {

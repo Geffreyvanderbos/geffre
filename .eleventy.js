@@ -112,6 +112,30 @@ module.exports = function (eleventyConfig) {
         });
       });
 
+    eleventyConfig.addCollection("combinedNotesReviews", function(collectionApi) {
+      // Get notes and add a type property to each item
+      let notes = collectionApi.getFilteredByGlob("./src/note/*.md").map(item => {
+          item.data.type = "note"; // Add a type property to distinguish notes
+          return item;
+      });
+  
+      // Get reviews and add a type property to each item
+      let reviews = collectionApi.getFilteredByGlob("./src/review/*.md").map(item => {
+          item.data.type = "review"; // Add a type property to distinguish reviews
+          return item;
+      });
+  
+      // Combine the notes and reviews into a single array
+      let combined = notes.concat(reviews);
+  
+      // Optionally, sort the combined array by date or another property
+      combined.sort((a, b) => {
+          return new Date(b.data.created) - new Date(a.data.created);
+      });
+  
+      return combined;
+    });
+    
     // For Album reviews previous and next
     eleventyConfig.addFilter("findIndex", (array, findFn) => {
         return array.findIndex(findFn);

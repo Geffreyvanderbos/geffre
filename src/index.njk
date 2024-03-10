@@ -10,27 +10,48 @@ order: 1
 <div class="homepage-grid">
     <div class="homepage-grid__introduction">
         <h2 class="introduction--first">geffrey is a digital product designer and amateur musicologist</h2>
-        <h2 class="introduction--second">a selection of digital products I helped realise</h2>
+        <h2 class="introduction--second">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="9.5" height="32"><path fill="#202020" fill-rule="evenodd" d="M4 0h1.5v27h4l-4.75 5L0 27h4V0Z"/></svg>
+            a selection of digital products I helped realise
+        </h2>
     </div>
     <div class="homepage-grid__notes">
         <h2>thoughts on music \ design \ life</h2>
-        {% if collections.notes.length > 0 %}
-        <div class="notes__columns">
-            <ul>
-            {% for note in collections.notes %}
-                <li class="homepage-notes__item">
-                    <a class="homepage-notes__content" href="{{ note.url }}">
-                        <span class="homepage-notes__heading">{{ note.data.title }}</span>
+        {% if collections.combinedNotesReviews.length > 0 %}
+    <div class="notes__columns">
+        <ul>
+        {% for item in collections.combinedNotesReviews %}
+            {% if item.data.mbid or item.data.status %}
+                {# This item is identified as a review #}
+                {% set url = item.url %}
+                {% set mbid = item.data.mbid %}
+                {% set title = item.data.title %}
+                {% set author = item.data.author %}
+                {% set status = item.data.status %}
+                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/{{ mbid }}.jpg">
+                    <a class="homepage-notes__content" href="{{ url }}">
+                        <img class="homepage-notes__coverart" src="/assets/albumcovers/{{ mbid }}.jpg" width="28" height="28" alt="coverart of {{ title }}"><span class="homepage-notes__heading">{{ title }} by {{ author }}</span>
                     </a>
                 </li>
-            {% endfor %}
             {% else %}
-                <li style="text-align: center; margin: 0 2rem;">
-                    <strong>Here's where I'd put my notes. If I had any 😤.</strong>
+                {# This item is identified as a note #}
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="{{ item.url }}">
+                        <span class="homepage-notes__heading">{{ item.data.title }}</span>
+                    </a>
                 </li>
-            </ul>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+        {% else %}
+            <div class="review__description">
+                <span class="description__title">Excuse me while I gather my content.</span>
+                <span class="description__author">This is only temporary.</span>
+            </div>
         {% endif %}
-        </div>
+    </div>
     </div>
     <div class="homepage-grid__projects">
         {% for project in collections.projects %}

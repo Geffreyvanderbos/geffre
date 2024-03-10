@@ -19,11 +19,8 @@
     padding: 2rem 1.75rem 0.5rem 1.75rem;
     max-width: 480px;
     z-index: 2;
-    border-radius: .75rem;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-    background: var(--background-glass);
-    border: var(--border);
+    background-color: var(--color-background);
+    border: 3px solid var(--color-foreground);
 }
 
 .embeddable-buttondown-form label {
@@ -37,9 +34,8 @@
     color: var(--color-footer-foreground);
     font-size: 1rem;
     display: inline-block;
-    background-color: hsla(225, 14%, 10%, 0.5);
-    border: 1px solid  hsla(225, 14%, 40%, 0.47);
-    border-radius: .2rem;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-foreground);
     box-sizing: border-box;
 }
 
@@ -49,7 +45,6 @@
     color: var(--color-contacform-button-label);
     padding: .6rem;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: .9rem;
 }
