@@ -2,15 +2,13 @@
 <html class="no-js" lang="">
     {% include "partials/_head.njk" %}
     <body>
-    <div class="aurora">
-    </div>
+        <div class="wrapper">
         {% include "partials/_navigation.njk" %}
 
-        <div class="wrapper">
             {% set neighbors = collections.reviews | findReviewNeighbors(page.url) %}
             {% set nextReview = neighbors.nextReview %}
 
-   		<main class="bottom-spacing--large">
+   		<main>
                 <section class="grid">
                     <div class="grid-span-6">
                     <h1>{{ title }}</h1>

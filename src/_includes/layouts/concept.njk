@@ -2,11 +2,8 @@
 <html class="no-js" lang="">
     {% include "partials/_head.njk" %}
     <body>
-    <div class="aurora">
-    </div>
-        {% include "partials/_navigation.njk" %}
-
         <div class="wrapper">
+            {% include "partials/_navigation.njk" %}
     		<main class="concept">
                 <h1>{{ title }}</h1>
                 <div class="aside">{{ aside | safe }}</div>

@@ -31,17 +31,6 @@
                             </a>
                         </li>
                     </ul>
-                    <h3>Get in touch</h3>
-                 {% include "partials/_contactform.njk" %}
-            </div>
-            <div class="grid-span-6">
-                <ul class="footer__navigation">
-                    {% for item in collections.navigation %}
-                    <li class="">
-                        <a class=" {% if item.url === page.url %}navigation__link--active{% endif %}" href="{{ item.url }}"><span>{{ item.data.menutitle }}</span></a>
-                    </li>
-                    {% endfor %}
-                </ul>
             </div>
             <div class="grid-span-8 smalltext">
             <p>
@@ -54,5 +43,5 @@
 </footer>
 
 <link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
-<script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
+<script type="text/javascript" src="/scripts/misc.js" defer></script>

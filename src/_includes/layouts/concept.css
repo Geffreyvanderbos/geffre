@@ -15,7 +15,6 @@
 
 .concept img {
     border-radius: var(--outer-radius);
-    box-shadow: var(--color-general-boxshadow) 0px 20px 30px -10px;
 }
 
 .concept .description {
