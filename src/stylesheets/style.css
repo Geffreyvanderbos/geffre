@@ -175,10 +175,6 @@ body {
     margin: 0;
 }
 
-a {
-    color: var(--color-link);
-}
-
 a:visited {
     color: inherit;
 }
