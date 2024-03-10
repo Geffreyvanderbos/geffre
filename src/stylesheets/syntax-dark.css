@@ -43,15 +43,12 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"] {
 	padding: .1rem .3rem;
-	border-radius: .3rem;
 	color: #db4c69;
 	background: #1e1e1e;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-   border-radius: .75rem;
-   box-shadow: var(--color-general-boxshadow) 0px 8px 30px -20px;
    background: var(--background-glass);
    border: var(--border);
 }
@@ -60,7 +57,6 @@ code:not(pre > code), :not(pre) > code {
    background: var(--background-glass);
    border: var(--border);
    padding: .25rem;
-   border-radius: .2rem;
    white-space: normal;
 }
 
@@ -284,6 +280,5 @@ pre[class*="language-"] > code[class*="language-"] {
 
 .line-highlight.line-highlight {
 	background: #f7ebc6;
-	box-shadow: inset 5px 0 0 #f7d87c;
 	z-index: 0;
 }

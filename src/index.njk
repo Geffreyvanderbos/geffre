@@ -6,75 +6,57 @@ menutitle: Home
 order: 1
 ---
 
-<section>
-    <div class="introduction">
-        <div class="introduction__title">
-            <h1 class="title--large">
-                {{ "src/_content/introductionTitle.md" | markdownify | safe }}
-            </h1>
-        </div>
 
-        <div class="introduction__about paragraph--big">{{ "src/_content/introductionAbout.md" | markdownify | safe }}
-        </div>
-    </div>
-</section>
-
-<section class="homepage-grid">
-    <div class="homepage-grid__projects">
-        <h1>Selected Works</h1>
-        <span class="byline">A selection of digital products I helped realise.</span>
-        <div class="projects__grid">
-            {% for project in collections.projects %}
-
-                    {% set url = project.url %}
-                    {% set title = project.data.title %}
-                    {% set projectcover = project.data.projectcover %}
-                    {% include "components/_projectlistitem.njk" %}
-
-            {% endfor %}
-            <div class="link-to-concepts">
-                Also check-out my&nbsp;<a href="/concepts" title="Navigate to Geffrey his (UI) concepts">concepts.<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-        </div>
+<div class="homepage-grid">
+    <div class="homepage-grid__introduction">
+        <h2 class="introduction--first">geffrey is a digital product designer and amateur musicologist</h2>
+        <h2 class="introduction--second">a selection of digital products I helped realise</h2>
     </div>
     <div class="homepage-grid__notes">
-        <h1>Notes</h1>
-        <span class="byline">Thoughts on music, design, and life.</span>
-        <ul class="homepage-notes">
+        <h2>thoughts on music \ design \ life</h2>
         {% if collections.notes.length > 0 %}
+        <div class="notes__columns">
+            <ul>
             {% for note in collections.notes %}
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="{{ note.url }}">
-                    <span class="homepage-notes__heading">{{ note.data.title }}</span>
-                </a>
-            </li>
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="{{ note.url }}">
+                        <span class="homepage-notes__heading">{{ note.data.title }}</span>
+                    </a>
+                </li>
             {% endfor %}
-        {% else %}
-            <li style="text-align: center; margin: 0 2rem;"><strong>Here's where I'd put my notes. If I had any 😤.</strong></li>
-        {% endif %}
-        </ul>
-    </div>
-    <div class="homepage-grid__reviews bottom-spacing--large">
-        <h1>Music Reviews</h1>
-        <span class="byline">My reflections on pop, rock and metal recordings</span>
-        <div class="reviews__grid">
-            {% if collections.reviews.length > 0 %}
-                {% for review in collections.reviews %}                
-
-                    {% set url = review.url %}
-                    {% set mbid = review.data.mbid %}
-                    {% set title = review.data.title %}
-                    {% set author = review.data.author %}
-                    {% set status = review.data.status %}
-                    {% include "components/_reviewlistitem.njk" %}
-
-                {% endfor %}
             {% else %}
+                <li style="text-align: center; margin: 0 2rem;">
+                    <strong>Here's where I'd put my notes. If I had any 😤.</strong>
+                </li>
+            </ul>
+        {% endif %}
+        </div>
+    </div>
+    <div class="homepage-grid__projects">
+        {% for project in collections.projects %}
+            {% set url = project.url %}
+            {% set title = project.data.title %}
+            {% set projectcover = project.data.projectcover %}
+            {% include "components/_projectlistitem.njk" %}
+        {% endfor %}
+    </div>
+</div>
+
+{# {% if collections.reviews.length > 0 %}
+        {% for review in collections.reviews %}                
+
+            {% set url = review.url %}
+            {% set mbid = review.data.mbid %}
+            {% set title = review.data.title %}
+            {% set author = review.data.author %}
+            {% set status = review.data.status %}
+            {% include "components/_reviewlistitem.njk" %}
+
+        {% endfor %}
+    {% else %}
                     <div class="review__description">
                         <span class="description__title">Excuse me while I gather my album reviews.</span>
                         <span class="description__author">This is only temporary.</span>
                     </div>
-            {% endif %}
-        </div>
-    </div>
-</section>
+    {% endif %} 
+#}

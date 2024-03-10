@@ -2,11 +2,9 @@
 <html class="no-js" lang="">
     {% include "partials/_head.njk" %}
     <body>
-    <div class="aurora">
-    </div>
+        <div class="wrapper">
         {% include "partials/_navigation.njk" %}
 
-        <div class="wrapper">
             {% set neighbors = collections.reviews | findReviewNeighbors(page.url) %}
             {% set nextReview = neighbors.nextReview %}
 
