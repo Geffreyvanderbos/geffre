@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Controlling Boox Network Traffic – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1707853579" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1710101001" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Controlling Boox Network Traffic – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/controlling-boox-network-traffic/">
@@ -13,28 +13,18 @@
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
         <link rel="icon" href="/assets/favicon/icon.svg" type="image/svg+xml">
         <meta name="theme-color" content="#000">
-        <style>
-            :root {
-                --color-background: hsl(225, 25%, 87%);
-                --color-foreground: hsl(234, 71%, 3%);
-                --color-gradient-background: linear-gradient(180deg, hsl(255,5%,97%) 0%, hsl(231,10%,87%) 100%);
-            }
-            .dark-mode {
-                --color-background: hsl(225, 10%, 5%);
-                --color-foreground: hsl(234, 10%, 93%);
-                --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
-            }
-        </style>
-        <script type="text/javascript" src="/scripts/handledarkmode.js"></script>
     </head>
     <body>
-    <div class="aurora">
-    </div>
-        <nav class="navigation">
+        <div class="wrapper">
+            <nav class="navigation">
   <ul class="navigation__list">
     
       <li class="navigation__item">
         <a class="navigation__link " href="/"><span>Home</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
     </li>
     
       <li class="navigation__item">
@@ -53,22 +43,14 @@
         <a class="navigation__link " href="/about/"><span>About</span></a>
     </li>
     
-    <li class="navigation__item theme-toggle">
-      <div class="theme-toggle__flexbox">
-        <button id="themeToggle">  
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        </button>
-      </div>
-    </li>
+    
   </ul>
 </nav>
-
-        <div class="wrapper">
     		<main>
                 <div>
-                <div class="onepage--centered note">
-                <h1>Controlling Boox Network Traffic</h1>
-                <p>One challenge I have with my Boox Leaf2 is the fact that it has some substantial background traffic. They're constantly phoning home. Many people don't think it's suspicious, but it could be sending your data to a server in China. I decided I don't want it to constantly  communicate with their telemetry servers, including QQ.com and Alibaba.com. So, I shut that down.</p>
+                    <div class="onepage--centered note">
+                    <h1>Controlling Boox Network Traffic</h1>
+                    <p>One challenge I have with my Boox Leaf2 is the fact that it has some substantial background traffic. They're constantly phoning home. Many people don't think it's suspicious, but it could be sending your data to a server in China. I decided I don't want it to constantly  communicate with their telemetry servers, including QQ.com and Alibaba.com. So, I shut that down.</p>
 <p>The issue is the communication happens at the root level, and we don't have default root access to these devices. I needed a non-root access solution, and there is: an app called <a href="https://netguard.me/">NetGuard</a>.</p>
 <p>NetGuard is a no-root firewall allowing complete control over network traffic. It creates a VPN on your device and routes all traffic through it, discarding unwanted traffic.</p>
 <p>NetGuard is open-source; all source code is available for viewing. I use the 'pro' version, which you get after donating a few euros. I can view blocked traffic logs, filter traffic on an IP or protocol basis, receive new app notifications if something new tries to phone out undetected.</p>
@@ -76,49 +58,94 @@
 <p>I block all traffic except for the apps I actually use. Like <a href="https://omnivore.app/">Omnivore</a>, <a href="https://obsidian.md">Obsidian</a>, and the web browser. By the way, you'll have to turn off Netguard periodically to see if there are any firmware updates.</p>
 <p><img src="/note/images/boox-leaf2.png" alt="Boox Leaf2 with custom illustration of our family"></p>
 
-                </div>
-                <section>
-                    <div class="section-separator"></div>
-                    <div>
-                        <ul class="notesgrid  bottom-spacing--medium">
-                            <li class="">
-                                <a class="notesgrid__link" href="/notes">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="notesgrid__icon"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                                    <div class="noteinformation">
-                                        <span class="noteinformation__title">Notes Page</span>
-                                        <span class="noteinformation__metadata smalltext">Explore other thoughts</span>
-                                    </div>
+                    </div>
+                    <div class="grid__notes">
+                    
+                    <ul>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/spotify-extract-markdown/">
+                                    <span class="notes__heading">Convert Spotify Library to Markdown</span>
+                                    <span style="margin-left: auto;" class="notes__category">scripts</span>
                                 </a>
                             </li>
-                            
-                            
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                        </ul>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/rating/">
+                                    <span class="notes__heading">My Rating System and Review Criteria</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/absolute-music/">
+                                    <span class="notes__heading">Music with an inherent value</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/aesthetics-in-music/">
+                                    <span class="notes__heading">How we value music as an art form</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/ia-assisted-music-not-problem/">
+                                    <span class="notes__heading">AI-assisted music is not the problem</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/zotero-research-paper-template/">
+                                    <span class="notes__heading">My Zotero research paper template</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/grid-layout-notes/">
+                                    <span class="notes__heading">Lay out all Obsidian notes in a grid</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/highlights-callouts-obsidian/">
+                                    <span class="notes__heading">Highlight callouts in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/recent-files-obsidian/">
+                                    <span class="notes__heading">Display recent files in Obsidian Vault</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/unlinked-notes-in-obsidian/">
+                                    <span class="notes__heading">List unlinked notes in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/controlling-boox-network-traffic/">
+                                    <span class="notes__heading">Controlling Boox Network Traffic</span>
+                                    <span style="margin-left: auto;" class="notes__category">technology</span>
+                                </a>
+                            </li>
+                    
+                    </ul>
+                    
                     </div>
-                    </div>
-                </section>
+
+                            
+                </div>
             </main>
         </div>
             <footer>
@@ -154,65 +181,6 @@
                             </a>
                         </li>
                     </ul>
-                    <h3>Get in touch</h3>
-                 <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="apikey" value="219cb173-ead9-494f-9ebe-3eeef64c7986">
-    <div>
-        <label>Preferred channel</label>
-        <div class="segmented-control">
-            <input type="radio" id="email" name="platform" value="email" checked>
-            <label for="email" tabindex="0">Email</label>
-            <input type="radio" id="signal" name="platform" value="signal">
-            <label for="signal" tabindex="0">Signal</label>
-            <input type="radio" id="telegram" name="platform" value="telegram">
-            <label for="telegram" tabindex="0">Telegram</label>
-            <input type="radio" id="whatsapp" name="platform" value="whatsapp">
-            <label for="whatsapp" tabindex="0">WhatsApp</label>
-        </div>
-    </div>
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="contact" id="contact-label">Email Address</label>
-        <input type="text" id="contact" name="contact">
-    </div>
-    <div>
-        <button type="submit" id="submit-button">Send Geffrey my contact details</button>
-    </div>
-    <input type="hidden" name="subject" value="New Submission from Contact Form">
-    <input type="hidden" name="from_name" value="Geff.re Website">
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-</form>
-<div id="submissionMessage"></div>
-
-<script type="text/javascript" src="/scripts/contactform.js"></script>
-            </div>
-            <div class="grid-span-6">
-                <ul class="footer__navigation">
-                    
-                    <li class="">
-                        <a class=" " href="/"><span>Home</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/now/"><span>Now</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/listening/"><span>Listening</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/uses/"><span>Uses</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/about/"><span>About</span></a>
-                    </li>
-                    
-                </ul>
             </div>
             <div class="grid-span-8 smalltext">
             <p>
@@ -225,7 +193,7 @@
 </footer>
 
 <link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
-<script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
+<script type="text/javascript" src="/scripts/misc.js" defer></script>
     </body>
 </html>

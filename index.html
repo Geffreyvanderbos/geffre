@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Portfolio – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1707853579" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1710101001" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Portfolio – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/">
@@ -13,28 +13,18 @@
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
         <link rel="icon" href="/assets/favicon/icon.svg" type="image/svg+xml">
         <meta name="theme-color" content="#000">
-        <style>
-            :root {
-                --color-background: hsl(225, 25%, 87%);
-                --color-foreground: hsl(234, 71%, 3%);
-                --color-gradient-background: linear-gradient(180deg, hsl(255,5%,97%) 0%, hsl(231,10%,87%) 100%);
-            }
-            .dark-mode {
-                --color-background: hsl(225, 10%, 5%);
-                --color-foreground: hsl(234, 10%, 93%);
-                --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
-            }
-        </style>
-        <script type="text/javascript" src="/scripts/handledarkmode.js"></script>
     </head>
     <body>
-    <div class="aurora">
-    </div>
-        <nav class="navigation">
+        <div class="wrapper">
+            <nav class="navigation">
   <ul class="navigation__list">
     
       <li class="navigation__item">
         <a class="navigation__link navigation__link--active" href="/"><span>Home</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
     </li>
     
       <li class="navigation__item">
@@ -53,257 +43,238 @@
         <a class="navigation__link " href="/about/"><span>About</span></a>
     </li>
     
-    <li class="navigation__item theme-toggle">
-      <div class="theme-toggle__flexbox">
-        <button id="themeToggle">  
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        </button>
-      </div>
-    </li>
+    
   </ul>
 </nav>
-
-        <div class="wrapper">
-    		<main>
+    		<main class="">
                 
-<section>
-    <div class="introduction">
-        <div class="introduction__title">
-            <h1 class="title--large">
-                <p class="title--large">Geffrey strives to <em>shape technology</em> that enhances the way we <em>experience music</em>.</p>
 
-            </h1>
-        </div>
-
-        <div class="introduction__about paragraph--big"><p>He is a digital product designer and amateur musicologist.  Delving into how Web3 and AI are reshaping music. Guiding software development at Comecer.</p>
-
-        </div>
-    </div>
-</section>
-
-<section class="homepage-grid">
-    <div class="homepage-grid__projects">
-        <h1>Selected Works</h1>
-        <span class="byline">A selection of digital products I helped realise.</span>
-        <div class="projects__grid">
-            
-
-                    
-                    
-                    
-                    <a class="project" href="/project/smartlab/">
-    <div class="project__cover lazy-loaded" data-bgimage="/project/smartlab/assets/case-study-smartlab-ui--small.jpg"></div>
-        <div class="project__description">
-            <span>Smartlab — A Case Study in Next-Generation Radiopharmacy Workflow Management</span>
-        </div>
-</a>
-
-            
-
-                    
-                    
-                    
-                    <a class="project" href="/project/construction/">
-    <div class="project__cover lazy-loaded" data-bgimage="/project/construction/assets/case-study-construction-ui--small.jpg"></div>
-        <div class="project__description">
-            <span>Construction Corporation - Innovating in Construction Measurement Management</span>
-        </div>
-</a>
-
-            
-
-                    
-                    
-                    
-                    <a class="project" href="/project/hotel/">
-    <div class="project__cover lazy-loaded" data-bgimage="/project/hotel/assets/case-study-mkey-ui--small.jpg"></div>
-        <div class="project__description">
-            <span>Success Hotel Group - Elevating Guest Experience through IoT Integration</span>
-        </div>
-</a>
-
-            
-            <div class="link-to-concepts">
-                Also check-out my&nbsp;<a href="/concepts" title="Navigate to Geffrey his (UI) concepts">concepts.<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-        </div>
+<div class="homepage-grid">
+    <div class="homepage-grid__introduction">
+        <h2 class="introduction--first">geffrey is a digital product designer and amateur musicologist</h2>
+        <h2 class="introduction--second">
+        <svg xmlns="http://www.w3.org/2000/svg" width="9.5" height="32"><path fill="#202020" fill-rule="evenodd" d="M4 0h1.5v27h4l-4.75 5L0 27h4V0Z"/></svg>
+            a selection of digital products I helped realise
+        </h2>
     </div>
     <div class="homepage-grid__notes">
-        <h1>Notes</h1>
-        <span class="byline">Thoughts on music, design, and life.</span>
-        <ul class="homepage-notes">
+        <h2>thoughts on music \ design \ life</h2>
+        
+    <div class="notes__columns">
+        <ul>
         
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/spotify-extract-markdown/">
-                    <span class="homepage-notes__heading">Convert Spotify Library to Markdown</span>
-                </a>
-            </li>
+                
+                
+                
+                
+                
+                
+                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/7ca14c43-d818-47ed-95c6-20cb8a95df2c.jpg">
+                    <a class="homepage-notes__content" href="/review/fall-borknagar/">
+                        <img class="homepage-notes__coverart" src="/assets/albumcovers/7ca14c43-d818-47ed-95c6-20cb8a95df2c.jpg" width="28" height="28" alt="coverart of Fall"><span class="homepage-notes__heading">Fall by Borknagar</span>
+                    </a>
+                </li>
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/rating/">
-                    <span class="homepage-notes__heading">My Rating System and Review Criteria</span>
-                </a>
-            </li>
+        
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/absolute-music/">
-                    <span class="homepage-notes__heading">Music with an inherent value</span>
-                </a>
-            </li>
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/spotify-extract-markdown/">
+                        <span class="homepage-notes__heading">Convert Spotify Library to Markdown</span>
+                    </a>
+                </li>
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/aesthetics-in-music/">
-                    <span class="homepage-notes__heading">How we value music as an art form</span>
-                </a>
-            </li>
+        
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/ia-assisted-music-not-problem/">
-                    <span class="homepage-notes__heading">AI-assisted music is not the problem</span>
-                </a>
-            </li>
+                
+                
+                
+                
+                
+                
+                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg">
+                    <a class="homepage-notes__content" href="/review/charcoal-grace-caligulas-horse/">
+                        <img class="homepage-notes__coverart" src="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg" width="28" height="28" alt="coverart of Charcoal Grace"><span class="homepage-notes__heading">Charcoal Grace by Caligulas Horse</span>
+                    </a>
+                </li>
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/zotero-research-paper-template/">
-                    <span class="homepage-notes__heading">My Zotero research paper template</span>
-                </a>
-            </li>
+        
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/grid-layout-notes/">
-                    <span class="homepage-notes__heading">Lay out all Obsidian notes in a grid</span>
-                </a>
-            </li>
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/rating/">
+                        <span class="homepage-notes__heading">My Rating System and Review Criteria</span>
+                    </a>
+                </li>
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/highlights-callouts-obsidian/">
-                    <span class="homepage-notes__heading">Highlight callouts in Obsidian</span>
-                </a>
-            </li>
+        
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/recent-files-obsidian/">
-                    <span class="homepage-notes__heading">Display recent files in Obsidian Vault</span>
-                </a>
-            </li>
+                
+                
+                
+                
+                
+                
+                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg">
+                    <a class="homepage-notes__content" href="/review/return-kingdom-of-fife-gloryhammer/">
+                        <img class="homepage-notes__coverart" src="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg" width="28" height="28" alt="coverart of Return to the Kingdom of Fife"><span class="homepage-notes__heading">Return to the Kingdom of Fife by Gloryhammer</span>
+                    </a>
+                </li>
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/unlinked-notes-in-obsidian/">
-                    <span class="homepage-notes__heading">List unlinked notes in Obsidian</span>
-                </a>
-            </li>
+        
             
-            <li class="homepage-notes__item">
-                <a class="homepage-notes__content" href="/note/controlling-boox-network-traffic/">
-                    <span class="homepage-notes__heading">Controlling Boox Network Traffic</span>
-                </a>
-            </li>
+                
+                
+                
+                
+                
+                
+                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg">
+                    <a class="homepage-notes__content" href="/review/io-peter-gabriel/">
+                        <img class="homepage-notes__coverart" src="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg" width="28" height="28" alt="coverart of I/O"><span class="homepage-notes__heading">I/O by Peter Gabriel</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/absolute-music/">
+                        <span class="homepage-notes__heading">Music with an inherent value</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/aesthetics-in-music/">
+                        <span class="homepage-notes__heading">How we value music as an art form</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/ia-assisted-music-not-problem/">
+                        <span class="homepage-notes__heading">AI-assisted music is not the problem</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/zotero-research-paper-template/">
+                        <span class="homepage-notes__heading">My Zotero research paper template</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/grid-layout-notes/">
+                        <span class="homepage-notes__heading">Lay out all Obsidian notes in a grid</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/highlights-callouts-obsidian/">
+                        <span class="homepage-notes__heading">Highlight callouts in Obsidian</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/recent-files-obsidian/">
+                        <span class="homepage-notes__heading">Display recent files in Obsidian Vault</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/unlinked-notes-in-obsidian/">
+                        <span class="homepage-notes__heading">List unlinked notes in Obsidian</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                
+                
+                
+                
+                
+                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg">
+                    <a class="homepage-notes__content" href="/review/prometheus-emperor/">
+                        <img class="homepage-notes__coverart" src="/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg" width="28" height="28" alt="coverart of Prometheus"><span class="homepage-notes__heading">Prometheus by Emperor</span>
+                    </a>
+                </li>
+            
+        
+            
+                
+                <li class="homepage-notes__item">
+                    <a class="homepage-notes__content" href="/note/controlling-boox-network-traffic/">
+                        <span class="homepage-notes__heading">Controlling Boox Network Traffic</span>
+                    </a>
+                </li>
             
         
         </ul>
     </div>
-    <div class="homepage-grid__reviews bottom-spacing--large">
-        <h1>Music Reviews</h1>
-        <span class="byline">My reflections on pop, rock and metal recordings</span>
-        <div class="reviews__grid">
-            
-                                
-
-                    
-                    
-                    
-                    
-                    
-                    
-    <div class="review review--under-review">
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/7ca14c43-d818-47ed-95c6-20cb8a95df2c.jpg">
-            <div class="review__overlay">Under Review</div>
-        </div>
-        <div class="review__description">
-            <span class="description__title">Fall</span>
-            <span class="description__author">Borknagar</span>
-        </div>
+        
     </div>
-
-
-                                
-
-                    
-                    
-                    
-                    
-                    
-                    
-    <a class="review" href="/review/charcoal-grace-caligulas-horse/">
-        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg"></div>
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg"></div>
-        <div class="review__description">
-            <span class="description__title">Charcoal Grace</span>
-            <span class="description__author">Caligulas Horse</span>
-        </div>
-    </a>
-
-
-                                
-
-                    
-                    
-                    
-                    
-                    
-                    
-    <a class="review" href="/review/return-kingdom-of-fife-gloryhammer/">
-        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg"></div>
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg"></div>
-        <div class="review__description">
-            <span class="description__title">Return to the Kingdom of Fife</span>
-            <span class="description__author">Gloryhammer</span>
-        </div>
-    </a>
-
-
-                                
-
-                    
-                    
-                    
-                    
-                    
-                    
-    <a class="review" href="/review/prometheus-emperor/">
-        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg"></div>
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg"></div>
-        <div class="review__description">
-            <span class="description__title">Prometheus</span>
-            <span class="description__author">Emperor</span>
-        </div>
-    </a>
-
-
-                                
-
-                    
-                    
-                    
-                    
-                    
-                    
-    <a class="review" href="/review/io-peter-gabriel/">
-        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg"></div>
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg"></div>
-        <div class="review__description">
-            <span class="description__title">I/O</span>
-            <span class="description__author">Peter Gabriel</span>
-        </div>
-    </a>
-
-
-                
+    <div class="homepage-grid__projects">
+        <h2 class="heading-on-mobile">
+            a selection of digital products I helped realise
+        </h2>
+        
             
+            
+            
+            <a class="project"href="/project/smartlab/">
+    <div class="project__cover lazy-loaded" data-bgimage="/project/smartlab/assets/case-study-smartlab-ui--small.jpg"></div>
+        <div class="project__description">
+            <span>Nuclear Medicine Workflow</span>
         </div>
+</a>
+        
+            
+            
+            
+            <a class="project"href="/project/construction/">
+    <div class="project__cover lazy-loaded" data-bgimage="/project/construction/assets/case-study-construction-ui--small.jpg"></div>
+        <div class="project__description">
+            <span>Construction Corporation</span>
+        </div>
+</a>
+        
+            
+            
+            
+            <a class="project"href="/project/hotel/">
+    <div class="project__cover lazy-loaded" data-bgimage="/project/hotel/assets/case-study-mkey-ui--small.jpg"></div>
+        <div class="project__description">
+            <span>Smart Hotel Room</span>
+        </div>
+</a>
+        
     </div>
-</section>
+</div>
+
+
     		</main>
             <footer>
     <div class="footer__content">
@@ -338,65 +309,6 @@
                             </a>
                         </li>
                     </ul>
-                    <h3>Get in touch</h3>
-                 <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="apikey" value="219cb173-ead9-494f-9ebe-3eeef64c7986">
-    <div>
-        <label>Preferred channel</label>
-        <div class="segmented-control">
-            <input type="radio" id="email" name="platform" value="email" checked>
-            <label for="email" tabindex="0">Email</label>
-            <input type="radio" id="signal" name="platform" value="signal">
-            <label for="signal" tabindex="0">Signal</label>
-            <input type="radio" id="telegram" name="platform" value="telegram">
-            <label for="telegram" tabindex="0">Telegram</label>
-            <input type="radio" id="whatsapp" name="platform" value="whatsapp">
-            <label for="whatsapp" tabindex="0">WhatsApp</label>
-        </div>
-    </div>
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="contact" id="contact-label">Email Address</label>
-        <input type="text" id="contact" name="contact">
-    </div>
-    <div>
-        <button type="submit" id="submit-button">Send Geffrey my contact details</button>
-    </div>
-    <input type="hidden" name="subject" value="New Submission from Contact Form">
-    <input type="hidden" name="from_name" value="Geff.re Website">
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-</form>
-<div id="submissionMessage"></div>
-
-<script type="text/javascript" src="/scripts/contactform.js"></script>
-            </div>
-            <div class="grid-span-6">
-                <ul class="footer__navigation">
-                    
-                    <li class="">
-                        <a class=" navigation__link--active" href="/"><span>Home</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/now/"><span>Now</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/listening/"><span>Listening</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/uses/"><span>Uses</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/about/"><span>About</span></a>
-                    </li>
-                    
-                </ul>
             </div>
             <div class="grid-span-8 smalltext">
             <p>
@@ -409,8 +321,8 @@
 </footer>
 
 <link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
-<script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
+<script type="text/javascript" src="/scripts/misc.js" defer></script>
         </div>
     </body>
 </html>

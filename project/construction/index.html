@@ -3,38 +3,28 @@
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Construction Corporation - Innovating in Construction Measurement Management – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1707853579" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <title>Construction Corporation – Geffrey van der Bos</title>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1710101001" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
-        <meta property="og:title" content="Construction Corporation - Innovating in Construction Measurement Management – Geffrey van der Bos">
+        <meta property="og:title" content="Construction Corporation – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/project/construction/">
         <meta property="og:image" content="/assets/ogimage-geffrey-van-der-bos.jpg">
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
         <link rel="icon" href="/assets/favicon/icon.svg" type="image/svg+xml">
         <meta name="theme-color" content="#000">
-        <style>
-            :root {
-                --color-background: hsl(225, 25%, 87%);
-                --color-foreground: hsl(234, 71%, 3%);
-                --color-gradient-background: linear-gradient(180deg, hsl(255,5%,97%) 0%, hsl(231,10%,87%) 100%);
-            }
-            .dark-mode {
-                --color-background: hsl(225, 10%, 5%);
-                --color-foreground: hsl(234, 10%, 93%);
-                --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
-            }
-        </style>
-        <script type="text/javascript" src="/scripts/handledarkmode.js"></script>
     </head>
     <body>
-    <div class="aurora">
-    </div>
-        <nav class="navigation">
+        <div class="wrapper">
+            <nav class="navigation">
   <ul class="navigation__list">
     
       <li class="navigation__item">
         <a class="navigation__link " href="/"><span>Home</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
     </li>
     
       <li class="navigation__item">
@@ -53,18 +43,10 @@
         <a class="navigation__link " href="/about/"><span>About</span></a>
     </li>
     
-    <li class="navigation__item theme-toggle">
-      <div class="theme-toggle__flexbox">
-        <button id="themeToggle">  
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        </button>
-      </div>
-    </li>
+    
   </ul>
 </nav>
-
-        <div class="wrapper">
-    		<main>
+    		<main class="projectpage">
                 
 
 <div class="projectheader">
@@ -74,7 +56,7 @@
 </div>
 <section class="projectinformation grid">
     <h1 class="projectinformation__title title--large">
-        Construction Corporation - Innovating in Construction Measurement Management
+        Construction Corporation
     </h1>
     <div class="projectinformation__metadata">
         Company: Bitfactory GmbH<br>
@@ -151,9 +133,7 @@
 </section>
 
 
-<section class="homepage-grid__projects bottom-spacing--large">
-    <h1>Selected Works</h1>
-    <span  class="byline">A selection of digital products I helped realise.</span>
+<section class="">
     <div class="projects__grid">
         
             
@@ -161,10 +141,10 @@
                     
                     
                     
-                    <a class="project" href="/project/smartlab/">
+                    <a class="project"href="/project/smartlab/">
     <div class="project__cover lazy-loaded" data-bgimage="/project/smartlab/assets/case-study-smartlab-ui--small.jpg"></div>
         <div class="project__description">
-            <span>Smartlab — A Case Study in Next-Generation Radiopharmacy Workflow Management</span>
+            <span>Nuclear Medicine Workflow</span>
         </div>
 </a>
 
@@ -177,10 +157,10 @@
                     
                     
                     
-                    <a class="project" href="/project/hotel/">
+                    <a class="project"href="/project/hotel/">
     <div class="project__cover lazy-loaded" data-bgimage="/project/hotel/assets/case-study-mkey-ui--small.jpg"></div>
         <div class="project__description">
-            <span>Success Hotel Group - Elevating Guest Experience through IoT Integration</span>
+            <span>Smart Hotel Room</span>
         </div>
 </a>
 
@@ -222,65 +202,6 @@
                             </a>
                         </li>
                     </ul>
-                    <h3>Get in touch</h3>
-                 <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="apikey" value="219cb173-ead9-494f-9ebe-3eeef64c7986">
-    <div>
-        <label>Preferred channel</label>
-        <div class="segmented-control">
-            <input type="radio" id="email" name="platform" value="email" checked>
-            <label for="email" tabindex="0">Email</label>
-            <input type="radio" id="signal" name="platform" value="signal">
-            <label for="signal" tabindex="0">Signal</label>
-            <input type="radio" id="telegram" name="platform" value="telegram">
-            <label for="telegram" tabindex="0">Telegram</label>
-            <input type="radio" id="whatsapp" name="platform" value="whatsapp">
-            <label for="whatsapp" tabindex="0">WhatsApp</label>
-        </div>
-    </div>
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="contact" id="contact-label">Email Address</label>
-        <input type="text" id="contact" name="contact">
-    </div>
-    <div>
-        <button type="submit" id="submit-button">Send Geffrey my contact details</button>
-    </div>
-    <input type="hidden" name="subject" value="New Submission from Contact Form">
-    <input type="hidden" name="from_name" value="Geff.re Website">
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-</form>
-<div id="submissionMessage"></div>
-
-<script type="text/javascript" src="/scripts/contactform.js"></script>
-            </div>
-            <div class="grid-span-6">
-                <ul class="footer__navigation">
-                    
-                    <li class="">
-                        <a class=" " href="/"><span>Home</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/now/"><span>Now</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/listening/"><span>Listening</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/uses/"><span>Uses</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/about/"><span>About</span></a>
-                    </li>
-                    
-                </ul>
             </div>
             <div class="grid-span-8 smalltext">
             <p>
@@ -293,8 +214,8 @@
 </footer>
 
 <link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
-<script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
+<script type="text/javascript" src="/scripts/misc.js" defer></script>
         </div>
     </body>
 </html>

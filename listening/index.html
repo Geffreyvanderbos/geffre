@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>What I&#39;m Listening To – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1707853579" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1710101001" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="What I&#39;m Listening To – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/listening/">
@@ -13,28 +13,18 @@
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
         <link rel="icon" href="/assets/favicon/icon.svg" type="image/svg+xml">
         <meta name="theme-color" content="#000">
-        <style>
-            :root {
-                --color-background: hsl(225, 25%, 87%);
-                --color-foreground: hsl(234, 71%, 3%);
-                --color-gradient-background: linear-gradient(180deg, hsl(255,5%,97%) 0%, hsl(231,10%,87%) 100%);
-            }
-            .dark-mode {
-                --color-background: hsl(225, 10%, 5%);
-                --color-foreground: hsl(234, 10%, 93%);
-                --color-gradient-background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background) 100%);
-            }
-        </style>
-        <script type="text/javascript" src="/scripts/handledarkmode.js"></script>
     </head>
     <body>
-    <div class="aurora">
-    </div>
-        <nav class="navigation">
+        <div class="wrapper">
+            <nav class="navigation">
   <ul class="navigation__list">
     
       <li class="navigation__item">
         <a class="navigation__link " href="/"><span>Home</span></a>
+    </li>
+    
+      <li class="navigation__item">
+        <a class="navigation__link " href="/notes/"><span>Notes</span></a>
     </li>
     
       <li class="navigation__item">
@@ -53,18 +43,10 @@
         <a class="navigation__link " href="/about/"><span>About</span></a>
     </li>
     
-    <li class="navigation__item theme-toggle">
-      <div class="theme-toggle__flexbox">
-        <button id="themeToggle">  
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        </button>
-      </div>
-    </li>
+    
   </ul>
 </nav>
-
-        <div class="wrapper">
-    		<main>
+    		<main class="">
                 
 <div>
 
@@ -78,12 +60,43 @@
     </section>
 
     <section>
-        <div class="grid bottom-spacing--large">
+        <div class="grid">
+            <div class="grid-span-12">
+              <h2 style="margin-bottom: 0;">Listening Statistics</h2>
+                <p class="byline">Since the making of this website on 2024-01-08</p>
+                <div class="stats-grid" id="listeningStats">
+                </div>
+            </div>
+
+            <div class="grid-span-12 currentlyplaying">
+                <h2>Currently playing</h2>
+                <span class="byline">Pulled directly from my Spotify listening activity</span>
+                <ul id="listenList"></ul>
+            </div>
+
             <div class="grid-span-12">
                 <h2>Album reviews</h2>
                 <span class="byline">My reflections on pop, rock and metal recordings</span>
                <div class="reviews__grid">
                   
+                      
+                      
+                        
+                        
+                        
+                        
+                        
+                        
+    <a class="review" href="/review/charcoal-grace-caligulas-horse/">
+        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg"></div>
+        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg"></div>
+        <div class="review__description">
+            <span class="description__title">Charcoal Grace</span>
+            <span class="description__author">Caligulas Horse</span>
+        </div>
+    </a>
+
+
                       
                       
                         
@@ -111,30 +124,12 @@
                         
                         
                         
-    <a class="review" href="/review/charcoal-grace-caligulas-horse/">
-        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg"></div>
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg"></div>
+    <a class="review" href="/review/io-peter-gabriel/">
+        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg"></div>
+        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg"></div>
         <div class="review__description">
-            <span class="description__title">Charcoal Grace</span>
-            <span class="description__author">Caligulas Horse</span>
-        </div>
-    </a>
-
-
-                      
-                      
-                        
-                        
-                        
-                        
-                        
-                        
-    <a class="review" href="/review/return-kingdom-of-fife-gloryhammer/">
-        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg"></div>
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg"></div>
-        <div class="review__description">
-            <span class="description__title">Return to the Kingdom of Fife</span>
-            <span class="description__author">Gloryhammer</span>
+            <span class="description__title">I/O</span>
+            <span class="description__author">Peter Gabriel</span>
         </div>
     </a>
 
@@ -165,12 +160,12 @@
                         
                         
                         
-    <a class="review" href="/review/io-peter-gabriel/">
-        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg"></div>
-        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg"></div>
+    <a class="review" href="/review/return-kingdom-of-fife-gloryhammer/">
+        <div class="review__cover__shadow lazy-loaded" data-bgimage="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg"></div>
+        <div class="review__cover lazy-loaded" data-bgimage="/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg"></div>
         <div class="review__description">
-            <span class="description__title">I/O</span>
-            <span class="description__author">Peter Gabriel</span>
+            <span class="description__title">Return to the Kingdom of Fife</span>
+            <span class="description__author">Gloryhammer</span>
         </div>
     </a>
 
@@ -178,18 +173,6 @@
                       
                   
               </div>
-            </div>
-            <div class="grid-span-12">
-              <h2 style="margin-bottom: 0;">Listening Statistics</h2>
-                <p class="byline">Since the making of this website on 2024-01-08</p>
-                <div class="stats-grid" id="listeningStats">
-                </div>
-            </div>
-
-            <div class="grid-span-12" style="min-height: 90vh;">
-                <h2>Currently playing</h2>
-                <span class="byline">Pulled directly from my Spotify listening activity</span>
-                <ul id="listenList"></ul>
             </div>
         </div>
     </section>
@@ -231,7 +214,6 @@
   }
 
  #listenList li img {
-	border-radius: 3px;
 	width: 100px !important;
 	height: 100px  !important;
 	margin-right: 1rem;
@@ -251,7 +233,6 @@
     width: 100px;
     background-image: linear-gradient(90deg, rgba(178, 181, 199, .3) 0px, rgba(215, 219, 231, .3) 40px, rgba(178, 181, 199, .3) 80px);
     background-size: 600px;
-    border-radius: 3px;
     animation: shine-lines 1.6s infinite linear;
 }
 
@@ -302,65 +283,6 @@
                             </a>
                         </li>
                     </ul>
-                    <h3>Get in touch</h3>
-                 <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="apikey" value="219cb173-ead9-494f-9ebe-3eeef64c7986">
-    <div>
-        <label>Preferred channel</label>
-        <div class="segmented-control">
-            <input type="radio" id="email" name="platform" value="email" checked>
-            <label for="email" tabindex="0">Email</label>
-            <input type="radio" id="signal" name="platform" value="signal">
-            <label for="signal" tabindex="0">Signal</label>
-            <input type="radio" id="telegram" name="platform" value="telegram">
-            <label for="telegram" tabindex="0">Telegram</label>
-            <input type="radio" id="whatsapp" name="platform" value="whatsapp">
-            <label for="whatsapp" tabindex="0">WhatsApp</label>
-        </div>
-    </div>
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="contact" id="contact-label">Email Address</label>
-        <input type="text" id="contact" name="contact">
-    </div>
-    <div>
-        <button type="submit" id="submit-button">Send Geffrey my contact details</button>
-    </div>
-    <input type="hidden" name="subject" value="New Submission from Contact Form">
-    <input type="hidden" name="from_name" value="Geff.re Website">
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-</form>
-<div id="submissionMessage"></div>
-
-<script type="text/javascript" src="/scripts/contactform.js"></script>
-            </div>
-            <div class="grid-span-6">
-                <ul class="footer__navigation">
-                    
-                    <li class="">
-                        <a class=" " href="/"><span>Home</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/now/"><span>Now</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" navigation__link--active" href="/listening/"><span>Listening</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/uses/"><span>Uses</span></a>
-                    </li>
-                    
-                    <li class="">
-                        <a class=" " href="/about/"><span>About</span></a>
-                    </li>
-                    
-                </ul>
             </div>
             <div class="grid-span-8 smalltext">
             <p>
@@ -373,8 +295,8 @@
 </footer>
 
 <link rel="stylesheet" href="/stylesheets/syntax-light.css" id="prismTheme">
-<script type="text/javascript" src="/scripts/navigation.js" defer></script>
 <script type="text/javascript" src="/scripts/lazy-load.js" defer></script>
+<script type="text/javascript" src="/scripts/misc.js" defer></script>
         </div>
     </body>
 </html>
