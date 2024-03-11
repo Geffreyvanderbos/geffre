@@ -175,6 +175,10 @@ body {
     margin: 0;
 }
 
+a {
+    color: var(--color-foreground);
+    }
+
 a:visited {
     color: inherit;
 }
