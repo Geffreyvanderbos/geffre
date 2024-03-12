@@ -89,6 +89,7 @@
     .navigation__list {
         padding: 0;
         margin: .5rem;
+        min-width: calc(100% + 1.5rem)
     }
 
     .navigation__link,  .theme-toggle__flexbox {
