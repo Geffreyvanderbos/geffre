@@ -370,6 +370,10 @@ p:first-child {
     margin: 2rem 0;
 }
 
+.introduction--first {
+    margin-bottom: 4rem;
+}
+
 @media screen and (min-width: 768px) { 
     .heading-on-mobile {
         display: none;
