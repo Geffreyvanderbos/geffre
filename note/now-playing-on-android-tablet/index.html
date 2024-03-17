@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Display Airplay Now-Playing on old Android Tablet with MQTT – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1710667189" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1710668856" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Display Airplay Now-Playing on old Android Tablet with MQTT – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/now-playing-on-android-tablet/">
@@ -27,11 +27,11 @@
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/listening/"><span>Listening</span></a>
+        <a class="navigation__link " href="/now/"><span>Now</span></a>
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/now/"><span>Now</span></a>
+        <a class="navigation__link " href="/listening/"><span>Listening</span></a>
     </li>
     
       <li class="navigation__item">
@@ -112,7 +112,7 @@ alsa =
 <span class="token punctuation">}</span>;
 </code></pre>
 <h2>Node.js Server to Display MQTT info</h2>
-<p>A Node.js project pulls this data and displays it on a webpage (served from /public/index.html in the same directory).</p>
+<p>A Node.js project pulls the MQTT info and displays it on a webpage (served from /public/index.html in the same directory).</p>
 <pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> WebSocket <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ws'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -176,7 +176,7 @@ mqttClient<span class="token punctuation">.</span><span class="token function">o
 server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Server running on http://192.168.1.200:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>The html and css on webpage that displays it all is a bit ugly. Didn't find the will to refactor it. (The CSS prefixes are for older webview options on my Android tablet.)</p>
+<p>The HTML and CSS on the webpage is a bit ugly. Didn't find the will to refactor it. (The CSS prefixes are for older webview options on my Android tablet.)</p>
 <pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
