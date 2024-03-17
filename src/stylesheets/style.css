@@ -381,6 +381,11 @@ p:first-child {
     padding: 0 1rem;
 }
 
+.notes-after-note {
+    margin-top: 4rem;
+    border-top: 2px solid #bbb;
+}
+
 @media screen and (min-width: 768px) { 
     .heading-on-mobile {
         display: none;

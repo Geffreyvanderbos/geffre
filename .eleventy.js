@@ -15,6 +15,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/assets/**/*");
     eleventyConfig.addPassthroughCopy("./src/concept/*.png");
     eleventyConfig.addPassthroughCopy("./src/concept/*.jpg");
+    eleventyConfig.addPassthroughCopy("./src/photostream/*.jpg");
     eleventyConfig.addPassthroughCopy("./src/CNAME");
     
     eleventyConfig.addPlugin(
@@ -72,6 +73,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addCollection("projects", function(collection) {
         return collection.getFilteredByGlob("./src/project/**/*.njk").sort((a, b) => {
             return a.data.order - b.data.order;
+        });
+      });
+
+      eleventyConfig.addCollection("photostream", function(collection) {
+        return collection.getFilteredByGlob("./src/photostream/*.md").sort((a, b) => {
+            return b.data.date - a.data.date;
         });
       });
 
