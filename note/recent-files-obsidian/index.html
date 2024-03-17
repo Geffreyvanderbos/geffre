@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Display recent files in Obsidian Vault – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1710333128" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1710658810" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Display recent files in Obsidian Vault – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/recent-files-obsidian/">
@@ -15,7 +15,6 @@
         <meta name="theme-color" content="#000">
     </head>
     <body>
-        <div class="wrapper">
             <nav class="navigation">
   <ul class="navigation__list">
     
@@ -28,11 +27,11 @@
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/listening/"><span>Listening</span></a>
+        <a class="navigation__link " href="/now/"><span>Now</span></a>
     </li>
     
       <li class="navigation__item">
-        <a class="navigation__link " href="/now/"><span>Now</span></a>
+        <a class="navigation__link " href="/listening/"><span>Listening</span></a>
     </li>
     
       <li class="navigation__item">
@@ -46,9 +45,7 @@
     
   </ul>
 </nav>
-    		<main>
-                <div>
-                    <div class="onepage--centered note">
+    		<main class="onepage--centered note">
                     <h1>Display recent files in Obsidian Vault</h1>
                     <p>A Dataview snippet that displays your vault's most recent files:</p>
 <pre class="language-js"><code class="language-js">$<span class="token operator">=</span>dv<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>dv<span class="token punctuation">.</span><span class="token function">pages</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token parameter">f</span><span class="token operator">=></span>f<span class="token punctuation">.</span>file<span class="token punctuation">.</span>mtime<span class="token punctuation">.</span>ts<span class="token punctuation">,</span><span class="token string">"desc"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>file<span class="token punctuation">.</span>link<span class="token punctuation">)</span>`</code></pre>
@@ -139,11 +136,7 @@
                     </ul>
                     
                     </div>
-
-                            
-                </div>
             </main>
-        </div>
             <footer>
     <div class="footer__content">
         <div class="grid">
