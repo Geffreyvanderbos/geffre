@@ -83,7 +83,7 @@ alsa =
 ```
 
 ## Node.js Server to Display MQTT info
-A Node.js project pulls this data and displays it on a webpage (served from /public/index.html in the same directory).
+A Node.js project pulls the MQTT info and displays it on a webpage (served from /public/index.html in the same directory).
 
 ```javascript
 const express = require('express');
@@ -151,7 +151,7 @@ server.listen(port, () => {
 });
 ```
 
-The html and css on webpage that displays it all is a bit ugly. Didn't find the will to refactor it. (The CSS prefixes are for older webview options on my Android tablet.)
+The HTML and CSS on the webpage is a bit ugly. Didn't find the will to refactor it. (The CSS prefixes are for older webview options on my Android tablet.)
 
 ```html
 <!DOCTYPE html>
