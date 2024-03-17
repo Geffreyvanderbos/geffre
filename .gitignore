@@ -6,3 +6,5 @@ node_modules
 
 # build artefacts
 public
+.DS_Store
+src/.DS_Store
