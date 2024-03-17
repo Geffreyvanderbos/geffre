@@ -178,11 +178,7 @@ body {
 a {
     color: var(--color-foreground);
     }
-
-a:visited {
-    color: inherit;
-}
-
+    
 img {
     max-width: 100%;
 }
@@ -323,7 +319,10 @@ p:first-child {
     margin: 1rem 0 0 0;
 }
 
-.homepage-notes__item {
+.homepage-notes__content span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .homepage-notes__content, .notes__content{
@@ -334,9 +333,6 @@ p:first-child {
     text-transform: lowercase;
     padding: 0.5rem 0;
     border-bottom: 1px solid #BBBBBB;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .homepage-notes__coverart, .notes__coverart {

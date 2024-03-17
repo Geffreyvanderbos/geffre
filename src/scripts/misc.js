@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to show and position the cover art preview
     function showCoverArtPreview(event) {
         coverArtPreview.src = event.currentTarget.getAttribute('data-coverart');
+        var yPosition = event.currentTarget.getAttribute('data-coverart-y-position');
         // Use clientX and clientY for positioning relative to the viewport
         coverArtPreview.style.left = event.clientX + 15 + 'px';
-        coverArtPreview.style.top = event.clientY + 15 + 'px';
+        coverArtPreview.style.top = event.clientY + Number(yPosition) + 'px';
         coverArtPreview.classList.add('visible');
     }
 
