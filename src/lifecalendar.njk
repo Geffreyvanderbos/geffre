@@ -1,0 +1,112 @@
+---
+title: "Life Calendar"
+layout: "/layouts/base.njk"
+nav: true
+menutitle: Calendar
+order: 3
+pageDescription:  "This calendar represents the weeks I lived and have left until 90. There's three colours that represent Childhood + Adolescence (~0-20 years), Early adulthood (~20-50 years), and The Later years (~50+ years). You can enter your own birthday and share the link."
+---
+<div>
+    {% include "partials/_introduction.njk" %}
+    <div class="controls">
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate" value="1991-11-04" required>
+        <button onclick="updateLifeCalendar()">Show My Calendar</button>
+    </div>
+    <div id="lifeCalendar"></div>
+</div>
+
+<style>
+    .controls {
+        margin-bottom: 2rem;
+    }
+
+    .week {
+        width: calc(100% / 52 - 2px);
+        height: 16px;
+        display: inline-block;
+        margin: 1px;
+        background-color: #e0e0e0;
+        border: 1px solid rgb(5,5,5);
+    }
+
+    @media screen and (min-width: 768px) { 
+    .week {
+            width: calc(100% / 52 - 4px);
+            display: inline-block;
+            margin: 2px;
+            background-color: #e0e0e0;
+            border: 1px solid rgb(5,5,5);
+        }
+    }
+</style>
+
+<script>
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+function updateLifeCalendar() {
+  let birthDateValue = document.getElementById('birthdate').value;
+  if (!birthDateValue) {
+    alert('Please enter your birthdate.');
+    return;
+  }
+
+  // Update URL with the new birthdate without reloading the page
+  const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?birthdate=' + birthDateValue;
+  window.history.pushState({path: newUrl}, '', newUrl);
+
+  const birthDate = new Date(birthDateValue);
+  document.getElementById('lifeCalendar').innerHTML = ''; // Clear existing calendar
+  createLifeCalendar(90, birthDate); // Assume 90 years for simplicity
+}
+
+function createLifeCalendar(totalYears = 90, birthDate) {
+  const weeksPerYear = 52;
+  const calendarContainer = document.getElementById('lifeCalendar');
+  const currentDate = new Date();
+  const millisecondsPerWeek = 1000 * 60 * 60 * 24 * 7;
+  const weeksOld = Math.floor((currentDate - birthDate) / millisecondsPerWeek);
+
+  for (let year = 0; year < totalYears; year++) {
+    const yearDiv = document.createElement('div');
+    yearDiv.className = 'year';
+
+    for (let week = 0; week < weeksPerYear; week++) {
+      const weekDiv = document.createElement('div');
+      weekDiv.className = 'week';
+      const totalWeeks = year * weeksPerYear + week;
+
+      if (totalWeeks < weeksOld) {
+        // Different colors for different life periods
+        if (totalWeeks <= 1040) { // Childhood + Adolescence (~0-20 years)
+          weekDiv.style.backgroundColor = '#add8e6';
+        } else if (totalWeeks <= 2600) { // Early adulthood (~20-50 years)
+          weekDiv.style.backgroundColor = '#90ee90';
+        } else { // Later years (~50+ years)
+          weekDiv.style.backgroundColor = '#ffb6c1';
+        }
+      }
+      yearDiv.appendChild(weekDiv);
+    }
+
+    calendarContainer.appendChild(yearDiv);
+  }
+}
+
+updateLifeCalendar(); // This will generate the calendar with the default birthdate on page load
+
+window.onpopstate = function(event) {
+  // Check if there's a birthdate in the URL when the back button is pressed
+  const birthDateFromUrl = getQueryParam('birthdate');
+  if (birthDateFromUrl) {
+    // Set the input field value to the birthdate from the URL
+    document.getElementById('birthdate').value = birthDateFromUrl;
+    // Update the life calendar based on the birthdate from the URL
+    updateLifeCalendar();
+  }
+};
+
+</script>
