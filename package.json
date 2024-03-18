@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@photogabble/eleventy-plugin-interlinker": "^1.0.4",
+    "basiclightbox": "^5.0.4",
     "date-fns": "^3.2.0",
     "markdown-it": "^14.0.0",
     "markdown-it-attrs": "^4.1.6"

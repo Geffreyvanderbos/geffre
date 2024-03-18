@@ -41,6 +41,7 @@
 
 .navigation__item {
     flex: 0 0 auto;
+    background-color: var(--color-foreground);
 }
 
 .navigation__link {
@@ -89,7 +90,6 @@
     .navigation__list {
         padding: 0;
         margin: .5rem;
-        min-width: calc(100% + 1.5rem)
     }
 
     .navigation__link,  .theme-toggle__flexbox {
@@ -101,7 +101,6 @@
     }
 
     .navigation__item:last-child .navigation__link, .navigation__item:last-child .theme-toggle__flexbox {
-        margin-right: 16px;
         padding-right: 1.5rem;
     }
 

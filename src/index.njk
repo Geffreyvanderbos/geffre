@@ -6,13 +6,12 @@ menutitle: Home
 order: 1
 ---
 
-
 <div class="homepage-grid">
     <div class="homepage-grid__introduction">
         <h2 class="introduction--first">geffrey is a digital product designer and amateur sociomusicologist</h2>
         <h2 class="introduction--second">
         <svg xmlns="http://www.w3.org/2000/svg" width="9.5" height="32"><path fill="#202020" fill-rule="evenodd" d="M4 0h1.5v27h4l-4.75 5L0 27h4V0Z"/></svg>
-            a selection of digital products I helped realise
+            &nbsp;a selection of digital products I helped realise
         </h2>
     </div>
     <div class="homepage-grid__notes">
@@ -28,7 +27,7 @@ order: 1
                 {% set title = item.data.title %}
                 {% set author = item.data.author %}
                 {% set status = item.data.status %}
-                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/{{ mbid }}.jpg">
+                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/{{ mbid }}.jpg" data-coverart-y-position="25">
                     <a class="homepage-notes__content" href="{{ url }}">
                         <img class="homepage-notes__coverart" src="/assets/albumcovers/{{ mbid }}.jpg" width="28" height="28" alt="coverart of {{ title }}"><span class="homepage-notes__heading">{{ title }} by {{ author }}</span>
                     </a>

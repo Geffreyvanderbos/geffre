@@ -15,6 +15,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/assets/**/*");
     eleventyConfig.addPassthroughCopy("./src/concept/*.png");
     eleventyConfig.addPassthroughCopy("./src/concept/*.jpg");
+    eleventyConfig.addPassthroughCopy("./src/photostream/*.jpg");
     eleventyConfig.addPassthroughCopy("./src/CNAME");
     
     eleventyConfig.addPlugin(
@@ -75,6 +76,12 @@ module.exports = function (eleventyConfig) {
         });
       });
 
+      eleventyConfig.addCollection("photostream", function(collection) {
+        return collection.getFilteredByGlob("./src/photostream/*.md").sort((a, b) => {
+            return b.data.date - a.data.date;
+        });
+      });
+
     eleventyConfig.addCollection("now", function(collectionApi) {
     return collectionApi.getFilteredByGlob("./src/now/*.md").sort((a, b) => {
         return b.date - a.date; // Sort by date in descending order
@@ -90,7 +97,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addCollection("reviewsObject", function(collectionApi) {
         let reviewsArray = collectionApi.getFilteredByGlob("./src/review/*.md").filter(item => item.data.mbid);
     
-        reviewsArray.sort((a, b) => a.data.date - b.data.date);
+        reviewsArray.sort((a, b) => a.data.created - b.data.created);
     
         let reviewsObject = {};
         reviewsArray.forEach(item => {
@@ -102,7 +109,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addCollection("reviews", function(collectionApi) {
         return collectionApi.getFilteredByGlob("./src/review/*.md").sort((a, b) => {
-            return new Date(b.data.date) - new Date(a.data.date);
+            return new Date(b.data.created) - new Date(a.data.created);
         });
     });
     
