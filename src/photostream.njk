@@ -13,7 +13,7 @@ pageDescription:  "This is mostly an archive of my Instagram account. Which is d
         <div class="photostream">
             {% for photo in collections.photostream %}
                 <a href="{{ photo.data.image }}" class="lightbox-trigger">
-                    <img src="{{ photo.data.image }}" alt="Instagram Image">
+                    <img src="{{ photo.data.image }}" alt="Instagram Image" loading="lazy">
                 </a>
             {% endfor %}
         </div>
