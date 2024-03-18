@@ -348,7 +348,7 @@ The HTML and CSS on the webpage is a bit ugly. Didn't find the will to refactor 
 ``` 
 
 ## Node.js as a Systemd service
-I then create a systemd service file to make sure the node.js server is 'always on'.
+After, I created a systemd service file to make sure the node.js server is 'always on'.
 
 ```bash
 sudo nano /etc/systemd/system/shairport-web.service
