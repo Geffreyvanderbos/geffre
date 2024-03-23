@@ -63,21 +63,69 @@ order: 1
     </div>
 </div>
 
-{# {% if collections.reviews.length > 0 %}
-        {% for review in collections.reviews %}                
+<style>
+    body {
+    background-color: #dcdcdc;
+    font-family: sans-serif;
+    }
 
-            {% set url = review.url %}
-            {% set mbid = review.data.mbid %}
-            {% set title = review.data.title %}
-            {% set author = review.data.author %}
-            {% set status = review.data.status %}
-            {% include "components/_reviewlistitem.njk" %}
+    a {
+    color: rgb(5, 5, 5);
+    }
 
-        {% endfor %}
-    {% else %}
-                    <div class="review__description">
-                        <span class="description__title">Excuse me while I gather my album reviews.</span>
-                        <span class="description__author">This is only temporary.</span>
-                    </div>
-    {% endif %} 
-#}
+    @media screen and (min-width: 768px) { 
+        .homepage-grid {
+            column-gap: 2rem;
+            display: grid;
+            grid-template-areas:
+                "introduction notes notes"
+                "projects projects projects";
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            row-gap: 4rem;
+        }
+    }
+
+    .grid__notes ul, .homepage-grid__notes ul {
+        list-style: none;
+        margin: 1rem 0 0;
+        padding: 0;
+    }
+
+    .introduction--first {
+        margin-bottom: 4rem;
+    }
+
+    .homepage-notes__content, .notes__content {
+        display: flex;
+        padding: .5rem 0;
+    }
+
+    .navigation {
+        margin-bottom: 4rem;
+    }
+
+    @media screen and (max-width: 767px) {
+        .navigation__link, .theme-toggle__flexbox {
+            padding: 1rem;
+    }
+
+    .navigation__list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+
+    .socialslist {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+    .socialslist__svg {
+        height: 24px;
+        width: 24px;
+    }
+</style>
