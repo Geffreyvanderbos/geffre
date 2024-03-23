@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Portfolio – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1710963957" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1711181841" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Portfolio – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/">
@@ -286,7 +286,72 @@
     </div>
 </div>
 
+<style>
+    body {
+    background-color: #dcdcdc;
+    font-family: sans-serif;
+    }
 
+    a {
+    color: rgb(5, 5, 5);
+    }
+
+    @media screen and (min-width: 768px) { 
+        .homepage-grid {
+            column-gap: 2rem;
+            display: grid;
+            grid-template-areas:
+                "introduction notes notes"
+                "projects projects projects";
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            row-gap: 4rem;
+        }
+    }
+
+    .grid__notes ul, .homepage-grid__notes ul {
+        list-style: none;
+        margin: 1rem 0 0;
+        padding: 0;
+    }
+
+    .introduction--first {
+        margin-bottom: 4rem;
+    }
+
+    .homepage-notes__content, .notes__content {
+        display: flex;
+        padding: .5rem 0;
+    }
+
+    .navigation {
+        margin-bottom: 4rem;
+    }
+
+    @media screen and (max-width: 767px) {
+        .navigation__link, .theme-toggle__flexbox {
+            padding: 1rem;
+    }
+
+    .navigation__list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+
+    .socialslist {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+    .socialslist__svg {
+        height: 24px;
+        width: 24px;
+    }
+</style>
     		</main>
             <footer>
     <div class="footer__content">
