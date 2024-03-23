@@ -4,8 +4,27 @@ const markdownItAttrs = require('markdown-it-attrs')
 const md = new markdownIt();
 const { formatDistanceToNow } = require('date-fns');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
 const { execSync } = require('child_process');
+
+async function imageUrlShortcode(src, width = null, format = 'webp') {
+  let options = {
+      widths: [width].filter(w => w !== null), // Filter out null if width is not specified
+      formats: [format], // Default format is WebP, can be overridden
+      urlPath: "/" + src.split("/").slice(0, -1).join("/"), // Dynamically set URL path
+      outputDir: "./public/" + src.split("/").slice(0, -1).join("/") // Dynamically set output directory
+  };
+
+  // Process the image and wait for it to complete
+  await Image(src, options);
+
+  // Retrieve the metadata for the processed image
+  let metadata = Image.statsSync(src, options);
+
+  // Return the URL of the first (and likely only) image version
+  return metadata[format][0].url;
+}
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/stylesheets/*.css");
@@ -33,17 +52,13 @@ module.exports = function (eleventyConfig) {
         console.log("Done processing the CSS!")
     });
 
-    //   eleventyConfig.addPlugin(
-    //     require("@photogabble/eleventy-plugin-interlinker"),
-    //     {
-    //     }
-    //   );
-
     const markdownItOptions = {
         html: true,
         breaks: true,
         linkify: false
     };
+
+    eleventyConfig.addNunjucksAsyncShortcode("imageUrl", imageUrlShortcode);
 
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
     eleventyConfig.setLibrary('md', markdownLib);

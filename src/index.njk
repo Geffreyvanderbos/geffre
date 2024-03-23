@@ -27,9 +27,9 @@ order: 1
                 {% set title = item.data.title %}
                 {% set author = item.data.author %}
                 {% set status = item.data.status %}
-                <li class="homepage-notes__item review-item" data-coverart="/assets/albumcovers/{{ mbid }}.jpg" data-coverart-y-position="25">
+                <li class="homepage-notes__item review-item" data-coverart="{% imageUrl 'src/assets/albumcovers/' + mbid +'.jpg', 200 %}" data-coverart-y-position="25">
                     <a class="homepage-notes__content" href="{{ url }}">
-                        <img class="homepage-notes__coverart" src="/assets/albumcovers/{{ mbid }}.jpg" width="28" height="28" alt="coverart of {{ title }}"><span class="homepage-notes__heading">{{ title }} by {{ author }}</span>
+                        <img class="homepage-notes__coverart" src="{% imageUrl 'src/assets/albumcovers/' + mbid +'.jpg', 28 %}" width="28" height="28" alt="coverart of {{ title }}"><span class="homepage-notes__heading">{{ title }} by {{ author }}</span>
                     </a>
                 </li>
             {% else %}
@@ -66,7 +66,7 @@ order: 1
 <style>
     body {
     background-color: #dcdcdc;
-    font-family: sans-serif;
+    font-family: "Nacelle", sans-serif;
     }
 
     a {
