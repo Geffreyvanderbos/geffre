@@ -19,9 +19,9 @@ pageDescription:  ""
                 {% set title = item.data.title %}
                 {% set author = item.data.author %}
                 {% set status = item.data.status %}
-                <li class="notes__item review-item" data-coverart="/assets/albumcovers/{{ mbid }}.jpg">
+                <li class="notes__item review-item" data-coverart="{% imageUrl 'assets/albumcovers/' + mbid +'.jpg', 200 %}" data-coverart-y-position="25">
                     <a class="notes__content" href="{{ url }}">
-                        <img class="notes__coverart" src="/assets/albumcovers/{{ mbid }}.jpg" width="28" height="28" alt="coverart of {{ title }}">
+                        <img class="notes__coverart" src="{% imageUrl 'assets/albumcovers/' + mbid +'.jpg', 28 %}" width="28" height="28" alt="coverart of {{ title }}">
                         <span class="homepage-notes__heading">{{ title }} by {{ author }}</span>
                         <span style="margin-left: auto;" class="notes__category">review</span>
                     </a>

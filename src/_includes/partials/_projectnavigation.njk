@@ -2,12 +2,12 @@
     <div class="projects__grid">
         {% for project in collections.projects %}
             {% if project.url !== page.url %}
-
-                    {% set url = project.url %}
-                    {% set title = project.data.title %}
-                    {% set projectcover = project.data.projectcover %}
-                    {% include "components/_projectlistitem.njk" %}
-
+            <a class="project" href="{{ project.url }}">
+                <div class="project__description">
+                    <img class="project__cover" src="{% imageUrl project.data.projectcover + '.jpg', 796 %}" /> 
+                    <span>{{ project.data.title }}</span>
+                </div>
+            </a>
             {% endif %}
         {% endfor %}
     </div>

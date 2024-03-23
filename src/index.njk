@@ -27,9 +27,9 @@ order: 1
                 {% set title = item.data.title %}
                 {% set author = item.data.author %}
                 {% set status = item.data.status %}
-                <li class="homepage-notes__item review-item" data-coverart="{% imageUrl 'src/assets/albumcovers/' + mbid +'.jpg', 200 %}" data-coverart-y-position="25">
+                <li class="homepage-notes__item review-item" data-coverart="{% imageUrl 'assets/albumcovers/' + mbid +'.jpg', 200 %}" data-coverart-y-position="25">
                     <a class="homepage-notes__content" href="{{ url }}">
-                        <img class="homepage-notes__coverart" src="{% imageUrl 'src/assets/albumcovers/' + mbid +'.jpg', 28 %}" width="28" height="28" alt="coverart of {{ title }}"><span class="homepage-notes__heading">{{ title }} by {{ author }}</span>
+                        <img class="homepage-notes__coverart" src="{% imageUrl 'assets/albumcovers/' + mbid +'.jpg', 28 %}" width="28" height="28" alt="coverart of {{ title }}"><span class="homepage-notes__heading">{{ title }} by {{ author }}</span>
                     </a>
                 </li>
             {% else %}
@@ -55,10 +55,12 @@ order: 1
             a selection of digital products I helped realise
         </h2>
         {% for project in collections.projects %}
-            {% set url = project.url %}
-            {% set title = project.data.title %}
-            {% set projectcover = project.data.projectcover %}
-            {% include "components/_projectlistitem.njk" %}
+            <a class="project" href="{{ project.url }}">
+                <div class="project__description">
+                    <img class="project__cover" src="{% imageUrl project.data.projectcover + '.jpg', 796 %}" width="796" height="auto" /> 
+                    <span>{{ project.data.title }}</span>
+                </div>
+            </a>
         {% endfor %}
     </div>
 </div>

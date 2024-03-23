@@ -9,21 +9,36 @@ const { DateTime } = require("luxon");
 const { execSync } = require('child_process');
 
 async function imageUrlShortcode(src, width = null, format = 'webp') {
-  let options = {
-      widths: [width].filter(w => w !== null), // Filter out null if width is not specified
-      formats: [format], // Default format is WebP, can be overridden
-      urlPath: "/" + src.split("/").slice(0, -1).join("/"), // Dynamically set URL path
-      outputDir: "./public/" + src.split("/").slice(0, -1).join("/") // Dynamically set output directory
-  };
+  try {
+    let fullPath = `src/${src}`;
+    let options = {
+        widths: [width].filter(w => w !== null), // Filter out null if width is not specified
+        formats: [format], // Default format is WebP, can be overridden
+        urlPath: `/${src.split("/").slice(0, -1).join("/")}`, // Set URL path for browser access
+        outputDir: "./public/" + src.split("/").slice(0, -1).join("/") // Dynamically set output directory
+    };
 
-  // Process the image and wait for it to complete
-  await Image(src, options);
+    console.log("Full path:", require('path').resolve(fullPath));
+        // Log the source and options
+        console.log("Source:", src);
+        console.log("Options:", options);
+    
 
-  // Retrieve the metadata for the processed image
-  let metadata = Image.statsSync(src, options);
+    // Process the image and wait for it to complete
+    await Image(fullPath, options);
 
-  // Return the URL of the first (and likely only) image version
-  return metadata[format][0].url;
+    // Retrieve the metadata for the processed image
+    let metadata = Image.statsSync(fullPath, options);
+
+      console.log("Metadata:", metadata);
+
+
+    // Return the URL of the first (and likely only) image version
+    return metadata[format][0].url;
+    } catch (error) {
+      console.error("Error in imageUrl shortcode:", error);
+      return ""; // Return an empty string or a fallback URL in case of error
+    }
 }
 
 module.exports = function (eleventyConfig) {
@@ -57,8 +72,6 @@ module.exports = function (eleventyConfig) {
         breaks: true,
         linkify: false
     };
-
-    eleventyConfig.addNunjucksAsyncShortcode("imageUrl", imageUrlShortcode);
 
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
     eleventyConfig.setLibrary('md', markdownLib);
@@ -188,7 +201,9 @@ module.exports = function (eleventyConfig) {
       
         return { prevReview, nextReview };
       });
-      
+    
+    eleventyConfig.addShortcode("imageUrl", imageUrlShortcode);
+    
     return {
         dir: {
             input: "src",

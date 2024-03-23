@@ -1,6 +1,5 @@
 /* import components (gets added to style.css in build via postcss */
 @import '../_includes/components/_reviewlistitem.css';
-@import '../_includes/components/_projectlistitem.css';
 
 /* import partials */
 @import '../_includes/partials/_navigation.css';
@@ -459,6 +458,35 @@ p:first-child {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: var(--grid-gap--standard);
     }
+
+    .project {
+        position: relative;
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        width: 100%;
+    }
+
+    .project:not(:last-child) {
+        margin-right: var(--grid-gap--standard);
+    }
+
+    .project__cover {
+        display: block;
+        border: 1px solid var(--color-project-cover-border);
+        width: 100%;
+        will-change: auto;
+    }
+
+    .project__description {
+        margin: 0;
+        text-transform: lowercase;
+    }
+
+    .project:hover .project__cover{
+        opacity: .95;
+    }
+
 
     /* utility grid */
     .justify--center {
