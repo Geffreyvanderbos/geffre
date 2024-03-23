@@ -20,6 +20,7 @@
     "postcss-import": "^16.0.0"
   },
   "dependencies": {
+    "@11ty/eleventy-img": "^4.0.2",
     "@photogabble/eleventy-plugin-interlinker": "^1.0.4",
     "basiclightbox": "^5.0.4",
     "date-fns": "^3.2.0",
