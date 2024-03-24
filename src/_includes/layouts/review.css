@@ -22,7 +22,7 @@
     top: .5rem;
     filter: var(--filter-cover);
     opacity: .8;
-    transform: scale(.8);
+    transform: scale(.94);
 }
 
 .next-review {
