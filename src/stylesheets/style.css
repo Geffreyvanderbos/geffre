@@ -318,6 +318,10 @@ p:first-child {
     margin: 1rem 0 0 0;
 }
 
+.homepage-notes__item {
+    position: relative;
+}
+
 .homepage-notes__content span {
     white-space: nowrap;
     overflow: hidden;
@@ -336,6 +340,22 @@ p:first-child {
 
 .homepage-notes__coverart, .notes__coverart {
     margin-right: 1rem;
+}
+
+.homepage-notes__item {
+    
+}
+
+.notes__populartag {
+    transform: rotate(352deg);
+    position: absolute;
+    right: 0.6rem;
+    top: 0.4rem;
+    font-size: .7rem;
+    background-color: var(--color-background);
+    padding: 4px 6px;
+    text-transform: lowercase;
+    box-shadow: 2px 3px 0 var(--color-foreground);
 }
 
 #coverart-preview {
@@ -667,19 +687,35 @@ p:first-child {
     }
 }
 
-.kudos span {
+.kudos {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.tinylytics_kudos--hint {
     font-size: .8rem;
     margin-left: .5rem;
+}
+
+/* .tinylytics_kudos--emoji { */
+.tinylytics_kudos:before {
+    content: "🤘";
+    position: absolute;
+    left: .4rem;
+    top: 0rem;
+    font-size: 1.4rem;
+    transform-origin: 50% 100%;
 }
 
 .tinylytics_kudos {
     background: none;
     border: 1px solid #bbb;
-    padding: .25rem .75rem .25rem .6rem;
+    padding: .35rem .75rem .25rem 2rem;
     font-size: 1rem;
-    animation-duration: 1s;
-    animation-fill-mode: both;
     font-family: inherit;
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0 var(--color-foreground);
+    transition: all .06s cubic-bezier(0.85, 0, 0.15, 1);
   }
 
   .tinylytics_kudos:hover:not(.did_select) {
@@ -690,11 +726,18 @@ p:first-child {
   .tinylytics_kudos[disabled] {
     color: inherit;
     border: 1px solid transparent;
+    box-shadow: none;
+    transform: translate(0,0);
   }
 
-  .tinylytics_kudos.did_select {
+  .tinylytics_kudos:active {
+    box-shadow: none;
+    transform: translate(0,0);
+  }
+
+  .tinylytics_kudos.did_select:before {
     animation-name: rock;
-    animation-duration: 1.645s;
+    animation-duration: 2s;
   }
 
   @keyframes rock {
@@ -709,14 +752,15 @@ p:first-child {
     50%,
     70%,
     90% {
-      transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg)
+      transform: scale3d(1.3, 1.3, 1.3) rotate3d(0, 0, 1, 4deg)
     }
     40%,
     60%,
     80% {
-      transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg)
+      transform: scale3d(1.3, 1.3, 1.3) rotate3d(0, 0, 1, -3deg)
     }
     100% {
       transform: scale3d(1, 1, 1)
     }
   }
+

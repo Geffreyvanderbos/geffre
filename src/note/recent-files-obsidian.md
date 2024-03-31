@@ -3,6 +3,7 @@ category: obsidian
 created: 2023-04-16
 title: Display recent files in Obsidian Vault
 updated: 2023-04-16
+popular: true
 ---
 
 A Dataview snippet that displays your vault's most recent files:

@@ -3,6 +3,7 @@ category: scripts
 created: 2024-02-13
 title: Convert Spotify Library to Markdown
 updated: 2024-02-13
+popular: true
 ---
 
 When my Spotify account glitched and my libary showed up empty, I became very aware of the fact my 'music collection' was vendor locked.

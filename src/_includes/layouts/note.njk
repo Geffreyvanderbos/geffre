@@ -8,7 +8,8 @@
                     {{ content | safe }}
                     </div>
                     <div class="kudos">
-                        <button class="tinylytics_kudos" data-path="{{ page.url }}">🤘 1</button><span>← anonymous kudos</span>
+                        {# <span class="tinylytics_kudos--emoji">🤘</span> #}
+                        <button class="tinylytics_kudos" data-path="{{ page.url }}">1</button><span class="tinylytics_kudos--hint">← anonymous kudos</span>
                     </div>
                     <div class="grid__notes notes-after-note">
                     {% if collections.notes.length > 0 %}
@@ -41,11 +42,10 @@
                 button.addEventListener('click', function() {
                 button.disabled = true;
                 button.classList.add('did_select');
-                button.innerHTML = "🤘 2"
+                button.innerHTML = "2"
                 });
             });
             </script>
         {% endif %}
-
     </body>
 </html>

@@ -38,6 +38,9 @@ order: 1
                     <a class="homepage-notes__content" href="{{ item.url }}">
                         <span class="homepage-notes__heading">{{ item.data.title }}</span>
                     </a>
+                    {% if item.data.popular %}
+                        <span class="notes__populartag">Popular!</span>
+                    {% endif %}
                 </li>
             {% endif %}
         {% endfor %}
