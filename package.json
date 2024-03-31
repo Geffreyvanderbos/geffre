@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy"
+    "start": "NODE_ENV=development eleventy --serve",
+    "build": "NODE_ENV=production eleventy"
   },
   "keywords": [],
   "author": "",

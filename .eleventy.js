@@ -51,6 +51,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/concept/*.jpg");
     eleventyConfig.addPassthroughCopy("./src/photostream/*.jpg");
     eleventyConfig.addPassthroughCopy("./src/CNAME");
+
+    eleventyConfig.addGlobalData("env", process.env.NODE_ENV);
     
     eleventyConfig.addPlugin(
         require("@11ty/eleventy-plugin-syntaxhighlight"),
@@ -58,7 +60,7 @@ module.exports = function (eleventyConfig) {
         templateFormats: ["css", "md", "liquid", "html", "js"]
         }
       );
-
+      
         // Run PostCSS during build
     eleventyConfig.on('afterBuild', () => {
         // Execute PostCSS command

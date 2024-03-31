@@ -667,6 +667,11 @@ p:first-child {
     }
 }
 
+.kudos span {
+    font-size: .8rem;
+    margin-left: .5rem;
+}
+
 .tinylytics_kudos {
     background: none;
     border: 1px solid #bbb;
@@ -677,9 +682,19 @@ p:first-child {
     font-family: inherit;
   }
 
-  .tinylytics_kudos.is_selected {
+  .tinylytics_kudos:hover:not(.did_select) {
+    background-color: rgba(255,255,255,.2);
+  }
+
+  .tinylytics_kudos:disabled,
+  .tinylytics_kudos[disabled] {
+    color: inherit;
+    border: 1px solid transparent;
+  }
+
+  .tinylytics_kudos.did_select {
     animation-name: rock;
-    animation-duration: 2s;
+    animation-duration: 1.645s;
   }
 
   @keyframes rock {
@@ -694,12 +709,12 @@ p:first-child {
     50%,
     70%,
     90% {
-      transform: scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, 3deg)
+      transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg)
     }
     40%,
     60%,
     80% {
-      transform: scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, -3deg)
+      transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg)
     }
     100% {
       transform: scale3d(1, 1, 1)

@@ -7,7 +7,9 @@
                     <h1>{{ title }}</h1>
                     {{ content | safe }}
                     </div>
-                    <button class="tinylytics_kudos" data-path="{{ page.url }}"></button>
+                    <div class="kudos">
+                        <button class="tinylytics_kudos" data-path="{{ page.url }}">🤘 1</button><span>← anonymous kudos</span>
+                    </div>
                     <div class="grid__notes notes-after-note">
                     {% if collections.notes.length > 0 %}
                     <ul>
@@ -30,9 +32,20 @@
             </main>
             {% include "partials/_footer.njk" %}
 
-        <script>
+        {% if env === "development" %}
+            <script>
+                // quick local test
+            document.addEventListener('DOMContentLoaded', function () {
+                var button = document.querySelector('.tinylytics_kudos');
 
-        </script>
+                button.addEventListener('click', function() {
+                button.disabled = true;
+                button.classList.add('did_select');
+                button.innerHTML = "🤘 2"
+                });
+            });
+            </script>
+        {% endif %}
 
     </body>
 </html>
