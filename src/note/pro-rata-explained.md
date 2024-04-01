@@ -11,13 +11,13 @@ Most music streaming services in 2024 use the pro-rata payout system. It's a met
 
 The pro-rata system divides the amount of money generated from users among artists based on their share of the total stream, after deducting the streaming service's cut.
 
-Let's consider Spotify, which in 2023 generated about €1.11 billion in revenue per month. Spotify typically retains about 30% of this revenue, which amounts to €333 million (€1.11 billion * 30% = €0.333 billion) ([source](https://www.businessofapps.com/data/spotify-statistics/)). Leaving the rest available for distributing among the ≈2 million artists on their service.
+Let's consider Spotify, which in 2023 generated about €1.11 billion in revenue per month ([source](https://www.businessofapps.com/data/spotify-statistics/)). Spotify typically retains about 30% of this revenue, which amounts to €333 million (€1.11 billion * 30% = €0.333 billion). Leaving the rest available for distributing among the ≈2 million artists on their service.
 
 The popularity of an artist matters a lot. For instance, a global superstar like Taylor Swift, who accounted (in 2023) for about 1.79% of all Spotify streams in the U.S. market alone  ([source](https://www.recordoftheday.com/on-the-move/news-press/34-global-streaming-growth-uplift-luminate-releases-2023-year-end-music-report#:~:text=%C3%A2%E2%80%94%C2%8F%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0Taylor%20Swift%20made%20up%201.79%25%20of%20the%20U.S.%20market%20(Albums%20w/%20TEA%20w/%20SEA%20On%2DDemand%20Audio)%20and%201%20in%20every%2078%20U.S.%20Audio%20streams.)), would command a significantly larger portion of the payout pool compared to your average metal band with significantly fewer streams.
 
-The model has very real implications for artists and the music industry in general. The pro-rata payout system rewards popularity and mass appeal. Neglecting the 'small' artists that need are forced to find other sources of income. 
+The model has very real implications for artists and the music industry in general. The pro-rata payout system rewards popularity and mass appeal. Neglecting the 'small' artists that are forced to find other sources of income. 
 
-When you are a fan of smaller artists, support them by buying their recordings and merchandise. Visit their performances. Spread the word.
+When you are a fan of artists with less ‘mass appeal’, support them by buying their recordings and merchandise. Visit their performances. Spread the word.
 
 
 ## Streaming Service Simulator
