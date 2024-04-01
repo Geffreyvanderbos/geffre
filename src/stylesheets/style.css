@@ -710,6 +710,7 @@ p:first-child {
 .tinylytics_kudos {
     background: none;
     border: 1px solid #bbb;
+    color: var(--color-foreground);
     padding: .35rem .75rem .25rem 2rem;
     font-size: 1rem;
     font-family: inherit;
