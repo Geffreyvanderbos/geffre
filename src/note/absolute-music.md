@@ -1,5 +1,5 @@
 ---
-category: musicology
+category: technology
 created: 2024-01-01
 title: "Today's Lack of Music with an Inherent Value"
 updated: 2024-01-21
