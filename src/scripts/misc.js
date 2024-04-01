@@ -67,4 +67,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     likeButton.addEventListener('mousedown', addSparkEffect);
+    likeButton.addEventListener('touchstart', addSparkEffect);
 });
