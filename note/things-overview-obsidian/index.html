@@ -3,11 +3,11 @@
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Prometheus – Geffrey van der Bos</title>
+        <title>Things3 Overview in Obsidian – Geffrey van der Bos</title>
         <link rel = "preload" href = "/stylesheets/style.css?v=1712169242" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
-        <meta property="og:title" content="Prometheus – Geffrey van der Bos">
-        <meta property="og:url" content="https://geff.re/review/prometheus-emperor/">
+        <meta property="og:title" content="Things3 Overview in Obsidian – Geffrey van der Bos">
+        <meta property="og:url" content="https://geff.re/note/things-overview-obsidian/">
         <meta property="og:image" content="/assets/ogimage-geffrey-van-der-bos.jpg">
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
@@ -15,8 +15,7 @@
         <meta name="theme-color" content="#000">
     </head>
     <body>
-        <div class="wrapper">
-        <nav class="navigation">
+            <nav class="navigation">
   <ul class="navigation__list">
     
       <li class="navigation__item">
@@ -50,95 +49,148 @@
     
   </ul>
 </nav>
+    		<main class="onepage--centered note">
+                    <h1>Things3 Overview in Obsidian</h1>
+                    <p>I love how Things 3 does to-dos. <a href="https://github.com/wudanyang6/obsidian-things3-today">Things3 Today</a> is a pretty simple way to display the the Today overview in an Obsidian panel.</p>
+<p>I didn't like how it was styled as much. Below the CSS rewrites that I came up with. Let me know if your specific situation breaks stuff.</p>
+<p><img src="/note/images/redesign-today-panel.png" alt="Before and After of the CSS modifications to the plugin"></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">[data-type="things3-today"] .view-content</span> <span class="token punctuation">{</span>
+	<span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+	<span class="token property">flex-direction</span><span class="token punctuation">:</span> column-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-            
-            
+<span class="token selector">[data-type="things3-today"] h4, [data-type="things3-today"] a[href="things:///show?id=today"], [data-type="things3-today"] br</span> <span class="token punctuation">{</span>
+	<span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-   		<main>
-                <section class="grid">
-                    <div class="grid-span-6">
-                    <h1>Prometheus</h1>
-                        
+<span class="token selector">[data-type="things3-today"] button</span> <span class="token punctuation">{</span>
+	<span class="token property">margin-top</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+	<span class="token property">max-width</span><span class="token punctuation">:</span> 80px<span class="token punctuation">;</span>
+	<span class="token property">margin-bottom</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-                        <p>The last outing and the nail in the coffin for the trve black metal Emperor. Ihsahn uses the opportunity to set the stage for his eclectic solo career. The cult-like subgenre can be quite a stickler for a certain sound, and this album certainly has pushed some (mixpanel) buttons. Well, except for lo-fi harpischores and synths attempting to sound like stringed instruments.</p>
-<p>What has been initiated by the likes of Dissection and Bathory had come to full effect. Prometheus: The Discipline Of Fire &amp; Demise features squeels that sound like ten year olds emulating Dickinson, to unbelieveably intricate compositions that can only be described as 'd*mn!'.</p>
-<p>Ihsahn's haunting screams are bone-chilling. The drumming is furious, the orchestration ... experimental. Prometheus brought fire in a cold, stale subgenre.</p>
+<span class="token selector">[data-type="things3-today"] ul</span> <span class="token punctuation">{</span>
+	<span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+	<span class="token property">margin</span><span class="token punctuation">:</span> .25rem 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">[data-type="things3-today"] ul a</span> <span class="token punctuation">{</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--text-normal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--metadata-label-font-size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token property">vertical-align</span><span class="token punctuation">:</span> top<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Note: the CSS causes the tasks to be in reverse order. Hit the button below if this helped.</p>
 
                     </div>
-                    <div class="grid-span-6">
-                        <div class="reviewpage">
-                            <div class="reviewpage__cover__shadow" style="background-image: url('/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg');"></div>
-                            <div class="reviewpage__cover" style="background-image: url('/assets/albumcovers/8e3c1739-f964-4629-b60a-c6835dce78fb.jpg');"></div>
-                            <div class="albumgrade__container">
-                            
-                                <div class="albumgrade silver">
-                                    <a class="albumgrade__link" title="Read how I grade" href="/note/rating"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80"><defs><linearGradient id="a" x1="6.057%" x2="91.673%" y1="0%" y2="100%"><stop offset="0%" stop-color="#EDEAE6"/><stop offset="100%" stop-color="#696765"/></linearGradient><linearGradient id="b" x1="4.196%" x2="76.585%" y1="0%" y2="109.227%"><stop offset="0%" stop-color="#EDEDED"/><stop offset="100%" stop-color="#82807E"/></linearGradient><filter id="d" width="102.8%" height="102.8%" x="-1.4%" y="-1.4%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation=".5"/><feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/><feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/><feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/><feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadInner2"/><feOffset dx="-1" dy="-2" in="shadowSpreadInner2" result="shadowOffsetInner2"/><feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/><feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 0.62745098 0 0 0 0 0.619607843 0 0 0 0 0.615686275 0 0 0 1 0"/><feMerge><feMergeNode in="shadowMatrixInner1"/><feMergeNode in="shadowMatrixInner2"/></feMerge></filter><circle id="c" cx="40" cy="40" r="35.2"/></defs><g fill="none" fill-rule="evenodd"><circle cx="40" cy="40" r="40" fill="url(#a)"/><use xlink:href="#c" fill="url(#b)"/><use xlink:href="#c" fill="#000" filter="url(#d)"/></g></svg><span class="grade__text">7</span></a>
-                                </div>
-                            
-                            </div>
-                        </div>
-                    </div>
-                
-
-    		    </section>
-                <section>
-                    <div class="section-separator"></div>
-                    <div class="reviewpage-grid__reviews">
-                        <h1>Other Reviews</h1>
-                        <span class="byline">Write-ups on music recordings</span>
-                        <div class="reviews__grid">
+                    <div class="kudos">
                         
-                            
-                                
-                                    <a class="review" href="/review/fall-borknagar/">
-                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/7ca14c43-d818-47ed-95c6-20cb8a95df2c.jpg');"></div>
-                                        <div class="review__cover" style="background-image: url('/assets/albumcovers/7ca14c43-d818-47ed-95c6-20cb8a95df2c.jpg');"></div>
-                                        <div class="review__description">
-                                            <span class="description__title">Fall</span>
-                                            <span class="description__author">Borknagar</span>
-                                        </div>
-                                    </a>
-                                
-                            
-                                
-                                    <a class="review" href="/review/charcoal-grace-caligulas-horse/">
-                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg');"></div>
-                                        <div class="review__cover" style="background-image: url('/assets/albumcovers/2ce11dec-5e29-49f2-8b68-db6221439400.jpg');"></div>
-                                        <div class="review__description">
-                                            <span class="description__title">Charcoal Grace</span>
-                                            <span class="description__author">Caligulas Horse</span>
-                                        </div>
-                                    </a>
-                                
-                            
-                                
-                                    <a class="review" href="/review/return-kingdom-of-fife-gloryhammer/">
-                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg');"></div>
-                                        <div class="review__cover" style="background-image: url('/assets/albumcovers/9e1e6426-7330-4ce7-aa62-a817e6773c3c.jpg');"></div>
-                                        <div class="review__description">
-                                            <span class="description__title">Return to the Kingdom of Fife</span>
-                                            <span class="description__author">Gloryhammer</span>
-                                        </div>
-                                    </a>
-                                
-                            
-                                
-                                    <a class="review" href="/review/io-peter-gabriel/">
-                                    <div class="review__cover__shadow" style="background-image: url('/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg');"></div>
-                                        <div class="review__cover" style="background-image: url('/assets/albumcovers/7576d1d7-98e3-4c73-866a-dab6bb535052.jpg');"></div>
-                                        <div class="review__description">
-                                            <span class="description__title">I/O</span>
-                                            <span class="description__author">Peter Gabriel</span>
-                                        </div>
-                                    </a>
-                                
-                            
-                                
-                            
-                        
-                        </div>
+                        <button class="tinylytics_kudos" data-path="/note/things-overview-obsidian/">1</button><span class="tinylytics_kudos--hint">← anonymous kudos</span>
                     </div>
-                </section>
+                    <div class="grid__notes notes-after-note">
+                    
+                    <ul>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/things-overview-obsidian/">
+                                    <span class="notes__heading">Things3 Overview in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/pro-rata-explained/">
+                                    <span class="notes__heading">Understanding Streaming Music Royalty Payments</span>
+                                    <span style="margin-left: auto;" class="notes__category">technology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/now-playing-on-android-tablet/">
+                                    <span class="notes__heading">Display Airplay Now-Playing on old Android Tablet with MQTT</span>
+                                    <span style="margin-left: auto;" class="notes__category">smarthome</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/spotify-extract-markdown/">
+                                    <span class="notes__heading">Convert Spotify Library to Markdown</span>
+                                    <span style="margin-left: auto;" class="notes__category">scripts</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/rating/">
+                                    <span class="notes__heading">My Rating System and Review Criteria</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/absolute-music/">
+                                    <span class="notes__heading">Today&#39;s Lack of Music with an Inherent Value</span>
+                                    <span style="margin-left: auto;" class="notes__category">technology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/aesthetics-in-music/">
+                                    <span class="notes__heading">How we value music as an art form</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/ia-assisted-music-not-problem/">
+                                    <span class="notes__heading">AI-assisted music is not the problem</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/zotero-research-paper-template/">
+                                    <span class="notes__heading">My Zotero research paper template</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/grid-layout-notes/">
+                                    <span class="notes__heading">Lay out all Obsidian notes in a grid</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/highlights-callouts-obsidian/">
+                                    <span class="notes__heading">Highlight callouts in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/recent-files-obsidian/">
+                                    <span class="notes__heading">Display recent files in Obsidian Vault</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/unlinked-notes-in-obsidian/">
+                                    <span class="notes__heading">List unlinked notes in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/controlling-boox-network-traffic/">
+                                    <span class="notes__heading">Controlling Boox Network Traffic</span>
+                                    <span style="margin-left: auto;" class="notes__category">technology</span>
+                                </a>
+                            </li>
+                    
+                    </ul>
+                    
+                    </div>
             </main>
             <footer>
     <div class="footer__content">
@@ -200,6 +252,7 @@
 
 <script type="text/javascript" src="/scripts/misc.js" defer></script>
 
-        </div>
+
+        
     </body>
 </html>
