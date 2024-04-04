@@ -31,16 +31,17 @@ async function fetchAlbumReviews() {
     function getUniqueAlbums(listens) {
         const albums = new Map();
         listens.forEach(listen => {
-            // Use Spotify album ID as the primary identifier
             const albumId = listen.track_metadata.additional_info.spotify_album_id || listen.track_metadata.additional_info.recording_msid;
 
             // Check if this album/track is already added
             if (!albums.has(albumId)) {
                 const mbid = listen.track_metadata.mbid_mapping?.release_mbid || listen.track_metadata.mbid_mapping?.recording_mbid;
+
                 albums.set(albumId, {
                     albumName: listen.track_metadata.release_name || listen.track_metadata.track_name, // Fallback to track name if release name is not available
                     artistName: listen.track_metadata.additional_info.artist_names[0],
                     mbid: mbid,
+                    artistMbid: listen.track_metadata.mbid_mapping.artists[0].artist_mbid,
                     spotifyUrl: listen.track_metadata.additional_info.origin_url,
                     listenedAt: listen.listened_at
                 });
@@ -119,9 +120,18 @@ async function fetchAlbumReviews() {
         const titleSpan = document.createElement('span');
         const cleanAlbumName = album.albumName.replace(/(\(.*?\)| - .*)/g, '').trim();
         titleSpan.className = 'title';
-        titleSpan.textContent = `${cleanAlbumName} by ${album.artistName}`;
+
+        // Check for artist MBID and create link if present
+        let artistContent;
+        if (album.artistMbid) {
+            const artistUrl = `https://musicbrainz.org/artist/${album.artistMbid}`;
+            artistContent = `<a href="${artistUrl}" target="_blank">${album.artistName}</a>`;
+        } else {
+            artistContent = album.artistName;
+        }
+        titleSpan.innerHTML = `${cleanAlbumName} by ${artistContent}`;
         albumInfoDiv.appendChild(titleSpan);
-    
+
         // Append albumInfoDiv to listItem
         listItem.appendChild(albumInfoDiv);
     
