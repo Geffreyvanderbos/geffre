@@ -9,6 +9,8 @@ I love how Things 3 does to-dos. [Things3 Today](https://github.com/wudanyang6/o
 
 I didn't like how it was styled as much. Below the CSS rewrites that I came up with. Let me know if your specific situation breaks stuff.
 
+[Click here](https://help.obsidian.md/Extending+Obsidian/CSS+snippets)to read how to add CSS snippets to your Obsidian. 
+
 ![Before and After of the CSS modifications to the plugin](/note/images/redesign-today-panel.png)
 
 ```css
@@ -39,4 +41,6 @@ I didn't like how it was styled as much. Below the CSS rewrites that I came up w
 }
 ```
 
-Note: the CSS causes the tasks to be in reverse order. Hit the button below if this helped.
+Note: the CSS causes the tasks to be in reverse order.
+
+Hit the button below when you’d like to see more of these tips.
