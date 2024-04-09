@@ -30,42 +30,46 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const likeButton = document.querySelector('.tinylytics_kudos');
 
-    // This function will add a new click event listener without interfering with existing ones
-    function addSparkEffect() {
-        if (likeButton.disabled) {
-            return; // Do nothing if the button is disabled
+    // Only proceed if likeButton exists in the DOM
+    if (likeButton) {
+        // This function will add a new click event listener without interfering with existing ones
+        function addSparkEffect() {
+            if (likeButton.disabled) {
+                return; // Do nothing if the button is disabled
+            }
+
+            for (let i = 0; i < 20; i++) {
+                const spark = document.createElement('div');
+                spark.style.position = 'absolute';
+                spark.style.width = '1px';
+                spark.style.height = '1px';
+                spark.style.backgroundColor = 'black';
+                spark.style.left = `44px`;
+                spark.style.top = `18px`;
+
+                likeButton.parentNode.appendChild(spark);
+
+                const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+                const animateX = plusOrMinus * Math.random() * 30;
+                const animateY = plusOrMinus * Math.random() * 30;
+
+                spark.animate([
+                    { transform: 'translate(0, 0)', opacity: 0.7 },
+                    { transform: `translate(${animateX}px, ${animateY}px)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 300 + 600,
+                    easing: 'ease-out',
+                    fill: 'forwards'
+                });
+
+                spark.addEventListener('animationend', function() {
+                    spark.remove();
+                });
+            }
         }
 
-        for (let i = 0; i < 20; i++) {
-            const spark = document.createElement('div');
-            spark.style.position = 'absolute';
-            spark.style.width = '1px';
-            spark.style.height = '1px';
-            spark.style.backgroundColor = 'black';
-            spark.style.left = `44px`;
-            spark.style.top = `18px`;
-
-            likeButton.parentNode.appendChild(spark);
-
-            const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-            const animateX = plusOrMinus * Math.random() * 30;
-            const animateY = plusOrMinus * Math.random() * 30;
-
-            spark.animate([
-                { transform: 'translate(0, 0)', opacity: 0.7 },
-                { transform: `translate(${animateX}px, ${animateY}px)`, opacity: 0 }
-            ], {
-                duration: Math.random() * 300 + 600,
-                easing: 'ease-out',
-                fill: 'forwards'
-            });
-
-            spark.addEventListener('animationend', function() {
-                spark.remove();
-            });
-        }
+        // Attach event listeners if likeButton is not null
+        likeButton.addEventListener('mousedown', addSparkEffect);
+        likeButton.addEventListener('touchstart', addSparkEffect);
     }
-
-    likeButton.addEventListener('mousedown', addSparkEffect);
-    likeButton.addEventListener('touchstart', addSparkEffect);
 });
