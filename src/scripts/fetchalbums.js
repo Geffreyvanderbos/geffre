@@ -54,15 +54,27 @@ async function fetchAlbumReviews() {
         const coverArtUrl = `https://coverartarchive.org/release/${mbid}`;
         try {
             const response = await fetch(coverArtUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
             const data = await response.json();
-            const thumbnailUrl = data.images[0].thumbnails['250'];
-            return thumbnailUrl;
+            const frontCover = data.images.find(image => image.front === true);
+            
+            if (frontCover) {
+                // Use the 'small' thumbnail as an example, but you could choose 'large' or the full 'image' URL
+                const thumbnailUrl = frontCover.thumbnails.small;
+                return thumbnailUrl;
+            } else {
+                console.warn(`No front cover art found for MBID: ${mbid}`);
+                return 'https://geff.re/assets/cover-art-not-found.png';
+            }
         } catch (error) {
-            console.warn('Error fetching album art:', error);
+            console.warn(`Error fetching album art for ${mbid}:`, error);
             return 'https://geff.re/assets/cover-art-not-found.png';
         }
-    }
-
+    }    
+    
     async function fetchAllAlbumArt(albums) {
         const albumArtUrls = await Promise.all(albums.map(async (album) => {
             const albumArtUrl = await fetchAlbumArt(album.mbid);
@@ -77,7 +89,10 @@ async function fetchAlbumReviews() {
         const albumArtUrls = await fetchAllAlbumArt(albums);
         
         albums.forEach((album, index) => {
-            const reviewUrl = albumReviews[album.mbid];
+            console.log(album.mbid); // Log the MBID you're using to access the review URL
+            console.log(albumReviews); // Log the entire albumReviews object to see its structure and keys
+            const reviewUrl = albumReviews[album.mbid]; // Attempt to access the review URL using the MBID
+            
             const listItem = createAlbumListItem(album, albumArtUrls[index], reviewUrl);
     
             replaceFauxItemWithReal(listElement, listItem, index);
@@ -92,7 +107,7 @@ async function fetchAlbumReviews() {
         // Create and add album art image
         const albumArt = document.createElement('img');
         albumArt.src = albumArtUrl;
-        albumArt.alt = 'Album Art';
+        albumArt.alt = `Album Art for ${album.mbid}`;
         albumArt.width = '100';
         albumArt.height = '100';    
         // albumArt.loading = 'lazy';
