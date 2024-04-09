@@ -3,11 +3,11 @@
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Display recent files in Obsidian Vault – Geffrey van der Bos</title>
+        <title>Mela to Markdown (Python script) – Geffrey van der Bos</title>
         <link rel = "preload" href = "/stylesheets/style.css?v=1712685980" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
-        <meta property="og:title" content="Display recent files in Obsidian Vault – Geffrey van der Bos">
-        <meta property="og:url" content="https://geff.re/note/recent-files-obsidian/">
+        <meta property="og:title" content="Mela to Markdown (Python script) – Geffrey van der Bos">
+        <meta property="og:url" content="https://geff.re/note/mela-to-markdown/">
         <meta property="og:image" content="/assets/ogimage-geffrey-van-der-bos.jpg">
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
@@ -50,15 +50,109 @@
   </ul>
 </nav>
     		<main class="onepage--centered note">
-                    <h1>Display recent files in Obsidian Vault</h1>
-                    <p>A Dataview snippet that displays your vault's most recent files:</p>
-<pre class="language-js"><code class="language-js">$<span class="token operator">=</span>dv<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>dv<span class="token punctuation">.</span><span class="token function">pages</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token parameter">f</span><span class="token operator">=></span>f<span class="token punctuation">.</span>file<span class="token punctuation">.</span>mtime<span class="token punctuation">.</span>ts<span class="token punctuation">,</span><span class="token string">"desc"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>file<span class="token punctuation">.</span>link<span class="token punctuation">)</span>`</code></pre>
-<p>Change the number in <code>limit(10)</code> to the amount of files you'd like to show up.</p>
+                    <h1>Mela to Markdown (Python script)</h1>
+                    <p>I adore <a href="https://mela.recipes/">Mela</a> as my recipe manager and meal planner. We use it every single day.</p>
+<p>For safekeeping my recipes, I wrote a python script that converts Mela their export to Markdown.</p>
+<ol>
+<li>Export Mela recipes under <code>Settings &gt; General</code>. (Only iOS / iPadOS)</li>
+<li>Transfer the .melarecipes file to your computer.</li>
+<li>Rename .melarecipes to .zip.</li>
+<li>Extract to preferred folder. There should be a list of <code>.melarecipe</code> files.</li>
+<li>Add the following Python script to the directory. In the script, under &quot;Define your directories&quot;, define where you'd like to store the Markdown recipe and the respective image. (NOTE: the relative path to the image will be parsed in the Markdown.)</li>
+<li>Run the Python script.</li>
+</ol>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> base64
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+
+<span class="token comment"># Define your directories</span>
+json_dir <span class="token operator">=</span> <span class="token string">'./Recipes'</span>  <span class="token comment"># Correct path to your JSON files</span>
+markdown_dir <span class="token operator">=</span> <span class="token string">'./Markdown'</span>  <span class="token comment"># Output directory for Markdown files</span>
+images_dir <span class="token operator">=</span> <span class="token string">'./Attachments/recipeImages'</span>  <span class="token comment"># Directory to store images</span>
+
+<span class="token comment"># Ensure the Markdown and images directories exist</span>
+os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>markdown_dir<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>images_dir<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Markdown directory is set at </span><span class="token interpolation"><span class="token punctuation">{</span>markdown_dir<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Images will be stored in </span><span class="token interpolation"><span class="token punctuation">{</span>images_dir<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">save_image</span><span class="token punctuation">(</span>title<span class="token punctuation">,</span> base64_string<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Decode base64 image and save as a JPG file."""</span>
+    img_data <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>base64_string<span class="token punctuation">)</span>
+    img_filename <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>title<span class="token punctuation">}</span></span><span class="token string">.jpg"</span></span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span> <span class="token string">"_"</span><span class="token punctuation">)</span>
+    img_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>images_dir<span class="token punctuation">,</span> img_filename<span class="token punctuation">)</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>img_path<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> img_file<span class="token punctuation">:</span>
+        img_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span>img_data<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> img_path
+
+<span class="token keyword">def</span> <span class="token function">convert_recipe_to_markdown</span><span class="token punctuation">(</span>json_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Processing file: </span><span class="token interpolation"><span class="token punctuation">{</span>json_file<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>json_file<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+            recipe <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error reading file </span><span class="token interpolation"><span class="token punctuation">{</span>json_file<span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+
+    <span class="token comment"># Frontmatter</span>
+    markdown_content <span class="token operator">=</span> <span class="token string">"---\n"</span>
+    markdown_content <span class="token operator">+=</span> <span class="token string">"category: recipeNotes\n"</span>
+    markdown_content <span class="token operator">+=</span> <span class="token string-interpolation"><span class="token string">f"title: </span><span class="token interpolation"><span class="token punctuation">{</span>recipe<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">\n"</span></span>
+    markdown_content <span class="token operator">+=</span> <span class="token string-interpolation"><span class="token string">f"created: </span><span class="token interpolation"><span class="token punctuation">{</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y-%m-%d'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">\n"</span></span>  <span class="token comment"># Assuming creation date is now</span>
+    markdown_content <span class="token operator">+=</span> <span class="token string-interpolation"><span class="token string">f"updated: </span><span class="token interpolation"><span class="token punctuation">{</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y-%m-%d'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">\n"</span></span>  <span class="token comment"># Assuming last updated is now</span>
+    markdown_content <span class="token operator">+=</span> <span class="token string">"---\n\n"</span>
+
+    markdown_content <span class="token operator">+=</span> <span class="token string-interpolation"><span class="token string">f"# </span><span class="token interpolation"><span class="token punctuation">{</span>recipe<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">\n\n</span><span class="token interpolation"><span class="token punctuation">{</span>recipe<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token string">'No description available.'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">\n\n"</span></span>
+    
+    <span class="token keyword">if</span> recipe<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'images'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        image_path <span class="token operator">=</span> save_image<span class="token punctuation">(</span>recipe<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> recipe<span class="token punctuation">[</span><span class="token string">'images'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        markdown_content <span class="token operator">+=</span> <span class="token string-interpolation"><span class="token string">f"![</span><span class="token interpolation"><span class="token punctuation">{</span>recipe<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">](</span><span class="token interpolation"><span class="token punctuation">{</span>image_path<span class="token punctuation">}</span></span><span class="token string">)\n\n"</span></span>
+    
+    <span class="token keyword">if</span> <span class="token string">'ingredients'</span> <span class="token keyword">in</span> recipe<span class="token punctuation">:</span>
+        markdown_content <span class="token operator">+=</span> <span class="token string">"---\n\n- "</span> <span class="token operator">+</span> recipe<span class="token punctuation">[</span><span class="token string">'ingredients'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span> <span class="token string">'\n- '</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\n\n"</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        markdown_content <span class="token operator">+=</span> <span class="token string">"---\n\nNo ingredients listed.\n\n"</span>
+    
+    instructions <span class="token operator">=</span> recipe<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'instructions'</span><span class="token punctuation">,</span> <span class="token string">'No instructions provided.'</span><span class="token punctuation">)</span>
+    steps <span class="token operator">=</span> instructions<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+    formatted_steps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string-interpolation"><span class="token string">f"- </span><span class="token interpolation"><span class="token punctuation">{</span>step<span class="token punctuation">}</span></span><span class="token string">"</span></span> <span class="token keyword">for</span> step <span class="token keyword">in</span> steps <span class="token keyword">if</span> step<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    formatted_instructions <span class="token operator">=</span> <span class="token string">'\n'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>formatted_steps<span class="token punctuation">)</span>
+    markdown_content <span class="token operator">+=</span> <span class="token string">"---\n\n"</span> <span class="token operator">+</span> formatted_instructions <span class="token operator">+</span> <span class="token string">"\n"</span>
+
+
+    <span class="token comment">#  markdown_content += "---\n\n" + recipe.get('instructions', 'No instructions provided.') + "\n"</span>
+
+    markdown_filename <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>markdown_dir<span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>recipe<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">.md"</span></span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>markdown_filename<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> md_file<span class="token punctuation">:</span>
+            md_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span>markdown_content<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Successfully wrote </span><span class="token interpolation"><span class="token punctuation">{</span>markdown_filename<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error writing to file </span><span class="token interpolation"><span class="token punctuation">{</span>markdown_filename<span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># Check if the JSON directory exists</span>
+<span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>json_dir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"JSON directory </span><span class="token interpolation"><span class="token punctuation">{</span>json_dir<span class="token punctuation">}</span></span><span class="token string"> does not exist. Please check the path."</span></span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token comment"># Loop through all files in the JSON directory</span>
+    files_processed <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> filename <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>json_dir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> filename<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.melarecipe'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            convert_recipe_to_markdown<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>json_dir<span class="token punctuation">,</span> filename<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            files_processed <span class="token operator">+=</span> <span class="token number">1</span>
+    
+    <span class="token keyword">if</span> files_processed <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"No .melarecipe files found in the directory."</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"All recipes processed. </span><span class="token interpolation"><span class="token punctuation">{</span>files_processed<span class="token punctuation">}</span></span><span class="token string"> files converted."</span></span><span class="token punctuation">)</span></code></pre>
 
                     </div>
                     <div class="kudos">
                         
-                        <button class="tinylytics_kudos" data-path="/note/recent-files-obsidian/">1</button><span class="tinylytics_kudos--hint">← anonymous kudos</span>
+                        <button class="tinylytics_kudos" data-path="/note/mela-to-markdown/">1</button><span class="tinylytics_kudos--hint">← anonymous kudos</span>
                     </div>
                     <div class="grid__notes notes-after-note">
                     
