@@ -31,18 +31,19 @@ async function fetchAlbumReviews() {
     function getUniqueAlbums(listens) {
         const albums = new Map();
         listens.forEach(listen => {
-            const albumId = listen.track_metadata.additional_info.spotify_album_id || listen.track_metadata.additional_info.recording_msid;
+            const albumId = listen.track_metadata.mbid_mapping?.release_mbid || listen.track_metadata.additional_info.recording_msid;
 
-            // Check if this album/track is already added
             if (!albums.has(albumId)) {
-                const mbid = listen.track_metadata.mbid_mapping?.release_mbid || listen.track_metadata.mbid_mapping?.recording_mbid;
-
+                const mbidMapping = listen.track_metadata.mbid_mapping;
+                const mbid = mbidMapping && (mbidMapping.release_mbid || mbidMapping.recording_mbid);
+    
+                const artistMbid = mbidMapping && mbidMapping.artist_mbids && mbidMapping.artist_mbids.length > 0 ? mbidMapping.artist_mbids[0] : null;
+    
                 albums.set(albumId, {
                     albumName: listen.track_metadata.release_name || listen.track_metadata.track_name, // Fallback to track name if release name is not available
                     artistName: listen.track_metadata.additional_info.artist_names[0],
+                    artistMbid: artistMbid,
                     mbid: mbid,
-                    artistMbid: listen.track_metadata.mbid_mapping.artists[0].artist_mbid,
-                    spotifyUrl: listen.track_metadata.additional_info.origin_url,
                     listenedAt: listen.listened_at
                 });
             }
@@ -54,15 +55,27 @@ async function fetchAlbumReviews() {
         const coverArtUrl = `https://coverartarchive.org/release/${mbid}`;
         try {
             const response = await fetch(coverArtUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
             const data = await response.json();
-            const thumbnailUrl = data.images[0].thumbnails['250'];
-            return thumbnailUrl;
+            const frontCover = data.images.find(image => image.front === true);
+            
+            if (frontCover) {
+                // Use the 'small' thumbnail as an example, but you could choose 'large' or the full 'image' URL
+                const thumbnailUrl = frontCover.thumbnails.small;
+                return thumbnailUrl;
+            } else {
+                console.warn(`No front cover art found for MBID: ${mbid}`);
+                return 'https://geff.re/assets/cover-art-not-found.png';
+            }
         } catch (error) {
-            console.warn('Error fetching album art:', error);
+            console.warn(`Error fetching album art for ${mbid}:`, error);
             return 'https://geff.re/assets/cover-art-not-found.png';
         }
-    }
-
+    }    
+    
     async function fetchAllAlbumArt(albums) {
         const albumArtUrls = await Promise.all(albums.map(async (album) => {
             const albumArtUrl = await fetchAlbumArt(album.mbid);
@@ -77,7 +90,10 @@ async function fetchAlbumReviews() {
         const albumArtUrls = await fetchAllAlbumArt(albums);
         
         albums.forEach((album, index) => {
-            const reviewUrl = albumReviews[album.mbid];
+            console.log(album.mbid); // Log the MBID you're using to access the review URL
+            console.log(albumReviews); // Log the entire albumReviews object to see its structure and keys
+            const reviewUrl = albumReviews[album.mbid]; // Attempt to access the review URL using the MBID
+            
             const listItem = createAlbumListItem(album, albumArtUrls[index], reviewUrl);
     
             replaceFauxItemWithReal(listElement, listItem, index);
@@ -92,7 +108,7 @@ async function fetchAlbumReviews() {
         // Create and add album art image
         const albumArt = document.createElement('img');
         albumArt.src = albumArtUrl;
-        albumArt.alt = 'Album Art';
+        albumArt.alt = `Album Art for ${album.mbid}`;
         albumArt.width = '100';
         albumArt.height = '100';    
         // albumArt.loading = 'lazy';

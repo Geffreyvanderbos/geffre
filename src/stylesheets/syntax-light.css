@@ -59,6 +59,7 @@
     border: var(--border);
     padding: .25rem;
     white-space: normal;
+    font-size: .8rem;
  }
  
  .token.comment,

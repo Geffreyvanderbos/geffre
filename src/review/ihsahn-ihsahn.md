@@ -1,15 +1,9 @@
 ---
-title: "Ihsahn"
+title: "IHSAHN"
 author: Ihsahn
-mbid: 78caadb1-8142-4e5d-bfbe-7838f290fbe7
+mbid: 633e8157-57d3-4a43-937b-941b839cd4df
 created: "2024-02-30"
-rating: 5
+grade: 5
 ---
 
-Ihsahn trades in the brilliance of his avant-garde for an attempt to a film score and forgettable black metal. Neither impressive nor  engaging.
-
-I bobbed my head exactly twice. The remaining time I shrugged. 
-
-Sure, through the predicable melodies, there were a few good  moments. But, I don't remember what they were.
-
-The intention was innovative. The execution unoriginal.
+Ihsahn trades in the brilliance of his avant-garde for an attempt to mix a mediocre film score with forgettable black metal. Neither impressive nor  engaging. I bobbed my head exactly twice. The other times I shrugged. Sure, through the predicable melodies, there were a few good moments. Yet, I don't remember what they were. The intention was innovative. The execution unoriginal. Which is a shame. Ihsahn is and remains one of my favorite artists.
