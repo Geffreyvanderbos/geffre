@@ -8,7 +8,7 @@ At Bitfactory GmbH, my work in human-centered design addressed various challenge
 
 With a BA in International Communication from Hanzehogeschool Groningen, I've refined my skills in communication, leadership, and strategic thinking, with a foundation in economics and marketing.
 
-When I have free time, I enjoy exploring cutting-edge technologies and consumer products and exploring how advancements like Web3, AI, and AR/VR can change our music experience.
+When I have free time, I enjoy exploring cutting-edge technologies, consumer products and exploring how these advancements influence our music experience.
 
 On a personal note, I share my life with my beloved wife, Julia, a brilliant illustrator hailing from Russia with a talent you can witness [here](https://juliavanderbos.com). 
 
