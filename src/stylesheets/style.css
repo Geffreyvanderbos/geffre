@@ -300,12 +300,12 @@ p:first-child {
 
 .onepage--centered.note {
     margin-bottom: 8rem;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
-.onepage--centered.note p {
+/* .onepage--centered.note p {
     margin-bottom: 2rem;
-}
+} */
 
 .onepage--centered.note h1, .onepage--centered.note h2, .onepage--centered.note h3, .onepage--centered.note h4{
     margin-top: 4rem;
