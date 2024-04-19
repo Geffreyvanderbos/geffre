@@ -2,7 +2,7 @@
 category: scripts
 created: 2024-02-13
 title: Convert Spotify Library to Markdown
-updated: 2024-02-13
+updated: 2024-04-19
 popular: true
 ---
 

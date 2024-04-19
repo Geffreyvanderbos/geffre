@@ -2,7 +2,7 @@
 category: smarthome
 created: 2024-03-17
 title: Display Airplay Now-Playing on old Android Tablet with MQTT
-updated: 2024-03-17
+updated: 2024-04-19
 ---
 
 Repurposed my Nexus 7 into a display for showing what's currently playing via Apple Airplay.

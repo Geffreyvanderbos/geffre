@@ -2,7 +2,7 @@
 category: obsidian
 created: 2023-06-23
 title: Lay out all Obsidian notes in a grid
-updated: 2023-06-23
+updated: 2024-04-19
 ---
 
 Here's how you can have a grid with all your  notes laid out.

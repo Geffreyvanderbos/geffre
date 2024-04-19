@@ -2,7 +2,7 @@
 category: musicology
 created: 2024-01-01
 title: AI-assisted music is not the problem
-updated: 2024-01-20
+updated: 2024-04-19
 ---
 
 There's been much talk about the music industry and artificial intelligence in music. I want to explore this alongside the original purpose of music. Contrary to a believe that 'a song' is a moment-in-time recording, I am convinced music is alive and always evolving. From ancient bards passing down tales orally, to modern algorithms generating music, it reflects its time, carrying cultural nuances and societal shifts.

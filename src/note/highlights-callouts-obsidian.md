@@ -2,7 +2,7 @@
 category: obsidian
 created: 2023-05-09
 title: Highlight callouts in Obsidian
-updated: 2023-05-09
+updated: 2024-04-19
 ---
 
 I use various plugins and apps (like [Zotero](https://www.zotero.org/), [Omnivore](https://omnivore.app/), and [Snipd](https://www.snipd.com/)) to bring information into my Obsidian vault.

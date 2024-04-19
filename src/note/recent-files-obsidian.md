@@ -2,7 +2,7 @@
 category: obsidian
 created: 2023-04-16
 title: Display recent files in Obsidian Vault
-updated: 2023-04-16
+updated: 2024-04-19
 popular: true
 ---
 

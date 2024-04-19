@@ -2,7 +2,7 @@
 category: scripts
 title: Mela to Markdown (Python script)
 created: 2024-04-09
-updated: 2024-04-09
+updated: 2024-04-19
 ---
 
 I adore [Mela](https://mela.recipes/) as my recipe manager and meal planner. We use it every single day. 

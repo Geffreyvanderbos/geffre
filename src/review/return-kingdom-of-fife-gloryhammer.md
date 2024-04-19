@@ -2,8 +2,9 @@
 title: Return to the Kingdom of Fife
 author: Gloryhammer
 mbid: 9e1e6426-7330-4ce7-aa62-a817e6773c3c
-created: "2024-01-22"
+created: 2024-01-22
 grade: 8
+updated: 2024-04-19
 ---
 
 Gloryhammer's power metal tour de force that winks at the genre while outdoing itself—and everyone else. Who'd have thought they'd leapfrog over 'Legends from Beyond the Galactic Terrorvortex'? Yet here we are. It's as if they've taken the nonsensical heart of power metal, embraced it with a knowing smirk, and spun it into something almost avant-garde. The self-awareness is palpable, tipping the hat to the likes of Rhapsody but never becoming a mere echo. 

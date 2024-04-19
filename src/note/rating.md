@@ -2,7 +2,7 @@
 category: musicology
 created: 2024-01-27
 title: My Rating System and Review Criteria
-updated: 2024-01-27
+updated: 2024-04-19
 ---
 
 My [reviews](../../listening) focus on aspects that go beyond commercial success to the core of musical experience. That's why they are based on a set of personal criteria, reflecting an engagement with music as both an art form and a personal experience. Below is an outline of the the grading system and criteria I use to evaluate albums. It's not objective, and not meant to be.

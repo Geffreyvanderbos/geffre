@@ -1,8 +1,8 @@
 ---
 category: technology
 created: 2024-01-01
-title: "Today's Lack of Music with an Inherent Value"
-updated: 2024-01-21
+title: Today's Lack of Music with an Inherent Value
+updated: 2024-04-19
 ---
 
 Although a significant part of my music library is instrumental, I have never given the separation of music and poetry a lot of thought. Until I came across the concept of 'absolute music'.

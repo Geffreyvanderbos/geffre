@@ -1,9 +1,10 @@
 ---
-title: "I/O"
+title: I/O
 author: Peter Gabriel
 mbid: 7576d1d7-98e3-4c73-866a-dab6bb535052
-created: "2024-01-19"
+created: 2024-01-19
 grade: 6
+updated: 2024-04-19
 ---
 
 Pleasant but forgettable, Peter Gabriel's 'i/o' is a textbook example of playing it safe. The album delivers what it promises—a series of familiar, catchy pop songs with big choruses that are easy on the ears but short on depth. 

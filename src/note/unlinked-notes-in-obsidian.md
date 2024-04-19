@@ -2,7 +2,7 @@
 category: obsidian
 created: 2023-04-15
 title: List unlinked notes in Obsidian
-updated: 2023-04-15
+updated: 2024-04-19
 ---
 
 

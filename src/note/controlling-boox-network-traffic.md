@@ -2,7 +2,7 @@
 category: technology
 created: 2023-01-14
 title: Controlling Boox Network Traffic
-updated: 2023-01-14
+updated: 2024-04-19
 ---
 
 One challenge I have with my Boox Leaf2 is the fact that it has some substantial background traffic. They're constantly phoning home. Many people don't think it's suspicious, but it could be sending your data to a server in China. I decided I don't want it to constantly  communicate with their telemetry servers, including QQ.com and Alibaba.com. So, I shut that down.

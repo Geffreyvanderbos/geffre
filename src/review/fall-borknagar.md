@@ -1,9 +1,10 @@
 ---
-title: "Fall"
+title: Fall
 author: Borknagar
 mbid: 11988d9d-2faa-4848-bde2-a66db951d19f
-created: "2024-03-06"
+created: 2024-03-06
 grade: 7
+updated: 2024-04-19
 ---
 
 Even though Fall falls short on the arms stretching forward, palms up epic to the likes of the tracks on Winter Thrice, it's undeniable that they keep pushing the sonic bounderies of progressive, "nordic" black. Familiarly Borknagar, yet with more expressive vocals and increasingly creative guitar work.

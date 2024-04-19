@@ -1,8 +1,8 @@
 ---
 category: obsidian
 created: 2024-04-03
-title: "Things3 Overview in Obsidian"
-updated: 2024-04-03
+title: Things3 Overview in Obsidian
+updated: 2024-04-19
 ---
 
 I love how Things 3 does to-dos. [Things3 Today](https://github.com/wudanyang6/obsidian-things3-today) is a pretty simple way to display the the Today overview in an Obsidian panel.

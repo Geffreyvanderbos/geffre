@@ -2,8 +2,9 @@
 title: Prometheus
 author: Emperor
 mbid: 8e3c1739-f964-4629-b60a-c6835dce78fb
-created: "2023-01-21"
+created: 2023-01-21
 grade: 7
+updated: 2024-04-19
 ---
 
 The last outing and the nail in the coffin for the trve black metal Emperor. Ihsahn uses the opportunity to set the stage for his eclectic solo career. The cult-like subgenre can be quite a stickler for a certain sound, and this album certainly has pushed some (mixpanel) buttons. Well, except for lo-fi harpischores and synths attempting to sound like stringed instruments.

@@ -1,8 +1,8 @@
 ---
 category: technology
 created: 2024-04-01
-title: "Understanding Streaming Music Royalty Payments"
-updated: 2024-04-01
+title: Understanding Streaming Music Royalty Payments
+updated: 2024-04-19
 ---
 
 Note: What I share here is a simplified take on how royalty payouts work. There's a lot more to it, with lots of details and nuances. I put this note together to communicate clearer, especially when I'm chatting with people who might not be as familiar with all the ins and outs.

@@ -2,7 +2,7 @@
 category: musicology
 created: 2024-01-01
 title: How we value music as an art form
-updated: 2024-01-20
+updated: 2024-04-19
 ---
 
 Aesthetics, in the context of music, deals with how we perceive and value music as an art form. It involves aesthetic judgment, a process where we evaluate or appreciate music based on its artistic and beauty merits, rather than its practical utility or factual content.

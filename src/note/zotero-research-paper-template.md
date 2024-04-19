@@ -2,7 +2,7 @@
 category: obsidian
 created: 2023-08-17
 title: My Zotero research paper template
-updated: 2023-08-17
+updated: 2024-04-19
 ---
 
 I use Zotero to organise my research papers on musicology and music technology. To import the highlights I make to Obsidian, I use a community plugin called Zotero Integration.
