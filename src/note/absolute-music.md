@@ -1,8 +1,9 @@
 ---
-category: technology
+category:
+  - musicology
 created: 2024-01-01
 title: Today's Lack of Music with an Inherent Value
-updated: 2024-04-19
+updated: 2024-04-21
 ---
 
 Although a significant part of my music library is instrumental, I have never given the separation of music and poetry a lot of thought. Until I came across the concept of 'absolute music'.
@@ -15,4 +16,4 @@ Popular music nowadays (however 'pleasant to listen to' it is) seems to be made 
 
 The concept played a crucial role in shaping the way music was composed, appreciated, and critiqued during this period. And, being aware of this perspective now, will be trying to apply it to my daily listening. Looking beyond the lyrics, what the artist stands for, or the story they're trying to tell.
 
-Don't get me wrong. I am a firm believer in music as a storytelling tool. And, I will always appreciate a strong lyric. However, I will now actively try to find beauty beyond the poetry.
+I am a firm believer in music as a storytelling tool. And, I will always appreciate a strong lyric. However, I will now actively try to find beauty beyond the poetry.
