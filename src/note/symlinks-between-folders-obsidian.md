@@ -2,7 +2,7 @@
 category:
   - obsidian
 created: 2024-04-21
-title: External files in Obsidian Vault without duplicating
+title: External files in Obsidian without duplicating
 updated: 2024-04-21
 ---
 I use symbolic links (symlinks) to add several folders to my Obsidian vault that are not in my vault's directory. For example, this website's content. As well as my Zotero PDF collection.
