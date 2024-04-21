@@ -3,10 +3,10 @@
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>symlinks-between-folders-obsidian – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1713722078" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <title>External files in Obsidian Vault without duplicating – Geffrey van der Bos</title>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1713722525" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
-        <meta property="og:title" content="symlinks-between-folders-obsidian – Geffrey van der Bos">
+        <meta property="og:title" content="External files in Obsidian Vault without duplicating – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/symlinks-between-folders-obsidian/">
         <meta property="og:image" content="/assets/ogimage-geffrey-van-der-bos.jpg">
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
@@ -50,31 +50,27 @@
   </ul>
 </nav>
     		<main class="onepage--centered note">
-                    <h1>symlinks-between-folders-obsidian</h1>
+                    <h1>External files in Obsidian Vault without duplicating</h1>
                     <p>I use symbolic links (symlinks) to add several folders to my Obsidian vault that are not in my vault's directory. For example, this website's content. As well as my Zotero PDF collection.</p>
 <p>To create symlinks between folders on macOS, Linux, and Windows, you use the following commands:</p>
 <p><strong>macOS and Linux:</strong></p>
 <ol>
 <li>Open the Terminal.</li>
-<li>Use the <code>ln</code> command to create a symlink. The syntax is:<pre><code>ln -s /path/to/target /path/to/symlink
-</code></pre>
+<li>Use the <code>ln</code> command to create a symlink. The syntax is:<pre class="language-sh"><code class="language-sh"><span class="token function">ln</span> <span class="token parameter variable">-s</span> /path/to/target /path/to/symlink</code></pre>
 </li>
 <li>Replace <code>/path/to/target</code> with the full path to the original folder, and <code>/path/to/symlink</code> with the location where you want the symlink to appear. In my case, my Obsidian folder.</li>
 </ol>
 <p><strong>Example:</strong></p>
-<pre><code>ln -s /Users/johndoe/Documents/Project /Users/johndoe/Desktop/ProjectShortcut
-</code></pre>
+<pre class="language-sh"><code class="language-sh"><span class="token function">ln</span> <span class="token parameter variable">-s</span> /Users/johndoe/Documents/Project /Users/johndoe/Desktop/ProjectShortcut</code></pre>
 <p><strong>Windows:</strong></p>
 <ol>
 <li>Open Command Prompt or PowerShell with administrator privileges.</li>
-<li>Use the <code>mklink</code> command to create a symlink. The syntax is:<pre><code>mklink /D C:\path\to\symlink C:\path\to\target
-</code></pre>
+<li>Use the <code>mklink</code> command to create a symlink. The syntax is:<pre class="language-sh"><code class="language-sh">mklink /D C:<span class="token punctuation">\</span>path<span class="token punctuation">\</span>to<span class="token punctuation">\</span>symlink C:<span class="token punctuation">\</span>path<span class="token punctuation">\</span>to<span class="token punctuation">\</span>target</code></pre>
 </li>
 <li><code>/D</code> indicates a directory symlink. Replace <code>C:\path\to\target</code> with the full path to the original folder and <code>C:\path\to\symlink</code> with the location where you want the symlink to be created.</li>
 </ol>
 <p><strong>Example:</strong></p>
-<pre><code>mklink /D C:\Users\johndoe\Desktop\ProjectShortcut C:\Users\johndoe\Documents\Project
-</code></pre>
+<pre class="language-sh"><code class="language-sh">mklink /D C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>johndoe<span class="token punctuation">\</span>Desktop<span class="token punctuation">\</span>ProjectShortcut C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>johndoe<span class="token punctuation">\</span>Documents<span class="token punctuation">\</span>Project</code></pre>
 <p>These commands create a symlink between folders, allowing you to access the same content from different locations without duplicating files. It's pretty cool.</p>
 
                     </div>
@@ -88,7 +84,7 @@
                     
                             <li class="notes__item">
                                 <a class="notes__content" href="/note/symlinks-between-folders-obsidian/">
-                                    <span class="notes__heading">symlinks-between-folders-obsidian</span>
+                                    <span class="notes__heading">External files in Obsidian Vault without duplicating</span>
                                     <span style="margin-left: auto;" class="notes__category">obsidian</span>
                                 </a>
                             </li>
