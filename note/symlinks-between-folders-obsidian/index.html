@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="">
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Construction Corporation – Geffrey van der Bos</title>
+        <title>symlinks-between-folders-obsidian – Geffrey van der Bos</title>
         <link rel = "preload" href = "/stylesheets/style.css?v=1713722078" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
-        <meta property="og:title" content="Construction Corporation – Geffrey van der Bos">
-        <meta property="og:url" content="https://geff.re/project/construction/">
+        <meta property="og:title" content="symlinks-between-folders-obsidian – Geffrey van der Bos">
+        <meta property="og:url" content="https://geff.re/note/symlinks-between-folders-obsidian/">
         <meta property="og:image" content="/assets/ogimage-geffrey-van-der-bos.jpg">
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
@@ -15,7 +15,6 @@
         <meta name="theme-color" content="#000">
     </head>
     <body>
-            <a id="top"></a>
             <nav class="navigation">
   <ul class="navigation__list">
     
@@ -50,119 +49,159 @@
     
   </ul>
 </nav>
-    		<main class="projectpage">
-                
+    		<main class="onepage--centered note">
+                    <h1>symlinks-between-folders-obsidian</h1>
+                    <p>I use symbolic links (symlinks) to add several folders to my Obsidian vault that are not in my vault's directory. For example, this website's content. As well as my Zotero PDF collection.</p>
+<p>To create symlinks between folders on macOS, Linux, and Windows, you use the following commands:</p>
+<p><strong>macOS and Linux:</strong></p>
+<ol>
+<li>Open the Terminal.</li>
+<li>Use the <code>ln</code> command to create a symlink. The syntax is:<pre><code>ln -s /path/to/target /path/to/symlink
+</code></pre>
+</li>
+<li>Replace <code>/path/to/target</code> with the full path to the original folder, and <code>/path/to/symlink</code> with the location where you want the symlink to appear. In my case, my Obsidian folder.</li>
+</ol>
+<p><strong>Example:</strong></p>
+<pre><code>ln -s /Users/johndoe/Documents/Project /Users/johndoe/Desktop/ProjectShortcut
+</code></pre>
+<p><strong>Windows:</strong></p>
+<ol>
+<li>Open Command Prompt or PowerShell with administrator privileges.</li>
+<li>Use the <code>mklink</code> command to create a symlink. The syntax is:<pre><code>mklink /D C:\path\to\symlink C:\path\to\target
+</code></pre>
+</li>
+<li><code>/D</code> indicates a directory symlink. Replace <code>C:\path\to\target</code> with the full path to the original folder and <code>C:\path\to\symlink</code> with the location where you want the symlink to be created.</li>
+</ol>
+<p><strong>Example:</strong></p>
+<pre><code>mklink /D C:\Users\johndoe\Desktop\ProjectShortcut C:\Users\johndoe\Documents\Project
+</code></pre>
+<p>These commands create a symlink between folders, allowing you to access the same content from different locations without duplicating files. It's pretty cool.</p>
 
-<div class="projectheader">
-    <div data-tilt data-tilt-max="2" data-tilt-speed="1200" data-tilt-perspective="4000" data-tilt-reverse="true" >
-        <img loading="lazy" class="projectheader__image" src="/project/construction/assets/case-study-construction-ui.jpg" />
-    </div>
-</div>
-<section class="projectinformation grid">
-    <h1 class="projectinformation__title title--large">
-        Construction Corporation
-    </h1>
-    <div class="projectinformation__metadata">
-        Company: Bitfactory GmbH<br>
-        Role: Lead Designer<br>
-        Date: 2019 - 2021
-    </div>
-</section>
-
-<script type="text/javascript" src="/scripts/vanilla-tilt.min.js"></script>
-
-<section class="grid rowmargin--large">
-    <div class="grid-span-6 paragraph--big maxcharacterlength--54">
-        <p>As the lead designer for the [Construction Corporation] project, I focused on enhancing the efficiency of measuring and producing frames, doors, and gates for large construction projects. The project aimed to revolutionize traditional methods used in site measurements and architectural plan management.</p>
-    </div>
-    <div class="grid-clear rowmargin--medium"></div>
-    <div class="grid-span-4">
-        <h2>The Challenge</h2>
-    </div>
-    <div class="grid-span-8">
-        <p>Key challenges included:</p>
-        <ul class="maxcharacterlength--54">   
-            <li>Adapting to the physical demands of construction sites, with tools and processes suitable for workers in gloves and waterproof gear.</li>
-            <li>Developing a system for efficient on-site measurements and real-time architectural plan updates.</li>
-            <li>Improving communication between construction teams and architects, traditionally hampered by disjointed email and phone interactions.</li>
-        </ul>
-    </div>
-        <div class="grid-clear rowmargin--medium"></div>
-    <div class="grid-span-6">
-        <img loading="lazy" src="/project/construction/assets/case-study-construction-3.png" />
-    </div>
-    <div class="grid-span-6 rowmargin--medium">
-        <img loading="lazy" src="/project/construction/assets/case-study-construction-2.png" />
-    </div>
-     <div class="grid-clear"></div>
-    <div class="grid-span-4">
-        <h2>My Role and Contribution</h2>
-    </div>
-    <div class="grid-span-8 maxcharacterlength--54">
-        <p>My key responsibilities were:</p>
-        <ul>   
-        <li>Conducted extensive user research at various construction sites.</li>
-        <li>Designed user interfaces for both the iPad application and the web application, focusing on usability in challenging site conditions.</li>
-        <li>Managed stakeholder communications, ensuring the project aligned with user needs and business objectives.</li> 
-        </ul>
-    </div>
-    <div class="grid-clear rowmargin--medium"></div>
-    <div class="grid-span-7">
-        <img loading="lazy" src="/project/construction/assets/case-study-construction-1.png" />
-    </div>
-    <div class="grid-span-5 justify--center">
-        <div>
-            <h2>The Solution</h2>
-            <p>Highlights of the platform:</p>
-            <ul>
-                <li>iPad Application: Designed for use with gloves, featuring Bluetooth connectivity for measurement tools and with that reducing neccessary interaction.</li>
-                <li>Architect's Tool: An web-based application for uploading plans, planning routes, and streamlining feedback between architects and construction teams.</li>
-            </ul>  
-        </div>
-    </div>
-</section>
-
-<section class="project__conclusion">
-    <div class="grid">
-        <div class="grid-span-6">
-            <h2>A truly enriching experience</h2>
-            <p class="paragraph--big maxcharacterlength--54">The project significantly improved measurement speed per project and streamlined communication between construction teams and architects. User feedback praised the system's efficiency and ease of use, marking a significant advancement over traditional methods.</p>
-        </div>
-        <div class="grid-span-2"></div>
-        <div style="text-align: right" class="grid-span-4">
-            <img loading="lazy" src="/project/construction/assets/matthias-nagel-geffrey-bos.jpg" class="styledimage" /><br>
-            <span>Matthias and Geffrey at the construction site.</span>
-        </div>
-    </div>
-</section>
-
-
-<section class="">
-    <div class="projects__grid">
-        
-            
-            <a class="project" href="/project/smartlab/">
-                <div class="project__description">
-                    <img class="project__cover" src="/project/smartlab/assets/yAL3ARCmqL-796.webp" /> 
-                    <span>Nuclear Medicine Workflow</span>
-                </div>
-            </a>
-            
-        
-            
-        
-            
-            <a class="project" href="/project/hotel/">
-                <div class="project__description">
-                    <img class="project__cover" src="/project/hotel/assets/OpcFA6TnG1-796.webp" /> 
-                    <span>Smart Hotel Room</span>
-                </div>
-            </a>
-            
-        
-    </div>
-</section>
-    		</main>
+                    </div>
+                    <div class="kudos">
+                        
+                        <button class="tinylytics_kudos" data-path="/note/symlinks-between-folders-obsidian/">1</button><span class="tinylytics_kudos--hint">← anonymous kudos</span>
+                    </div>
+                    <div class="grid__notes notes-after-note">
+                    
+                    <ul>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/symlinks-between-folders-obsidian/">
+                                    <span class="notes__heading">symlinks-between-folders-obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/absolute-music/">
+                                    <span class="notes__heading">Today&#39;s Lack of Music with an Inherent Value</span>
+                                    <span style="margin-left: auto;" class="notes__category">technology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/aesthetics-in-music/">
+                                    <span class="notes__heading">How we value music as an art form</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/controlling-boox-network-traffic/">
+                                    <span class="notes__heading">Controlling Boox Network Traffic</span>
+                                    <span style="margin-left: auto;" class="notes__category">technology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/grid-layout-notes/">
+                                    <span class="notes__heading">Lay out all Obsidian notes in a grid</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/highlights-callouts-obsidian/">
+                                    <span class="notes__heading">Highlight callouts in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/ia-assisted-music-not-problem/">
+                                    <span class="notes__heading">AI-assisted music is not the problem</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/mela-to-markdown/">
+                                    <span class="notes__heading">Mela to Markdown (Python script)</span>
+                                    <span style="margin-left: auto;" class="notes__category">scripts</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/now-playing-on-android-tablet/">
+                                    <span class="notes__heading">Display Airplay Now-Playing on old Android Tablet with MQTT</span>
+                                    <span style="margin-left: auto;" class="notes__category">smarthome</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/pro-rata-explained/">
+                                    <span class="notes__heading">Understanding Streaming Music Royalty Payments</span>
+                                    <span style="margin-left: auto;" class="notes__category">technology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/rating/">
+                                    <span class="notes__heading">My Rating System and Review Criteria</span>
+                                    <span style="margin-left: auto;" class="notes__category">musicology</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/recent-files-obsidian/">
+                                    <span class="notes__heading">Display recent files in Obsidian Vault</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/spotify-extract-markdown/">
+                                    <span class="notes__heading">Convert Spotify Library to Markdown</span>
+                                    <span style="margin-left: auto;" class="notes__category">scripts</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/things-overview-obsidian/">
+                                    <span class="notes__heading">Things3 Overview in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/unlinked-notes-in-obsidian/">
+                                    <span class="notes__heading">List unlinked notes in Obsidian</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                            <li class="notes__item">
+                                <a class="notes__content" href="/note/zotero-research-paper-template/">
+                                    <span class="notes__heading">My Zotero research paper template</span>
+                                    <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                </a>
+                            </li>
+                    
+                    </ul>
+                    
+                    </div>
+            </main>
             <footer>
     <div class="footer__content">
         <div class="grid">
@@ -223,5 +262,7 @@
 
 <script type="text/javascript" src="/scripts/misc.js" defer></script>
 
+
+        
     </body>
 </html>
