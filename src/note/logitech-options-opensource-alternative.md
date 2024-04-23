@@ -13,7 +13,9 @@ Yet, here we are.
 
 Logitech decided to introduce a ChatGPT feature in Options+. That's right. The sofware for your mouse now includes artificial intelligence. (Oh, it also adds a random `ai_overlay_tmp` directory to your Home directory. 🤨)
 
-So, I pull out my trusty [Appcleaner](https://freemacsoft.net/appcleaner/)  and remove the 1.2GB(!!) of bloat from my Macbook. After the slaughter, I started looking for alternatives. Backwards? Maybe. Call me passionate. After a few options not worth mentioning, I found [Linear Mouse](https://linearmouse.app/). 
+So, I pull out my trusty [Appcleaner](https://freemacsoft.net/appcleaner/)  and remove the 1.2GB(!!) of bloat from my Macbook. After the slaughter, I started looking for alternatives. Backwards? Maybe. Call me passionate. 
+
+When I found [Linear Mouse](https://linearmouse.app/), I stopped looking.
 
 A quick `brew install --cask linearmouse` and it felt I won a lottery. Truly. It covers all I need, and nothing more.
 
