@@ -30,3 +30,5 @@ A quick `brew install --cask linearmouse` and it felt I won a lottery. Truly. It
 Best part? It's open source. When your wallet allows, [donate](https://github.com/sponsors/linearmouse) to the project. Thank you, Jiahao Lu and the many contributers.
 
 Chef's kiss.
+
+UPDATE: Some readers have recommended [Mac Mouse Fix](https://macmousefix.com/). They've implented smooth scrolling, that's the main difference. It's also Open Source, however after the 30 day trail they do ask for a $2.99 + taxes. Which is totally fair.
