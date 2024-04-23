@@ -27,6 +27,6 @@ A quick `brew install --cask linearmouse` and it felt I won a lottery. Truly. It
 - Pointer acceleration/speed adjustment
 - Assigning buttons to actions
 
-Best part? It's open source. When your wallet allows, [donate](https://github.com/sponsors/linearmouse) to the project. Thank you. Jiahao Lu and the many contributers.
+Best part? It's open source. When your wallet allows, [donate](https://github.com/sponsors/linearmouse) to the project. Thank you, Jiahao Lu and the many contributers.
 
 Chef's kiss.
