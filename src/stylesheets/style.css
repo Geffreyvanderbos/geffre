@@ -71,10 +71,31 @@
 }
 
 html {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga"
+}
+
+:active,
+:visited {
+    color: inherit
+}
+
+::selection {
+    background: #b1d9ff;
+}
+
+nav, main, footer {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) { 
+    main {
+        padding: 0 1rem;
+    }
 }
 
 .introduction {
@@ -189,16 +210,10 @@ h1, h2, h3, h4 {
     line-height: 1.2 !important;
 }
 
-main {
-    flex: 1;
-    margin: 0 1rem 4rem 1rem;
-}
-
 section {
     margin: 0 auto;
     padding: 0;
     width: 100%;
-    max-width: var(--grid-width);
 }
 
 p:first-child {
@@ -620,10 +635,8 @@ p:first-child {
     color: var(--color-foreground--muted); 
 }
 
-.italic, em {
+em {
     font-style: italic;
-    font-family: 'Georgia';
-    font-size: 106%;
 }
 
 .relative {
@@ -764,4 +777,3 @@ p:first-child {
       transform: scale3d(1, 1, 1)
     }
   }
-

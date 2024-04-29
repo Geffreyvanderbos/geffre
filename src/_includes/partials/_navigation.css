@@ -34,7 +34,7 @@
     width: 100%;
     flex-wrap: nowrap;
     list-style: none;
-    padding: 0;
+    padding: .22rem 1rem .25rem 1rem;
     background-color: var(--color-foreground);
     color: var(--color-background);
 }
@@ -73,7 +73,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        padding: 0 1rem;
+        padding: 0;
     }
 
     .navigation__list {
