@@ -8,7 +8,7 @@ order: 1
 
 <div class="homepage-grid">
     <div class="homepage-grid__introduction">
-        <h2 class="introduction--first">geffrey is a digital product designer and amateur sociomusicologist</h2>
+        <h2 class="introduction--first h-card"><span class="p-note"><span class="p-name">Geffrey van der Bos</a> is a digital product designer and amateur sociomusicologist</a></h2>
         <h2 class="introduction--second">
         <svg xmlns="http://www.w3.org/2000/svg" width="9.5" height="32"><path fill="#202020" fill-rule="evenodd" d="M4 0h1.5v27h4l-4.75 5L0 27h4V0Z"/></svg>
             &nbsp;a selection of digital products I helped realise
@@ -67,70 +67,3 @@ order: 1
         {% endfor %}
     </div>
 </div>
-
-<style>
-    body {
-    background-color: #dcdcdc;
-    font-family: "Nacelle", sans-serif;
-    }
-
-    a {
-    color: rgb(5, 5, 5);
-    }
-
-    @media screen and (min-width: 768px) { 
-        .homepage-grid {
-            column-gap: 2rem;
-            display: grid;
-            grid-template-areas:
-                "introduction notes notes"
-                "projects projects projects";
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: auto;
-            row-gap: 4rem;
-        }
-    }
-
-    .grid__notes ul, .homepage-grid__notes ul {
-        list-style: none;
-        margin: 1rem 0 0;
-        padding: 0;
-    }
-
-    .introduction--first {
-        margin-bottom: 4rem;
-    }
-
-    .homepage-notes__content, .notes__content {
-        display: flex;
-        padding: .5rem 0;
-    }
-
-    .navigation {
-        margin-bottom: 4rem;
-    }
-
-    @media screen and (max-width: 767px) {
-        .navigation__link, .theme-toggle__flexbox {
-            padding: 1rem;
-    }
-
-    .navigation__list {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        flex-wrap: nowrap;
-        padding: 0;
-    }
-
-    .socialslist {
-        display: flex;
-        list-style: none;
-        padding: 0;
-    }
-
-    .socialslist__svg {
-        height: 24px;
-        width: 24px;
-    }
-</style>

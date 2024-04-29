@@ -61,13 +61,14 @@ module.exports = function (eleventyConfig) {
         }
       );
       
-        // Run PostCSS during build
-    eleventyConfig.on('afterBuild', () => {
+      // Run PostCSS during build
+      eleventyConfig.on('afterBuild', () => {
         // Execute PostCSS command
-        console.log("Processing CSS ... ")
+        console.log("Processing CSS with PostCSS  ... ")
         execSync('npx postcss src/stylesheets/style.css -o public/stylesheets/style.css');
-        console.log("Done processing the CSS!")
+        console.log("Done processing the CSS!");
     });
+
 
     const markdownItOptions = {
         html: true,
