@@ -593,16 +593,16 @@ footer {
     font-display: swap;
     font-family: Nacelle;
     font-style: normal;
-    font-weight: 400;
-    src: url(/assets/Nacelle-Regular.otf)
+    font-weight: 700;
+    src: url(/assets/Nacelle-SemiBold.otf)
 }
 
 @font-face {
     font-display: swap;
     font-family: Nacelle;
-    font-style: normal;
-    font-weight: 700;
-    src: url(/assets/Nacelle-SemiBold.otf)
+    font-style: italic;
+    font-weight: 400;
+    src: url(/assets/Nacelle-LightItalic.otf)
 }
 
 html {
@@ -1156,7 +1156,11 @@ p:first-child {
 }
 
 .tinylytics_kudos:before {
-    content: url(../assets/kudos-icon.png);
+    content: "";
+    background: url(../assets/kudos-icon.png) no-repeat center / contain;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
     font-size: 1.4rem;
     left: .4rem;
     position: absolute;

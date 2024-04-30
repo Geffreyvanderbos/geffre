@@ -1,15 +1,17 @@
-Hello! I'm Geffrey, a Product Designer passionate about merging music, technology, and user-centric design. My career focuses on creating digital products that balance business objectives with great user experiences.
+My first job was injecting CSS into Myspace Pages to make them *more metal*. I turned a death metal band's page red and black and they gave me 20 euro. A passion was born.
 
-At Comecer Netherlands, I enhance our software and lead the development of a user-friendly radiopharmacy platform, focusing on technical and user needs to bridge the gap towards innovative solutions.
+I had infiltrated the music scene, even without playing an instrument. My specialties were making websites and album layouts: the marketing guy. (I did pick up a synthesiser and a bass after.)
 
-During my time at Kaios.ai, I led a cross-functional team in the creation of AI models for infrastructure management, from traffic signs to buildings. Strengthening my ability to drive innovation from the ground up.
+Skip ahead a few years and I earned a Bachelor of Arts in International Communications—it combined all the elements I was interested in. Media studies, marketing and communication, cultural studies, and more.
 
-At Bitfactory GmbH, my work in human-centered design addressed various challenges, from conducting user research and facilitating design workshops; to collaborating with stakeholders and designing engaging interfaces.
+Along the way, I had a few distractions. There was a side step into education to become an elementary teacher. I was told *you’re good with kids*, but I learned that’s not the case when there are 30 of them.
 
-With a BA in International Communication from Hanzehogeschool Groningen, I've refined my skills in communication, leadership, and strategic thinking, with a foundation in economics and marketing.
+In the third year of my bachelor's degree in communication, I moved to Stuttgart, Germany, where I stayed and grew as a UX/UI lead for Bitfactory GmbH.
 
-When I have free time, I enjoy exploring cutting-edge technologies, consumer products, and exploring how these advancements influence our music experience.
+Until my wife and I felt we needed another challenge and ended up in the northern parts of The Netherlands, where I landed a job as a Product Owner for an AI company called Kaios Infrastructure. I dearly missed the visual interfaces in AI models, so I moved on.
 
-On a personal note, I share my life with my beloved wife, Julia, a brilliant illustrator hailing from Russia with a talent you can witness [here](https://juliavanderbos.com/).
+At Comecer Netherlands, I was appointed as a Product Owner for both legacy software and a new, innovative platform called Smartlab: a software suite that helps radio-pharmacists and the like move from paper to automation.
 
-Our journey has taken us from our home countries to Germany and now the Netherlands. Together with our Shiba Inu, Loki 🐕, we've crafted a vibrant multicultural home that enriches our life and work experiences.
+Currently, I am the experience designer at Stichting NSR. A nonprofit organisation that provides help to those in–or risking–financial debt. Where I help design and improve the ~~customer~~ recipient journeys.
+
+In my free time I thoroughly enjoy learning about music and consumer technology ([see my gadgets](/uses)). My wife’s a [brilliant illustrator](https://illustratorjulia.com) and our Shiba Inu *[Loki](/photostream)* is a master manipulator 🐕.
