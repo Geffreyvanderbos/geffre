@@ -3,8 +3,6 @@ title: Aeropress for the Common Man
 date: 2024-05-01
 ---
 
-# Aeropress for the Common Man
-
 This weekend Loki woke up much earlier than us, he was rustling and squeaking through the smallest  living area you ever saw. Groggily we told him to settle, instead he started wagging his tail faster when he saw our pillow-creased faces peeking down from the loft. He was ready for the day and wondered why we weren’t. The tiny house was true to its name. I can’t imagine it was more than a couple of square meters. We had to move the furniture around to make room for our Shiba Inu’s bed.
 
 I clambered down the steepest stairs that should have been a ladder, poured the kibble in the dog bowl–which is not to Loki the Gourmet his liking–and turned on the water cooker for a nice cup of coffee.
