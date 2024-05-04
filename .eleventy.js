@@ -47,8 +47,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
     eleventyConfig.addPassthroughCopy("./src/note/images/*");
     eleventyConfig.addPassthroughCopy("./src/assets/**/*");
-    eleventyConfig.addPassthroughCopy("./src/concept/*.png");
-    eleventyConfig.addPassthroughCopy("./src/concept/*.jpg");
+    eleventyConfig.addPassthroughCopy("./src/journal/*.png");
+    eleventyConfig.addPassthroughCopy("./src/journal/*.jpg");
     eleventyConfig.addPassthroughCopy("./src/photostream/*.jpg");
     eleventyConfig.addPassthroughCopy("./src/CNAME");
 
@@ -84,9 +84,16 @@ module.exports = function (eleventyConfig) {
         return markdownLib.render(markdownContent);
     });
 
-    eleventyConfig.addFilter("readableDate", (date) => {
+    eleventyConfig.addFilter("distanceToNowDate", (date) => {
         return formatDistanceToNow(new Date(date), { addSuffix: true });
     });
+
+    eleventyConfig.addFilter("readableDate", (dateObj) => {
+      return DateTime.fromJSDate(dateObj, {
+          zone: "Europe/Amsterdam",
+      }).setLocale('en').toLocaleString(DateTime.DATE_FULL);
+  });
+  
 
     eleventyConfig.addFilter("bust", (url) => {
         const [urlPart, paramPart] = url.split("?");
@@ -144,10 +151,21 @@ module.exports = function (eleventyConfig) {
         });
     });
     
-    eleventyConfig.addCollection("concepts", function(collectionApi) {
-      return collectionApi.getFilteredByGlob("./src/concept/*.md").sort((a, b) => {
+    eleventyConfig.addCollection("journal", function(collectionApi) {
+      return collectionApi.getFilteredByGlob("./src/journal/*.md").sort((a, b) => {
             return new Date(b.data.date) - new Date(a.data.date);
         });
+      });
+      
+      eleventyConfig.addFilter("journalDateFormat", function(date) {
+        if (typeof date === 'string') {
+          date = new Date(date);
+        }
+        return DateTime.fromJSDate(date, {zone: 'utc'}).toFormat("LLL yyyy");
+      });        
+
+      eleventyConfig.addFilter("extractMonth", function(dateString) {
+        return dateString.split(' ')[0];
       });
 
     eleventyConfig.addCollection("combinedNotesReviews", function(collectionApi) {

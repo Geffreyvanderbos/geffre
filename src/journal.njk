@@ -1,0 +1,31 @@
+---
+title: "Journal"
+layout: "/layouts/base.njk"
+nav: true
+menutitle: Journal
+order: 2
+---
+
+<main class="onepage--centered note h-entry">
+  <h1 class="p-name">{{ collections.journal[0].data.title }}&nbsp;<a title="permalink to {{ collections.journal[0].data.title }}" href="{{ collections.journal[0].url }}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#050505" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" class="lucide lucide-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></a></h1>
+  <time class="dt-published" datetime="{{ collections.journal[0].data.date }}">{{ collections.journal[0].data.date | readableDate}}</time>
+  <div class="e-content">{{ collections.journal[0].templateContent | safe }}</div>
+</div>
+{% if collections.journal and collections.journal.length > 1 %}
+<ul class="journal-entries__list">
+{% set currentMonth = '' %}
+{% for entry in collections.journal %}
+  {% set entryMonth = entry.data.date | journalDateFormat | extractMonth %}
+  {% if entryMonth != currentMonth %}
+    {% set currentMonth = entryMonth %}
+    <li class="journal-entries__item new-month">
+      <a href="{{ entry.url }}">{{ entry.data.title }}</a><hr class="journal-entries__dotted-line"><span class="journal-entries__date">{{ entry.data.date | journalDateFormat }}</span>
+    </li>
+  {% elseif entry.url != collections.journal[0].url %}
+    <li class="journal-entries__item">
+      <a href="{{ entry.url }}">{{ entry.data.title }}</a><hr class="journal-entries__dotted-line"><span class="journal-entries__date">{{ entry.data.date | journalDateFormat }}</span>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endif %}
