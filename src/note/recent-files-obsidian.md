@@ -6,7 +6,7 @@ updated: 2024-04-19
 popular: true
 ---
 
-A Dataview snippet that displays your vault's most recent files:
+A Dataview snippet that displays your vault's recent files:
 
 ```js
 $=dv.list(dv.pages('').sort(f=>f.file.mtime.ts,"desc").limit(10).file.link)`

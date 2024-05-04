@@ -3,13 +3,13 @@ title: Aeropress for the Common Man
 date: 2024-05-01
 ---
 
-This weekend Loki woke up much earlier than us. Rustling and squeaking through the tiny living area. Groggily we told him to settle. Wagging his tail when he saw our pillow-creased faces peeking down from the loft. The tiny house was true to its name. We had to move the furniture around to make room for our Shiba Inu’s bed.
+# Aeropress for the Common Man
 
-I clambered down the stairs that could have been a ladder, poured the kibble in his bowl–which is not to Loki the Gourmet his liking–and turned on the water cooker for a nice cup of coffee.
+This weekend Loki woke up much earlier than us, he was rustling and squeaking through the smallest  living area you ever saw. Groggily we told him to settle, instead he started wagging his tail faster when he saw our pillow-creased faces peeking down from the loft. He was ready for the day and wondered why we weren’t. The tiny house was true to its name. I can’t imagine it was more than a couple of square meters. We had to move the furniture around to make room for our Shiba Inu’s bed.
 
-The Aeropress is my favorite piece of coffee gear when I'm traveling. It’s versatile, easy to use and keep clean. Making a proper cup of coffee with is a process of trail and error. I think I figured it out and want to share it with you. 
+I clambered down the steepest stairs that should have been a ladder, poured the kibble in the dog bowl–which is not to Loki the Gourmet his liking–and turned on the water cooker for a nice cup of coffee.
 
-The following recipe I use for our classic Aeropress. It’s nothing special and isn’t meant to be. This is *the Aeropress recipe for the common man*.
+The Aeropress is my favorite piece of coffee gear when I’m traveling. It’s versatile, easy to use, and to keep clean. Making a proper cup of coffee is a process of trail and error. However, I think I figured it out and want to share it with you. This is *the Aeropress recipe for the common man*.
 
 Here’s what you need: the Aeropress, an Aeropress filter, ground coffee, a water cooker, a coffee cup that is wide enough to fit the Aeropress, and something to stir with.
 
