@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Display recent files in Obsidian Vault – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1714849059" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1714851332" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Display recent files in Obsidian Vault – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/recent-files-obsidian/">
@@ -52,7 +52,7 @@
     		<main class="onepage--centered note h-entry">
                     <h1 class="p-name">Display recent files in Obsidian Vault</h1>
                     <div class="e-content">
-                        <p>A Dataview snippet that displays your vault's most recent files:</p>
+                        <p>A Dataview snippet that displays your vault's recent files:</p>
 <pre class="language-js"><code class="language-js">$<span class="token operator">=</span>dv<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>dv<span class="token punctuation">.</span><span class="token function">pages</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token parameter">f</span><span class="token operator">=></span>f<span class="token punctuation">.</span>file<span class="token punctuation">.</span>mtime<span class="token punctuation">.</span>ts<span class="token punctuation">,</span><span class="token string">"desc"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>file<span class="token punctuation">.</span>link<span class="token punctuation">)</span>`</code></pre>
 <p>Change the number in <code>limit(10)</code> to the amount of files you'd like to show up.</p>
 

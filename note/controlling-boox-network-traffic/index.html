@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Controlling Boox Network Traffic – Geffrey van der Bos</title>
-        <link rel = "preload" href = "/stylesheets/style.css?v=1714849059" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
+        <link rel = "preload" href = "/stylesheets/style.css?v=1714851332" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <meta property="og:title" content="Controlling Boox Network Traffic – Geffrey van der Bos">
         <meta property="og:url" content="https://geff.re/note/controlling-boox-network-traffic/">
@@ -52,12 +52,13 @@
     		<main class="onepage--centered note h-entry">
                     <h1 class="p-name">Controlling Boox Network Traffic</h1>
                     <div class="e-content">
-                        <p>One challenge I have with my Boox Leaf2 is the fact that it has some substantial background traffic. They're constantly phoning home. Many people don't think it's suspicious, but it could be sending your data to a server in China. I decided I don't want it to constantly  communicate with their telemetry servers, including QQ.com and Alibaba.com. So, I shut that down.</p>
-<p>The issue is the communication happens at the root level, and we don't have default root access to these devices. I needed a non-root access solution, and there is: an app called <a href="https://netguard.me/">NetGuard</a>.</p>
+                        <p>One gripe I have with my Boox Leaf2 is the fact that it has substantial background traffic. They're constantly phoning home. Many people don't think it's suspicious, but it could be sending your data to a server in China.</p>
+<p>I decided I don't want it to constantly  communicate with their telemetry servers, including QQ.com and Alibaba.com. I shut that down.</p>
+<p>The issue is the communication happens at the root level, and we don't have default root access to these devices. I needed a non-root access solution. And there is: an app called <a href="https://netguard.me/">NetGuard</a>.</p>
 <p>NetGuard is a no-root firewall allowing complete control over network traffic. It creates a VPN on your device and routes all traffic through it, discarding unwanted traffic.</p>
 <p>NetGuard is open-source; all source code is available for viewing. I use the 'pro' version, which you get after donating a few euros. I can view blocked traffic logs, filter traffic on an IP or protocol basis, receive new app notifications if something new tries to phone out undetected.</p>
-<p>You can download NetGuard directly from their <a href="https://github.com/M66B/NetGuard/releases">GitHub</a> and sideload it onto your Android device. Get the APK and transfer it via USB. If enabled, you can get it via the Google Play Store, as well.</p>
-<p>I block all traffic except for the apps I actually use. Like <a href="https://omnivore.app/">Omnivore</a>, <a href="https://obsidian.md">Obsidian</a>, and the web browser. By the way, you'll have to turn off Netguard periodically to see if there are any firmware updates.</p>
+<p>You can download NetGuard directly from their <a href="https://github.com/M66B/NetGuard/releases">GitHub</a> and sideload it onto your Android device. Get the APK and transfer it via USB. If enabled, you can get it via the Google Play Store.</p>
+<p>I block all traffic except for the apps I use. Like <a href="https://omnivore.app/">Omnivore</a>, <a href="https://obsidian.md">Obsidian</a>, and the web browser. You'll have to turn off Netguard periodically to see if there are any firmware updates.</p>
 <p><img src="/note/images/boox-leaf2.png" alt="Boox Leaf2 with custom illustration of our family"></p>
 
                     </div>
