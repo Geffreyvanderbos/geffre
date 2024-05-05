@@ -3,11 +3,11 @@ title: Aeropress for the Common Man
 date: 2024-05-01
 ---
 
-This weekend Loki woke up much earlier than us, he was rustling and squeaking through the smallest  living area you ever saw. Groggily we told him to settle, instead he started wagging his tail faster when he saw our pillow-creased faces peeking down from the loft. He was ready for the day and wondered why we weren’t. The tiny house was true to its name. I can’t imagine it was more than a couple of square meters. We had to move the furniture around to make room for our Shiba Inu’s bed.
+This weekend Loki woke up much earlier than us, he was rustling and squeaking through the smallest living area you ever seen. Groggily we told him to settle. Instead, he started wagging his tail faster when he saw our pillow-creased faces peeking down from the loft. He was ready for the day and wondered why we weren't. The tiny house was true to its name. I can't imagine it was more than a couple of square meters. We had to move the furniture around to make room for our Shiba Inu’s bed.
 
 I clambered down the steepest stairs that should have been a ladder, poured the kibble in the dog bowl–which is not to Loki the Gourmet his liking–and turned on the water cooker for a nice cup of coffee.
 
-The Aeropress is my favorite piece of coffee gear when I’m traveling. It’s versatile, easy to use, and to keep clean. Making a proper cup of coffee is a process of trail and error. However, I think I figured it out and want to share it with you. This is *the Aeropress recipe for the common man*.
+The Aeropress is my favorite piece of coffee gear when I'm traveling. Making a proper cup of coffee with it is a process of trial and error. However, I think I figured it out and want to share it with you. This is *the Aeropress recipe for the common man*.
 
 Here’s what you need: the Aeropress, an Aeropress filter, ground coffee, a water cooker, a coffee cup that is wide enough to fit the Aeropress, and something to stir with.
 
@@ -15,11 +15,11 @@ For lighter roasts use a fine grind similar to espresso. For darker roasts, opt 
 
 The steps: 
 
-1. Boil the water and let it cool down in the cooker to about 80-90 degrees. (Takes 10 minutes on average with our off-the-shelf water-cooker.)
+1. Boil the water and let it cool down in the cooker to between 85-90 degrees. (Takes 10 minutes on average with our off-the-shelf water-cooker.)
 2. Put a scoop of ground coffee (≈26 grams) in the Aeropress with a filter installed.
 3. Pour water quickly into the Aeropress to saturate the coffee grounds. Pour to about under the number 4 mark (≈200 milliliters).
-4. Put the plunger in the Aeropress to create the vacuum which prevents liquid from dripping through the filter. Allow the coffee to steep for **2 minutes**.
-5. Perform a gentle swirl of the Aeropress—avoid creating a vortex. The grounds should start sinking to the bottom.
+4. Put the plunger in the Aeropress to create the vacuum which prevents liquid from dripping through the filter. Allow the coffee to steep for **2 minutes** (there’s a timer below this post).
+5. After, perform a gentle swirl of the Aeropress—avoid creating a vortex. The grounds should start sinking to the bottom.
 6. After a **30-second** pause, begin pressing down gently and steadily for about **30 seconds**.
 
 A fresh cup of pleasant coffee is served. If your coffee is too bitter, consider a coarser grind or cooler. If sourness occurs, increase water temperature and grind the coffee finer.
