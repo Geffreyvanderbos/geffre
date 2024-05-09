@@ -3,7 +3,7 @@ title: Aeropress for the Common Man
 date: 2024-05-01
 ---
 
-This weekend Loki woke up much earlier than us, he was rustling and squeaking through the smallest living area you ever seen. Groggily we told him to settle. Instead, he started wagging his tail faster when he saw our pillow-creased faces peeking down from the loft. He was ready for the day and wondered why we weren't. The tiny house was true to its name. I can't imagine it was more than a couple of square meters. We had to move the furniture around to make room for our Shiba Inu’s bed.
+This weekend Loki woke up much earlier than us, he was rustling and squeaking through the smallest living area you ever seen. Groggily we told him to settle. Instead, he started wagging his tail faster when he saw our pillow-creased faces peeking down from the loft. He was ready for the day and wondered why we weren't. I don't think the Tiny House was more than a couple of square meters big.
 
 I clambered down the steepest stairs that should have been a ladder, poured the kibble in the dog bowl–which is not to Loki the Gourmet his liking–and turned on the water cooker for a nice cup of coffee.
 
