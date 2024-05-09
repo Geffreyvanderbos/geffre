@@ -1271,3 +1271,33 @@ p:first-child {
     margin-bottom: 1rem;
     color: var(--color-foreground--muted);
 }
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .75rem;
+  }
+
+  table tr:nth-child(even) {
+    background-color: #d2d2d2;
+  }
+
+  .onepage--centered table {
+    margin-top: 2rem;
+  }
+  
+  th,
+  td {
+    padding: .6rem;
+  }
+
+  thead {
+    text-align: left !important;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .table--nowrap {
+    white-space: nowrap;
+  }

@@ -4,9 +4,9 @@
     <body>
             {% include "partials/_navigation.njk" %}
             <main class="onepage--centered note h-entry">
-                <h1 class="p-name">{{ collections.journal[0].data.title }}</h1>
-                <time class="dt-published" datetime="{{ collections.journal[0].data.date }}">{{ collections.journal[0].data.date | readableDate}}</time>
-                <div class="e-content">{{ collections.journal[0].templateContent | safe }}</div>
+                <h1 class="p-name">{{ title }}</h1>
+                <time class="dt-published" datetime="{{ page.date }}">{{ page.date | readableDate}}</time>
+                <div class="e-content">{{ content | safe }}</div>
                 </div>
                 {% if collections.journal and collections.journal.length > 1 %}
                 <ul class="journal-entries__list">
