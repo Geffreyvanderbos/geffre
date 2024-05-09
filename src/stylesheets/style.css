@@ -912,10 +912,6 @@ p:first-child {
     max-width: 800px
 }
 
-.onepage--centered.note {
-    padding: 0 1rem
-}
-
 .notes-after-note {
     border-top: 2px solid #bbb;
     margin-top: 4rem
@@ -1285,8 +1281,21 @@ table {
 
   .onepage--centered table {
     margin-top: 2rem;
+    width: calc(100% + 4rem);
+    left: -2rem;
+    position: relative;
   }
-  
+
+  @media (max-width: 800px) {
+.onepage--centered table {
+    left: 0;
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+}
   th,
   td {
     padding: .6rem;
