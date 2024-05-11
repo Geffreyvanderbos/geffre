@@ -8,222 +8,225 @@ const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
 const { execSync } = require('child_process');
 
+// Image URL Shortcode
 async function imageUrlShortcode(src, width = null, format = 'webp') {
   try {
-    let fullPath = `src/${src}`;
-    let options = {
-        widths: [width].filter(w => w !== null), // Filter out null if width is not specified
-        formats: [format], // Default format is WebP, can be overridden
-        urlPath: `/${src.split("/").slice(0, -1).join("/")}`, // Set URL path for browser access
-        outputDir: "./public/" + src.split("/").slice(0, -1).join("/") // Dynamically set output directory
-    };
+      let fullPath = `src/${src}`;
+      let options = {
+          widths: [width].filter(w => w !== null),
+          formats: [format],
+          urlPath: `/${src.split("/").slice(0, -1).join("/")}`,
+          outputDir: "./public/" + src.split("/").slice(0, -1).join("/")
+      };
 
-    console.log("Full path:", require('path').resolve(fullPath));
-        // Log the source and options
-        console.log("Source:", src);
-        console.log("Options:", options);
-    
+      console.log("Full path:", require('path').resolve(fullPath));
+      console.log("Source:", src);
+      console.log("Options:", options);
 
-    // Process the image and wait for it to complete
-    await Image(fullPath, options);
-
-    // Retrieve the metadata for the processed image
-    let metadata = Image.statsSync(fullPath, options);
-
+      await Image(fullPath, options);
+      let metadata = Image.statsSync(fullPath, options);
       console.log("Metadata:", metadata);
 
-
-    // Return the URL of the first (and likely only) image version
-    return metadata[format][0].url;
-    } catch (error) {
+      return metadata[format][0].url;
+  } catch (error) {
       console.error("Error in imageUrl shortcode:", error);
-      return ""; // Return an empty string or a fallback URL in case of error
-    }
+      return "";
+  }
 }
 
+
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("./src/stylesheets/*.css");
-    eleventyConfig.addPassthroughCopy("./src/scripts/*.js");
-    eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
-    eleventyConfig.addPassthroughCopy("./src/note/images/*");
-    eleventyConfig.addPassthroughCopy("./src/assets/**/*");
-    eleventyConfig.addPassthroughCopy("./src/journal/*.png");
-    eleventyConfig.addPassthroughCopy("./src/journal/*.jpg");
-    eleventyConfig.addPassthroughCopy("./src/photostream/*.jpg");
-    eleventyConfig.addPassthroughCopy("./src/CNAME");
-
-    eleventyConfig.addGlobalData("env", process.env.NODE_ENV);
-    
-    eleventyConfig.addPlugin(
-        require("@11ty/eleventy-plugin-syntaxhighlight"),
-        {
-        templateFormats: ["css", "md", "liquid", "html", "js"]
-        }
-      );
-      
-      // Run PostCSS during build
-      eleventyConfig.on('afterBuild', () => {
-        // Execute PostCSS command
-        console.log("Processing CSS with PostCSS  ... ")
-        execSync('npx postcss src/stylesheets/style.css -o public/stylesheets/style.css');
-        console.log("Done processing the CSS!");
-    });
-
-
-    const markdownItOptions = {
-        html: true,
-        breaks: true,
-        linkify: false
-    };
-
-    const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
-    eleventyConfig.setLibrary('md', markdownLib);
-
-    eleventyConfig.addFilter("markdownify", function(filePath) {
-        let markdownContent = fs.readFileSync(filePath, 'utf8');
-        return markdownLib.render(markdownContent);
-    });
-
-    eleventyConfig.addFilter("distanceToNowDate", (date) => {
-        return formatDistanceToNow(new Date(date), { addSuffix: true });
-    });
-
-    eleventyConfig.addFilter("readableDate", (dateObj) => {
-      return DateTime.fromJSDate(dateObj, {
-          zone: "Europe/Amsterdam",
-      }).setLocale('en').toLocaleString(DateTime.DATE_FULL);
+  eleventyConfig.addPassthroughCopy({
+    "./src/stylesheets/*.css": "stylesheets",
+    "./src/scripts/*.js": "scripts",
+    "./src/project/**/assets/*": "project/assets",
+    "./src/note/images/*": "note/images",
+    "./src/assets/**/*": "assets",
+    "./src/journal/*.png": "journal",
+    "./src/journal/*.jpg": "journal",
+    "./src/photostream/*.jpg": "photostream",
+    "./src/CNAME": ".",
   });
-  
 
-    eleventyConfig.addFilter("bust", (url) => {
-        const [urlPart, paramPart] = url.split("?");
-        const params = new URLSearchParams(paramPart || "");
-        params.set("v", DateTime.local().toFormat("X"));
-        return `${urlPart}?${params}`;
-      });
 
-    eleventyConfig.addCollection("navigation", function(collection) {
-        return collection.getAll()
-          .filter(item => "nav" in item.data)
-          .sort((a, b) => a.data.order - b.data.order);
-      });
+  ////////////////////
+  // Shortcodes     //
+  ////////////////////
 
-    eleventyConfig.addCollection("projects", function(collection) {
-        return collection.getFilteredByGlob("./src/project/**/*.njk").sort((a, b) => {
-            return a.data.order - b.data.order;
-        });
-      });
-
-      eleventyConfig.addCollection("photostream", function(collection) {
-        return collection.getFilteredByGlob("./src/photostream/*.md").sort((a, b) => {
-            return b.data.date - a.data.date;
-        });
-      });
-
-    eleventyConfig.addCollection("now", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("./src/now/*.md").sort((a, b) => {
-        return b.date - a.date; // Sort by date in descending order
-        });
-    });
-
-    eleventyConfig.addCollection("notes", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("./src/note/*.md").sort((a, b) => {
-            return b.data.updated - a.data.updated;
-            });
-        });
-
-    eleventyConfig.addCollection("reviewsObject", function(collectionApi) {
-        let reviewsArray = collectionApi.getFilteredByGlob("./src/review/*.md").filter(item => item.data.mbid);
+  eleventyConfig.addShortcode("imageUrl", imageUrlShortcode);
     
-        reviewsArray.sort((a, b) => a.data.created - b.data.created);
-    
-        let reviewsObject = {};
-        reviewsArray.forEach(item => {
-            reviewsObject[item.data.mbid] = item.url;
-        });
-    
-        return reviewsObject;
-    });
+  ////////////////////
+  // Plugins        //
+  ////////////////////
 
-    eleventyConfig.addCollection("reviews", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("./src/review/*.md").sort((a, b) => {
-            return new Date(b.data.created) - new Date(a.data.created);
-        });
-    });
-    
-    eleventyConfig.addCollection("journal", function(collectionApi) {
-      return collectionApi.getFilteredByGlob("./src/journal/*.md").sort((a, b) => {
-            return new Date(b.data.date) - new Date(a.data.date);
-        });
-      });
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    templateFormats: ["css", "md", "liquid", "html", "js"]
+  });
       
-      eleventyConfig.addFilter("journalDateFormat", function(date) {
-        if (typeof date === 'string') {
-          date = new Date(date);
-        }
-        return DateTime.fromJSDate(date, {zone: 'utc'}).toFormat("LLL yyyy");
-      });        
+  // PostCSS Processing
+    eleventyConfig.on('afterBuild', () => {
+      console.log("Processing CSS with PostCSS ... ");
+      execSync('npx postcss src/stylesheets/style.css -o public/stylesheets/style.css');
+      console.log("Done processing the CSS!");
+  });
 
-      eleventyConfig.addFilter("extractMonth", function(dateString) {
-        return dateString.split(' ')[0];
-      });
+  const markdownItOptions = {
+      html: true,
+      breaks: true,
+      linkify: false
+  };
 
-    eleventyConfig.addCollection("combinedNotesReviews", function(collectionApi) {
-      // Get notes and add a type property to each item
-      let notes = collectionApi.getFilteredByGlob("./src/note/*.md").map(item => {
-          item.data.type = "note"; // Add a type property to distinguish notes
-          return item;
+  const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
+  eleventyConfig.setLibrary('md', markdownLib);
+
+  ////////////////////
+  // Custom Filters //
+  ////////////////////
+
+  eleventyConfig.addFilter("markdownify", function(filePath) {
+      let markdownContent = fs.readFileSync(filePath, 'utf8');
+      return markdownLib.render(markdownContent);
+  });
+
+  eleventyConfig.addFilter("distanceToNowDate", (date) => {
+      return formatDistanceToNow(new Date(date), { addSuffix: true });
+  });
+
+  eleventyConfig.addFilter("readableDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {
+        zone: "Europe/Amsterdam",
+    }).setLocale('en').toLocaleString(DateTime.DATE_FULL);
+  });
+
+  eleventyConfig.addFilter("bust", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    params.set("v", DateTime.local().toFormat("X"));
+    return `${urlPart}?${params}`;
+  });
+
+  eleventyConfig.addFilter("journalDateFormat", function(date) {
+    if (typeof date === 'string') {
+      date = new Date(date);
+    }
+    return DateTime.fromJSDate(date, {zone: 'utc'}).toFormat("LLL yyyy");
+  });
+
+  eleventyConfig.addFilter("extractMonth", function(dateString) {
+    return dateString.split(' ')[0];
+  });
+
+  eleventyConfig.addFilter('latestJournalRedirect', function(collection) {
+    const latestEntry = collection[0];
+    return latestEntry.url;
+  });
+
+  // For Album reviews previous and next
+  eleventyConfig.addFilter("findIndex", (array, findFn) => {
+    return array.findIndex(findFn);
+  });
+
+  eleventyConfig.addFilter("findReviewNeighbors", function(reviews, currentPageUrl) {
+    const currentIndex = reviews.findIndex(review => review.url === currentPageUrl);
+  
+    let prevReview = null;
+    let nextReview = null;
+
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      if (reviews[i].data.status !== 'reviewing') {
+        prevReview = reviews[i];
+        break;
+      }
+    }
+  
+    for (let i = currentIndex + 1; i < reviews.length; i++) {
+      if (reviews[i].data.status !== 'reviewing') {
+        nextReview = reviews[i];
+        break; 
+      }
+    }
+  
+    return { prevReview, nextReview };
+  });
+
+  ////////////////////////
+  //    Collections    //
+  ///////////////////////
+
+  eleventyConfig.addCollection("navigation", function(collection) {
+      return collection.getAll()
+        .filter(item => "nav" in item.data)
+        .sort((a, b) => a.data.order - b.data.order);
+  });
+
+  eleventyConfig.addCollection("projects", function(collection) {
+      return collection.getFilteredByGlob("./src/project/**/*.njk").sort((a, b) => {
+          return a.data.order - b.data.order;
       });
-  
-      // Get reviews and add a type property to each item
-      let reviews = collectionApi.getFilteredByGlob("./src/review/*.md").map(item => {
-          item.data.type = "review"; // Add a type property to distinguish reviews
-          return item;
+  });
+
+  eleventyConfig.addCollection("photostream", function(collection) {
+    return collection.getFilteredByGlob("./src/photostream/*.md").sort((a, b) => {
+        return b.data.date - a.data.date;
+    });
+  });
+
+  eleventyConfig.addCollection("now", function(collectionApi) {
+  return collectionApi.getFilteredByGlob("./src/now/*.md").sort((a, b) => {
+      return b.date - a.date; // Sort by date in descending order
       });
-  
-      // Combine the notes and reviews into a single array
-      let combined = notes.concat(reviews);
-  
-      // Optionally, sort the combined array by date or another property
-      combined.sort((a, b) => {
+  });
+
+  eleventyConfig.addCollection("notes", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/note/*.md").sort((a, b) => {
+      return b.data.updated - a.data.updated;
+    });
+  });
+
+  eleventyConfig.addCollection("reviewsObject", function(collectionApi) {
+    let reviewsArray = collectionApi.getFilteredByGlob("./src/review/*.md").filter(item => item.data.mbid);
+
+    reviewsArray.sort((a, b) => a.data.created - b.data.created);
+
+    let reviewsObject = {};
+    reviewsArray.forEach(item => {
+        reviewsObject[item.data.mbid] = item.url;
+    });
+
+    return reviewsObject;
+  });
+
+  eleventyConfig.addCollection("reviews", function(collectionApi) {
+      return collectionApi.getFilteredByGlob("./src/review/*.md").sort((a, b) => {
           return new Date(b.data.created) - new Date(a.data.created);
       });
-  
-      return combined;
+  });
+    
+  eleventyConfig.addCollection("journal", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/journal/*.md").sort((a, b) => {
+        return new Date(b.data.date) - new Date(a.data.date);
     });
-    
-    // For Album reviews previous and next
-    eleventyConfig.addFilter("findIndex", (array, findFn) => {
-        return array.findIndex(findFn);
-      });
-    
-      eleventyConfig.addFilter("findReviewNeighbors", function(reviews, currentPageUrl) {
-        const currentIndex = reviews.findIndex(review => review.url === currentPageUrl);
-      
-        // Initialize previous and next as null
-        let prevReview = null;
-        let nextReview = null;
-      
-        // Find the previous review that is not 'reviewing'
-        for (let i = currentIndex - 1; i >= 0; i--) {
-          if (reviews[i].data.status !== 'reviewing') {
-            prevReview = reviews[i];
-            break; // Exit the loop once the suitable previous review is found
-          }
-        }
-      
-        // Find the next review that is not 'reviewing'
-        for (let i = currentIndex + 1; i < reviews.length; i++) {
-          if (reviews[i].data.status !== 'reviewing') {
-            nextReview = reviews[i];
-            break; // Exit the loop once the suitable next review is found
-          }
-        }
-      
-        return { prevReview, nextReview };
-      });
-    
-    eleventyConfig.addShortcode("imageUrl", imageUrlShortcode);
+  });
+
+  eleventyConfig.addCollection("combinedNotesReviews", function(collectionApi) {
+    let notes = collectionApi.getFilteredByGlob("./src/note/*.md").map(item => {
+        item.data.type = "note";
+        return item;
+    });
+
+    let reviews = collectionApi.getFilteredByGlob("./src/review/*.md").map(item => {
+        item.data.type = "review"; 
+        return item;
+    });
+
+    let combined = notes.concat(reviews);
+
+    combined.sort((a, b) => {
+        return new Date(b.data.created) - new Date(a.data.created);
+    });
+
+    return combined;
+  });
     
     return {
         dir: {
