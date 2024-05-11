@@ -401,6 +401,17 @@ footer {
     fill: var(--color-link--hover)
 }
 
+.p-author {
+    display: flex;
+}
+
+.u-photo {
+    border: 2px solid #bbb;
+    width: 140px;
+    height: 140px;
+    margin-left: 1rem;
+}
+
 .reviewpage {
     margin: 3rem auto 0;
     max-width: 400px;
