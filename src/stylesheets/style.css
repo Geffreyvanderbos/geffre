@@ -407,9 +407,18 @@ footer {
 
 .u-photo {
     border: 2px solid #bbb;
-    width: 140px;
-    height: 140px;
+    width: 80px;
+    height: 80px;
     margin-left: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .u-photo {
+        border: 2px solid #bbb;
+        width: 140px;
+        height: 140px;
+        margin-left: 1.5rem;
+    }     
 }
 
 .reviewpage {
