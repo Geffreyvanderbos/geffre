@@ -35,6 +35,18 @@ async function imageUrlShortcode(src, width = null, format = 'webp') {
 }
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({
+    "./src/stylesheets/*.css": "/stylesheets/",
+    "./src/scripts/*.js": "/scripts/",
+    "./src/project/**/assets/*": "/assets/",
+    "./src/note/images/*": "/note/images/",
+    "./src/assets/**/*": "/assets/",
+    "./src/journal/*.png": "/journal/",
+    "./src/journal/*.jpg": "/journal/",
+    "./src/photostream/*.jpg": "/photostream/",
+    "./src/CNAME": "/"
+  });
+
   ////////////////////
   // Shortcodes     //
   ////////////////////
@@ -212,18 +224,6 @@ module.exports = function (eleventyConfig) {
     });
 
     return combined;
-  });
-
-  eleventyConfig.addPassthroughCopy({
-    "./src/stylesheets/*.css": "/stylesheets/",
-    "./src/scripts/*.js": "/scripts/",
-    "./src/project/**/assets/*": "/assets/",
-    "./src/note/images/*": "/note/images/",
-    "./src/assets/**/*": "/assets/",
-    "./src/journal/*.png": "/journal/",
-    "./src/journal/*.jpg": "/journal/",
-    "./src/photostream/*.jpg": "/photostream/",
-    "./src/CNAME": "/"
   });
     
     return {
