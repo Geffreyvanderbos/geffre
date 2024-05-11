@@ -19,13 +19,13 @@ async function imageUrlShortcode(src, width = null, format = 'webp') {
           outputDir: "./public/" + src.split("/").slice(0, -1).join("/")
       };
 
-      console.log("Full path:", require('path').resolve(fullPath));
-      console.log("Source:", src);
-      console.log("Options:", options);
+      // console.log("Full path:", require('path').resolve(fullPath));
+      // console.log("Source:", src);
+      // console.log("Options:", options);
 
       await Image(fullPath, options);
       let metadata = Image.statsSync(fullPath, options);
-      console.log("Metadata:", metadata);
+      // console.log("Metadata:", metadata);
 
       return metadata[format][0].url;
   } catch (error) {
@@ -34,17 +34,18 @@ async function imageUrlShortcode(src, width = null, format = 'webp') {
   }
 }
 
-
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("./src/stylesheets/*.css");
-  eleventyConfig.addPassthroughCopy("./src/scripts/*.js");
-  eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
-  eleventyConfig.addPassthroughCopy("./src/note/images/*");
-  eleventyConfig.addPassthroughCopy("./src/assets/**/*");
-  eleventyConfig.addPassthroughCopy("./src/journal/*.png");
-  eleventyConfig.addPassthroughCopy("./src/journal/*.jpg");
-  eleventyConfig.addPassthroughCopy("./src/photostream/*.jpg");
-  eleventyConfig.addPassthroughCopy("./src/CNAME");
+  eleventyConfig.addPassthroughCopy({
+    "./src/stylesheets/*.css": "/stylesheets/",
+    "./src/scripts/*.js": "/scripts/",
+    "./src/project/**/assets/*": "/assets/",
+    "./src/note/images/*": "/note/images/",
+    "./src/assets/**/*": "/assets/",
+    "./src/journal/*.png": "/journal/",
+    "./src/journal/*.jpg": "/journal/",
+    "./src/photostream/*.jpg": "/photostream/",
+    "./src/CNAME": "/"
+  });
 
   ////////////////////
   // Shortcodes     //
@@ -228,7 +229,7 @@ module.exports = function (eleventyConfig) {
     return {
         dir: {
             input: "src",
-            output: "public",
+            output: "./public",
         },
     };
 };
