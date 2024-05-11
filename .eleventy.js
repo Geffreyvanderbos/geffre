@@ -36,18 +36,15 @@ async function imageUrlShortcode(src, width = null, format = 'webp') {
 
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({
-    "./src/stylesheets/*.css": "stylesheets",
-    "./src/scripts/*.js": "scripts",
-    "./src/project/**/assets/*": "project/assets",
-    "./src/note/images/*": "note/images",
-    "./src/assets/**/*": "assets",
-    "./src/journal/*.png": "journal",
-    "./src/journal/*.jpg": "journal",
-    "./src/photostream/*.jpg": "photostream",
-    "./src/CNAME": ".",
-  });
-
+  eleventyConfig.addPassthroughCopy("./src/stylesheets/*.css");
+  eleventyConfig.addPassthroughCopy("./src/scripts/*.js");
+  eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
+  eleventyConfig.addPassthroughCopy("./src/note/images/*");
+  eleventyConfig.addPassthroughCopy("./src/assets/**/*");
+  eleventyConfig.addPassthroughCopy("./src/journal/*.png");
+  eleventyConfig.addPassthroughCopy("./src/journal/*.jpg");
+  eleventyConfig.addPassthroughCopy("./src/photostream/*.jpg");
+  eleventyConfig.addPassthroughCopy("./src/CNAME");
 
   ////////////////////
   // Shortcodes     //
