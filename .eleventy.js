@@ -42,6 +42,7 @@ module.exports = function (eleventyConfig) {
     "./src/project/**/assets/*": "/assets/",
     "./src/note/images/*": "/note/images/",
     "./src/assets/**/*": "/assets/",
+    "./src/assets/albumcovers/*.jpg": "/assets/albumcovers/",
     "./src/journal/*.png": "/journal/",
     "./src/journal/*.jpg": "/journal/",
     "./src/photostream/*.jpg": "/photostream/",
