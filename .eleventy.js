@@ -46,6 +46,7 @@ module.exports = function (eleventyConfig) {
     "./src/journal/*.png": "/journal/",
     "./src/journal/*.jpg": "/journal/",
     "./src/photostream/*.jpg": "/photostream/",
+    "./src/books/thumbnails/*.*": "/books/thumbnails/",
     "./src/CNAME": "/CNAME"
   });
 
@@ -100,6 +101,10 @@ eleventyConfig.addCollection("reviews", function(collectionApi) {
     return collectionApi.getFilteredByGlob("./src/review/*.md").sort((a, b) => {
         return new Date(b.data.created) - new Date(a.data.created);
     });
+});
+
+eleventyConfig.addCollection("books", function(collectionApi) {
+  return collectionApi.getFilteredByGlob("./src/books/*.md");
 });
   
 eleventyConfig.addCollection("journal", function(collectionApi) {
@@ -198,11 +203,15 @@ eleventyConfig.addFilter("findReviewNeighbors", function(reviews, currentPageUrl
   return { prevReview, nextReview };
 });
 
+eleventyConfig.addFilter('urlEncode', function(str) {
+  return encodeURIComponent(str);
+});
+
   ////////////////////
   // Shortcodes     //
   ////////////////////
 
-  eleventyConfig.addShortcode("imageUrl", imageUrlShortcode);
+eleventyConfig.addShortcode("imageUrl", imageUrlShortcode);
     
   ////////////////////
   // Plugins        //

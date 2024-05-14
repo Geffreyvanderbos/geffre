@@ -1,0 +1,193 @@
+---
+title: "🚧 My Library (Work In Progress)"
+layout: "/layouts/base.njk"
+nav: true
+menutitle: Reading
+order: 4
+pageDescription:  "This personal library contains a mix of digital and physical books, most of which I have read, with a few still waiting on my to-read shelf. It's updated directly with Obsidian.md. I'm still collecting recent books and fiction. <em>Currently reading</em> section will be added, as well."
+---
+<div>
+    {% include "partials/_introduction.njk" %}
+        {% if collections.books.length > 0 %}
+        <div class="book-grid">
+            {% for book in collections.books %}
+            <div class="book-wrapper">
+                <div class="book-container">
+                    <div class="book">
+                        <div class="face bottom"></div>
+                        <div class="face left"></div>
+                        <div class="face front" style="background-image: url('{% imageUrl '/books/' + book.data.thumbnail, 160 %}')"></div>
+                    </div>
+                    <a class="book-search-openlibrary" href="https://openlibrary.org/search?title={{ book.data.title | urlEncode }}&author={{ book.data.author | urlEncode }}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </a>
+                </div>
+                <div class="book-title">{{ book.data.title }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <div class="review__description">
+                <span class="description__title">Excuse me while I gather my books.</span>
+                <span class="description__author">This is only temporary.</span>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    .book-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gap--tight);
+        padding: var(--grid-gap--tight);
+        align-items: center;
+    }
+
+   @media screen and (min-width: 768px) {
+       .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        }
+    }
+    .book-wrapper {
+        transition: opacity 0.2s ease-in;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .book-wrapper.loaded {
+        opacity: 1;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .book-container {
+        width: 100px;
+        height: 180px;
+        perspective: 500px;
+    }
+
+    .book-title {
+        z-index: 1;
+        font-size: .7rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .book {
+        transform-origin: center;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotate3d(.8, 1, 0, 35deg) translate3d(-10px, 0, 0);
+        transition: transform .34s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .book-wrapper:hover .book {
+         transform: rotate3d(0, 0, 0, 35deg) translate3d(0, 0, 0);
+    }
+
+    .face {
+        background: #bbb;
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .front {
+        transform: translate3d(0, 0, 10px);
+        height: 160px;
+        width: 100px;
+    }
+
+    .left {
+        transform: translate3d(-10px, 0, 0) rotateY(-90deg);
+        width: 20px;
+        height: 160px;
+    }
+
+    .bottom {
+        transform: translate3d(0, 150px, 0) rotateX(-90deg);
+        width: 100px;
+        height: 20px;
+    }
+
+    .book-search-openlibrary {
+        opacity: 0;
+        position: absolute;
+        bottom: 20px;
+        right: -10px;
+        background-color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid rgba(0,0,0,.1);
+    }
+
+    .book-search-openlibrary:hover {
+        background-color: #e2dcc7;
+        border: 1px solid rgba(0,0,0,.2);
+    }
+
+    .book-search-openlibrary:active {
+        background-color: var(--color-link);
+    }
+
+    .book-search-openlibrary svg {
+        position: relative;
+        top: 4px;
+    }
+
+    .book-wrapper:hover .book-search-openlibrary {
+        animation: slide-in-blurred-br 0.4s .2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    }
+
+    @keyframes slide-in-blurred-br {
+    0% {
+        transform: translate(100px, 100px) skew(80deg, 10deg);
+        transform-origin: 0% 100%;
+        filter: blur(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0) skew(0deg, 0deg);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+
+</style>
+
+<script>
+// Get all the book-wrapper elements
+const bookWrappers = document.querySelectorAll('.book-wrapper');
+
+// Function to handle the intersection of book-wrapper elements
+function handleIntersection(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('loaded');
+    } else {
+      entry.target.classList.remove('loaded');
+    }
+  });
+}
+
+// Create the Intersection Observer
+const observer = new IntersectionObserver(handleIntersection, {
+  rootMargin: '0px',
+  threshold: 0,
+});
+
+// Observe the book-wrapper elements
+bookWrappers.forEach((wrapper) => {
+  observer.observe(wrapper);
+});
+</script>
