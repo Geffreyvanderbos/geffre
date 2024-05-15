@@ -1,10 +1,10 @@
 ---
 title: The Daily Stoic
 subtitle: 366 Meditations on Wisdom, Perseverance, and the Art of Living
-status: reading
+status: read
 author: Stephen Hanselman, Ryan Holiday
 published_date: 2016-10-18
-isbn10: 0735211744
+isbn10: 735211744
 isbn13: 9780735211742
 page_count: 416
 language: en

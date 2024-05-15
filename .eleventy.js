@@ -207,6 +207,16 @@ eleventyConfig.addFilter('urlEncode', function(str) {
   return encodeURIComponent(str);
 });
 
+eleventyConfig.addFilter("pluck", function(arr, attr, value, exclude = false) {
+  return arr.filter((item) => {
+    if (exclude) {
+      return item.data[attr] !== value;
+    } else {
+      return item.data[attr] === value;
+    }
+  });
+});
+
   ////////////////////
   // Shortcodes     //
   ////////////////////

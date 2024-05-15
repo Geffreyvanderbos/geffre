@@ -1,5 +1,5 @@
 ---
-title: Crucial Conversations, Third Edition
+title: Crucial Conversations
 subtitle: 
 status: read
 author: Emily Gregory, Joseph Grenny, Ron McMillan, Kerry Patterson, Al Switzler

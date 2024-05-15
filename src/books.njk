@@ -1,16 +1,45 @@
 ---
-title: "🚧 My Library (Work In Progress)"
+title: "My Library"
 layout: "/layouts/base.njk"
 nav: true
 menutitle: Reading
 order: 4
-pageDescription:  "This personal library contains a mix of digital and physical books, most of which I have read, with a few still waiting on my to-read shelf. It's updated directly with Obsidian.md. I'm still collecting recent books and fiction. <em>Currently reading</em> section will be added, as well."
+pageDescription:  "This library contains a mix of digital and physical books, most of which I have read, with a few still waiting on my to-read shelf. I track my reading inside <a href=\"https://obsidian.md\">Obsidian</a> and this page is a direct representation of that."
 ---
 <div>
     {% include "partials/_introduction.njk" %}
-        {% if collections.books.length > 0 %}
+
+    {% set readingBooks = collections.books | pluck("status", "reading") %}
+    {% set otherBooks = collections.books | pluck("status", "reading", true) %}
+
+    {% if readingBooks.length > 0 %}
         <div class="book-grid">
-            {% for book in collections.books %}
+            <h2>Reading</h2>
+            {% for book in readingBooks %}
+            <div class="book-wrapper">
+                <div class="book-container">
+                    <div class="book">
+                        <div class="face bottom"></div>
+                        <div class="face left"></div>
+                        <div class="face front" style="background-image: url('{% imageUrl '/books/' + book.data.thumbnail, 160 %}')"></div>
+                    </div>
+                    <a class="book-search-openlibrary" href="https://openlibrary.org/search?title={{ book.data.title | urlEncode }}&author={{ book.data.author | urlEncode }}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </a>
+                </div>
+                <div class="book-title">{{ book.data.title }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <div class="review__description">
+                <span class="description__title">Excuse me while I gather what I am currently reading.</span>
+            </div>
+        {% endif %}
+        <hr>
+        {% if otherBooks.length > 0 %}
+        <div class="book-grid">
+            <h2>Shelved</h2>
+            {% for book in otherBooks %}
             <div class="book-wrapper">
                 <div class="book-container">
                     <div class="book">
@@ -28,7 +57,6 @@ pageDescription:  "This personal library contains a mix of digital and physical 
         {% else %}
             <div class="review__description">
                 <span class="description__title">Excuse me while I gather my books.</span>
-                <span class="description__author">This is only temporary.</span>
             </div>
         {% endif %}
     </div>
@@ -115,6 +143,7 @@ pageDescription:  "This personal library contains a mix of digital and physical 
         position: absolute;
         background-size: cover;
         background-repeat: no-repeat;
+        background-position: center center;
     }
 
     .front {

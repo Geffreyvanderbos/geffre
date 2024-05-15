@@ -1,10 +1,10 @@
 ---
 title: Clean Code
 subtitle: A Handbook of Agile Software Craftsmanship
-status: reading
+status: read
 author: Robert C. Martin
 published_date: 2008-08-01
-isbn10: 0136083250
+isbn10: 136083250
 isbn13: 9780136083252
 page_count: 464
 language: en
