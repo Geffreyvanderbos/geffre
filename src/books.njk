@@ -41,12 +41,32 @@ pageDescription:  "This personal library contains a mix of digital and physical 
         gap: var(--grid-gap--tight);
         padding: var(--grid-gap--tight);
         align-items: center;
+        overflow-x: scroll;
+    }
+
+    .book-container {
+        transform: scale3d(0.75,0.75,0.75);
+        height: 160px;
+    }
+
+    .book-wrapper {
+        padding: 1rem .2rem 1rem .2rem;
     }
 
    @media screen and (min-width: 768px) {
        .book-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         }
+
+        .book-wrapper {
+            padding: 1rem;
+        }
+
+        .book-container {
+            transform: scale3d(1,1,1);
+            height: 180px;
+        }
+
     }
     .book-wrapper {
         transition: opacity 0.2s ease-in;
@@ -55,7 +75,6 @@ pageDescription:  "This personal library contains a mix of digital and physical 
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 1rem;
     }
 
     .book-wrapper.loaded {
@@ -69,13 +88,12 @@ pageDescription:  "This personal library contains a mix of digital and physical 
 
     .book-container {
         width: 100px;
-        height: 180px;
         perspective: 500px;
     }
 
     .book-title {
         z-index: 1;
-        font-size: .7rem;
+        font-size: .8rem;
         line-height: 1.2;
         text-align: center;
     }
@@ -84,11 +102,11 @@ pageDescription:  "This personal library contains a mix of digital and physical 
         transform-origin: center;
         position: relative;
         transform-style: preserve-3d;
-        transform: rotate3d(.8, 1, 0, 35deg) translate3d(-10px, 0, 0);
         transition: transform .34s cubic-bezier(0.76, 0, 0.24, 1);
+        transform: rotate3d(.8, 1, 0, 35deg) translate3d(-10px, 0, 0);
     }
 
-    .book-wrapper:hover .book {
+    .book-wrapper:hover .book, .book-wrapper.active .book {
          transform: rotate3d(0, 0, 0, 35deg) translate3d(0, 0, 0);
     }
 
@@ -120,13 +138,19 @@ pageDescription:  "This personal library contains a mix of digital and physical 
     .book-search-openlibrary {
         opacity: 0;
         position: absolute;
-        bottom: 20px;
+        bottom: 10px;
         right: -10px;
         background-color: white;
         width: 32px;
         height: 32px;
         border-radius: 50%;
         border: 1px solid rgba(0,0,0,.1);
+    }
+
+    @media screen and (min-width: 768px) {
+          .book-search-openlibrary {
+            bottom: 20px;
+          } 
     }
 
     .book-search-openlibrary:hover {
@@ -143,8 +167,10 @@ pageDescription:  "This personal library contains a mix of digital and physical 
         top: 4px;
     }
 
-    .book-wrapper:hover .book-search-openlibrary {
-        animation: slide-in-blurred-br 0.4s .2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    .book-wrapper:hover .book-search-openlibrary, .book-wrapper.active .book-search-openlibrary  {
+        /* animation: slide-in-blurred-br 0.4s .2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both; */
+        opacity: 1;
+        transition: opacity .4s .2s cubic-bezier(0.230, 1.000, 0.320, 1.000);
     }
 
     @keyframes slide-in-blurred-br {
@@ -190,4 +216,21 @@ const observer = new IntersectionObserver(handleIntersection, {
 bookWrappers.forEach((wrapper) => {
   observer.observe(wrapper);
 });
+
+// Add event listeners for touch "hover"
+bookWrappers.forEach(element => {
+  element.addEventListener('touchend', toggleHover);
+});
+
+function toggleHover(event) {
+  // Remove 'hover' class from all other elements
+  bookWrappers.forEach(element => {
+    if (element !== event.currentTarget) {
+      element.classList.remove('active');
+    }
+  });
+
+  // Toggle the 'hover' class on the current target
+  event.currentTarget.classList.toggle('active');
+}
 </script>
