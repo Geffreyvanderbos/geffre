@@ -1278,7 +1278,7 @@ p:first-child {
 }
 
 .journal-entries__item.new-month {
-    padding-top: 1.5rem;
+    padding-top: .75rem;
 }
 
 .dt-published {
