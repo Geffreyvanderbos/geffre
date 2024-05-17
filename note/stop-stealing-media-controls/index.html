@@ -3,11 +3,11 @@
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Display recent files in Obsidian Vault – Geffrey van der Bos</title>
+        <title>Prevent Browser from Hijack the Media Keys – Geffrey van der Bos</title>
         <link rel = "preload" href = "/stylesheets/style.css?v=1715934990" type ="text/css" as="style" onload="this.onload = null; this.rel = 'stylesheet';"/>
         <meta name="description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
-        <meta property="og:title" content="Display recent files in Obsidian Vault – Geffrey van der Bos">
-        <meta property="og:url" content="https://geff.re/note/recent-files-obsidian/">
+        <meta property="og:title" content="Prevent Browser from Hijack the Media Keys – Geffrey van der Bos">
+        <meta property="og:url" content="https://geff.re/note/stop-stealing-media-controls/">
         <meta property="og:image" content="/assets/ogimage-geffrey-van-der-bos.jpg">
         <meta property="og:description" content="Geffrey is a digital product designer and amateur musicologist. He strives to shape technology that enhances the way we create and experience music.">
         <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
@@ -51,29 +51,23 @@
   </ul>
 </nav>
     		<main class="onepage--centered note h-entry">
-                    <h1 class="p-name">Display recent files in Obsidian Vault</h1>
+                    <h1 class="p-name">Prevent Browser from Hijack the Media Keys</h1>
                     <div class="e-content">
-                        <p>A Dataview snippet that displays your vault's recent files:</p>
-<pre class="language-js"><code class="language-js">$<span class="token operator">=</span>dv<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>dv<span class="token punctuation">.</span><span class="token function">pages</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token parameter">f</span><span class="token operator">=></span>f<span class="token punctuation">.</span>file<span class="token punctuation">.</span>mtime<span class="token punctuation">.</span>ts<span class="token punctuation">,</span><span class="token string">"desc"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>file<span class="token punctuation">.</span>link<span class="token punctuation">)</span>`</code></pre>
-<p>Change the number in <code>limit(10)</code> to the amount of files you'd like to show up.</p>
+                        <p>Mindlessly you click a YouTube link and it starts playing. Surprise! Your play/pause button pauses the video instead of the music playing.</p>
+<p>Easy fix, go to your Chromium based browser and turn off Hardware Media Key Handling. Paste the following in the address bar: <code>chrome://flags/#hardware-media-key-handling</code></p>
+<p>There's also a third party application that fixes the same problem: <a href="https://stuntsoftware.com/reflex/">Reflex</a>.</p>
+<p>But I'm fine with turning off the media keys for the whole browser.</p>
 
                     </div>
                     </div>
                     <div class="kudos">
                         
-                        <button class="tinylytics_kudos" data-path="/note/recent-files-obsidian/">1</button><span class="tinylytics_kudos--hint">← anonymous kudos for <a href="/note/recent-files-obsidian/" class="u-url" title="Link to current page">permalink</span>
+                        <button class="tinylytics_kudos" data-path="/note/stop-stealing-media-controls/">1</button><span class="tinylytics_kudos--hint">← anonymous kudos for <a href="/note/stop-stealing-media-controls/" class="u-url" title="Link to current page">permalink</span>
                     </div>
                     <div class="grid__notes notes-after-note">
                         
                             <ul>
                                 
-                                    
-                                        <li class="notes__item">
-                                            <a class="notes__content" href="/note/stop-stealing-media-controls/">
-                                                <span class="notes__heading">Prevent Browser from Hijack the Media Keys</span>
-                                                <span style="margin-left: auto;" class="notes__category">technology</span>
-                                            </a>
-                                        </li>
                                     
                                 
                                     
@@ -185,6 +179,13 @@
                                     
                                 
                                     
+                                        <li class="notes__item">
+                                            <a class="notes__content" href="/note/recent-files-obsidian/">
+                                                <span class="notes__heading">Display recent files in Obsidian Vault</span>
+                                                <span style="margin-left: auto;" class="notes__category">obsidian</span>
+                                            </a>
+                                        </li>
+                                    
                                 
                                     
                                         <li class="notes__item">
@@ -227,8 +228,8 @@
                     </div>
                  
 <div style="display: none">
-    <span value="Display recent files in Obsidian Vault" hidden class="p-name"></span>               
-    <span value="/note/recent-files-obsidian/" hidden class="u-url"></span>
+    <span value="Prevent Browser from Hijack the Media Keys" hidden class="p-name"></span>               
+    <span value="/note/stop-stealing-media-controls/" hidden class="u-url"></span>
     <div hidden class="h-card p-author">
         <span value="Geffrey van der Bos" class="p-name"></span>
         <span value="https://geff.re/about/" class="u-url"></span>
