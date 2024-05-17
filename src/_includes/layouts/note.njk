@@ -38,7 +38,7 @@
             </main>
             {% include "partials/_footer.njk" %}
 
-        {% if env === "development" %}
+        {# if env === "development" %}
             <script>
                 // quick local test
             document.addEventListener('DOMContentLoaded', function () {
@@ -51,6 +51,6 @@
                 });
             });
             </script>
-        {% endif %}
+        {% endif #}
     </body>
 </html>
