@@ -12,17 +12,25 @@
                 <ul class="journal-entries__list">
                 {% set currentMonth = '' %}
                 {% for entry in collections.journal %}
-                {% set entryMonth = entry.data.date | journalDateFormat | extractMonth %}
-                {% if entryMonth != currentMonth %}
-                    {% set currentMonth = entryMonth %}
-                    <li class="journal-entries__item new-month">
-                    <a href="{{ entry.url }}">{{ entry.data.title }}</a><hr class="journal-entries__dotted-line"><span class="journal-entries__date">{{ entry.data.date | journalDateFormat }}</span>
-                    </li>
-                {% elseif entry.url != collections.journal[0].url %}
-                    <li class="journal-entries__item">
-                    <a href="{{ entry.url }}">{{ entry.data.title }}</a><hr class="journal-entries__dotted-line"><span class="journal-entries__date">{{ entry.data.date | journalDateFormat }}</span>
-                    </li>
-                {% endif %}
+                    {% set entryMonth = entry.data.date | journalDateFormat | extractMonth %}
+                    {% if entryMonth != currentMonth %}
+                        {% set currentMonth = entryMonth %}
+                        <li class="journal-entries__item new-month">
+                            {% if entry.url == page.url %}
+                                <span class="current-page">{{ entry.data.title }}</span>
+                            {% else %}
+                                <a href="{{ entry.url }}">{{ entry.data.title }}</a>
+                            {% endif %}<hr class="journal-entries__dotted-line"><span class="journal-entries__date">{{ entry.data.date | journalDateFormat }}</span>
+                        </li>
+                    {% else %}
+                        <li class="journal-entries__item">
+                            {% if entry.url == page.url %}
+                                <span class="current-page">{{ entry.data.title }}</span>
+                            {% else %}
+                                <a href="{{ entry.url }}">{{ entry.data.title }}</a>
+                            {% endif %}<hr class="journal-entries__dotted-line"><span class="journal-entries__date">{{ entry.data.date | journalDateFormat }}</span>
+                        </li>
+                    {% endif %}
                 {% endfor %}
                 </ul>
                 {% endif %}

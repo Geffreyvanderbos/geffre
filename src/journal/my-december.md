@@ -1,8 +1,6 @@
 ---
-title: December 2023
+title: My December
 date: 2023-12-01
-created: 2024-04-19
-updated: 2024-04-19
 ---
 
 Lately, my days have been a blend of professional pursuits and personal projects. Here's a glimpse into what I've been up to:

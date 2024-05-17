@@ -1,5 +1,5 @@
 ---
-title: March 2024
+title: Architecture and Morality
 date: 2024-03-17
 created: 2024-04-19
 updated: 2024-04-19
@@ -12,7 +12,7 @@ I feel that the influence of Brutalism on web design reflects a broader cultural
 It's very punk. Very much like the DIY-attitude of black metal. It resonates with me on a deeper level.
 
 My ideas for this site at the moment:
-- Add a *photostream* page, as an alternative to Instagram.
-- Create a Goodreads-like page.
-- Have a table of my favorite music recordings, with a [rating](../note/rating/) and with a 'for fans of' column.
+- Add a *photostream* page, as an alternative to Instagram. ([DONE](/photostream/))
+- Create a Goodreads-like page. ([DONE](/books/))
+- Have a table of my favorite music recordings, with a rating and with a 'for fans of' column.
 - Add separate 'RSS feeds' for all of these things.
