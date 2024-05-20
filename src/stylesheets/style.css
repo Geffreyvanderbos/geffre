@@ -1342,28 +1342,49 @@ table {
     white-space: nowrap;
   }
 
+  .shop-item {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .shop-grid {
+  }
+
+  @media screen and (min-width: 768px) {
   .shop-grid {
     margin-bottom: 8rem;
     min-height: 600px;
     column-gap: var(--grid-gap--standard);
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     row-gap: var(--grid-gap--standard)
   }
 
   .shop-item {
     display: flex;
     flex-direction: column;
+    margin-bottom: 4rem;
+    border-bottom: 0px solid #bbb;
   }
+}
 
   .shop-item__nocover {
     width: 100%;
-    height: 350px;
-    opacity: .2;
+    height: 320px;
+    margin-bottom: 30px;
     pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+  }
+
+  .shop-item__nocover svg {
+    opacity: .2;
   }
 
   .shop-item__title, .shop-item__button {
