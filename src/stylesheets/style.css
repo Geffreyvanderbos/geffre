@@ -110,6 +110,18 @@
     transition: top .65s ease-in-out
 }
 
+.navigation__item--newindicator:before {
+    content: "";
+    margin-right: .3rem;
+    height: 5px;
+    width: 5px;
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    background-color: var(--color-link);
+    border-radius: 50%;
+}
+
 @keyframes scrollHintAnimation {
     0% {
         transform: translateX(0)
@@ -943,7 +955,6 @@ p:first-child {
     }
 
     .grid {
-        -moz-column-gap: var(--grid-gap--standard);
         column-gap: var(--grid-gap--standard);
         display: grid;
         grid-template-columns: repeat(12,1fr);
@@ -1329,4 +1340,80 @@ table {
 
   .table--nowrap {
     white-space: nowrap;
+  }
+
+  .shop-grid {
+    margin-bottom: 8rem;
+    min-height: 600px;
+    column-gap: var(--grid-gap--standard);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: var(--grid-gap--standard)
+  }
+
+  .shop-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shop-item__nocover {
+    width: 100%;
+    height: 350px;
+    opacity: .2;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .shop-item__title, .shop-item__button {
+    text-decoration: none;
+  }
+
+  .shop-item__description {
+    font-size: .9rem;
+    flex-grow: 1;
+  }
+
+  .shop-item__button {
+    font-family: inherit;
+    color: white;
+    padding: .5rem .75rem;
+    background-color: #264b26;
+    border: 0;
+    border-radius: 4px;
+    text-align: center;
+    display: block;
+    margin: 0 2rem .4rem 2rem;
+  }
+
+  .shop-item_button--demofiller {
+    margin: 0 2rem 1.75rem 2rem;
+  }
+
+  .shop-item__button--disabled {
+    opacity: .5;
+    background-color: #3b3e3b;
+  }
+
+  .shop-item__button:hover:not(.shop-item__button--disabled) {
+    color: white;
+    background-color: #305830;
+  }
+
+  .shop-item__price--strikethrough {
+    text-decoration: line-through;
+    font-size: .8rem;
+    opacity: .6;
+  }
+
+  .shop-item__pricing {
+    font-weight: 600;
+    margin-bottom: .5rem;
+  }
+
+  .shop-item__demo {
+    display: block;
+    text-align: center;
+    font-size: .9rem;
   }

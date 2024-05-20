@@ -66,6 +66,13 @@ eleventyConfig.addCollection("projects", function(collection) {
     });
 });
 
+eleventyConfig.addCollection("shopItems", function(collection) {
+  return collection.getFilteredByGlob("./src/shop/*.md").sort((a, b) => {
+      return a.data.order - b.data.order;
+  });
+});
+
+
 eleventyConfig.addCollection("photostream", function(collection) {
   return collection.getFilteredByGlob("./src/photostream/*.md").sort((a, b) => {
       return b.data.date - a.data.date;

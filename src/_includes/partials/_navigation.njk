@@ -6,6 +6,9 @@
     <li class="navigation__item">
       <a class="navigation__link" href="{{ collections.journal | latestJournalRedirect }}"><span>Journal</span></a>
     </li>
+      <li class="navigation__item">
+      <a class="navigation__link" href="/shop"><span class="navigation__item--newindicator">Shop</span></a>
+    </li>
     {% for item in collections.navigation %}
       <li class="navigation__item">
         <a class="navigation__link {% if item.url === page.url %}navigation__link--active{% endif %}" href="{{ item.url }}"><span>{{ item.data.menutitle }}</span></a>

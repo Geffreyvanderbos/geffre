@@ -1,0 +1,30 @@
+---
+title: Shopfront
+layout: "/layouts/base.njk"
+menutitle: Shop
+---
+
+<div class="shop-grid">
+        {% for product in collections.shopItems %}
+            <div class="shop-item">
+                    {% if product.data.coverimage %}<img class="shop-item__cover" src="{% imageUrl product.data.coverimage, 796 %}" width="796" height="auto" />{% else %}
+                    <div class="shop-item__nocover"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 2 20 20"/><path d="M8.35 2.69A10 10 0 0 1 21.3 15.65"/><path d="M19.08 19.08A10 10 0 1 1 4.92 4.92"/></svg></div>{% endif %}
+                        <h2 class="shop-item__title">{{ product.data.title }}</h2>                    
+                    <div class="shop-item__pricing">
+                        <span class="shop-item__price {% if product.data.discountedPrice %}shop-item__price--strikethrough{% endif %}">
+                            {{ product.data.price }}</span>{% if product.data.discountedPrice %}
+                        <span>
+                            {{ product.data.discountedPrice }}
+                        </span>{% endif %}
+                    </div>
+                    <div class="shop-item__description">
+                        {{ product.content | safe }}
+                    </div>
+                    {% if product.data.status == "published" %}<a class="shop-item__button lemonsqueezy-button" href="{{ product.data.overlayURL }}">{{ product.data.cta }}</a>{% else %}
+                    <span class="shop-item__button shop-item__button--disabled {% if not product.data.demoCTA %}shop-item_button--demofiller{% endif %}" href="{{ product.data.overlayURL }}">{{ product.data.cta }}</span>{% endif %}
+                    {% if product.data.demoCTA %}<a class="shop-item__demo" target="_blank" href="{{ product.data.demoURL }}" title="Try a demo for free">{{ product.data.demoCTA }}</a>{% endif %}
+            </div>
+        {% endfor %}
+        <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+    </div>
+</div>
