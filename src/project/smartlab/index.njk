@@ -1,14 +1,30 @@
 ---
 title: Nuclear Medicine Workflow
 layout: "../_includes/layouts/base.njk"
-projectcover: /project/smartlab/assets/case-study-smartlab-ui
+projectcover: project/smartlab/assets/case-study-smartlab-ui
 company: "Comecer Netherlands"
 role: "Product Owner / Designer"
 projectdate: "2022 - present"
 order: 1
 ---
 
-{% include "partials/_projectheader.njk" %}
+<div class="projectheader">
+    <div data-tilt data-tilt-max="2" data-tilt-speed="1200" data-tilt-perspective="4000" data-tilt-reverse="true" >
+        <img loading="lazy" class="projectheader__image" src="/assets/case-study-smartlab-ui.jpg" />
+    </div>
+</div>
+<section class="projectinformation grid">
+    <h1 class="projectinformation__title title--large">
+        {{ title }}
+    </h1>
+    <div class="projectinformation__metadata">
+        Company: {{ company }}<br>
+        Role: {{ role }}<br>
+        Date: {{ projectdate }}
+    </div>
+</section>
+
+<script type="text/javascript" src="/scripts/vanilla-tilt.min.js"></script>
 
 <section class="grid rowmargin--large">
     <div class="grid-span-6 paragraph--big maxcharacterlength--54">
@@ -29,10 +45,10 @@ order: 1
     </div>
     <div class="grid-clear rowmargin--medium"></div>
     <div class="grid-span-6">
-        <img loading="lazy" src="/project/smartlab/assets/case-study-smartlab-1.png" />
+        <img loading="lazy" src="/assets/case-study-smartlab-1.png" />
     </div>
     <div class="grid-span-6 rowmargin--medium">
-        <img loading="lazy" src="/project/smartlab/assets/case-study-smartlab-2.png" />
+        <img loading="lazy" src="/assets/case-study-smartlab-2.png" />
     </div>
     <div class="grid-span-4">
         <h2>My Role and Contribution</h2>
@@ -47,7 +63,7 @@ order: 1
     </div>
     <div class="grid-clear rowmargin--medium"></div>
     <div class="grid-span-7">
-        <img loading="lazy" src="/project/smartlab/assets/case-study-smartlab-3.png" />
+        <img loading="lazy" src="/assets/case-study-smartlab-3.png" />
     </div>
     <div class="grid-span-5 justify--center">
         <div>
@@ -63,7 +79,7 @@ order: 1
 </section>
 
 <div style="display: flex; justify-content: center; margin: 4rem 4rem 8rem 4rem;">
-    <img loading="lazy" class="styledimage" src="/project/smartlab/assets/case-study-smartlab-4.png" />
+    <img loading="lazy" class="styledimage" src="/assets/case-study-smartlab-4.png" />
 </div>
 
 <section class="project__conclusion">
@@ -74,7 +90,7 @@ order: 1
         </div>
         <div class="grid-span-2"></div>
         <div style="text-align: right" class="grid-span-4">
-            <img loading="lazy" src="/project/smartlab/assets/case-study-smartlab-5.jpg" class="styledimage" />
+            <img loading="lazy" src="/assets/case-study-smartlab-5.jpg" class="styledimage" />
             <span>a laminar flow cabinet, where the software runs</span>
         </div>
     </div>

@@ -39,7 +39,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./src/stylesheets/*.css": "/stylesheets/",
     "./src/scripts/*.js": "/scripts/",
-    "./src/project/**/assets/*": "/assets/",
     "./src/note/images/*": "/note/images/",
     "./src/assets/**/*": "/assets/",
     "./src/assets/albumcovers/*.jpg": "/assets/albumcovers/",
@@ -47,8 +46,10 @@ module.exports = function (eleventyConfig) {
     "./src/journal/*.jpg": "/journal/",
     "./src/photostream/*.jpg": "/photostream/",
     "./src/books/thumbnails/*.*": "/books/thumbnails/",
-    "./src/CNAME": "/CNAME"
+    "./src/CNAME": "/CNAME",
   });
+
+  eleventyConfig.addPassthroughCopy("./src/project/**/assets/*");
 
    ////////////////////////
   //    Collections    //
