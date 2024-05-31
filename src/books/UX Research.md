@@ -1,7 +1,7 @@
 ---
 title: UX Research
 subtitle: Practical Techniques for Designing Better Products
-status: reading
+status: read
 author: Brad Nunnally, David Farkas
 published_date: 2016-11-15
 isbn10: 1491951265

@@ -1,7 +1,7 @@
 ---
 title: Me Talk Pretty One Day
 subtitle: ""
-status: reading
+status: to-read
 author: David Sedaris
 published_date: 2010-08-05
 isbn10: 748123032

@@ -122,6 +122,11 @@
     border-radius: 50%;
 }
 
+.navigation__item--icon {
+    margin-right: .25rem;
+    top: 1px;
+}
+
 @keyframes scrollHintAnimation {
     0% {
         transform: translateX(0)
