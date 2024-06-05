@@ -8,7 +8,7 @@ updated: 2024-04-19
 
 Sometimes, I want to have a list of notes haven't been linked up yet.
 
-With #obsidian their new Bookmark plugin it's easy to save a regex search for notes without the wiki links. You can even add a query for specific folders.
+With Obsidian their new Bookmark plugin it's easy to save a regex search for notes without the wiki links. You can even add a query for specific folders.
 
 Here's the regex.
 
