@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main class="photos{{ if .Site.Params.full_width_photos }}{{ print "-wide" }}{{ end }}">
+	<article>
+	{{- if .Site.Params.masonry_layout }}
+	{{ partial "photos-masonry.html" . }}
+	{{- else }}
+	{{ partial "photos-grid.html" . }}
+	{{- end }}
+	</article>
+</main>
+{{ end }}

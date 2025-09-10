@@ -1,0 +1,71 @@
+<style>
+	a {
+		color: #0d88d8;
+		text-decoration: none;
+	}
+	a:hover,
+	a:active {
+		text-decoration: underline;
+	}
+	img {
+		border-radius: 6px;
+		width: 100%;
+		height: auto;
+		max-width: 700px;
+	}
+	.body {
+		font-family: system-ui, sans-serif;
+		font-size: 18px;
+		max-width: 700px;
+	}
+	.intro {
+		border-bottom: 1px solid #d4d4d6;
+		padding-bottom: 20px;
+	}
+	.post {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.footer {
+		border-top: 1px solid #d4d4d6;
+		padding-top: 5px;
+		margin-top: 5px;
+	}
+</style>
+<div class="body">
+	<h2>{{ .Site.Title }}</h2>
+	{{- if gt (len .Intro) 0 }}
+	<div class="intro">
+		{{ .Intro }}
+	</div>
+	{{- end }}
+
+	{{- range .Pages }}
+	<div class="post">
+		<a href="{{ .Permalink }}" class="microblog_permalink">{{ .Date.Format "January 2, 2006" }}</a>
+		{{- if .Title }}
+		<h3>{{ .Title }}</h3>
+		{{- end }}
+		{{ .Summary }}
+		<p><a href="{{ .Permalink }}">Continue reading online →</a></p>
+		{{- if gt (len .Params.audio) 0 }}
+		<a href="{ .Permalink }">Audio</a>
+		{{- end }}
+		{{- if gt (len .Params.video) 0 }}
+		<a href="{ .Permalink }">Video</a>
+		{{- end }}
+	</div>
+	{{- end }}
+	<div class="footer">
+		<a href="{{ .Footer.UnsubscribeURL }}">Unsubscribe</a> | 
+		{{- if eq (len .Pages) 1 }}
+		{{- with index .Pages 0 }}
+		<a href="{{ .Permalink }}">View in browser</a> | 
+		{{- end }}
+		{{- end }}
+		<a href="{{ .Site.BaseURL }}">{{ .Site.Hostname }}</a>
+		{{- if gt (len .Footer.MailingAddress) 0 }}
+		 | {{ .Footer.MailingAddress }}
+		{{- end }}
+	</div>
+</div>

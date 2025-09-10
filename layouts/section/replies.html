@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main>
+	<h1 class="page-title">{{ .Title | safeHTML }}</h1>
+	{{ if .Site.Params.paginate_replies }}
+		{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") }}
+		{{ $list := $paginator.Pages }}
+		{{ range $list }}
+		<article class="reply">
+			{{ if .Title }}
+			<h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title | safeHTML }} →</a></h3>
+			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
+			{{ else }}
+			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
+			{{ end }}
+			{{ .Content }}
+		</article>
+		{{ end }}
+	{{ else }}
+		{{ $list := first 50 (where .Data.Pages.ByDate.Reverse "Type" "reply") }}
+		{{ range $list }}
+		<article class="reply">
+			{{ if .Title }}
+			<h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title | safeHTML }}</a></h3>
+			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
+			{{ else }}
+			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
+			{{ end }}
+			{{ .Content }}
+		</article>
+		{{ end }}
+	{{ end }}
+</main>
+{{ end }}

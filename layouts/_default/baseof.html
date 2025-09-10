@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "en" }}">
+    {{ partial "head.html" . }}
+    <body>
+        {{ partial "header.html" . }}
+        {{ block "main" . }}{{ end }}
+        {{ partial "footer.html" . }}
+        <script defer type="text/javascript" src="/js/main.js"></script>
+        {{- range .Site.Params.plugins_js -}}
+        <script defer type="text/javascript" src="{{ . }}"></script>
+        {{- end -}}
+    </body>
+</html>

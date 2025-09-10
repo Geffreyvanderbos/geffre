@@ -1,0 +1,34 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="view-transition" content="same-origin" />
+  <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ trim (.Title | plainify) " " }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " | first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}</title>
+  <meta name="twitter:card" content="summary">
+  {{- with .Title }}
+  <meta name="twitter:title" content="{{ . }}">
+  <meta property="og:title" content="{{ . }}">
+  {{- else }}
+  <meta name="twitter:title" content="{{ .Site.Title }}">
+  <meta property="og:title" content="{{ .Site.Title }}">
+  {{- end }}
+  {{- if .IsHome }}
+  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 125 }}">
+  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 60 }}">
+  <meta name="description" content="{{ .Site.Params.itunes_description }}">
+  <meta name="twitter:image" content="{{ .Site.Author.avatar }}">
+  <meta property="og:image" content="{{ .Site.Author.avatar }}">
+  {{- else }}
+  <meta name="twitter:description" content="{{ .Summary | truncate 60 }}">
+  <meta name="og:description" content="{{ .Summary | truncate 60 }}">
+  <meta name="description" content="{{ (or .Summary .Site.Params.itunes_description) }}">
+  {{- end }}
+  {{- $creator := .Site.Params.fediverse_creator }}
+  {{- if $creator }}
+  <meta name="fediverse:creator" content="{{ $creator }}" />
+  {{- end }}
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="author" href="humans.txt" />
+  <link href="{{ "css/main.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="preload stylesheet" as="style">
+  {{ partial "microblog_head.html" . }}
+</head>

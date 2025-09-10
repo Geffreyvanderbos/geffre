@@ -1,0 +1,140 @@
+{{- $allFormats := .Site.Params.all_formats }}
+{{- $singleImage := .Site.Params.single_image | default false }}
+{{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) }}
+{{- $list := slice }}
+{{- if $category }}
+	{{- if $allFormats }}
+		{{- $list = where $category.Pages ".Params.images" "!=" nil }}
+	{{- else }}
+		{{- $list = where $category.Pages ".Params.photos" "!=" nil }}
+	{{- end }}
+{{- else if $allFormats }}
+	{{- $list = where .Site.Pages ".Params.images" "!=" nil }}
+{{- else }}
+	{{- $list = where .Site.Pages ".Params.photos" "!=" nil }}
+{{- end }}
+{{- $len := (len $list) }}
+
+{{- $currentYearMonth := "" }}
+{{- range sort $list "Date" "desc" }}
+	{{- $year := .Date.Format "2006" }}
+	{{- $month := .Date.Format "01" }}
+	{{- $yearMonth := printf "%s-%s" $year $month }}
+	{{- $monthName := .Date.Format "January" }}
+	{{- if ne $currentYearMonth $yearMonth }}
+		{{- if ne $currentYearMonth "" }}
+		</ul>
+		{{- end }}
+		<h3 class="archive-range" data-year="{{ $year }}" data-year-month="{{ $yearMonth }}">{{ $monthName }} {{ $year }}</h3>
+		<ul class="grid">
+		{{- $currentYearMonth = $yearMonth }}
+	{{- end }}
+	{{- if $allFormats }}
+		{{- $postPermalink := .Permalink }}
+		{{- if $singleImage }}
+			{{- with (first 1 .Params.images) }}
+				{{ range . }}
+				<li>
+					<a href="{{ $postPermalink }}">
+						<img src="{{ . }}" loading="lazy" />
+					</a>
+				</li>
+				{{ end }}
+			{{- end }}
+		{{- else }}
+			{{ range .Params.images }}
+			<li>
+				<a href="{{ $postPermalink }}">
+					<img src="{{ . }}" loading="lazy" />
+				</a>
+			</li>
+			{{ end }}
+		{{- end }}
+	{{- else }}
+		{{- $postPermalink := .Permalink }}
+		{{- if $singleImage }}
+			{{- with (first 1 .Params.photos) }}
+				{{ range . }}
+				<li>
+					<a href="{{ $postPermalink }}">
+						<img src="{{ . }}" loading="lazy" />
+					</a>
+				</li>
+				{{ end }}
+			{{- end }}
+		{{- else }}
+			{{ range .Params.photos }}
+			<li>
+				<a href="{{ $postPermalink }}">
+					<img src="{{ . }}" loading="lazy" />
+				</a>
+			</li>
+			{{ end }}
+		{{- end }}
+	{{- end }}
+{{- end }}
+</ul>
+<script>
+	const elementsToResize = new Set();
+	function debounce(func, wait) {
+		let timeout;
+		return function executedFunction(...args) {
+			const later = () => {
+				clearTimeout(timeout);
+				func(...args);
+			};
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+		};
+	}
+	function resizeAllElements() {
+		elementsToResize.forEach(element => {
+			if (element.isConnected) {
+				element.style.height = element.offsetWidth + 'px';
+			} else {
+				elementsToResize.delete(element);
+			}
+		});
+	}
+	const debouncedResize = debounce(resizeAllElements, 100);
+	window.addEventListener('resize', debouncedResize);
+	function resizeImageHeight(imageElement) {
+		if (!imageElement) return;
+		elementsToResize.add(imageElement);
+		const listItem = imageElement.closest('li');
+		imageElement.addEventListener('load', function() {
+			imageElement.style.height = imageElement.offsetWidth + 'px';
+			listItem.classList.add('loaded');
+			imageElement.classList.add('visible');
+		});
+		imageElement.addEventListener('error', function() {
+			elementsToResize.delete(imageElement);
+			listItem.innerHTML = 'Failed to load image';
+			listItem.style.padding = '2rem';
+			listItem.style.textAlign = 'center';
+		});
+		if (imageElement.complete) {
+			imageElement.style.height = imageElement.offsetWidth + 'px';
+			listItem.classList.add('loaded');
+			imageElement.classList.add('visible');
+		}
+	}
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const img = entry.target;
+				resizeImageHeight(img);
+				observer.unobserve(img);
+			}
+		});
+	}, {
+		rootMargin: '50px'
+	});
+	document.querySelectorAll('.grid img').forEach(img => {
+		if (img.loading === 'lazy') {
+			observer.observe(img);
+		} else {
+			resizeImageHeight(img);
+		}
+	});
+</script>

@@ -1,0 +1,8 @@
+baseURL = 'https://geff.re/'
+languageCode = 'en-US'
+title = 'Geffrey van der Bos'
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = '0.146.0'
