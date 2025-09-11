@@ -466,12 +466,64 @@ main {
 .main-content article img {
     background-color: hsl(var(--color-contentbackground-hsl));
     width: 100%;
-    height: auto;
     display: block;
     max-width: 100%;
     aspect-ratio: attr(width) / attr(height);
     border: 1px solid hsla(var(--color-text-hsl), 0.1);
+    box-sizing: border-box;
+    position: relative;
+
+    max-height: 600px;
+    object-fit: cover;
+    object-position: center;
 }
+
+.lite-light img {
+    padding: 0 !important;
+}
+
+.lite-light img::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 16px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: hsl(var(--color-text-hsl), 0)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='4'%3E%3Ccircle cx='2.5' cy='2.5' r='.5' fill='%23050505'/%3E%3C/svg%3E")
+        repeat right bottom;
+}
+/*
+.main-content article p:has(> img:only-child) {
+    position: relative;
+    overflow: hidden;
+}
+
+.main-content article p:has(> img:only-child)::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    height: 3rem;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+}
+
+.main-content article p:has(> img:only-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    height: 3rem;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}*/
 
 .post__title {
     margin-bottom: 0;

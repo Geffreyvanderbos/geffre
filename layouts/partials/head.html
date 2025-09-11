@@ -29,6 +29,7 @@
   {{- end }}
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="author" href="humans.txt" />
-  <link href="{{ "css/main.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="preload stylesheet" as="style">
+  <link href="{{ "css/main.css" | relURL }}" rel="preload stylesheet" as="style">
+  <link href="{{ "css/lite-light.css" | relURL }}" rel="preload stylesheet" as="style">
   {{ partial "microblog_head.html" . }}
 </head>

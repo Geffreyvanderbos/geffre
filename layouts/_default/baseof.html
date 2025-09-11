@@ -6,6 +6,18 @@
         {{ block "main" . }}{{ end }}
         {{ partial "footer.html" . }}
         <script defer type="text/javascript" src="/js/main.js"></script>
+        <script type="module" src="/js/lite-light.js"></script>
+        <script type="module" >
+        import { init } from '/js/lite-light.js';
+
+        init({
+          imageSelector: '.main-content article img',
+          imageUrlAttribute: 'src',
+          swipeThreshold: 75,
+          fadeAnimationDuration: 164
+        });
+
+        </script>
         {{- range .Site.Params.plugins_js -}}
         <script defer type="text/javascript" src="{{ . }}"></script>
         {{- end -}}
