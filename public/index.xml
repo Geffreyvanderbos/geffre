@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geffrey van der Bos</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Geffrey van der Bos</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 09 Sep 2025 08:15:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-11/</link>
+      <pubDate>Tue, 09 Sep 2025 08:15:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-11/</guid>
+      <description>&lt;p&gt;I started migrating my 11ty-based blog to micro.blog. Even though Hugo&amp;rsquo;s templating approach is stricter, the heavy use of CSS in my blog makes the migration a relatively easy job.&lt;/p&gt;&#xA;&lt;p&gt;Still figuring out the replies functionality.&lt;/p&gt;&#xA;&lt;p&gt;I haven’t found any docs for micro.blog. Is that right or am I just overlooking it?&lt;/p&gt;&#xA;&lt;!--![Loki in a bed](https://geffrey.micro.blog/uploads/2025/image.jpg)--&gt;&#xA;&lt;img src=&#34;https://geffrey.micro.blog/uploads/2025/image.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34;&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-10/</link>
+      <pubDate>Tue, 09 Sep 2025 08:10:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-10/</guid>
+      <description>&lt;p&gt;Math and edge cases:&lt;/p&gt;&#xA;&lt;p&gt;Inline math: $E = mc^2$ and $\int_0^1 x^2 dx = \frac{1}{3}$.&lt;/p&gt;&#xA;&lt;p&gt;Block math:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\sum_{i=1}^{n} i = \frac{n(n+1)}{2}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Edge punctuation: ellipsis …, en–dash, em—dash, and quotes “like this”.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-09/</link>
+      <pubDate>Tue, 09 Sep 2025 08:09:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-09/</guid>
+      <description>&lt;p&gt;Shortcodes test (if available):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello from Go&amp;#34;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;&lt;p&gt;If shortcode not available, this should gracefully render as text.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-08/</link>
+      <pubDate>Tue, 09 Sep 2025 08:08:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-08/</guid>
+      <description>&lt;p&gt;Automatic URL linking: &lt;a href=&#34;https://example.com&#34;&gt;https://example.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Reference links:&lt;/p&gt;&#xA;&lt;p&gt;Here is a reference to &lt;a href=&#34;https://gohugo.io/documentation/&#34;&gt;Hugo&lt;/a&gt; and an &lt;a href=&#34;https://example.org/inline&#34;&gt;inline reference&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-07/</link>
+      <pubDate>Tue, 09 Sep 2025 08:07:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-07/</guid>
+      <description>&lt;p&gt;Code fences with language highlighting and inline emphasis:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greet&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;`Hello, &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;!`&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;greet&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;world&amp;#39;&lt;/span&gt;));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Escapes: *not italic*, _not italic_.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-06/</link>
+      <pubDate>Tue, 09 Sep 2025 08:06:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-06/</guid>
+      <description>&lt;p&gt;Image test with alt text and title:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/black-metal-logo-geffrey.svg&#34; alt=&#34;Alt text for image&#34; title=&#34;Logo Title&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Caption style:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/black-metal-logo-geffrey.svg&#34; alt=&#34;A sample captioned image&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Inline image: &lt;img src=&#34;http://localhost:1313/black-metal-logo-geffrey.svg&#34; alt=&#34;inline&#34; width=&#34;64&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-05/</link>
+      <pubDate>Tue, 09 Sep 2025 08:05:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-05/</guid>
+      <description>&lt;p&gt;Task list:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write microblog&lt;/li&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Drink coffee&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Push to git&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Definition list:&lt;/p&gt;&#xA;&lt;dl&gt;&#xA;&lt;dt&gt;Term 1&lt;/dt&gt;&#xA;&lt;dd&gt;Definition 1&#xA;Term 2&lt;/dd&gt;&#xA;&lt;dd&gt;Definition 2&lt;/dd&gt;&#xA;&lt;/dl&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-04/</link>
+      <pubDate>Tue, 09 Sep 2025 08:04:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-04/</guid>
+      <description>&lt;p&gt;Tables test:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Feature&lt;/th&gt;&#xA;          &lt;th&gt;Supported&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Bold&lt;/td&gt;&#xA;          &lt;td&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Italic&lt;/td&gt;&#xA;          &lt;td&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Code blocks&lt;/td&gt;&#xA;          &lt;td&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Inline HTML test: &lt;span style=&#34;color:#0a0; font-weight:bold;&#34;&gt;green text&lt;/span&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-03/</link>
+      <pubDate>Tue, 09 Sep 2025 08:03:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-03/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;Simplicity is the ultimate sophistication.&amp;rdquo; — Leonardo da Vinci&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Nested quote to test rendering.&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Horizontal rule above and below:&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Text continues after the rule.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-02/</link>
+      <pubDate>Tue, 09 Sep 2025 08:02:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-02/</guid>
+      <description>&lt;h3 id=&#34;headings-test&#34;&gt;Headings test&lt;/h3&gt;&#xA;&lt;h1 id=&#34;h1-title&#34;&gt;H1 Title&lt;/h1&gt;&#xA;&lt;h2 id=&#34;h2-subtitle&#34;&gt;H2 Subtitle&lt;/h2&gt;&#xA;&lt;h3 id=&#34;h3-section&#34;&gt;H3 Section&lt;/h3&gt;&#xA;&lt;p&gt;Paragraph with &lt;code&gt;inline code&lt;/code&gt; and a footnote reference.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# fenced code block&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo version&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;&#xA;&lt;hr&gt;&#xA;&lt;ol&gt;&#xA;&lt;li id=&#34;fn:1&#34;&gt;&#xA;&lt;p&gt;This is a footnote explaining something important.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-01/</link>
+      <pubDate>Mon, 08 Sep 2025 08:01:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-01/</guid>
+      <description>&lt;p&gt;Quick check of basic markdown: this is a &lt;strong&gt;bold&lt;/strong&gt; word, this is &lt;em&gt;italic&lt;/em&gt;, and this is &lt;del&gt;strikethrough&lt;/del&gt;. Inline code: &lt;code&gt;hugo server -D&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Unordered item one&lt;/li&gt;&#xA;&lt;li&gt;Unordered item two&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Nested item&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Ordered one&lt;/li&gt;&#xA;&lt;li&gt;Ordered two&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Blockquote line one&#xA;with a second line.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Link test: &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and internal link to &lt;a href=&#34;http://localhost:1313/posts/&#34;&gt;Posts&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Emoji test: 😄✨&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Long form post</title>
+      <link>http://localhost:1313/posts/post-3/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-3/</guid>
+      <description>&lt;p&gt;Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/post-2/</link>
+      <pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-2/</guid>
+      <description>&lt;p&gt;Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.&lt;/p&gt;&#xA;&lt;p&gt;Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia. Velit id fugiat occaecat do tempor. Sit officia Lorem aliquip eu deserunt consectetur. Aute proident deserunt in nulla aliquip dolore ipsum Lorem ut cupidatat consectetur sit sint laborum. Esse cupidatat sit sint sunt tempor exercitation deserunt. Labore dolor duis laborum est do nisi ut veniam dolor et nostrud nostrud.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/post-1/</link>
+      <pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-1/</guid>
+      <description>&lt;p&gt;Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. &lt;strong&gt;Tempor do laborum&lt;/strong&gt; elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.&lt;/p&gt;&#xA;&lt;p&gt;The things in my everyday carry:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Wallet&lt;/li&gt;&#xA;&lt;li&gt;iPhone&lt;/li&gt;&#xA;&lt;li&gt;Magnetic Wallet&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;That&amp;rsquo;ll work. Thanks!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

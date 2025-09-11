@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quote on Geffrey van der Bos</title>
+    <link>http://localhost:1313/tags/quote/</link>
+    <description>Recent content in Quote on Geffrey van der Bos</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 09 Sep 2025 08:03:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/quote/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-03/</link>
+      <pubDate>Tue, 09 Sep 2025 08:03:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-03/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;Simplicity is the ultimate sophistication.&amp;rdquo; — Leonardo da Vinci&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Nested quote to test rendering.&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Horizontal rule above and below:&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Text continues after the rule.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

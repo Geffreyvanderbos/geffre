@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ol,
+ul {
+    margin: calc(var(--baseline) / 2) 0;
+}
+
+ul {
+    padding-inline-start: 1.5rem;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid hsla(var(--color-text-hsl), 0.1);
+    margin: calc(var(--baseline) - 1px) 0 var(--baseline) 0;
+    transform: translateY(0.5px);
+}

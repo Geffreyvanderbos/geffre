@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Update on Geffrey van der Bos</title>
+    <link>http://localhost:1313/tags/update/</link>
+    <description>Recent content in Update on Geffrey van der Bos</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 08 Sep 2025 08:01:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/update/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-01/</link>
+      <pubDate>Mon, 08 Sep 2025 08:01:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-01/</guid>
+      <description>&lt;p&gt;Quick check of basic markdown: this is a &lt;strong&gt;bold&lt;/strong&gt; word, this is &lt;em&gt;italic&lt;/em&gt;, and this is &lt;del&gt;strikethrough&lt;/del&gt;. Inline code: &lt;code&gt;hugo server -D&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Unordered item one&lt;/li&gt;&#xA;&lt;li&gt;Unordered item two&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Nested item&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Ordered one&lt;/li&gt;&#xA;&lt;li&gt;Ordered two&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Blockquote line one&#xA;with a second line.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Link test: &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and internal link to &lt;a href=&#34;http://localhost:1313/posts/&#34;&gt;Posts&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Emoji test: 😄✨&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

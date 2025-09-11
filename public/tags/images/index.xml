@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Images on Geffrey van der Bos</title>
+    <link>http://localhost:1313/tags/images/</link>
+    <description>Recent content in Images on Geffrey van der Bos</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 09 Sep 2025 08:06:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/images/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-06/</link>
+      <pubDate>Tue, 09 Sep 2025 08:06:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-06/</guid>
+      <description>&lt;p&gt;Image test with alt text and title:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/black-metal-logo-geffrey.svg&#34; alt=&#34;Alt text for image&#34; title=&#34;Logo Title&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Caption style:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/black-metal-logo-geffrey.svg&#34; alt=&#34;A sample captioned image&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Inline image: &lt;img src=&#34;http://localhost:1313/black-metal-logo-geffrey.svg&#34; alt=&#34;inline&#34; width=&#34;64&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

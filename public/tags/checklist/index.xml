@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Checklist on Geffrey van der Bos</title>
+    <link>http://localhost:1313/tags/checklist/</link>
+    <description>Recent content in Checklist on Geffrey van der Bos</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 09 Sep 2025 08:05:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/checklist/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-05/</link>
+      <pubDate>Tue, 09 Sep 2025 08:05:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-05/</guid>
+      <description>&lt;p&gt;Task list:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write microblog&lt;/li&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Drink coffee&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Push to git&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Definition list:&lt;/p&gt;&#xA;&lt;dl&gt;&#xA;&lt;dt&gt;Term 1&lt;/dt&gt;&#xA;&lt;dd&gt;Definition 1&#xA;Term 2&lt;/dd&gt;&#xA;&lt;dd&gt;Definition 2&lt;/dd&gt;&#xA;&lt;/dl&gt;</description>
+    </item>
+  </channel>
+</rss>

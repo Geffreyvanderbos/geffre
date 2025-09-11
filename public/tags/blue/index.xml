@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blue on Geffrey van der Bos</title>
+    <link>http://localhost:1313/tags/blue/</link>
+    <description>Recent content in Blue on Geffrey van der Bos</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 09 Sep 2025 08:04:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-04/</link>
+      <pubDate>Tue, 09 Sep 2025 08:04:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-04/</guid>
+      <description>&lt;p&gt;Tables test:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Feature&lt;/th&gt;&#xA;          &lt;th&gt;Supported&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Bold&lt;/td&gt;&#xA;          &lt;td&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Italic&lt;/td&gt;&#xA;          &lt;td&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Code blocks&lt;/td&gt;&#xA;          &lt;td&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Inline HTML test: &lt;span style=&#34;color:#0a0; font-weight:bold;&#34;&gt;green text&lt;/span&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/micro-01/</link>
+      <pubDate>Mon, 08 Sep 2025 08:01:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/micro-01/</guid>
+      <description>&lt;p&gt;Quick check of basic markdown: this is a &lt;strong&gt;bold&lt;/strong&gt; word, this is &lt;em&gt;italic&lt;/em&gt;, and this is &lt;del&gt;strikethrough&lt;/del&gt;. Inline code: &lt;code&gt;hugo server -D&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Unordered item one&lt;/li&gt;&#xA;&lt;li&gt;Unordered item two&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Nested item&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Ordered one&lt;/li&gt;&#xA;&lt;li&gt;Ordered two&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Blockquote line one&#xA;with a second line.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Link test: &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and internal link to &lt;a href=&#34;http://localhost:1313/posts/&#34;&gt;Posts&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Emoji test: 😄✨&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Long form post</title>
+      <link>http://localhost:1313/posts/post-3/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-3/</guid>
+      <description>&lt;p&gt;Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
