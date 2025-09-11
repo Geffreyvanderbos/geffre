@@ -8,6 +8,7 @@
     --color-headings-hsl: 40, 10%, 5%;
     --paragraph-bottom-margin: 1.25rem;
     --text-size: 15px;
+    --max-page-width: 720px;
     --baseline: 1.6rem;
     --font-family: system-ui, sans-serif;
     --sidebar-height: 44vh;
@@ -276,16 +277,10 @@ li::marker {
     flex-direction: row;
     justify-content: center;
     position: relative;
-    max-width: 860px;
+    max-width: var(--max-page-width);
     margin: 0 auto;
     padding: calc(var(--baseline) * 2) calc(var(--baseline) * 1);
     box-sizing: border-box;
-}
-
-@media screen and (min-width: 920px) {
-    .main-navigation {
-        padding: calc(var(--baseline) * 2);
-    }
 }
 
 .logo {
@@ -413,26 +408,35 @@ td {
 
 main {
     margin: 0 auto;
-    max-width: 860px;
+    max-width: var(--max-page-width);
 }
 
 .main-content {
-    position: relative;
-    padding-top: calc(var(--baseline) * 2);
+    /*padding-top: calc(var(--baseline) * 2);
     padding-bottom: calc(var(--baseline) * 4);
     padding-left: calc(var(--baseline) / 2);
-    padding-right: calc(var(--baseline) / 2);
+    padding-right: calc(var(--baseline) / 2);*/
     margin: 0 auto;
-    background-color: hsl(var(--color-contentbackground-hsl));
+    /*background-color: hsl(var(--color-contentbackground-hsl));*/
 }
 
-.main-content:before {
+.main-content article {
+    padding: calc(var(--baseline) * 2) calc(var(--baseline) * 2)
+        calc(var(--baseline) * 1) calc(var(--baseline) * 2);
+    position: relative;
+    background-color: hsl(var(--color-contentbackground-hsl));
+    margin: 0 0 calc(var(--baseline) * 2) 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main-content article::before {
     content: "";
     position: absolute;
     z-index: -1;
     top: 16px;
-    left: 16px;
     right: 0;
+    left: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
@@ -442,21 +446,17 @@ main {
 }
 
 @media (min-width: 920px) {
-    main,
-    .main-content {
-        padding-left: calc(var(--baseline) * 3);
-        padding-right: calc(var(--baseline) * 4);
+    .main-content article::before {
+        top: 16px;
+        left: 16px;
     }
 }
 
-.main-content article:not(:last-child) {
-    margin: calc(var(--baseline) * 2) 0 calc(var(--baseline) * 3) 0;
+.main-content article img {
+    background-color: hsl(var(--color-contentbackground-hsl));
     width: 100%;
-    border-bottom-width: medium;
-    border-bottom-style: none;
-    border-bottom-color: currentcolor;
-    border-bottom: 1px solid hsla(var(--color-text-hsl), 0.1);
-    transform: translateY(0.5px);
+    min-height: 580px;
+    border: 1px solid hsla(var(--color-text-hsl), 0.1);
 }
 
 .post__title {
@@ -467,9 +467,13 @@ main {
 .post__metadata,
 .post__metadata a {
     color: hsla(var(--color-text-hsl), 0.7);
-    margin-top: calc(var(--baseline) / 3);
+    margin-top: calc(var(--baseline) * 2);
     margin-bottom: calc(var(--baseline) * 1);
     font-size: 0.88rem;
+}
+
+.post__metadata {
+    text-align: right;
 }
 
 .sidebar-bio {
@@ -569,7 +573,6 @@ textarea,
 select,
 form button,
 .donate-button {
-    width: 100%;
     padding: 0.5rem;
     border: 1px solid hsla(var(--color-text-hsl), 0.3);
     background-color: transparent;
@@ -615,6 +618,7 @@ form button:hover,
 .sidebar-bio form textarea,
 .sidebar-bio form select,
 .sidebar-bio form button {
+    width: 100%;
     border: 1px solid hsla(var(--color-background-hsl), 0.3);
     margin-bottom: 12px;
 }
