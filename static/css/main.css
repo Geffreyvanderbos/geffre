@@ -53,7 +53,6 @@ body {
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    border-top: 20px solid hsl(var(--color-sidebar-hsl));
 }
 
 body.sidebar-pushed {
@@ -268,28 +267,6 @@ li::marker {
     margin-bottom: var(--baseline);
 }
 
-.logo svg path {
-    fill: hsl(var(--color-contentbackground-hsl)) !important;
-}
-
-.main-navigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    max-width: var(--max-page-width);
-    margin: 0 auto;
-    padding: calc(var(--baseline) * 2) calc(var(--baseline) * 1);
-    box-sizing: border-box;
-}
-
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    line-height: 1;
-}
-
 .logo:hover {
     opacity: 0.6;
 }
@@ -416,12 +393,7 @@ main {
 }
 
 .main-content {
-    /*padding-top: calc(var(--baseline) * 2);
-    padding-bottom: calc(var(--baseline) * 4);
-    padding-left: calc(var(--baseline) / 2);
-    padding-right: calc(var(--baseline) / 2);*/
     margin: 0 auto;
-    /*background-color: hsl(var(--color-contentbackground-hsl));*/
 }
 
 .main-content article {
@@ -629,34 +601,37 @@ main {
 }
 
 .sidebar-bio {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100vw;
     z-index: 4;
-    transform: translateY(-100%);
-    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: calc(var(--baseline) * 2);
 }
 
 .sidebar__content {
-    max-width: 460px;
+    max-width: var(--max-page-width);
     margin: 0 auto;
 }
 
-.sidebar-bio.sidebar-open {
-    transform: translateY(0);
+@media (min-width: 740px) {
+    .sidebar__content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+    }
 }
-
 .sidebar-bio__inner {
     background-color: hsl(var(--color-sidebar-hsl));
-    padding: calc(var(--baseline));
+    padding: var(--baseline);
     color: hsl(var(--color-contentbackground-hsl));
 }
 
 .sidebar__profile-picture {
     margin-top: var(--baseline);
     border: 1px solid hsla(var(--color-text-hsl), 0.8);
+}
+
+.page-links {
+    list-style: none;
+    padding: 0;
 }
 
 .sidebar-bio__inner a,
@@ -701,6 +676,12 @@ main {
     width: 32px;
     height: 32px;
     border: 1px solid hsla(var(--color-background-hsl), 0.1);
+}
+
+.about_me {
+    margin: calc(var(--baseline) / 2) calc(var(--baseline) / 8);
+    font-size: 0.88em;
+    line-height: 1.4;
 }
 
 form {

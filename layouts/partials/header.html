@@ -1,29 +1,5 @@
-<aside class="sidebar-bio" id="sidebar-bio" tabindex="-1" aria-hidden="true">
+<header class="sidebar-bio" id="sidebar-bio" tabindex="-1" aria-hidden="true">
     <div class="sidebar-bio__inner">
         {{ partial "bio.html" . }}
     </div>
-</aside>
-<header class="header">
-    <nav class="main-navigation">
-        <a href="/" class="logo" title="home">
-           <img src="/black-metal-logo-geffrey.svg" />
-        </a>
-
-       <button class="menu-button" aria-label="Open sidebar" aria-controls="sidebar-bio" aria-expanded="false">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="chevron" d="M18 21L12 27L6 21" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M24 16H43" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M24 24H43" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M24 32H43" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-       </button>
-    </nav>
-    <!-- nav class="site-nav">
-        {{- if .Site.Params.hide_avatar }}
-        <h1 class="site-title"><a href="/">{{ .Site.Title }}</a></h1>
-        {{- else }}
-        {{- $avatar := .Site.Params.custom_avatar }}
-        <h1 class="site-title"><a href="/"><img id="avatar" class="u-photo" src="{{ if $avatar }}{{ $avatar }}{{ else }}{{ .Site.Author.avatar }}{{ end }}" width="36" height="36" />{{ .Site.Title }}</a></h1>
-        {{- end }}
-    </nav-->
 </header>
