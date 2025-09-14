@@ -17,7 +17,7 @@
         <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
             {{- if .Title }}
                 <h2 class="post__title"><a href="{{ .Permalink }}" class="u-url">{{ .Title | safeHTML }}</a></h2>
-                <p>{{ .Summary | plainify }} <a href="{{ .Permalink }}" class="u-url">&hellip;read more</a></p>
+                <p>{{ .Summary | safeHTML }} <a href="{{ .Permalink }}" class="u-url">&hellip;read more</a></p>
                 <div class="post__metadata">
                     <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
                         {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if .Site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
@@ -29,16 +29,16 @@
                         <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
                     </time>
                 </div>
-                <p>{{ .Summary | plainify }}{{- if .Truncated }} <a href="{{ .Permalink }}" class="u-url">read more</a></p>
+                <p>{{ .Summary | safeHTML }}{{- if .Truncated }} <a href="{{ .Permalink }}" class="u-url">read more</a></p>
                 <p><a href="{{ .Permalink }}" class="u-url">&hellip;read more</a></p>
                 {{- end }}
             {{- else }}
             {{ .Content }}
-                <p class="post__metadata">
+                <div class="post__metadata">
                     <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
                         <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
                     </time>
-                </p>
+                </div>
             {{- end }}
             </article>
             {{- end }}

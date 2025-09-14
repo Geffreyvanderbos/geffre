@@ -1,10 +1,12 @@
 {{ define "main" }}
 <main>
+<div class="main-content">
   <article>
     {{- if .Title }}
     <h1 class="page-title">{{ .Title | safeHTML }}</h1>
     {{- end }}
     {{ .Content }}
   </article>
+</div>
 </main>
 {{ end }}

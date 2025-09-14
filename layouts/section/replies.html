@@ -1,5 +1,6 @@
 {{ define "main" }}
 <main>
+<div class="main-content">
 	<h1 class="page-title">{{ .Title | safeHTML }}</h1>
 	{{ if .Site.Params.paginate_replies }}
 		{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") }}
@@ -7,12 +8,32 @@
 		{{ range $list }}
 		<article class="reply">
 			{{ if .Title }}
-			<h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title | safeHTML }} →</a></h3>
-			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
-			{{ else }}
-			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
-			{{ end }}
+			<h2 class="post__title"><a href="{{ .Permalink }}">{{ .Title | safeHTML }}</a></h2>
 			{{ .Content }}
+			<div class="post__metadata">
+    			{{ if .Params.reply_to_url }}
+              		<span class="reply-to">
+              		    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-reply-icon lucide-reply"><path d="M20 18v-2a4 4 0 0 0-4-4H4"/><path d="m9 17-5-5 5-5"/></svg>
+                  		<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">view context</a>
+               	    </span>
+    			{{ end }}
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if .Site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
+            </time>
+                </div>
+			{{ else }}
+            {{ .Content }}
+			<div class="post__metadata">
+    			{{ if .Params.reply_to_url }}
+              		<span class="reply-to">
+                  		<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">View the interaction</a> &bull;
+               	    </span>
+    			{{ end }}
+                <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                    {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if .Site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
+                </time>
+            </div>
+            {{ end }}
 		</article>
 		{{ end }}
 	{{ else }}
@@ -20,14 +41,35 @@
 		{{ range $list }}
 		<article class="reply">
 			{{ if .Title }}
-			<h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title | safeHTML }}</a></h3>
-			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
-			{{ else }}
-			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
-			{{ end }}
+			<h2 class="post__title"><a href="{{ .Permalink }}">{{ .Title | safeHTML }}</a></h2>
 			{{ .Content }}
+			<div class="post__metadata">
+    			{{ if .Params.reply_to_url }}
+              		<span class="reply-to">
+              		    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-reply-icon lucide-reply"><path d="M20 18v-2a4 4 0 0 0-4-4H4"/><path d="m9 17-5-5 5-5"/></svg>
+                  		<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">view context</a>
+               	    </span>
+    			{{ end }}
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if .Site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
+            </time>
+                </div>
+			{{ else }}
+            {{ .Content }}
+			<div class="post__metadata">
+    			{{ if .Params.reply_to_url }}
+              		<span class="reply-to">
+                  		<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">View the interaction</a> &bull;
+               	    </span>
+    			{{ end }}
+                <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                    {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if .Site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
+                </time>
+            </div>
+            {{ end }}
 		</article>
 		{{ end }}
 	{{ end }}
+	</div>
 </main>
 {{ end }}
