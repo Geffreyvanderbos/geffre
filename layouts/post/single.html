@@ -11,16 +11,15 @@
         <div class="e-content">
             {{ .Content }}
         </div>
-        <div id="microblog-conversation__wrapper">
-        <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+        <div class="spinner-container"><span class="spinner"></span></div>
+        <div id="microblog-conversation__wrapper" data-conversation-url-test="{{ .Permalink }}" data-conversation-url="https%3a%2f%2fgeff.re%2f2025%2f09%2f15%2fmy-own-riff-on-the.html">
         </div>
-        <p class="post__metadata">
+        <div class="post__metadata">
             <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
                 <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
             </time>
-        </p>
+        </div>
     </article>
-
     </div>
 </main>
 {{- end }}
