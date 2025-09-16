@@ -144,15 +144,14 @@ blockquote + p {
 }
 
 blockquote p {
-    text-indent: -0.45em;
-    /* font-style: italic; */
-    color: hsla(var(--color-text-hsl), 0.8);
+    color: hsla(var(--color-text-hsl), 0.9);
     margin: 0;
-    padding: 0;
+    border-left: 1px solid hsla(var(--color-text-hsl), 0.1);
+    padding-left: var(--baseline);
     line-height: var(--baseline);
 }
 
-@supports (hanging-punctuation: first) {
+/*@supports (hanging-punctuation: first) {
     blockquote p {
         text-indent: 0;
         hanging-punctuation: first;
@@ -164,7 +163,7 @@ blockquote p::before {
 }
 blockquote p::after {
     content: close-quote;
-}
+}*/
 
 a,
 a:hover,
@@ -409,6 +408,12 @@ main {
     object-position: center;
 }
 
+.main-content article hr {
+    border: none;
+    border-top: 1px solid hsla(var(--color-text-hsl), 0.1);
+    height: 0;
+}
+
 .lite-light img {
     padding: 0 !important;
 }
@@ -468,7 +473,7 @@ main {
     padding-bottom: 0;
 }
 
-.page-title {
+.page-title.floating {
     margin-left: calc(var(--baseline) / 2);
 }
 
@@ -561,6 +566,12 @@ main {
 
 .microblog_time a:hover {
     text-decoration: underline;
+}
+
+#microblog-conversation__wrapper {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .sidebar-bio {
@@ -738,6 +749,13 @@ form button:hover,
     width: 100%;
     border: 1px solid hsla(var(--color-background-hsl), 0.3);
     margin-bottom: 12px;
+}
+
+.feed-nav__ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
 }
 
 footer {

@@ -43,10 +43,10 @@
             </article>
             {{- end }}
         {{- if or ($paginator.HasNext) ($paginator.HasPrev) }}
-        <nav class="main-nav">
-            <ul>
-                <li>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">← {{ T "Older" }}</a>{{ end }}</li>
-                <li>{{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">{{ T "Newer" }} →</a>{{ end }}</li>
+        <nav class="feed-nav">
+            <ul class="feed-nav__ul">
+                {{ if $paginator.HasNext }}<li><a href="{{ $paginator.Next.URL }}">← Older posts</a></li>{{ end }}
+                {{ if $paginator.HasPrev }}<li><a href="{{ $paginator.Prev.URL }}">Newer posts →</a></li>{{ end }}
             </ul>
         </nav>
         {{- end }}

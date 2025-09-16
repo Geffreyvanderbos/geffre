@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
 <div class="main-content">
-	<h1 class="page-title">{{ .Title | safeHTML }}</h1>
+	<h1 class="page-title floating">{{ .Title | safeHTML }}</h1>
 	{{ if .Site.Params.paginate_replies }}
 		{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") }}
 		{{ $list := $paginator.Pages }}

@@ -11,7 +11,9 @@
         <div class="e-content">
             {{ .Content }}
         </div>
+        <div id="microblog-conversation__wrapper">
         <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+        </div>
         <p class="post__metadata">
             <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
                 <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
