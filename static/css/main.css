@@ -571,7 +571,7 @@ main {
 #microblog-conversation__wrapper {
     overflow: hidden;
     height: 0;
-    transition: height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+    transition: height 0.35s 0.2s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .sidebar-bio {
