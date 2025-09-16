@@ -393,7 +393,7 @@ main {
     }
 }
 
-.main-content article img {
+.main-content article img:not(.microblog_avatar) {
     background-color: hsl(var(--color-contentbackground-hsl));
     width: 100%;
     display: block;
@@ -549,9 +549,9 @@ main {
 }
 
 .microblog_post {
-    border-left: 5px solid hsl(var(--color-text-hsl), 0.05);
+    border-left: 1px solid hsl(var(--color-text-hsl), 0.1);
     margin-bottom: var(--baseline);
-    padding-left: calc(var(--baseline) / 2);
+    padding-left: var(--baseline);
 }
 
 .microblog_text p:last-of-type {
