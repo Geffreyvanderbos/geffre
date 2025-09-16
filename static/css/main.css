@@ -794,10 +794,19 @@ footer {
 }
 
 .spinner-container {
+    margin-top: var(--baseline);
     position: absolute;
     display: inline-block;
 }
 
 .spinner-container.fade-out {
     animation: spinner-fade-out 620ms cubic-bezier(0.64, 0, 0.78, 0) forwards;
+}
+
+.microblog-error {
+    display: flex;
+    align-items: center;
+    margin-top: var(--baseline);
+    text-decoration: italic;
+    color: hsla(var(--color-text-hsl), 0.6);
 }
