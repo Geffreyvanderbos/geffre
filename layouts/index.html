@@ -20,7 +20,7 @@
                 <p>{{ .Summary | safeHTML }} <a href="{{ .Permalink }}" class="u-url">&hellip;read more</a></p>
                 <div class="post__metadata">
                     <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-                        {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if .Site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
+                        <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
                     </time>
                 </div>
             {{- else if in .RawContent "<!--more-->"}}

@@ -359,7 +359,7 @@ main {
         calc(var(--baseline) * 1) calc(var(--baseline) / 2);
     position: relative;
     background-color: hsl(var(--color-contentbackground-hsl));
-    margin: 0 0 calc(var(--baseline) * 1.5) 0;
+    margin: 0 0 calc(var(--baseline) * 1.25) 0;
     width: 100%;
     box-sizing: border-box;
     box-shadow:
@@ -384,8 +384,8 @@ main {
 
 @media (min-width: 740px) {
     .main-content article {
-        padding: calc(var(--baseline) * 1.5) calc(var(--baseline) * 2)
-            calc(var(--baseline) * 2) calc(var(--baseline) * 2);
+        padding: calc(var(--baseline) * 1.25) calc(var(--baseline) * 1.5)
+            calc(var(--baseline) * 1.5) calc(var(--baseline) * 1.5);
     }
     .main-content article::before {
         top: 16px;
