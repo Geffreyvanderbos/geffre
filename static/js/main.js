@@ -89,7 +89,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const convoId = extractConversationId(feed.home_page_url || "");
     const pageUrl = conversationUrl || "";
-    const formHtml = `\n<form method="POST" class="microblog_reply_form" ${convoId ? `action="https://micro.blog/account/comments/${convoId}/post"` : ""}>\n\t<p class="microblog_reply_signin"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="position: relative; top: 2px; margin-right: 6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-icon lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Sign in with <a href="https://micro.blog/account/comments/${convoId}/mb?url=${pageUrl}">Micro.blog</a>, <a href="https://micro.blog/account/comments/${convoId}/mastodon?url=${pageUrl}">Mastodon</a>, or <a href="https://micro.blog/account/comments/${convoId}/bluesky?url=${pageUrl}">Bluesky</a> to reply:</p>\n\t<input type="hidden" name="token" value="null">\n\t<input type="hidden" name="username" value="null">\n\t<input type="hidden" name="url" value="${pageUrl}">\n\t<p class="microblog_reply_textarea"><textarea name="text" rows="4" cols="50" disabled></textarea></p>\n\t<p class="microblog_reply_button"><input type="submit" value="Post" disabled></p>\n</form>`;
+    // Enhance: support logged-in state via URL params like ?token=...&username=...
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    const username = params.get("username");
+
+    // Clean the URL so token/username aren't visible after reading them
+    if (token || username) {
+      try {
+        const current = new URL(window.location.href);
+        current.search = "";
+        history.replaceState({}, document.title, current.toString());
+      } catch (_) {
+        // no-op if URL manipulation fails
+      }
+    }
+
+    const isLoggedIn = Boolean(username && username.length > 0);
+
+    const signinHtml = isLoggedIn
+      ? `<p class="microblog_reply_signin">Replying as @${username}:</p>`
+      : `<p class="microblog_reply_signin"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="position: relative; top: 2px; margin-right: 6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-icon lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Sign in with <a href="https://micro.blog/account/comments/${convoId}/mb?url=${pageUrl}">Micro.blog</a>, <a href="https://micro.blog/account/comments/${convoId}/mastodon?url=${pageUrl}">Mastodon</a>, or <a href="https://micro.blog/account/comments/${convoId}/bluesky?url=${pageUrl}">Bluesky</a> to reply:</p>`;
+
+    const textareaHtml = isLoggedIn
+      ? `<p class="microblog_reply_textarea"><textarea name="text" rows="4" cols="50"></textarea></p>`
+      : `<p class="microblog_reply_textarea"><textarea name="text" rows="4" cols="50" disabled></textarea></p>`;
+
+    const buttonHtml = isLoggedIn
+      ? `<p class="microblog_reply_button"><input type="submit" value="Post"></p>`
+      : `<p class="microblog_reply_button"><input type="submit" value="Post" disabled></p>`;
+
+    const formHtml = `\n<form method="POST" class="microblog_reply_form" ${convoId ? `action="https://micro.blog/account/comments/${convoId}/post"` : ""}>\n\t${signinHtml}\n\t<input type="hidden" name="token" value="${token || ""}">\n\t<input type="hidden" name="username" value="${username || ""}">\n\t<input type="hidden" name="url" value="${pageUrl}">\n\t${textareaHtml}\n\t${buttonHtml}\n</form>`;
 
     const html = `<div class="microblog_conversation">${postsHtml}${formHtml}</div>`;
     wrapper.innerHTML = html;
