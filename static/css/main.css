@@ -393,7 +393,7 @@ main {
     }
 }
 
-.main-content article img:not(.microblog_avatar) {
+.main-content article img:not(.microblog_avatar):not(.microblog_book) {
     background-color: hsl(var(--color-contentbackground-hsl));
     width: 100%;
     display: block;
@@ -406,6 +406,11 @@ main {
     max-height: 50vh;
     object-fit: cover;
     object-position: center;
+}
+
+.microblog_book {
+    padding-top: 20px;
+    max-width: 64px;
 }
 
 .main-content article hr {
