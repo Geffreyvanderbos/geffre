@@ -147,7 +147,7 @@ blockquote p {
     color: hsla(var(--color-text-hsl), 0.9);
     margin: 0;
     border-left: 1px solid hsla(var(--color-text-hsl), 0.1);
-    padding-left: var(--baseline);
+    padding-left: calc(var(--baseline) * 0.75);
     line-height: var(--baseline);
 }
 
