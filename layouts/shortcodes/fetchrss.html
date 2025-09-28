@@ -1,0 +1,18 @@
+{{- $baseUrl := .Get "url" -}}
+{{- $cacheBustedUrl := printf "%s?nocache=%d" $baseUrl now.Unix -}}
+{{- $limit := .Get "limit" | default 10 -}}
+{{- $data := resources.GetRemote $cacheBustedUrl | transform.Unmarshal -}}
+
+{{- if $data }}
+<ul class="links-list">
+    {{- range first $limit $data.channel.item }}
+    <li class="links-list__item">
+        <span class="description">
+            <a class="links-list__link" href="{{ .link }}" title="{{ .title }}" target="_blank">{{ .title }}</a>&nbsp;&bull;&nbsp;{{ .description }}
+        </span>
+    </li>
+    {{- end }}
+</ul>
+{{- else }}
+{{/* No feed available, render nothing so original page content stays */}}
+{{- end }}
