@@ -14,19 +14,20 @@
         {{- end }}
         {{- $paginator := .Paginate $pages (index .Site.Params "archive-paginate" | default 20) }}
         {{- range $paginator.Pages  }}
-        <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
+        <div class="transition-holder" style="view-transition-name: post-{{ .Params.post_id }}">
+            <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}" data-time="{{ .Date.Format "15:04" }}">
             {{- if .Title }}
-                <h2 class="post__title"><a href="{{ .Permalink }}" class="u-url">{{ .Title | safeHTML }}</a></h2>
+            <h2 class="post__title"><a href="{{ .Permalink }}" class="u-url">{{ .Title | safeHTML }}</a></h2>
                 <p>{{ .Summary | safeHTML }} <a href="{{ .Permalink }}" class="u-url">&hellip;read more</a></p>
                 <div class="post__metadata">
                     <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-                        <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
+                        <a href="{{ .Permalink }}" class="u-url">{{ .Date | time.Format ":date_full" }}</a>
                     </time>
                 </div>
             {{- else if in .RawContent "<!--more-->"}}
                 <div class="post__metadata">
                     <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-                        <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
+                        <a href="{{ .Permalink }}" class="u-url">{{ .Date | time.Format ":date_full" }}</a>
                     </time>
                 </div>
                 <p>{{ .Summary | safeHTML }}{{- if .Truncated }} <a href="{{ .Permalink }}" class="u-url">read more</a></p>
@@ -36,11 +37,12 @@
             {{ .Content }}
                 <div class="post__metadata">
                     <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-                        <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</a>
+                        <a href="{{ .Permalink }}" class="u-url">{{ .Date | time.Format ":date_full" }}</a>
                     </time>
                 </div>
             {{- end }}
             </article>
+            </div>
             {{- end }}
         {{- if or ($paginator.HasNext) ($paginator.HasPrev) }}
         <nav class="feed-nav">

@@ -2,8 +2,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta name="theme-color" content="#050505">
-  <meta name="view-transition" content="same-origin" />
+  <meta name="theme-color" content="#050505">
+  <meta name="view-transition" content="same-origin">
   <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ trim (.Title | plainify) " " }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " | first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}</title>
   <meta name="twitter:card" content="summary">
   {{- with .Title }}

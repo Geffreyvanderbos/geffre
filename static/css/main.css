@@ -7,18 +7,21 @@
     --color-text-accent-hsl: 45, 100%, 25%;
     --color-headings-hsl: 40, 10%, 5%;
     --paragraph-bottom-margin: 1.25rem;
-    --text-size: 15px;
-    --max-page-width: 720px;
+    --text-size: 17px;
+    --max-page-width: 1040px;
     --baseline: 1.6rem;
-    --font-family: system-ui, sans-serif;
-    --sidebar-height: 44vh;
-    /* Dynamically set from JS to account for actual rendered height */
-    --menu-height: var(--sidebar-height);
+    --font-family: "Overused Grotesk", system-ui, sans-serif;
 
     box-sizing: border-box;
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
+}
+
+@font-face {
+    font-family: "Overused Grotesk";
+    src: url("../fonts/OverusedGrotesk-VF.woff2") format("woff2-variations");
+    font-weight: 350 500;
 }
 
 html {
@@ -54,6 +57,7 @@ body {
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    letter-spacing: 0.01rem;
 }
 
 body.sidebar-pushed {
@@ -69,7 +73,7 @@ body.sidebar-pushed {
 
 @media (min-width: 740px) {
     body {
-        font-size: 17px;
+        font-size: 19px;
     }
 }
 
@@ -85,6 +89,7 @@ h3 {
     color: hsl(var(--color-headings-hsl));
     line-height: 1.3;
     padding-bottom: calc(0.7 * var(--baseline));
+    letter-spacing: 0;
 }
 
 h1:not(:first-of-type) {
@@ -131,7 +136,7 @@ p + h4 {
 }
 
 strong {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 blockquote {
@@ -323,7 +328,7 @@ thead {
 
 th {
     text-align: left;
-    font-weight: bold;
+    font-weight: 500;
     padding: 8px 16px 8px 8px;
     white-space: nowrap;
 }
@@ -381,6 +386,22 @@ main {
     background: hsl(var(--color-text-hsl), 0)
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' %3E%3Ccircle cx='2.5' cy='2.5' r='.5' fill='%23050505'/%3E%3C/svg%3E")
         repeat right bottom;
+}
+
+.main-content article::after {
+    content: attr(data-time);
+    font-size: 3rem;
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    transform-origin: 0 0;
+    transform: rotate(-90deg) translateX(-110%) translateY(-90%);
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: -1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 740px) {
@@ -520,7 +541,7 @@ main {
 }
 
 .microblog_reply_signin {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .microblog_reply_textarea textarea {
@@ -864,4 +885,10 @@ footer {
 
 .links-list__link {
     font-weight: 500;
+}
+
+@media not (prefers-reduced-motion: reduce) {
+    @view-transition {
+        navigation: auto;
+    }
 }
