@@ -896,3 +896,19 @@ footer {
         animation: none !important;
     }
 }
+
+#cursorTrailCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; /* Behind content (adjust if needed) */
+}
+
+main, article /* target layers that should be above the canvas */
+ header, footer {
+    position: relative; /* Ensure stacking context above the canvas */
+    z-index: 1;
+}

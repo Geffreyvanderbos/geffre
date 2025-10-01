@@ -151,3 +151,47 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(expand);
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  (() => {
+    const canvas = document.getElementById("cursorTrailCanvas");
+    const ctx = canvas.getContext("2d");
+    const gridSize = 20;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const cells = {};
+    const fadeStep = 0.0015;
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const key in cells) {
+        cells[key] -= fadeStep;
+        if (cells[key] <= 0) {
+          delete cells[key];
+        } else {
+          const [x, y] = key.split(",").map(Number);
+          ctx.fillStyle = `rgba(0,0,0,${cells[key]})`;
+          ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    requestAnimationFrame(draw);
+
+    window.addEventListener("mousemove", (e) => {
+      const x = Math.floor(e.clientX / gridSize);
+      const y = Math.floor(e.clientY / gridSize);
+      const key = `${x},${y}`;
+      cells[key] = 0.3; // Only this exact cell is lit
+    });
+  })();
+});
