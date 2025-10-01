@@ -10,7 +10,7 @@
     --text-size: 17px;
     --max-page-width: 1040px;
     --baseline: 1.6rem;
-    --font-family: "Overused Grotesk", system-ui, sans-serif;
+    --font-family: "Geist Sans", "Overused Grotesk", system-ui, sans-serif;
 
     box-sizing: border-box;
     -moz-text-size-adjust: none;
@@ -19,9 +19,10 @@
 }
 
 @font-face {
-    font-family: "Overused Grotesk";
-    src: url("../fonts/OverusedGrotesk-VF.woff2") format("woff2-variations");
+    font-family: "Geist Sans";
+    src: url("../fonts/Geist-VariableFont_wght.ttf") format("truetype");
     font-weight: 350 500;
+    font-display: swap;
 }
 
 html {
@@ -41,7 +42,6 @@ body {
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    letter-spacing: 0.01rem;
     background-color: hsl(var(--color-background-hsl));
     background-image:
         repeating-linear-gradient(
@@ -90,7 +90,7 @@ h3 {
     color: hsl(var(--color-headings-hsl));
     line-height: 1.3;
     padding-bottom: calc(0.7 * var(--baseline));
-    letter-spacing: 0;
+    letter-spacing: -0.01rem;
 }
 
 h1:not(:first-of-type) {
@@ -352,12 +352,11 @@ td {
 }
 
 main {
-    margin: 0 auto;
+    margin: 0 auto 0 3vw;
     max-width: var(--max-page-width);
 }
 
 .main-content {
-    margin: 0 auto;
     padding: 0 8px;
 }
 
@@ -637,7 +636,7 @@ main {
 
 .sidebar__content {
     max-width: var(--max-page-width);
-    margin: 0 auto;
+    margin: 0 auto 0 3vw;
 }
 
 /*@media (min-width: 740px) {
@@ -650,7 +649,7 @@ main {
 
 .sidebar-bio__inner {
     background-color: hsl(var(--color-sidebar-hsl));
-    padding: var(--baseline);
+    padding: var(--baseline) var(--baseline) var(--baseline) 0;
     color: hsl(var(--color-contentbackground-hsl));
 }
 
@@ -729,7 +728,6 @@ main {
 }
 
 .about_me {
-    margin: calc(var(--baseline) / 2) calc(var(--baseline) / 8);
     font-size: 0.88em;
     line-height: 1.4;
 }
@@ -817,6 +815,7 @@ footer {
     padding: var(--baseline);
     text-align: center;
     font-size: 0.88rem;
+    max-width: var(--max-page-width);
 }
 
 @keyframes spinner {
@@ -891,5 +890,9 @@ footer {
 @media not (prefers-reduced-motion: reduce) {
     @view-transition {
         navigation: auto;
+    }
+
+    ::view-transition-group(root) {
+        animation: none !important;
     }
 }
