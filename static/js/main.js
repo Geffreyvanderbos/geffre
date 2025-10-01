@@ -153,45 +153,130 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  (() => {
-    const canvas = document.getElementById("cursorTrailCanvas");
-    const ctx = canvas.getContext("2d");
-    const gridSize = 20;
+  const canvas = document.getElementById("cursorTrailCanvas");
+  const ctx = canvas.getContext("2d");
+  const gridSize = 20;
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+  let width = window.innerWidth;
+  let height = window.innerHeight;
 
-    const cells = {};
-    const fadeStep = 0.0015;
+  function resizeCanvas() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
 
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function isEnabled() {
+    return window.innerWidth >= 768;
+  }
 
-      for (const key in cells) {
-        cells[key] -= fadeStep;
-        if (cells[key] <= 0) {
-          delete cells[key];
-        } else {
-          const [x, y] = key.split(",").map(Number);
-          ctx.fillStyle = `rgba(0,0,0,${cells[key]})`;
-          ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
-        }
+  const cells = {};
+  const fadeStep = 0.002;
+
+  // Read saved state from localStorage (string "true"/"false")
+  let storedState = localStorage.getItem("cursorTrailActive");
+  // Default to true if not stored
+  let trailActive = storedState === null ? true : storedState === "true";
+
+  let lastX = null;
+  let lastY = null;
+
+  const particles = [];
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (const key in cells) {
+      cells[key] -= fadeStep;
+      if (cells[key] <= 0) {
+        delete cells[key];
+      } else {
+        const [x, y] = key.split(",").map(Number);
+        ctx.fillStyle = `rgba(0,0,0,${cells[key]})`;
+        ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
       }
-
-      requestAnimationFrame(draw);
     }
+
+    particles.forEach((p, index) => {
+      p.opacity -= p.fadeSpeed;
+      if (p.opacity <= 0) {
+        particles.splice(index, 1);
+        return;
+      }
+      p.x += p.vx;
+      p.y += p.vy;
+      ctx.fillStyle = `rgba(0,0,0,${p.opacity})`;
+      ctx.fillRect(p.x * gridSize, p.y * gridSize, gridSize, gridSize);
+    });
 
     requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
 
-    window.addEventListener("mousemove", (e) => {
-      const x = Math.floor(e.clientX / gridSize);
-      const y = Math.floor(e.clientY / gridSize);
-      const key = `${x},${y}`;
-      cells[key] = 0.3; // Only this exact cell is lit
-    });
-  })();
+  function interpolateCells(x1, y1, x2, y2) {
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const steps = Math.max(Math.abs(dx), Math.abs(dy));
+    for (let i = 0; i <= steps; i++) {
+      const ix = Math.round(x1 + (dx * i) / steps);
+      const iy = Math.round(y1 + (dy * i) / steps);
+      const key = `${ix},${iy}`;
+      cells[key] = 0.7;
+    }
+  }
+
+  window.addEventListener("mousemove", (e) => {
+    if (!trailActive || !isEnabled()) return;
+
+    const x = Math.floor(e.clientX / gridSize);
+    const y = Math.floor(e.clientY / gridSize);
+
+    if (lastX !== null && lastY !== null) {
+      interpolateCells(lastX, lastY, x, y);
+    } else {
+      cells[`${x},${y}`] = 0.3;
+    }
+
+    lastX = x;
+    lastY = y;
+  });
+
+  function explode(x, y) {
+    const count = 10;
+    for (let i = 0; i < count; i++) {
+      const angle = (Math.PI * 2 * i) / count;
+      const speed = 0.15 + Math.random() * 0.3;
+      particles.push({
+        x,
+        y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        opacity: 0.6,
+        fadeSpeed: 0.01 + Math.random() * 0.02,
+      });
+    }
+  }
+
+  canvas.addEventListener("click", () => {
+    if (!isEnabled()) return;
+
+    trailActive = !trailActive;
+
+    // Save state to localStorage
+    localStorage.setItem("cursorTrailActive", trailActive.toString());
+
+    if (!trailActive) {
+      // Explode at last cursor position or center
+      const ex = lastX !== null ? lastX : Math.floor(width / 2 / gridSize);
+      const ey = lastY !== null ? lastY : Math.floor(height / 2 / gridSize);
+      explode(ex, ey);
+      // Clear trail cells
+      for (const key in cells) {
+        delete cells[key];
+      }
+    }
+  });
 });
